@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SINOSHOP · 技术体系总览</title>
+    <title>SINOSHOP · 技术体系总览 V3.0</title>
     <style>
         /* ===== 全局重置 & 基础 ===== */
         * {
@@ -67,6 +67,17 @@
             color: #b0c9f0;
             margin-top: 0.3rem;
             font-weight: 300;
+        }
+        .header-left .version-tag {
+            display: inline-block;
+            background: #d4a540;
+            color: #0b1a2e;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.1rem 0.8rem;
+            border-radius: 40px;
+            margin-left: 0.5rem;
+            vertical-align: middle;
         }
         .header-right {
             display: flex;
@@ -133,11 +144,11 @@
         }
         .section-title .badge {
             font-size: 0.7rem;
-            background: #e2e8f0;
-            color: #334155;
+            background: #d4a540;
+            color: #0b1a2e;
             padding: 0.1rem 0.8rem;
             border-radius: 40px;
-            font-weight: 500;
+            font-weight: 700;
         }
         .section-sub {
             color: #64748b;
@@ -388,6 +399,24 @@
             gap: 0.3rem;
         }
 
+        /* ===== V3.0 新特性标识 ===== */
+        .v3-badge {
+            display: inline-block;
+            background: #d4a540;
+            color: #0b1a2e;
+            font-size: 0.55rem;
+            font-weight: 700;
+            padding: 0.05rem 0.5rem;
+            border-radius: 30px;
+            margin-left: 0.3rem;
+            vertical-align: middle;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .v3-highlight {
+            border-left-color: #d4a540 !important;
+        }
+
         /* ===== 响应式 ===== */
         @media (max-width: 700px) {
             header .header-content {
@@ -425,8 +454,8 @@
         <header>
             <div class="header-content">
                 <div class="header-left">
-                    <h1>SINOSHOP</h1>
-                    <div class="sub">标准浮箱模块 · 十四大核心资产系统 · 技术总纲 V2.0</div>
+                    <h1>SINOSHOP <span class="version-tag">V3.0</span></h1>
+                    <div class="sub">标准浮箱模块 · 十四大核心资产系统 · 技术总纲 V3.0</div>
                 </div>
                 <div class="header-right">
                     <a href="#scenes">六大场景</a>
@@ -450,7 +479,7 @@
 
         <!-- ============================== 简介 ============================== -->
         <div class="section">
-            <div class="section-title">🚀 项目概述</div>
+            <div class="section-title">🚀 项目概述 <span class="badge">V3.0</span></div>
             <p style="font-size:1.05rem; color:#334155;">
                 <strong>SINOSHOP</strong> 以一个标准模块、四层复合结构、六大应用场景，实现
                 <strong>“海生电、电养船、船搭桥、桥造城”</strong> 递进式设计哲学。
@@ -519,8 +548,7 @@
         <!-- ============================== 十四大资产系统 ============================== -->
         <div id="systems" class="section">
             <div class="section-title">
-                ⚙️ 十四大核心资产系统（含旗舰版）
-                <span class="badge">V2.0</span>
+                ⚙️ 十四大核心资产系统 <span class="badge">V3.0</span>
             </div>
             <div class="section-sub">基于 FreeCAD 数字孪生骨架的强耦合体系，参数全局驱动。基础平台 → 旗舰升级 · 概念原型 → 科研旗舰 · 技术互哺闭环。</div>
 
@@ -649,6 +677,7 @@
                 <span>🔄 <strong>技术演进</strong>：001 → 013 产业化升级 · 002 → 014 科研旗舰</span>
                 <span>🔄 <strong>技术协同</strong>：014 核心技术反哺 013，形成闭环</span>
                 <span>⭐ <strong>14 大系统</strong>：完整覆盖从基础技术到旗舰应用的产业闭环</span>
+                <span>🏷️ <strong>V3.0 升级</strong>：系统架构重构 · 旗舰版纳入核心资产体系</span>
             </div>
 
             <h4 style="margin:1.2rem 0 0.6rem; color:#1a2a44;">功能与特殊防护（数据集“铠甲”）</h4>
@@ -805,7 +834,7 @@
 
         <!-- ============================== 底部 ============================== -->
         <footer>
-            <span>© 2026 SINOSHOP · 技术总纲 V2.0 · 基于 FreeCAD 数字孪生</span>
+            <span>© 2026 SINOSHOP · 技术总纲 V3.0 · 基于 FreeCAD 数字孪生</span>
             <span>
                 <a href="index_001_backup.html" target="_blank">📄 旧版 001 备份</a> ·
                 <a href="https://github.com/SINOSHOP-OPEN" target="_blank">GitHub</a>
