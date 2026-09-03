@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SINOSHOP智慧马桶健康数据接入系统 · 工程级编写与管理方案</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f6f8fc;
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", system-ui, -apple-system, sans-serif;
+            padding: 2rem 1.5rem;
+            color: #1e293b;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 20px 60px rgba(0, 20, 40, 0.06);
+            padding: 3rem 2.5rem;
+        }
+
+        /* 顶部导航风格 */
+        .doc-header {
+            border-bottom: 2px solid #eef2f6;
+            padding-bottom: 1.8rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .doc-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            background: linear-gradient(135deg, #0b2b4a, #1a5276);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+        }
+
+        .doc-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.8rem;
+            margin-top: 0.6rem;
+            color: #475569;
+            font-size: 0.95rem;
+        }
+
+        .doc-meta span {
+            background: #f1f5f9;
+            padding: 0.2rem 0.9rem;
+            border-radius: 30px;
+            font-weight: 500;
+        }
+
+        .badge {
+            background: #1a5276;
+            color: white;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            display: inline-block;
+            margin-right: 0.5rem;
+        }
+
+        /* 章节标题 */
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 2.2rem 0 0.8rem 0;
+            letter-spacing: -0.01em;
+            color: #0b2b4a;
+            border-left: 6px solid #2e86c1;
+            padding-left: 1rem;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 2.6rem 0 1rem 0;
+            color: #1a3c5e;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.4rem;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 1.8rem 0 0.6rem 0;
+            color: #1f618d;
+        }
+
+        h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin: 1.2rem 0 0.3rem 0;
+            color: #2c3e50;
+        }
+
+        p {
+            margin-bottom: 0.9rem;
+            color: #1e293b;
+        }
+
+        strong {
+            color: #0b2b4a;
+        }
+
+        hr {
+            margin: 2rem 0;
+            border: 0;
+            border-top: 1px dashed #dce2ec;
+        }
+
+        /* 表格 */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 1.2rem 0 1.8rem 0;
+            border-radius: 14px;
+            border: 1px solid #e9edf4;
+            background: #fafcff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.92rem;
+            min-width: 600px;
+        }
+
+        th {
+            background: #1a5276;
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 1rem;
+            text-align: left;
+            font-size: 0.85rem;
+            letter-spacing: 0.3px;
+        }
+
+        td {
+            padding: 0.7rem 1rem;
+            border-bottom: 1px solid #eef2f6;
+            vertical-align: top;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        tr:hover {
+            background: #f1f6fe;
+            transition: 0.15s;
+        }
+
+        /* 代码块 */
+        .code-block {
+            background: #0f1a2e;
+            color: #e2e8f0;
+            padding: 1.2rem 1.5rem;
+            border-radius: 16px;
+            font-family: "JetBrains Mono", "Fira Code", monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+            margin: 1rem 0 1.5rem 0;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .code-block .comment {
+            color: #94a3b8;
+        }
+
+        .code-block .keyword {
+            color: #f472b6;
+        }
+
+        .code-block .string {
+            color: #a7f3d0;
+        }
+
+        .code-block .function {
+            color: #7dd3fc;
+        }
+
+        /* 列表 */
+        ul,
+        ol {
+            margin: 0.4rem 0 1.2rem 1.6rem;
+        }
+
+        li {
+            margin-bottom: 0.3rem;
+        }
+
+        /* 引用块 */
+        .blockquote {
+            background: #f1f6fe;
+            padding: 1rem 1.6rem;
+            border-radius: 16px;
+            border-left: 6px solid #2e86c1;
+            margin: 1.4rem 0;
+            font-weight: 500;
+            color: #1a3c5e;
+        }
+
+        .blockquote strong {
+            color: #0b2b4a;
+        }
+
+        /* 特殊标记 */
+        .highlight-box {
+            background: #fefcf0;
+            border: 1px solid #f0e6c0;
+            border-radius: 16px;
+            padding: 1.2rem 1.6rem;
+            margin: 1.2rem 0;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #e6f0fa;
+            color: #1a5276;
+            padding: 0.1rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            margin-right: 0.3rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 720px) {
+            body {
+                padding: 0.8rem;
+            }
+            .container {
+                padding: 1.5rem 1rem;
+                border-radius: 18px;
+            }
+            .doc-title {
+                font-size: 1.6rem;
+            }
+            h1 {
+                font-size: 1.5rem;
+                padding-left: 0.7rem;
+            }
+            h2 {
+                font-size: 1.3rem;
+            }
+            h3 {
+                font-size: 1.1rem;
+            }
+            .code-block {
+                font-size: 0.75rem;
+                padding: 0.8rem 1rem;
+            }
+            .doc-meta span {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0.2in;
+            }
+            .container {
+                box-shadow: none;
+                padding: 0;
+            }
+            .table-wrap {
+                border: 1px solid #ccc;
+            }
+            th {
+                background: #333 !important;
+                color: white !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- 头部 -->
+        <div class="doc-header">
+            <div class="doc-title">SINOSHOP智慧马桶健康数据接入系统</div>
+            <div style="font-size: 1.1rem; font-weight: 600; color: #1a5276; margin-top: -0.2rem;">工程级编写与管理方案</div>
+            <div class="doc-meta">
+                <span>📅 编制日期：2026-09-03</span>
+                <span>📌 版本：V3.0（工程实施版）</span>
+                <span>🏷️ 专利依据：CN110534176B</span>
+                <span>⚙️ 适用项目：SINOSHOP智慧马桶健康数据接入专项</span>
+            </div>
+            <div style="margin-top: 0.8rem; font-size: 0.95rem; color: #334155; background: #f1f6fe; padding: 0.7rem 1.2rem; border-radius: 40px; display: inline-block;">
+                <span class="badge">配套文件</span> 本方案是《专项实施方案 V2.3》的工程实施补充，两者配套使用。
+            </div>
+        </div>
+
+        <!-- 引言 -->
+        <div class="blockquote">
+            <strong>文档定位：</strong>面向工程实施的技术管理纲领，覆盖 AI 辅助开发全流程、代码质量管理、团队协作规范与系统交付标准。
+        </div>
+
+        <!-- 一、总体原则 -->
+        <h1>一、总体原则</h1>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>维度</th><th>原则</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>架构驱动</strong></td><td>代码是架构的具体表达。先定义边界、契约、数据流，再编写实现。</td></tr>
+                    <tr><td><strong>AI 原生开发</strong></td><td>AI 生成 ≥80% 基础代码，人工程序员专注：架构审查、安全审计、核心算法验证。</td></tr>
+                    <tr><td><strong>可审计性</strong></td><td>每一行生产代码必须有生成记录、审查记录、部署记录，三账合一。</td></tr>
+                    <tr><td><strong>防御优先</strong></td><td>安全、隐私、极端工况是硬约束，而非可选项。</td></tr>
+                    <tr><td><strong>独立可运行</strong></td><td>所有交付模块必须自包含、可本地启动、无需外部 SaaS 依赖（DeepSeek 等仅作辅助工具）。</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 二、AI 智能体驱动开发规范 -->
+        <h1>二、AI 智能体驱动开发规范</h1>
+
+        <h2>2.1 分层职责矩阵</h2>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>层</th><th>AI 智能体职责</th><th>人工程序员职责</th><th>会审机制</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>数据层</strong><br><span style="font-size:0.8rem; color:#475569;">采集/存储</span></td><td>生成 SDK、ORM、迁移脚本、脱敏流水线</td><td>审查数据合规映射、索引设计、加密策略</td><td>每周三 10:00</td></tr>
+                    <tr><td><strong>算法层</strong><br><span style="font-size:0.8rem; color:#475569;">S1-S8</span></td><td>生成 Python/C++ 算法骨架、单元测试</td><td>验证数学推导、边界条件、差分隐私参数</td><td>每次算法变更</td></tr>
+                    <tr><td><strong>API/网关层</strong></td><td>生成 OpenAPI 文档、路由、鉴权中间件</td><td>审查鉴权模型、限流策略、熔断阈值</td><td>PR 时强制</td></tr>
+                    <tr><td><strong>前端/App</strong></td><td>生成页面、组件、状态管理</td><td>审查可访问性、离线策略、性能指标</td><td>UI/UX 评审会</td></tr>
+                    <tr><td><strong>智能体代码</strong></td><td>生成 Agent 编排、工具调用、Prompt 模板</td><td>审查工具边界、成本控制、幻觉防护</td><td>每周五 16:00</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>2.2 AI 代码生成规范（Prompt 工程级）</h2>
+        <p>所有 AI 生成代码必须附带 <strong>@generated</strong> 元数据头：</p>
+        <div class="code-block">
+            <span class="comment">"""</span>
+            <span class="comment">@generated</span>
+            <span class="comment">@agent: deepseek-v3</span>
+            <span class="comment">@timestamp: 2026-09-03T10:23:45Z</span>
+            <span class="comment">@task: SINOSHOP-042</span>
+            <span class="comment">@reviewer: zhoubin</span>
+            <span class="comment">@context: S1-S2 时间序列加权算法实现</span>
+            <span class="comment">"""</span>
+        </div>
+        <p><strong>AI 生成代码的三条铁律：</strong></p>
+        <ul>
+            <li><strong>可解释性</strong>：每个关键算法必须有文字说明 + 数学公式注释</li>
+            <li><strong>可测试性</strong>：生成代码时同步生成 ≥3 个单元测试用例</li>
+            <li><strong>可回滚性</strong>：每次 AI 生成变更必须记录前后快照，支持一键回滚</li>
+        </ul>
+
+        <!-- 三、工程目录结构 -->
+        <h1>三、工程目录结构</h1>
+        <div class="code-block">
+            sinoshop-health-platform/
+            │
+            ├── docs/                          # 文档（同步更新）
+            │   ├── architecture/              # 架构决策记录（ADR）
+            │   ├── api/                       # OpenAPI 规范
+            │   ├── database/                  # ER 图、迁移脚本
+            │   └── compliance/                # 合规映射表（PIA、DPA）
+            │
+            ├── backend/
+            │   ├── services/
+            │   │   ├── data-collection/       # 数据采集服务（手机端 SDK）
+            │   │   ├── algorithm-engine/      # S1-S8 算法引擎
+            │   │   ├── tcm-knowledge/         # TCM 知识库服务
+            │   │   ├── user-asset/            # 用户数字资产账户
+            │   │   ├── data-product/          # 数据产品管理
+            │   │   └── open-platform/         # 开放平台
+            │   ├── shared/                    # 共享库
+            │   │   ├── crypto/                # 加密/脱敏工具
+            │   │   ├── audit/                 # 审计日志
+            │   │   └── config/                # 配置中心
+            │   └── tests/                     # 集成测试
+            │
+            ├── frontend/
+            │   ├── app/                       # App（React Native / Flutter）
+            │   ├── web-console/               # 管理控制台
+            │   └── developer-portal/          # 开发者门户
+            │
+            ├── edge/                          # 边缘计算（网关固件）
+            │   ├── firmware/                  # 边缘设备固件
+            │   └── local-cache/               # 本地缓存服务
+            │
+            ├── infra/                         # 基础设施即代码
+            │   ├── terraform/                 # 云资源编排
+            │   ├── kubernetes/                # K8s 部署配置
+            │   └── monitoring/                # 监控告警配置
+            │
+            ├── scripts/                       # 工具脚本
+            │   ├── ai-gen/                    # AI 代码生成辅助脚本
+            │   ├── migrate/                   # 数据迁移
+            │   └── seed/                      # 测试数据填充
+            │
+            ├── .ai/                           # AI 开发上下文（非代码）
+            │   ├── context/                   # 项目上下文（供 AI 理解）
+            │   ├── prompts/                   # Prompt 模板库
+            │   └── outputs/                   # AI 生成输出暂存
+            │
+            ├── docker-compose.yml
+            ├── Makefile                       # 统一构建入口
+            └── README.md
+        </div>
+
+        <!-- 四、开发工作流 -->
+        <h1>四、开发工作流（AI + 人工协同）</h1>
+
+        <h2>4.1 需求→代码四阶段</h2>
+        <div class="code-block" style="background: #0f1a2e; color: #cbd5e1;">
+需求评审 → 【AI 生成 80%】 → 【人工审查 20%】 → 【集成部署】
+     ↓            ↓              ↓              ↓
+  PRD/FRD   生成代码+测试    审查+修正+签名   自动化部署
+        </div>
+
+        <h2>4.2 具体流程</h2>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>阶段</th><th>执行者</th><th>产出物</th><th>质量门禁</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>1. 需求拆解</strong></td><td>架构师 + PM</td><td>用户故事 + 验收标准</td><td>AC 覆盖 100%</td></tr>
+                    <tr><td><strong>2. AI 预生成</strong></td><td>AI 智能体</td><td>代码 + 单元测试 + API 文档</td><td>编译通过、单测通过</td></tr>
+                    <tr><td><strong>3. 人工审查</strong></td><td>程序员白福栋（前端）/ 周彬（后端）</td><td>审查意见 + 修正代码</td><td>代码审查清单全 ✅</td></tr>
+                    <tr><td><strong>4. 安全审计</strong></td><td>安全负责人</td><td>安全审计报告</td><td>零信任/加密/合规全 ✅</td></tr>
+                    <tr><td><strong>5. 集成测试</strong></td><td>QA + AI</td><td>集成测试报告</td><td>极端工况测试通过</td></tr>
+                    <tr><td><strong>6. 部署</strong></td><td>DevOps</td><td>部署记录 + 回滚预案</td><td>金丝雀发布 + 监控</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>4.3 代码提交规范</h2>
+        <div class="code-block">
+feat(algorithm): 实现 S3-S4 环境调节系数
+
+- 新增体质偏移差值子模块
+- 完成 S3 节气/时辰双因子加权
+- 单元测试覆盖：正常/边界/异常
+
+@generated-by: deepseek-v3
+@reviewer: zhoubin
+@task: SINOSHOP-047
+@test-coverage: 92%
+        </div>
+
+        <!-- 五、AI 代码质量 -->
+        <h1>五、AI 代码质量保障体系</h1>
+
+        <h2>5.1 三层审查机制</h2>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>层级</th><th>触发条件</th><th>执行方式</th><th>不通过后果</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>L1 自动化检查</strong></td><td>每次 PR</td><td>静态扫描（SonarQube）+ 安全扫描（Trivy）+ 单测覆盖率</td><td>无法合并</td></tr>
+                    <tr><td><strong>L2 人工审查</strong></td><td>L1 通过后</td><td>程序员审查清单（见 5.2）</td><td>退回修改</td></tr>
+                    <tr><td><strong>L3 架构委员会</strong></td><td>核心模块/算法变更</td><td>周会评审 + ADR 记录</td><td>暂缓发布</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>5.2 人工审查清单（程序员必检）</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 0.8rem 0 1.8rem 0;">
+            <div style="background: #f8fafc; border-radius: 16px; padding: 1.2rem 1.5rem; border: 1px solid #e9edf4;">
+                <h4 style="margin-top: 0; color: #1a5276;">📱 白福栋（移动端）</h4>
+                <ul style="list-style-type: none; padding-left: 0;">
+                    <li>✅ 离线缓存策略是否满足 RPO=0</li>
+                    <li>✅ 断网续传机制是否正确</li>
+                    <li>✅ 设备指纹校验是否完整</li>
+                    <li>✅ UI 水印“非医疗诊断”是否强制显示</li>
+                    <li>✅ 权限申请是否符合最小必要原则</li>
+                </ul>
+            </div>
+            <div style="background: #f8fafc; border-radius: 16px; padding: 1.2rem 1.5rem; border: 1px solid #e9edf4;">
+                <h4 style="margin-top: 0; color: #1a5276;">🖥️ 周彬（后台端）</h4>
+                <ul style="list-style-type: none; padding-left: 0;">
+                    <li>✅ S1-S8 算法数学推导是否可验证</li>
+                    <li>✅ L3 数据加密是否符合标准</li>
+                    <li>✅ 差分隐私 ε 参数是否 ≤1</li>
+                    <li>✅ 熔断/限流策略是否生效</li>
+                    <li>✅ 审计日志是否完整、不可篡改</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 六、数据资产入表 -->
+        <h1>六、数据资产入表与技术映射</h1>
+
+        <h2>6.1 数据资产→代码模块映射</h2>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>数据资产编号</th><th>对应代码模块</th><th>入表前置条件（代码层面）</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>HD-001</strong></td><td>data-collection + user-asset</td><td>采集校验完整、元数据绑定、授权记录完整</td></tr>
+                    <tr><td><strong>HD-002</strong></td><td>algorithm-engine + crypto</td><td>脱敏流水线完成、差分隐私 ε≤1、k-匿名 ≥100</td></tr>
+                    <tr><td><strong>HD-003</strong></td><td>tcm-knowledge</td><td>方案可审计、医生审核链路完整、版本管理</td></tr>
+                    <tr><td><strong>HD-004</strong></td><td>algorithm-engine</td><td>算法版本管理、变更快照、哈希存证</td></tr>
+                    <tr><td><strong>HD-006</strong></td><td>data-product</td><td>产品目录、计费模型、权益计算</td></tr>
+                    <tr><td><strong>HD-007</strong></td><td>data-collection</td><td><span class="tag">不纳入资产</span> 纯个人数据载体</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>6.2 入表审计代码要求</h2>
+        <div class="code-block">
+<span class="comment"># 每个数据资产变更必须记录：</span>
+<span class="keyword">class</span> <span class="function">DataAssetAuditLog</span>:
+    asset_id: <span class="keyword">str</span>          <span class="comment"># HD-001 ~ HD-007</span>
+    operation: <span class="keyword">str</span>         <span class="comment"># CREATE / UPDATE / DELETE / EXPORT</span>
+    timestamp: datetime
+    actor: <span class="keyword">str</span>             <span class="comment"># user_id or system</span>
+    tx_hash: <span class="keyword">str</span>           <span class="comment"># 区块链哈希</span>
+    diff_snapshot: <span class="keyword">str</span>     <span class="comment"># 变更前后 JSON 快照</span>
+        </div>
+
+        <!-- 七、S1-S8 算法规范 -->
+        <h1>七、S1-S8 算法工程实现规范</h1>
+
+        <h2>7.1 算法模块接口契约</h2>
+        <div class="code-block">
+<span class="comment"># 每个算法模块必须实现以下接口</span>
+<span class="keyword">class</span> <span class="function">SAlgorithm</span>:
+    <span class="keyword">def</span> __init__(self, config: <span class="keyword">dict</span>):
+        self.version = config.get(<span class="string">"version"</span>, <span class="string">"1.0.0"</span>)
+        self.audit_log = AuditLogger()
+
+    <span class="keyword">def</span> <span class="function">compute</span>(self, input_data: <span class="keyword">dict</span>) -> <span class="keyword">dict</span>:
+        <span class="comment">"""输入：用户健康数据（L3 加密） 输出：计算结果（脱敏后）"""</span>
+        <span class="keyword">pass</span>
+
+    <span class="keyword">def</span> <span class="function">explain</span>(self) -> <span class="keyword">str</span>:
+        <span class="comment">"""返回当前版本算法的文字解释（供合规审查）"""</span>
+        <span class="keyword">pass</span>
+
+    <span class="keyword">def</span> <span class="function">validate</span>(self) -> <span class="keyword">bool</span>:
+        <span class="comment">"""自检：验证数学公式正确性"""</span>
+        <span class="keyword">pass</span>
+        </div>
+
+        <h2>7.2 算法版本管理</h2>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>版本号</th><th>变更内容</th><th>审批人</th><th>生效时间</th><th>回滚状态</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>S1-S8 v1.0.0</strong></td><td>初始实现</td><td>架构组</td><td>2026-09-03</td><td>当前</td></tr>
+                    <tr><td><strong>S1-S8 v1.0.1</strong></td><td>修正 S3 节气因子</td><td>周彬</td><td>2026-09-10</td><td>可回滚</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="highlight-box">
+            <strong>规则：</strong>每次算法变更必须保留<strong>前后两版</strong>可并行运行，支持 A/B 测试。
+        </div>
+
+        <!-- 八、安全与合规 -->
+        <h1>八、安全与合规编码硬标准</h1>
+
+        <h2>8.1 零信任安全实现要求</h2>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>要求</th><th>代码实现</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>设备证书 + 指纹</strong></td><td>使用 TPM 2.0 / 安全元件，软件实现 HMAC-SHA256 指纹校验</td></tr>
+                    <tr><td><strong>mTLS</strong></td><td>强制双向 TLS 1.3，证书有效期 ≤90 天</td></tr>
+                    <tr><td><strong>动态 Token</strong></td><td>JWT + 5 分钟刷新，Token 携带设备 ID + 用户 ID 绑定</td></tr>
+                    <tr><td><strong>行为熔断</strong></td><td>5 次异常 → 熔断，30 秒后探测恢复</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>8.2 数据加密标准</h2>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>数据等级</th><th>存储加密</th><th>传输加密</th><th>密钥管理</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>L3</strong></td><td>AES-256-GCM</td><td>TLS 1.3 + 字段级加密</td><td>KMS 自动轮换（30 天）</td></tr>
+                    <tr><td><strong>L2</strong></td><td>AES-256-GCM</td><td>TLS 1.3</td><td>KMS 自动轮换（90 天）</td></tr>
+                    <tr><td><strong>L1</strong></td><td>基础存储加密</td><td>TLS 1.2+</td><td>平台默认</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 九、部署运维 -->
+        <h1>九、部署与运维管理方案</h1>
+
+        <h2>9.1 环境分层</h2>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>环境</th><th>用途</th><th>部署方式</th><th>数据</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>dev</strong></td><td>AI 生成代码预览</td><td>Docker Compose</td><td>合成数据</td></tr>
+                    <tr><td><strong>staging</strong></td><td>集成测试 + 人工审查</td><td>K8s 测试集群</td><td>脱敏测试数据</td></tr>
+                    <tr><td><strong>prod</strong></td><td>正式运营</td><td>K8s 生产集群（多 AZ）</td><td>真实数据（L3 加密）</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>9.2 发布流程</h2>
+        <div class="code-block" style="background: #0f1a2e; color: #cbd5e1;">
+PR 合并 → CI 构建 → dev 自动部署 → 冒烟测试 → staging 部署 → 
+人工验收 → 金丝雀发布（10%）→ 监控观察（2h）→ 全量发布 → 回滚预案就绪
+        </div>
+
+        <h2>9.3 监控指标（必须覆盖）</h2>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>指标</th><th>阈值</th><th>告警</th></tr></thead>
+                <tbody>
+                    <tr><td>数据采集上传延迟</td><td>≤30s</td><td>>30s 告警</td></tr>
+                    <tr><td>RPO（数据丢失）</td><td>=0</td><td>>0 紧急</td></tr>
+                    <tr><td>算法响应时间</td><td>≤500ms</td><td>>500ms 告警</td></tr>
+                    <tr><td>熔断触发次数</td><td>0/天</td><td>>0 调查</td></tr>
+                    <tr><td>审计日志完整性</td><td>100%</td><td><100% 紧急</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 十、AI成本 -->
+        <h1>十、AI 辅助开发成本控制</h1>
+
+        <h2>10.1 成本优化策略</h2>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>场景</th><th>策略</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>AI 代码生成</strong></td><td>使用本地化部署模型（DeepSeek 蒸馏版）处理重复性代码生成</td></tr>
+                    <tr><td><strong>算法验证</strong></td><td>仅在 staging 环境调用高精度模型，dev 使用轻量模型</td></tr>
+                    <tr><td><strong>上下文管理</strong></td><td>维护 <code>.ai/context/</code> 目录，避免重复上传大文件</td></tr>
+                    <tr><td><strong>缓存策略</strong></td><td>AI 生成结果缓存（相同 Prompt 命中缓存）</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>10.2 估算成本基线</h2>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>阶段</th><th>预估 Token 消耗</th><th>成本（按 DeepSeek API）</th></tr></thead>
+                <tbody>
+                    <tr><td>初始架构生成</td><td>~500K tokens</td><td>~$0.5</td></tr>
+                    <tr><td>每日代码生成（6 个月）</td><td>~1M tokens/天</td><td>~$1/天</td></tr>
+                    <tr><td>人工审查 + 修正</td><td>0</td><td>人力成本</td></tr>
+                    <tr><td><strong>6 个月总估算</strong></td><td><strong>~180M tokens</strong></td><td><strong>~$180</strong></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 十一、里程碑 -->
+        <h1>十一、里程碑与交付清单</h1>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>里程碑</th><th>时间</th><th>交付物</th><th>AI 参与度</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>M1</strong></td><td>第 1 月</td><td>架构设计、数据字典、伦理审查 PIA</td><td>AI 生成初始架构</td></tr>
+                    <tr><td><strong>M2</strong></td><td>第 2-3 月</td><td>采集 SDK、接入网关</td><td>AI 生成 80% 代码</td></tr>
+                    <tr><td><strong>M3</strong></td><td>第 3-4 月</td><td>S1-S8 算法、TCM 规则库</td><td>AI 生成算法骨架 + 人工验证</td></tr>
+                    <tr><td><strong>M4</strong></td><td>第 4-5 月</td><td>API 网关、穿戴接入、算力调度</td><td>AI 生成 + 周彬审查</td></tr>
+                    <tr><td><strong>M5</strong></td><td>第 4-5 月</td><td>联调、安全测试、极端工况测试</td><td>AI 生成测试用例</td></tr>
+                    <tr><td><strong>M6</strong></td><td>第 5-6 月</td><td>试运行、验收、权益试运行报告</td><td>AI 生成报告数据</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 十二、验收标准 -->
+        <h1>十二、验收标准（技术层面）</h1>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>验收维度</th><th>标准</th><th>验证方式</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>代码质量</strong></td><td>AI 生成代码人工审查通过率 ≥70%；缺陷率 ≤2%</td><td>审查记录 + SonarQube</td></tr>
+                    <tr><td><strong>AI 效率</strong></td><td>AI 生成代码占比 ≥80%；开发成本降低 ≥30%</td><td>Git 统计</td></tr>
+                    <tr><td><strong>数据安全</strong></td><td>零信任架构、L3 加密、差分隐私 ε≤1 全量通过</td><td>安全审计报告</td></tr>
+                    <tr><td><strong>极端工况</strong></td><td>RPO=0，RTO≤30s</td><td>故障注入测试</td></tr>
+                    <tr><td><strong>合规</strong></td><td>所有合规红线全量满足，审计日志完备</td><td>合规审查报告</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 十三、团队 -->
+        <h1>十三、团队角色与职责</h1>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>角色</th><th>负责人</th><th>核心职责</th><th>与 AI 协作方式</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>AI 智能体</strong></td><td>DeepSeek</td><td>80% 代码生成、测试生成、文档生成</td><td>自主执行</td></tr>
+                    <tr><td><strong>程序员（手机端）</strong></td><td>白福栋</td><td>移动端代码审查、UI/UX 验证</td><td>审查 AI 代码、修正逻辑</td></tr>
+                    <tr><td><strong>程序员（后台端）</strong></td><td>周彬</td><td>后台算法审查、安全审计</td><td>审查 AI 代码、验证算法</td></tr>
+                    <tr><td><strong>架构师/PM</strong></td><td>梁焯兴</td><td>需求拆解、架构决策、知识产权管理</td><td>定义 AI 上下文</td></tr>
+                    <tr><td><strong>合规官</strong></td><td>待定</td><td>数据合规、PIA、DPA</td><td>审核 AI 生成的合规代码</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 十四、文档同步 -->
+        <h1>十四、文档同步机制</h1>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>文档</th><th>更新触发</th><th>责任人</th><th>同步到</th></tr></thead>
+                <tbody>
+                    <tr><td>实施方案（本文档）</td><td>每次架构变更</td><td>梁焯兴</td><td>GitHub / Wiki</td></tr>
+                    <tr><td>API 文档</td><td>每次 API 变更</td><td>AI 自动生成 + 周彬审查</td><td>Swagger / OpenAPI</td></tr>
+                    <tr><td>数据库 ER 图</td><td>每次 Schema 变更</td><td>AI 自动生成</td><td>docs/database/</td></tr>
+                    <tr><td>部署文档</td><td>每次部署</td><td>DevOps</td><td>README / K8s 注释</td></tr>
+                    <tr><td>合规映射表</td><td>每次法规更新</td><td>合规官</td><td>docs/compliance/</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 十五、约束与风险 -->
+        <h1>十五、关键约束与风险预案</h1>
+
+        <h2>15.1 关键约束（代码层面强制执行）</h2>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>约束</th><th>代码实现要求</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>“原始数据不出域”</strong></td><td>边缘计算完成 S1-S4，云端不接收原始明细数据</td></tr>
+                    <tr><td><strong>“数据可用不可见”</strong></td><td>差分隐私 + k-匿名 + 脱敏四重工序</td></tr>
+                    <tr><td><strong>“非医疗诊断”</strong></td><td>所有 UI 强制水印 + 所有输出内容过滤禁用词</td></tr>
+                    <tr><td><strong>“RPO=0”</strong></td><td>本地 Redis Stream 缓存 + 断网续传机制</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>15.2 风险预案</h2>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>风险</th><th>预案</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>AI 生成代码质量下降</strong></td><td>人工审查升级为“双人审查”；引入更多单元测试</td></tr>
+                    <tr><td><strong>API 服务不可用</strong></td><td>本地缓存 + 降级策略（仅展示已缓存方案）</td></tr>
+                    <tr><td><strong>数据泄露</strong></td><td>零信任熔断 + 立即轮换密钥 + 通知审计</td></tr>
+                    <tr><td><strong>算法偏差</strong></td><td>月度偏见审计 + 算法版本回滚</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 页脚 -->
+        <hr>
+        <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.95rem; color: #475569; padding-top: 0.8rem;">
+            <div><strong>本方案版本：</strong>V3.0（工程实施版）</div>
+            <div><strong>编制日期：</strong>2026-09-03</div>
+            <div><strong>适用项目：</strong>SINOSHOP善乐生智慧马桶健康数据接入专项</div>
+        </div>
+        <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #e9edf4; font-size: 0.9rem; color: #64748b; text-align: center;">
+            本方案是《SINOSHOP善乐生智慧马桶健康数据接入专项实施方案 V2.3》的工程实施补充，两者配套使用。<br>
+            方案中所有技术标准、代码规范、审查流程即日生效，作为项目开发管理的最高技术依据。
+        </div>
+
+    </div>
+</body>
+</html>
