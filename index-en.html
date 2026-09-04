@@ -1,0 +1,928 @@
+        <!-- ============================== 头部 (优化版) ============================== -->
+        <header>
+            <div class="header-content">
+                <div class="header-left">
+                    <h1>SINOSHOP <span class="version-tag">V3.0</span></h1>
+                    <div class="sub">Ocean City Simulation Project · Standard Floating Module · 14 Core Asset Systems</div>
+                    <div style="margin-top: 0.8rem; font-size: 0.95rem; color: #b0c9f0; max-width: 700px; line-height: 1.7; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 0.8rem;">
+                        <em>“Observe Nature‘s Order, Align with Ocean’s Rhythm.<br>When the Three Harmonies Are Balanced, the Three Realms Rest Secure.”</em>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <a href="#scenes">6 Scenarios</a>
+                    <a href="#systems">Asset Systems</a>
+                    <a href="#techpath">Tech Path</a>
+                    <a href="#energy">Energy Loop</a>
+                    <a href="index_001_backup.html" target="_blank">📄 View V1.0 Backup</a>
+                    <a href="index.html" style="border-color: #d4a540;">🇨🇳 中文版</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- ============================== 简介 (优化版) ============================== -->
+        <div class="section">
+            <div class="section-title">🚀 Core Principle & Industrial Philosophy <span class="badge">V3.0</span></div>
+            
+            <!-- 核心纲领 -->
+            <div style="background: #f1f5f9; padding: 1.2rem 2rem; border-radius: 1.2rem; margin-bottom: 1.5rem; border-left: 6px solid #d4a540;">
+                <div style="font-size: 1.3rem; font-weight: 700; color: #0b1a2e; letter-spacing: 0.5px;">观天之道 · 执天之行</div>
+                <div style="font-size: 1.1rem; color: #1a2a44; margin-bottom: 0.2rem;">三盗既宜 · 三才既安</div>
+                <div style="font-size: 1rem; color: #475569; font-weight: 300; border-top: 1px solid #dbeafe; padding-top: 0.4rem; margin-top: 0.4rem;">
+                    Observe Nature‘s Order, Align with Ocean’s Rhythm.<br>
+                    When the Three Harmonies Are Balanced, the Three Realms Rest Secure.
+                </div>
+            </div>
+
+            <!-- 工程哲学 -->
+            <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1.5rem;">
+                <div style="flex: 2; min-width: 280px;">
+                    <h4 style="color: #1a2a44; margin-bottom: 0.3rem;">⚙️ Industrial Philosophy</h4>
+                    <p style="font-size: 1.05rem; font-weight: 500; color: #0b1a2e; line-height: 1.8;">
+                        海生电 · 电养船 · 船搭桥 · 桥造城 · 城惠民 · 航天海 · 众生安
+                    </p>
+                    <p style="color: #475569; font-size: 0.95rem;">
+                        Ocean Generates Power, Power Sustains Ships, Ships Erect Bridges, Bridges Build Cities, Cities Bless the People.<br>
+                        Space-Ocean Synergy, All Dwell in Security.
+                    </p>
+                </div>
+                <div style="flex: 1; min-width: 200px; background: #f8fafc; padding: 0.8rem 1.5rem; border-radius: 1rem; border: 1px solid #e2e8f0;">
+                    <h4 style="color: #1a2a44; margin-bottom: 0.2rem;">🙏 Spiritual Belief</h4>
+                    <p style="font-size: 1.1rem; font-weight: 700; color: #0b1a2e; line-height: 1.5;">
+                        贞忠昭日月 · 惠民播春秋
+                    </p>
+                    <p style="font-size: 0.9rem; color: #475569;">
+                        Steadfast Loyalty glowing like the sun and moon;<br>
+                        Benevolence nourishing the tide of time.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 原有技术概述 (精简整合) -->
+            <hr>
+            <p style="font-size:1.05rem; color:#334155;">
+                <strong>SINOSHOP</strong> uses one standard module, a four-layer composite structure, and six application scenarios to realize this progressive design philosophy.
+                All subsystems are strongly coupled via a FreeCAD parametric digital twin framework — no isolated component design.
+            </p>
+            <div style="display:flex; flex-wrap:wrap; gap:1.2rem; margin-top:1.2rem;">
+                <span style="background:#dbeafe; padding:0.2rem 1.2rem; border-radius:40px;">🏗️ 4-Layer Composite</span>
+                <span style="background:#dbeafe; padding:0.2rem 1.2rem; border-radius:40px;">♻️ Unsinkable Materials</span>
+                <span style="background:#dbeafe; padding:0.2rem 1.2rem; border-radius:40px;">📊 Digital Twin Driven</span>
+                <span style="background:#dbeafe; padding:0.2rem 1.2rem; border-radius:40px;">🌱 Ecological Symbiosis</span>
+            </div>
+        </div>
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SINOSHOP · Technical Architecture Overview V3.0</title>
+    <style>
+        /* ===== 全局重置 & 基础 ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #f4f6fa;
+            color: #1e293b;
+            line-height: 1.6;
+            padding: 0 1.5rem 3rem;
+        }
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        /* ===== 头部 ===== */
+        header {
+            background: linear-gradient(135deg, #0b1a2e, #1a2a44);
+            color: #fff;
+            padding: 2.5rem 2rem;
+            border-radius: 0 0 2.5rem 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        header::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 60%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+            transform: rotate(15deg);
+            pointer-events: none;
+        }
+        .header-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header-left h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(to right, #d4e0ff, #a8c8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .header-left .sub {
+            font-size: 1.1rem;
+            color: #b0c9f0;
+            margin-top: 0.3rem;
+            font-weight: 300;
+        }
+        .header-left .version-tag {
+            display: inline-block;
+            background: #d4a540;
+            color: #0b1a2e;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.1rem 0.8rem;
+            border-radius: 40px;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
+        .header-right {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+        .header-right a {
+            color: #cbdffa;
+            text-decoration: none;
+            padding: 0.4rem 1.2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 40px;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(4px);
+        }
+        .header-right a:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #7aa9ff;
+            color: #fff;
+        }
+
+        /* ===== 导航标签 ===== */
+        .nav-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem 1.2rem;
+            margin: 1.8rem 0 2rem;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        .nav-tabs a {
+            color: #475569;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 0.3rem 0.2rem;
+            border-bottom: 3px solid transparent;
+            transition: 0.2s;
+        }
+        .nav-tabs a:hover {
+            color: #0b1a2e;
+            border-bottom-color: #1a2a44;
+        }
+
+        /* ===== 通用卡片 ===== */
+        .section {
+            background: #ffffff;
+            border-radius: 1.8rem;
+            padding: 2rem 2.2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+        .section-title {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .section-title .badge {
+            font-size: 0.7rem;
+            background: #d4a540;
+            color: #0b1a2e;
+            padding: 0.1rem 0.8rem;
+            border-radius: 40px;
+            font-weight: 700;
+        }
+        .section-sub {
+            color: #64748b;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #eef2f6;
+            margin: 1.5rem 0;
+        }
+
+        /* ===== 场景卡片网格 ===== */
+        .scene-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        .scene-card {
+            background: #f8fafc;
+            border-radius: 1.2rem;
+            padding: 1.5rem 1.5rem 1.8rem;
+            border-left: 5px solid #1a2a44;
+            transition: 0.2s;
+        }
+        .scene-card:hover {
+            background: #f1f5f9;
+            transform: translateY(-3px);
+        }
+        .scene-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #0b1a2e;
+        }
+        .scene-card .tag {
+            display: inline-block;
+            background: #dbeafe;
+            color: #1e3a8a;
+            font-size: 0.7rem;
+            padding: 0.1rem 0.8rem;
+            border-radius: 30px;
+            margin-bottom: 0.6rem;
+        }
+        .scene-card p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin-bottom: 0.5rem;
+        }
+        .scene-card .highlight {
+            font-weight: 600;
+            color: #0b1a2e;
+        }
+
+        /* ===== 系统列表（十四大） ===== */
+        .sys-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+        .sys-item {
+            background: #f8fafc;
+            padding: 0.8rem 1.2rem;
+            border-radius: 0.8rem;
+            border: 1px solid #eef2f6;
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .sys-item .code {
+            font-weight: 700;
+            color: #1a2a44;
+            min-width: 3.2rem;
+        }
+        .sys-item .name {
+            font-weight: 500;
+            color: #0b1a2e;
+        }
+        .sys-item .desc {
+            font-size: 0.85rem;
+            color: #64748b;
+            width: 100%;
+            margin-top: 0.2rem;
+        }
+        .sys-item .desc a {
+            color: #1a2a44;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .sys-item .desc a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== 技术路径 ===== */
+        .path-flow {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem 1.5rem;
+            padding: 1rem 0;
+        }
+        .path-node {
+            background: #eef2f6;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 500;
+            color: #1e293b;
+            font-size: 0.95rem;
+        }
+        .path-arrow {
+            color: #94a3b8;
+            font-size: 1.5rem;
+            font-weight: 300;
+        }
+
+        /* ===== 能源链路 ===== */
+        .energy-chain {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            background: #f1f5f9;
+            padding: 1.5rem 2rem;
+            border-radius: 1.2rem;
+            margin: 1rem 0;
+        }
+        .energy-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.6rem 1.2rem;
+        }
+        .energy-row .label {
+            font-weight: 600;
+            color: #1a2a44;
+            min-width: 100px;
+        }
+        .energy-row .items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem 0.8rem;
+        }
+        .energy-row .items span {
+            background: #fff;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            border: 1px solid #d1d9e6;
+        }
+
+        /* ===== 表格风格 ===== */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.92rem;
+        }
+        th {
+            background: #1a2a44;
+            color: #fff;
+            padding: 0.6rem 0.8rem;
+            text-align: left;
+        }
+        td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        tr:hover td {
+            background: #f8fafc;
+        }
+
+        /* ===== 底部 ===== */
+        footer {
+            margin-top: 2.5rem;
+            padding: 1.5rem 0;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+        footer a {
+            color: #1a2a44;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== 团队联系区 ===== */
+        .contact-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: space-between;
+            align-items: center;
+            background: #f8fafc;
+            padding: 1.5rem 2rem;
+            border-radius: 1.2rem;
+        }
+        .contact-left h4 {
+            color: #1a2a44;
+            font-size: 1.3rem;
+            margin-bottom: 0.2rem;
+        }
+        .contact-left p {
+            color: #475569;
+        }
+        .contact-right {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+        .contact-right span {
+            font-size: 0.95rem;
+        }
+        .contact-right a {
+            color: #1a2a44;
+            text-decoration: none;
+            border-bottom: 1px solid #d1d9e6;
+        }
+        .contact-right a:hover {
+            border-bottom-color: #1a2a44;
+        }
+
+        /* ===== 协同说明 ===== */
+        .synergy-box {
+            margin-top: 1rem;
+            padding: 0.8rem 1.2rem;
+            background: #f1f5f9;
+            border-radius: 0.8rem;
+            font-size: 0.85rem;
+            color: #475569;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.5rem;
+        }
+        .synergy-box span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        /* ===== V3.0 新特性标识 ===== */
+        .v3-badge {
+            display: inline-block;
+            background: #d4a540;
+            color: #0b1a2e;
+            font-size: 0.55rem;
+            font-weight: 700;
+            padding: 0.05rem 0.5rem;
+            border-radius: 30px;
+            margin-left: 0.3rem;
+            vertical-align: middle;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .v3-highlight {
+            border-left-color: #d4a540 !important;
+        }
+
+        /* ===== 响应式 ===== */
+        @media (max-width: 700px) {
+            header .header-content {
+                flex-direction: column;
+                align-items: start;
+                gap: 1rem;
+            }
+            .header-left h1 {
+                font-size: 2.2rem;
+            }
+            .section {
+                padding: 1.5rem 1rem;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+            .contact-grid {
+                flex-direction: column;
+                align-items: start;
+            }
+            .sys-grid {
+                grid-template-columns: 1fr;
+            }
+            .synergy-box {
+                flex-direction: column;
+                gap: 0.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- ============================== 头部 ============================== -->
+        <header>
+            <div class="header-content">
+                <div class="header-left">
+                    <h1>SINOSHOP <span class="version-tag">V3.0</span></h1>
+                    <div class="sub">Standard Floating Module · 14 Core Asset Systems · Technical Framework V3.0</div>
+                </div>
+                <div class="header-right">
+                    <a href="#scenes">6 Scenarios</a>
+                    <a href="#systems">Asset Systems</a>
+                    <a href="#techpath">Tech Path</a>
+                    <a href="#energy">Energy Loop</a>
+                    <a href="index_001_backup.html" target="_blank">📄 View V1.0 Backup</a>
+                    <a href="index.html" style="border-color: #d4a540;">🇨🇳 中文版</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- ============================== 导航锚点（双语链接） ============================== -->
+        <div class="nav-tabs">
+            <a href="#scenes">🌊 6 Application Scenarios</a>
+            <a href="#systems">⚙️ 14 Asset Systems</a>
+            <a href="#techpath">🧩 Tech Path</a>
+            <a href="#energy">⚡ Energy Loop</a>
+            <a href="#coupling">🔗 Coupling Logic</a>
+            <a href="#materials">🧱 Materials & Processes</a>
+            <span style="margin-left: auto; font-size: 0.85rem; color: #94a3b8;">
+                <a href="index.html" style="color: #1a2a44; text-decoration: none; font-weight: 500;">🇨🇳 中文版</a> ·
+                <a href="sinoshop-floating-module.html" style="color: #1a2a44; text-decoration: none; font-weight: 500;">📘 Cost-Benefit (CN)</a> ·
+                <a href="sinoshop-floating-module-en.html" style="color: #1a2a44; text-decoration: none; font-weight: 500;">📘 Cost-Benefit (EN)</a>
+            </span>
+        </div>
+
+        <!-- ============================== 简介 ============================== -->
+        <div class="section">
+            <div class="section-title">🚀 Project Overview <span class="badge">V3.0</span></div>
+            <p style="font-size:1.05rem; color:#334155;">
+                <strong>SINOSHOP</strong> uses one standard module, a four-layer composite structure, and six application scenarios to realize the progressive design philosophy of
+                <strong>“Sea generates power, power sustains ships, ships carry bridges, bridges build cities.”</strong>
+                At its core lies the principle of <strong>“reality through illusion, technology as the vehicle, symbiosis of man and sea.”</strong>
+                All subsystems are strongly coupled via a FreeCAD parametric digital twin framework — no isolated component design.
+            </p>
+            <div style="display:flex; flex-wrap:wrap; gap:1.2rem; margin-top:1.2rem;">
+                <span style="background:#dbeafe; padding:0.2rem 1.2rem; border-radius:40px;">🏗️ 4-Layer Composite</span>
+                <span style="background:#dbeafe; padding:0.2rem 1.2rem; border-radius:40px;">♻️ Unsinkable Materials</span>
+                <span style="background:#dbeafe; padding:0.2rem 1.2rem; border-radius:40px;">📊 Digital Twin Driven</span>
+                <span style="background:#dbeafe; padding:0.2rem 1.2rem; border-radius:40px;">🌱 Ecological Symbiosis</span>
+            </div>
+        </div>
+
+        <!-- ============================== 六大场景 ============================== -->
+        <div id="scenes" class="section">
+            <div class="section-title">
+                6 Application Scenarios
+                <span class="badge">Cost Reduction 30% ~ 85%</span>
+            </div>
+            <div class="section-sub">A paradigm-level reconstruction based on the standard floating module, covering the full value loop from nearshore infrastructure to space recovery.</div>
+
+            <div class="scene-grid">
+                <div class="scene-card">
+                    <div class="tag">Scenario 1</div>
+                    <h3>Floating Berth Foundation</h3>
+                    <p>Self-floating decouples cost from water depth. Investment per berth: <span class="highlight">¥405–540M</span> (↓30~35%), payback 3–5 years.</p>
+                    <p style="font-size:0.85rem; color:#64748b;">Foundation cost ↓100%, seabed survey ↓80%</p>
+                </div>
+                <div class="scene-card">
+                    <div class="tag">Scenario 2</div>
+                    <h3>Floating Breakwater</h3>
+                    <p>Material cost <span class="highlight">≤15%</span> of traditional rubble-mound breakwaters, wave dissipation 55%~75%, full-depth adaptive.</p>
+                    <p style="font-size:0.85rem; color:#64748b;">Mangrove symbiosis for ecological gain</p>
+                </div>
+                <div class="scene-card">
+                    <div class="tag">Scenario 3</div>
+                    <h3>Floating Tunnel & Bridge</h3>
+                    <p>Cost per km <span class="highlight">¥280–350M</span> (only 20% of suspension bridge), deployment speed 3–5× faster.</p>
+                    <p style="font-size:0.85rem; color:#64748b;">Life-cycle cost reduced by 70%+</p>
+                </div>
+                <div class="scene-card">
+                    <div class="tag">Scenario 4</div>
+                    <h3>Marine Energy Hull Buoyancy</h3>
+                    <p>Unit cost <span class="highlight">≤$500/ton</span> (↓72%), steel usage ↓60%, design life ≥50 years.</p>
+                    <p style="font-size:0.85rem; color:#64748b;">SBM ensures unsinkable performance</p>
+                </div>
+                <div class="scene-card">
+                    <div class="tag">Scenario 5</div>
+                    <h3>Computing Eco-Bridge</h3>
+                    <p>Tidal power + seawater direct cooling + modular computing, <span class="highlight">PUE ≤1.05</span>, green energy self-sufficiency 80%~90%.</p>
+                    <p style="font-size:0.85rem; color:#64748b;">Cooling power share ≤3%, zero freshwater consumption</p>
+                </div>
+                <div class="scene-card">
+                    <div class="tag">Scenario 6</div>
+                    <h3>Marine Recovery & Emergency Support</h3>
+                    <p>Honeycomb rubber progressive buffering + unsinkable buoyancy, deployment time from 72h to <span class="highlight">5 hours</span>, life-cycle cost reduced to 30% of traditional.</p>
+                    <p style="font-size:0.85rem; color:#64748b;">Optional aerospace-grade thermal protection</p>
+                </div>
+            </div>
+            <div style="margin-top:1.2rem; text-align:right; font-size:0.9rem; color:#64748b;">
+                Integrated payback period shortened from 10–30 years to 3–5 years
+            </div>
+        </div>
+
+        <!-- ============================== 十四大资产系统 ============================== -->
+        <div id="systems" class="section">
+            <div class="section-title">
+                ⚙️ 14 Core Asset Systems <span class="badge">V3.0</span>
+            </div>
+            <div class="section-sub">Strongly coupled systems based on the FreeCAD digital twin framework, globally parameter-driven. Foundation platform → Flagship upgrade · Concept prototype → Research flagship · Technology mutual-feedback loop.</div>
+
+            <h4 style="margin:1.2rem 0 0.6rem; color:#1a2a44;">Top-Level Control</h4>
+            <div style="background:#f8fafc; padding:0.8rem 1.2rem; border-radius:0.8rem; margin-bottom:1rem;">
+                <strong>FreeCAD Digital Twin Framework</strong> – Spreadsheet master control, Link/ShapeBinder geometry references, Assembly constraints, BIM property extensions, TechDraw output, expression engine.
+            </div>
+
+            <h4 style="margin:1.2rem 0 0.6rem; color:#1a2a44;">Core Physical Infrastructure</h4>
+            <div class="sys-grid">
+                <!-- 001 -->
+                <div class="sys-item">
+                    <span class="code">001</span>
+                    <span class="name">Floating Bridge · Breakwater · Marine Energy</span>
+                    <span class="desc">Energy capture & defense frontier, supplies wave energy to 006/007/002.
+                        <a href="https://gitee.com/sinoshop/sinoshop-os" target="_blank">🔗 Gitee Repo</a>
+                        <span style="display:inline-block; margin-left:6px; background:#d4a540; color:#fff; font-size:0.65rem; padding:0.1rem 0.6rem; border-radius:20px;">
+                            <a href="#013" style="color:#fff; text-decoration:none;">⬆ Flagship: SinoPORT</a>
+                        </span>
+                    </span>
+                </div>
+
+                <!-- 002 -->
+                <div class="sys-item">
+                    <span class="code">002</span>
+                    <span class="name">Surface Float · Tidal Power · Computing Bridge</span>
+                    <span class="desc">Liquid-cooled compute pods, self-balancing, consumes power from 001.
+                        <a href="https://github.com/SINOSHOP-OPEN/SINOSHOP-Platform" target="_blank">🔗 GitHub Repo</a>
+                        <span style="display:inline-block; margin-left:6px; background:#64c8ff; color:#0b1a2e; font-size:0.65rem; padding:0.1rem 0.6rem; border-radius:20px;">
+                            <a href="#014" style="color:#0b1a2e; text-decoration:none;">⬆ Research: SinoTide</a>
+                        </span>
+                    </span>
+                </div>
+
+                <!-- 003-005 -->
+                <div class="sys-item">
+                    <span class="code">003</span>
+                    <span class="name">SFT Dynamic Load Cancellation</span>
+                    <span class="desc">LCS 5-stage water tray, active load smoothing</span>
+                </div>
+                <div class="sys-item">
+                    <span class="code">004</span>
+                    <span class="name">SFT Anti-Collision · Tsunami Submersion</span>
+                    <span class="desc">Bagua circular submersion to 60m, extreme survival protection</span>
+                </div>
+                <div class="sys-item">
+                    <span class="code">005</span>
+                    <span class="name">Deep-Sea Depth-Fixed Transit Hub</span>
+                    <span class="desc">CDP pillar, connects 001/002/004</span>
+                </div>
+
+                <!-- 006-007 -->
+                <div class="sys-item">
+                    <span class="code">006</span>
+                    <span class="name">Ocean-Going Transport · Marine Energy Power</span>
+                    <span class="desc">R25.2 3-stage turbine, wake energy recovery.
+                        <a href="https://gitee.com/sinoshop/SINOSHIP" target="_blank">🇨🇳 Gitee</a> ·
+                        <a href="https://github.com/SINOSHOP-OPEN/sinoship" target="_blank">🇬🇧 GitHub</a>
+                    </span>
+                </div>
+                <div class="sys-item">
+                    <span class="code">007</span>
+                    <span class="name">Sub-Ice Marine Energy Transport</span>
+                    <span class="desc">BFPC‑HEX active hull, ice-breaking, typhoon deformation resistance.
+                        <a href="https://gitee.com/sinoshop/SINOSHIP" target="_blank">🇨🇳 Gitee</a> ·
+                        <a href="https://github.com/SINOSHOP-OPEN/sinoship" target="_blank">🇬🇧 GitHub</a>
+                    </span>
+                </div>
+
+                <!-- 008-009 -->
+                <div class="sys-item">
+                    <span class="code">008</span>
+                    <span class="name">Long-Serpentine & Bagua Circular Emergency Ventilation</span>
+                    <span class="desc">Whole-system lifeline, triggers airtight ventilation & fire suppression</span>
+                </div>
+                <div class="sys-item">
+                    <span class="code">009</span>
+                    <span class="name">Reusable Spacecraft Steam-Ceramic TPS</span>
+                    <span class="desc">Aerospace-grade insulation, reusable ≥50 times, strategic add-on</span>
+                </div>
+
+                <!-- 010-012 -->
+                <div class="sys-item">
+                    <span class="code">010</span>
+                    <span class="name">Ocean City Sci-Fi Film/Novel System</span>
+                    <span class="desc">Visual brand communication, digital-physical hybrid assets</span>
+                </div>
+                <div class="sys-item">
+                    <span class="code">011</span>
+                    <span class="name">Energy Operations & RWA Asset Model</span>
+                    <span class="desc">No physical geometry — the “asset soul” of the system</span>
+                </div>
+                <div class="sys-item">
+                    <span class="code">012</span>
+                    <span class="name">Cross-Sea Corridor · Ocean City · Eco-Tourism</span>
+                    <span class="desc">Top-level orchestration, integrates compute + ecology + survival</span>
+                </div>
+
+                <!-- ★ 013 Flagship Upgrade -->
+                <div class="sys-item" id="013" style="border: 2px solid #d4a540; background: #fefcf5;">
+                    <span class="code" style="color:#d4a540;">⭐ 013</span>
+                    <span class="name">Modular Smart Port System <span style="font-size:0.6rem; background:#d4a540; color:#fff; padding:0.1rem 0.6rem; border-radius:20px;">Flagship</span></span>
+                    <span class="desc">Fiber-concrete composite · Superhydrophobic bio-inspired protection · 3-zone wave energy generation · 7-level ecological fishway.
+                        <a href="https://gitee.com/sinoshop/SinoPORT" target="_blank">🇨🇳 Gitee</a> ·
+                        <a href="https://github.com/SINOSHOP-OPEN/SinoPORT" target="_blank">🇬🇧 GitHub</a>
+                        <span style="display:inline-block; margin-left:6px; font-size:0.65rem; color:#d4a540; background:rgba(212,165,64,0.1); padding:0.1rem 0.5rem; border-radius:12px;">⬆ 001 Industrial Upgrade</span>
+                        <span style="display:inline-block; margin-left:4px; font-size:0.65rem; color:#64c8ff; background:rgba(100,200,255,0.1); padding:0.1rem 0.5rem; border-radius:12px;">🔄 Integrates 014 Tech</span>
+                    </span>
+                </div>
+
+                <!-- ★ 014 Research Flagship -->
+                <div class="sys-item" id="014" style="border: 2px solid #64c8ff; background: #f5faff;">
+                    <span class="code" style="color:#64c8ff;">⭐ 014</span>
+                    <span class="name">Tidal Power · Computing · Depth-Fixed Bridge <span style="font-size:0.6rem; background:#64c8ff; color:#0b1a2e; padding:0.1rem 0.6rem; border-radius:20px;">Research</span></span>
+                    <span class="desc">Dual-timescale depth fixation · 3D data center · PUE≤1.03 · 7-layer safety · Digital RMB smart contracts.
+                        <a href="https://gitee.com/sinoshop/SinoTide" target="_blank">🇨🇳 Gitee</a> ·
+                        <a href="https://github.com/SINOSHOP-OPEN/SinoTide" target="_blank">🇬🇧 GitHub</a>
+                        <span style="display:inline-block; margin-left:6px; font-size:0.65rem; color:#64c8ff; background:rgba(100,200,255,0.1); padding:0.1rem 0.5rem; border-radius:12px;">⬆ 002 Research Flagship</span>
+                        <span style="display:inline-block; margin-left:4px; font-size:0.65rem; color:#d4a540; background:rgba(212,165,64,0.1); padding:0.1rem 0.5rem; border-radius:12px;">🔄 Tech feedback to 013</span>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Synergy说明 -->
+            <div class="synergy-box">
+                <span>🔄 <strong>Tech Evolution</strong>: 001 → 013 Industrial Upgrade · 002 → 014 Research Flagship</span>
+                <span>🔄 <strong>Tech Synergy</strong>: Core tech from 014 feeds back into 013, forming a closed loop</span>
+                <span>⭐ <strong>14 Systems</strong>: Full coverage from foundational tech to flagship applications</span>
+                <span>🏷️ <strong>V3.0 Upgrade</strong>: System architecture重构 · Flagship versions integrated into core asset system</span>
+            </div>
+
+            <h4 style="margin:1.2rem 0 0.6rem; color:#1a2a44;">Special Protection Systems (Dataset “Armor”)</h4>
+            <div class="sys-grid" style="margin-bottom:1rem;">
+                <div class="sys-item"><span class="code">008</span><span class="name">Long-Serpentine & Bagua Circular Emergency Ventilation</span><span class="desc">Whole-system lifeline, triggers airtight ventilation & fire suppression</span></div>
+                <div class="sys-item"><span class="code">009</span><span class="name">Reusable Spacecraft Steam-Ceramic TPS</span><span class="desc">Aerospace-grade insulation, reusable ≥50 times, strategic add-on</span></div>
+            </div>
+
+            <h4 style="margin:1.2rem 0 0.6rem; color:#1a2a44;">Top-Level Operations & Digital Assets (Dataset “Soul”)</h4>
+            <div class="sys-grid">
+                <div class="sys-item"><span class="code">010</span><span class="name">Ocean City Sci-Fi Film/Novel System</span><span class="desc">Visual brand communication, digital-physical hybrid assets</span></div>
+                <div class="sys-item"><span class="code">011</span><span class="name">Energy Operations & RWA Asset Model</span><span class="desc">No physical geometry — the “asset soul” of the system</span></div>
+                <div class="sys-item"><span class="code">012</span><span class="name">Cross-Sea Corridor · Ocean City · Eco-Tourism</span><span class="desc">Top-level orchestration, integrates compute + ecology + survival</span></div>
+            </div>
+        </div>
+
+             <!-- ============================== 技术路径 ============================== -->
+        <div id="techpath" class="section">
+            <div class="section-title">🧩 4 Tech Paths</div>
+            <div class="section-sub">Four-layer paradigm reconstruction from materials to philosophy</div>
+
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap:1.2rem; margin-top:0.5rem;">
+                <div style="background:#f1f5f9; padding:1.2rem; border-radius:1rem;">
+                    <h4 style="color:#0b1a2e;">🔬 Materials</h4>
+                    <p style="font-size:0.95rem;">Structural (steel + basalt/bamboo fiber) · Encapsulation (fiber-concrete + alumina ceramic) · Hollow cavity (self-floating) · Buoyancy (honeycomb rubber + SBM) → Lightweight + high-strength + unsinkable</p>
+                </div>
+                <div style="background:#f1f5f9; padding:1.2rem; border-radius:1rem;">
+                    <h4 style="color:#0b1a2e;">📐 Structure</h4>
+                    <p style="font-size:0.95rem;">“Hollow truss with stepped groove structure” ensures every gram of material bears stress — equivalent density 450–650 kg/m³, steel usage reduced by 20%~60%.</p>
+                </div>
+                <div style="background:#f1f5f9; padding:1.2rem; border-radius:1rem;">
+                    <h4 style="color:#0b1a2e;">🌐 Scenarios</h4>
+                    <p style="font-size:0.95rem;">Six scenarios share the same modular system — R&D cost sharing, supply chain integration, unified maintenance, reducing life-cycle costs at scale.</p>
+                </div>
+                <div style="background:#f1f5f9; padding:1.2rem; border-radius:1rem;">
+                    <h4 style="color:#0b1a2e;">🧘 Philosophy</h4>
+                    <p style="font-size:0.95rem;">“Sea generates power → power sustains ships → ships carry bridges → bridges build cities” forms a complete value loop — from infrastructure to energy autonomy, digital empowerment, and ultimate safety redundancy.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================== 能源闭环 ============================== -->
+        <div id="energy" class="section">
+            <div class="section-title">⚡ Energy Loop (Generate – Store – Consume)</div>
+            <div class="energy-chain">
+                <div class="energy-row">
+                    <span class="label">🔋 Capture</span>
+                    <div class="items">
+                        <span>001 Wave Energy</span>
+                        <span>006 Tidal Turbine</span>
+                        <span>004 Temperature Differential (aux)</span>
+                    </div>
+                </div>
+                <div class="energy-row">
+                    <span class="label">📦 Storage</span>
+                    <div class="items">
+                        <span>Ceramic Sand Thermal Storage</span>
+                        <span>Pumped Ballast Storage (gravity)</span>
+                    </div>
+                </div>
+                <div class="energy-row">
+                    <span class="label">💡 Consumption</span>
+                    <div class="items">
+                        <span>002 Computing</span>
+                        <span>008 Ventilation/Fire Safety</span>
+                        <span>011 Living/Eco-Agriculture</span>
+                        <span>007 Propulsion</span>
+                    </div>
+                </div>
+            </div>
+            <p style="font-size:0.9rem; color:#475569; margin-top:0.5rem;">
+                ✅ Peak power → ceramic sand thermal storage → heating/power, smoothing fluctuations, achieving 100% green energy utilization.
+            </p>
+        </div>
+
+        <!-- ============================== 耦合逻辑 ============================== -->
+        <div id="coupling" class="section">
+            <div class="section-title">🔗 Key System Coupling Logic</div>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Coupling Scenario</th><th>Subsystems</th><th>Implementation</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Power-Compute Coupling</td><td>001 → 002</td><td>BIM properties + expression engine reading power output</td></tr>
+                        <tr><td>Geometry Adaptation</td><td>001 ⇔ 002</td><td>ShapeBinder geometry references</td></tr>
+                        <tr><td>Load Following</td><td>003 ⇔ 004</td><td>Assembly constraints</td></tr>
+                        <tr><td>Conditional Trigger</td><td>004 → 008</td><td>Spreadsheet IF() logic</td></tr>
+                        <tr><td>Module Reuse</td><td>006 ⇔ 007</td><td>Std_LinkMake links</td></tr>
+                        <tr><td>Asset Unification</td><td>All → 011</td><td>BIM framework + IFC export + DAM coding</td></tr>
+                        <tr><td>Anchor Drag Protection</td><td>003/004/009</td><td>3-layer composite: armor + load absorption + stress distribution</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ============================== 基础工艺 ============================== -->
+        <div id="materials" class="section">
+            <div class="section-title">🧱 Materials & Processes (Physical Skeleton)</div>
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:1rem;">
+                <div style="background:#f8fafc; padding:1rem; border-radius:0.8rem; border-left:4px solid #1a2a44;">
+                    <strong>🔥 SINOhotSKIN Thin-Shell System</strong>
+                    <div style="display:flex; flex-wrap:wrap; gap:0.5rem 1rem; margin-top:0.2rem;">
+                        <span style="font-size:0.8rem; background:#e2e8f0; padding:0.1rem 0.6rem; border-radius:30px;">V4.3-R4 Base</span>
+                        <span style="font-size:0.8rem; background:#d4a540; color:#fff; padding:0.1rem 0.6rem; border-radius:30px;">⭐ V5.5-R1 Upgrade</span>
+                    </div>
+                    <p style="font-size:0.9rem; color:#475569; margin-top:0.3rem;">
+                        Large-scale marine floating thin-wall protection, integrated thermal/surge protection, aligned with SpaceX Starship TPS.
+                    </p>
+                    <p style="font-size:0.85rem; margin-top:0.3rem;">
+                        <a href="https://gitee.com/sinoshop/sinohotskin" target="_blank">🇨🇳 Gitee</a> ·
+                        <a href="https://github.com/SINOSHOP-OPEN/sinohotskin" target="_blank">🇬🇧 GitHub</a>
+                        <span style="margin:0 0.3rem; color:#d1d9e6;">|</span>
+                        <a href="https://sinoshop-open.github.io/webpage/SINOhotSKIN_V5.5-R1.html" target="_blank" style="color:#d4a540; font-weight:500;">📄 View V5.5-R1 Full Spec</a>
+                    </p>
+                </div>
+                <div style="background:#f8fafc; padding:1rem; border-radius:0.8rem; border-left:4px solid #1a2a44;">
+                    <strong>V6.3 «Zhentao» Thick-Plate System</strong>
+                    <p style="font-size:0.9rem; color:#475569;">Heavy-load bearing panels for 002 computing bridge deck, 011 operations platform</p>
+                </div>
+                <div style="background:#f8fafc; padding:1rem; border-radius:0.8rem; border-left:4px solid #1a2a44;">
+                    <strong>M18 Pyramid Atomic Unit</strong>
+                    <p style="font-size:0.9rem; color:#475569;">Modular standardized component, 001 breakwater ring array atomic unit</p>
+                </div>
+            </div>
+            <div style="margin-top:1.2rem; background:#eef2f6; padding:0.8rem 1.2rem; border-radius:0.8rem; font-size:0.9rem;">
+                <strong>🔄 Six Supplementary Technologies</strong>: Ceramic steam thermal armor (009) · Temperature differential power (004) · Ceramic sand thermal storage (013) · Pumped ballast storage (001/004) · Deformation-resistant typhoon hull (007) · Anchor drag protection (003/004)
+            </div>
+        </div>
+
+        <!-- ============================== 技术依赖链路 ============================== -->
+        <div class="section">
+            <div class="section-title">📊 Tech Dependency Chain</div>
+            <div style="background:#f8fafc; padding:1.2rem 1.8rem; border-radius:1rem; font-family: monospace; font-size:0.95rem; line-height:2;">
+                <div>【Spreadsheet Master Control】</div>
+                <div style="padding-left:1.5rem;">↓ (parameter-driven)</div>
+                <div style="padding-left:2rem;">Geometry (M18/Thin-Shell/Thick-Plate) + Operating Conditions (power/depth/temperature/storage)</div>
+                <div style="padding-left:1.5rem;">↓ (Link/ShapeBinder references)</div>
+                <div style="padding-left:2rem;">【Assembly Constraint Layer】(position, load transfer, deformation path)</div>
+                <div style="padding-left:1.5rem;">↓</div>
+                <div style="padding-left:2rem;">【BIM/Arch Business Layer】(011 asset framework: energy/compute/ops metadata)</div>
+                <div style="padding-left:1.5rem;">↓</div>
+                <div style="padding-left:2rem;">【Delivery Layer】(TechDraw + IFC filing + DAM digital asset library)</div>
+            </div>
+        </div>
+
+        <!-- ============================== 团队与联系 ============================== -->
+        <div id="contact" class="section">
+            <div class="section-title">🤝 Team & Contact</div>
+            <div class="contact-grid">
+                <div class="contact-left">
+                    <h4>SINOSHOP Floating Port Team</h4>
+                    <p>Committed to marine engineering standardization & digital twin integration</p>
+                </div>
+                <div class="contact-right">
+                    <span><strong>Open Source:</strong> <a href="https://gitee.com/SINOSHOP" target="_blank">https://gitee.com/SINOSHOP</a></span>
+                    <span><strong>WeChat Official:</strong> 海洋城市仿真实验</span>
+                    <span><strong>Contact WeChat:</strong> sinosir3</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================== 底部 ============================== -->
+        <footer>
+            <span>© 2026 SINOSHOP · Technical Framework V3.0 · FreeCAD Digital Twin</span>
+            <span>
+                <a href="index_001_backup.html" target="_blank">📄 V1.0 Backup</a> ·
+                <a href="https://github.com/SINOSHOP-OPEN" target="_blank">GitHub</a>
+            </span>
+        </footer>
