@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<!-- saved from url=(0075)file:///C:/Users/Administrator/Downloads/deepseek_html_20260830_e0466f.html -->
-<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SINOhotSKIN V5.5-R1（开源概念版）玄甲·蒸陶·海上回收一体化护甲</title>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SINOhotSKIN V5.5-R1 · 玄甲 · 海上回收一体化护甲</title>
     <style>
         :root {
             --primary: #1a3a5c;
@@ -55,6 +55,7 @@
             display: flex;
             gap: 12px;
             flex-wrap: wrap;
+            align-items: center;
         }
         .btn-download {
             background: linear-gradient(135deg, #d4a540, #c9952e);
@@ -87,6 +88,31 @@
             height: 22px;
             fill: #1a1a1a;
         }
+        .btn-home {
+            background: rgba(255, 255, 255, 0.15);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 12px 22px;
+            font-size: 15px;
+            font-weight: 500;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-family: "Georgia", "SimSun", serif;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            backdrop-filter: blur(4px);
+        }
+        .btn-home:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: #d4a540;
+        }
+        .btn-home a {
+            color: #fff;
+            text-decoration: none;
+        }
         .document-wrapper {
             max-width: 950px;
             margin: 90px auto 60px auto;
@@ -98,6 +124,22 @@
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
             padding: 50px 55px;
             border: 1px solid var(--border);
+        }
+        .lang-switch {
+            text-align: right;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        .lang-switch a {
+            color: var(--secondary);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--border);
+            padding-bottom: 2px;
+            font-weight: 500;
+        }
+        .lang-switch a:hover {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
         }
         h1 {
             font-size: 26px;
@@ -175,8 +217,7 @@
         table tr:hover {
             background: #faf5e8;
         }
-        ul,
-        ol {
+        ul, ol {
             margin: 8px 0 15px 25px;
             font-size: 15px;
         }
@@ -209,47 +250,21 @@
             color: #555;
         }
         @media (max-width: 768px) {
-            .document {
-                padding: 25px 18px;
-            }
-            .toolbar {
-                padding: 12px 16px;
-            }
-            .toolbar-title {
-                font-size: 14px;
-            }
-            .btn-download {
-                padding: 10px 18px;
-                font-size: 14px;
-            }
-            h1 {
-                font-size: 20px;
-            }
-            table {
-                font-size: 12px;
-            }
-            table th,
-            table td {
-                padding: 6px 8px;
-            }
+            .document { padding: 25px 18px; }
+            .toolbar { padding: 12px 16px; }
+            .toolbar-title { font-size: 14px; }
+            .btn-download { padding: 10px 18px; font-size: 14px; }
+            .btn-home { padding: 10px 16px; font-size: 13px; }
+            h1 { font-size: 20px; }
+            table { font-size: 12px; }
+            table th, table td { padding: 6px 8px; }
         }
         @media print {
-            .toolbar {
-                display: none;
-            }
-            .document-wrapper {
-                margin: 0;
-                max-width: 100%;
-                padding: 0;
-            }
-            .document {
-                box-shadow: none;
-                border: none;
-                padding: 20px;
-            }
-            body {
-                background: #fff;
-            }
+            .toolbar { display: none; }
+            .document-wrapper { margin: 0; max-width: 100%; padding: 0; }
+            .document { box-shadow: none; border: none; padding: 20px; }
+            body { background: #fff; }
+            .lang-switch { display: none; }
         }
     </style>
 </head>
@@ -258,6 +273,8 @@
     <div class="toolbar">
         <div class="toolbar-title">📄 SINOhotSKIN V5.5-R1 开源概念版</div>
         <div class="toolbar-actions">
+            <a href="https://sinoshop-open.github.io/webpage/index.html" class="btn-home" style="color:#fff; text-decoration:none;">🏠 首页</a>
+            <a href="https://sinoshop-open.github.io/webpage/SINOhotSKIN_V5.5-R1-en.html" class="btn-home" style="color:#fff; text-decoration:none;">🌐 English</a>
             <button class="btn-download" onclick="downloadWord()" title="下载脱敏Word文档">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zM6 20V4h7v5h5v11H6z"></path>
@@ -271,20 +288,27 @@
     <div class="document-wrapper">
         <div class="document" id="document-content">
 
+            <div class="lang-switch">
+                <a href="https://sinoshop-open.github.io/webpage/SINOhotSKIN_V5.5-R1-en.html">🌐 English</a> &nbsp;|&nbsp;
+                <a href="https://sinoshop-open.github.io/webpage/index.html">🏠 首页</a>
+            </div>
+
             <h1>SINOhotSKIN V5.5-R1<br>「玄甲·蒸陶·海上回收一体化护甲」<br>技术方案（开源概念版）</h1>
 
             <p class="subtitle">定军山·蒸陶 · 玄甲 · Marine Recovery Integrated Armor</p>
 
             <table class="meta-table">
-                <tbody><tr><td>版本</td><td>V5.5-R1-open</td></tr>
-                <tr><td>代号</td><td>定军山·蒸陶 · 玄甲 · Marine Recovery Integrated Armor</td></tr>
-                <tr><td>编制日期</td><td>2026-08-30</td></tr>
-                <tr><td>编制单位</td><td>SINOSHOP 工程技术组</td></tr>
-                <tr><td>文档编号</td><td>SHS-SPEC-026-OPEN</td></tr>
-                <tr><td>适用对象</td><td>直径9米级星舰规格可复用航天器，面向海上网捕/溅落回收任务</td></tr>
-                <tr><td>文档性质</td><td>公开概念设计，关键工程参数已脱敏，非制造图纸</td></tr>
-                <tr><td>修订说明</td><td>在V5.4-R2基础上，结合海上回收优势分析，强化浮力保障、缓冲吸能、密封防腐、打捞接口与快速维护设计。本开源版隐藏具体工艺参数，保留架构思想。</td></tr>
-            </tbody></table>
+                <tbody>
+                    <tr><td>版本</td><td>V5.5-R1-open</td></tr>
+                    <tr><td>代号</td><td>定军山·蒸陶 · 玄甲 · Marine Recovery Integrated Armor</td></tr>
+                    <tr><td>编制日期</td><td>2026-08-30</td></tr>
+                    <tr><td>编制单位</td><td>SINOSHOP 工程技术组</td></tr>
+                    <tr><td>文档编号</td><td>SHS-SPEC-026-OPEN</td></tr>
+                    <tr><td>适用对象</td><td>直径9米级星舰规格可复用航天器，面向海上网捕/溅落回收任务</td></tr>
+                    <tr><td>文档性质</td><td>公开概念设计，关键工程参数已脱敏，非制造图纸</td></tr>
+                    <tr><td>修订说明</td><td>在V5.4-R2基础上，结合海上回收优势分析，强化浮力保障、缓冲吸能、密封防腐、打捞接口与快速维护设计。本开源版隐藏具体工艺参数，保留架构思想。</td></tr>
+                </tbody>
+            </table>
 
             <h2>一、背景与设计目标</h2>
 
@@ -300,48 +324,54 @@
 
             <h3>1.2 设计输入（公开摘要）</h3>
             <table>
-                <tbody><tr><th>参数</th><th>值 / 范围</th></tr>
-                <tr><td>航天器直径</td><td>9 m（量级）</td></tr>
-                <tr><td>再入质量</td><td>百吨级（例如130 t量级）</td></tr>
-                <tr><td>回收方式</td><td>海上网捕为主，应急海面溅落为辅</td></tr>
-                <tr><td>最大着网速度</td><td>垂直 ≤5 m/s（公开范围）</td></tr>
-                <tr><td>设计海况</td><td>4级海况，生存6级</td></tr>
-                <tr><td>漂浮时间</td><td>≥72小时</td></tr>
-                <tr><td>耐盐雾寿命</td><td>≥10年（累计）</td></tr>
-                <tr><td>重复使用次数</td><td>≥10次（主体结构）</td></tr>
-            </tbody></table>
+                <tbody>
+                    <tr><th>参数</th><th>值 / 范围</th></tr>
+                    <tr><td>航天器直径</td><td>9 m（量级）</td></tr>
+                    <tr><td>再入质量</td><td>百吨级（例如130 t量级）</td></tr>
+                    <tr><td>回收方式</td><td>海上网捕为主，应急海面溅落为辅</td></tr>
+                    <tr><td>最大着网速度</td><td>垂直 ≤5 m/s（公开范围）</td></tr>
+                    <tr><td>设计海况</td><td>4级海况，生存6级</td></tr>
+                    <tr><td>漂浮时间</td><td>≥72小时</td></tr>
+                    <tr><td>耐盐雾寿命</td><td>≥10年（累计）</td></tr>
+                    <tr><td>重复使用次数</td><td>≥10次（主体结构）</td></tr>
+                </tbody>
+            </table>
 
             <h3>1.3 设计目标（公开摘要）</h3>
             <table>
-                <tbody><tr><th>指标</th><th>目标值</th></tr>
-                <tr><td>外壳总重量</td><td>≤26 吨（约占再入质量20%）</td></tr>
-                <tr><td>驻点区耐受热流</td><td>≥2 MW/m²（持续30 s）</td></tr>
-                <tr><td>着网/溅落峰值加速度</td><td>≤15 g（垂直）</td></tr>
-                <tr><td>正浮力储备</td><td>≥5% 再入质量</td></tr>
-                <tr><td>浮力冗余</td><td>任意两个独立浮力腔破损仍正浮</td></tr>
-                <tr><td>海水浸泡密封性</td><td>关键设备舱48 h无渗漏</td></tr>
-                <tr><td>单块面板更换时间</td><td>≤30 min（海上）</td></tr>
-                <tr><td>底部包底模块更换时间</td><td>≤2 h（海上）</td></tr>
-            </tbody></table>
+                <tbody>
+                    <tr><th>指标</th><th>目标值</th></tr>
+                    <tr><td>外壳总重量</td><td>≤26 吨（约占再入质量20%）</td></tr>
+                    <tr><td>驻点区耐受热流</td><td>≥2 MW/m²（持续30 s）</td></tr>
+                    <tr><td>着网/溅落峰值加速度</td><td>≤15 g（垂直）</td></tr>
+                    <tr><td>正浮力储备</td><td>≥5% 再入质量</td></tr>
+                    <tr><td>浮力冗余</td><td>任意两个独立浮力腔破损仍正浮</td></tr>
+                    <tr><td>海水浸泡密封性</td><td>关键设备舱48 h无渗漏</td></tr>
+                    <tr><td>单块面板更换时间</td><td>≤30 min（海上）</td></tr>
+                    <tr><td>底部包底模块更换时间</td><td>≤2 h（海上）</td></tr>
+                </tbody>
+            </table>
 
             <h2>二、总体架构与层序设计</h2>
 
             <h3>2.1 外壳层序（迎风面全层序，概念示意）</h3>
             <p>自外向内，各层厚度按热流与力学需求分区优化，不公开具体数值：</p>
             <table>
-                <tbody><tr><th>层号</th><th>名称</th><th>材料/结构（通用描述）</th><th>厚度（量级）</th><th>功能</th></tr>
-                <tr><td>①</td><td>外隔热/耐蚀层</td><td>氧化铝基泡沫陶瓷，表面榫卯，底面捆带凹槽</td><td>约8–12 mm（按区域）</td><td>再入热防护、抗热震、耐海水</td></tr>
-                <tr><td>—</td><td>固定捆带</td><td>氧化铝基陶瓷纤维带，位于底面凹槽</td><td>宽约10 mm</td><td>机械固定，受热&lt;800°C</td></tr>
-                <tr><td>②</td><td>外承力面板</td><td>玄武岩纤维增强陶瓷基复合材料</td><td>约4 mm</td><td>支撑陶瓷层</td></tr>
-                <tr><td>③</td><td>蜂窝橡胶泡沫缓冲层</td><td>闭孔蜂窝橡胶（梯度厚度）</td><td>约10–25 mm</td><td>冲击吸能、浮力、密封</td></tr>
-                <tr><td>④</td><td>中层蜂窝骨架</td><td>玄武岩/竹纤维混杂复合材料蜂窝</td><td>约3–4 mm</td><td>结构连接、浮力腔分隔</td></tr>
-                <tr><td>⑤</td><td>第一蒸汽腔（外水仓）</td><td>玄武岩纤维编织袋+蒸馏水</td><td>约2 mm腔隙</td><td>蒸发冷却、热沉</td></tr>
-                <tr><td>⑥</td><td>第二蒸汽腔（内水仓）</td><td>玄武岩纤维编织袋+蒸馏水</td><td>约2 mm腔隙</td><td>二次热沉</td></tr>
-                <tr><td>⑦</td><td>内层结构面板</td><td>氧化铝陶瓷/碳纤维混杂</td><td>约2 mm</td><td>密封、内压承载</td></tr>
-                <tr><td>⑧</td><td>内隔热层</td><td>竹纤维/再生塑料复合气凝胶</td><td>约2–3 mm</td><td>残余热隔离</td></tr>
-                <tr><td>⑨</td><td>适配层</td><td>碳纤维/玄武岩纤维混杂薄层</td><td>约1–2 mm</td><td>应力过渡、锚固界面</td></tr>
-                <tr><td>⑩</td><td>主承力结构</td><td>箭体原有不锈钢壳体（继承）</td><td>约4 mm（原有）</td><td>轴压/弯曲主承载</td></tr>
-            </tbody></table>
+                <tbody>
+                    <tr><th>层号</th><th>名称</th><th>材料/结构（通用描述）</th><th>厚度（量级）</th><th>功能</th></tr>
+                    <tr><td>①</td><td>外隔热/耐蚀层</td><td>氧化铝基泡沫陶瓷，表面榫卯，底面捆带凹槽</td><td>约8–12 mm（按区域）</td><td>再入热防护、抗热震、耐海水</td></tr>
+                    <tr><td>—</td><td>固定捆带</td><td>氧化铝基陶瓷纤维带，位于底面凹槽</td><td>宽约10 mm</td><td>机械固定，受热&lt;800°C</td></tr>
+                    <tr><td>②</td><td>外承力面板</td><td>玄武岩纤维增强陶瓷基复合材料</td><td>约4 mm</td><td>支撑陶瓷层</td></tr>
+                    <tr><td>③</td><td>蜂窝橡胶泡沫缓冲层</td><td>闭孔蜂窝橡胶（梯度厚度）</td><td>约10–25 mm</td><td>冲击吸能、浮力、密封</td></tr>
+                    <tr><td>④</td><td>中层蜂窝骨架</td><td>玄武岩/竹纤维混杂复合材料蜂窝</td><td>约3–4 mm</td><td>结构连接、浮力腔分隔</td></tr>
+                    <tr><td>⑤</td><td>第一蒸汽腔（外水仓）</td><td>玄武岩纤维编织袋+蒸馏水</td><td>约2 mm腔隙</td><td>蒸发冷却、热沉</td></tr>
+                    <tr><td>⑥</td><td>第二蒸汽腔（内水仓）</td><td>玄武岩纤维编织袋+蒸馏水</td><td>约2 mm腔隙</td><td>二次热沉</td></tr>
+                    <tr><td>⑦</td><td>内层结构面板</td><td>氧化铝陶瓷/碳纤维混杂</td><td>约2 mm</td><td>密封、内压承载</td></tr>
+                    <tr><td>⑧</td><td>内隔热层</td><td>竹纤维/再生塑料复合气凝胶</td><td>约2–3 mm</td><td>残余热隔离</td></tr>
+                    <tr><td>⑨</td><td>适配层</td><td>碳纤维/玄武岩纤维混杂薄层</td><td>约1–2 mm</td><td>应力过渡、锚固界面</td></tr>
+                    <tr><td>⑩</td><td>主承力结构</td><td>箭体原有不锈钢壳体（继承）</td><td>约4 mm（原有）</td><td>轴压/弯曲主承载</td></tr>
+                </tbody>
+            </table>
 
             <div class="callout">背风面采用简化配置：玄武岩纤维编织布外层（含耐高温涂层）+ 蜂窝橡胶泡沫 + 闭孔泡沫浮力块 + 硅橡胶密封层，无陶瓷和水仓，具体厚度按需调整。</div>
 
@@ -439,28 +469,32 @@
 
             <h3>5.3 性能对比</h3>
             <table>
-                <tbody><tr><th>维度</th><th>陆地回收版TPS</th><th>本方案（海上回收）</th></tr>
-                <tr><td>总重量</td><td>约15 吨</td><td>约26 吨（净增约11 吨）</td></tr>
-                <tr><td>缓冲能力</td><td>无</td><td>蜂窝橡胶+气囊+网捕</td></tr>
-                <tr><td>浮力保障</td><td>无</td><td>附加气囊+闭孔泡沫</td></tr>
-                <tr><td>密封防腐</td><td>一般</td><td>多层密封+耐腐蚀材料</td></tr>
-                <tr><td>打捞接口</td><td>无</td><td>四个主吊点+系留点</td></tr>
-                <tr><td>海上作业维护性</td><td>差</td><td>模块化面板，快速更换</td></tr>
-                <tr><td>任务适应性</td><td>仅陆地回收轨迹</td><td>全球海域回收</td></tr>
-            </tbody></table>
+                <tbody>
+                    <tr><th>维度</th><th>陆地回收版TPS</th><th>本方案（海上回收）</th></tr>
+                    <tr><td>总重量</td><td>约15 吨</td><td>约26 吨（净增约11 吨）</td></tr>
+                    <tr><td>缓冲能力</td><td>无</td><td>蜂窝橡胶+气囊+网捕</td></tr>
+                    <tr><td>浮力保障</td><td>无</td><td>附加气囊+闭孔泡沫</td></tr>
+                    <tr><td>密封防腐</td><td>一般</td><td>多层密封+耐腐蚀材料</td></tr>
+                    <tr><td>打捞接口</td><td>无</td><td>四个主吊点+系留点</td></tr>
+                    <tr><td>海上作业维护性</td><td>差</td><td>模块化面板，快速更换</td></tr>
+                    <tr><td>任务适应性</td><td>仅陆地回收轨迹</td><td>全球海域回收</td></tr>
+                </tbody>
+            </table>
 
             <h2>六、验证计划（公开摘要）</h2>
 
             <h3>6.1 地面试验</h3>
             <table>
-                <tbody><tr><th>试验项目</th><th>内容（脱敏）</th><th>目标</th></tr>
-                <tr><td>缓冲性能</td><td>不同厚度/硬度试块冲击试验</td><td>验证吸能效率</td></tr>
-                <tr><td>热震循环</td><td>高温↔海水淬冷，多次循环</td><td>无裂纹，强度衰减&lt;10%</td></tr>
-                <tr><td>捆带高温蠕变</td><td>高温、持续张力</td><td>松弛率&lt;5%</td></tr>
-                <tr><td>盐雾与海水浸泡</td><td>长期盐雾试验</td><td>无腐蚀，密封良好</td></tr>
-                <tr><td>缩比舱段落水</td><td>缩比模型跌落试验</td><td>验证缓冲与漂浮姿态</td></tr>
-                <tr><td>气囊浮力试验</td><td>气囊充气、加载、破损冗余</td><td>浮力达标，单囊破损仍正浮</td></tr>
-            </tbody></table>
+                <tbody>
+                    <tr><th>试验项目</th><th>内容（脱敏）</th><th>目标</th></tr>
+                    <tr><td>缓冲性能</td><td>不同厚度/硬度试块冲击试验</td><td>验证吸能效率</td></tr>
+                    <tr><td>热震循环</td><td>高温↔海水淬冷，多次循环</td><td>无裂纹，强度衰减&lt;10%</td></tr>
+                    <tr><td>捆带高温蠕变</td><td>高温、持续张力</td><td>松弛率&lt;5%</td></tr>
+                    <tr><td>盐雾与海水浸泡</td><td>长期盐雾试验</td><td>无腐蚀，密封良好</td></tr>
+                    <tr><td>缩比舱段落水</td><td>缩比模型跌落试验</td><td>验证缓冲与漂浮姿态</td></tr>
+                    <tr><td>气囊浮力试验</td><td>气囊充气、加载、破损冗余</td><td>浮力达标，单囊破损仍正浮</td></tr>
+                </tbody>
+            </table>
 
             <h3>6.2 海上验证</h3>
             <ul>
@@ -534,4 +568,5 @@
         }
     </script>
 
-</body></html>
+</body>
+</html>
