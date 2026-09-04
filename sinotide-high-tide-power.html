@@ -32,17 +32,23 @@
             justify-content: space-between;
             align-items: flex-end;
         }
-        .header h1 {
+        .header-left h1 {
             font-size: 2.2rem;
             font-weight: 700;
             letter-spacing: -0.02em;
             color: #0b2b4a;
         }
-        .header .sub {
+        .header-left .sub {
             font-size: 1rem;
             color: #2c5f8a;
             font-weight: 500;
             margin-top: 0.2rem;
+        }
+        .header-right {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.8rem 1.2rem;
         }
         .meta-tags {
             display: flex;
@@ -54,11 +60,37 @@
             font-size: 0.85rem;
             color: #1a3c5e;
         }
+        .lang-link {
+            background: #eaf0f6;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .lang-link a {
+            color: #1a5276;
+            text-decoration: none;
+        }
+        .lang-link a:hover {
+            text-decoration: underline;
+        }
+        .home-link {
+            background: #d4a540;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .home-link a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .home-link a:hover {
+            text-decoration: underline;
+        }
 
         /* 章节 */
-        .section {
-            margin-bottom: 2.5rem;
-        }
+        .section { margin-bottom: 2.5rem; }
         .section-title {
             font-size: 1.6rem;
             font-weight: 700;
@@ -152,12 +184,44 @@
             border-left: 4px solid #2e86c1;
         }
 
+        /* 底部链接 */
+        .footer-links {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid #eaf0f6;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem 2.5rem;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer-links .left {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 1.5rem;
+            align-items: center;
+        }
+        .footer-links a {
+            color: #1a5276;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            background: #f1f6fe;
+        }
+        .footer-links a:hover {
+            text-decoration: underline;
+            background: #e2eaf5;
+        }
+
         @media (max-width: 720px) {
             .container { padding: 1.5rem; }
             .header { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
             .header h1 { font-size: 1.6rem; }
             .grid-2 { grid-template-columns: 1fr; }
             .lock-grid { grid-template-columns: 1fr 1fr; }
+            .header-right { width: 100%; }
+            .footer-links { flex-direction: column; align-items: flex-start; }
         }
         @media (max-width: 480px) {
             .lock-grid { grid-template-columns: 1fr; }
@@ -169,14 +233,18 @@
 
     <!-- 头部 -->
     <div class="header">
-        <div>
+        <div class="header-left">
             <h1>潮汐发电算力定深浮桥</h1>
             <div class="sub">极限科研验证及示范项目 · 技术说明</div>
         </div>
-        <div class="meta-tags">
-            <span>📌 版本：V2.0</span>
-            <span>📅 2026-08-27</span>
-            <span>⚙️ 总投资：3800万元</span>
+        <div class="header-right">
+            <div class="meta-tags">
+                <span>📌 版本：V2.0</span>
+                <span>📅 2026-08-27</span>
+                <span>⚙️ 总投资：3800万元</span>
+            </div>
+            <div class="home-link"><a href="https://sinoshop-open.github.io/webpage/">🏠 首页</a></div>
+            <div class="lang-link"><a href="https://sinoshop-open.github.io/webpage/sinotide-high-tide-power-en.html">🌐 English</a></div>
         </div>
     </div>
 
@@ -332,20 +400,17 @@
         </div>
     </div>
 
-    <!-- 联系信息 -->
-    <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 2px solid #eaf0f6;">
-        <div style="display: flex; flex-wrap: wrap; gap: 1.5rem 2.5rem; justify-content: space-between;">
-            <div>
-                <strong>SINOSHOP 悬浮港团队</strong><br>
-                <span style="font-size: 0.9rem; color: #475569;">技术开源：<a href="https://gitee.com/SINOSHOP" target="_blank" style="color: #1a5276;">https://gitee.com/SINOSHOP</a></span>
-            </div>
-            <div>
-                <span style="font-size: 0.9rem; color: #475569;">微信公众号：海洋城市仿真实验</span><br>
-                <span style="font-size: 0.9rem; color: #475569;">联系微信：sinosir3</span>
-            </div>
-            <div style="font-size: 0.85rem; color: #94a3b8;">
-                2026年8月27日
-            </div>
+    <!-- 底部联系与链接 -->
+    <div class="footer-links">
+        <div class="left">
+            <a href="https://sinoshop-open.github.io/webpage/">🏠 首页</a>
+            <a href="https://sinoshop-open.github.io/webpage/sinotide-high-tide-power-en.html">🌐 English</a>
+        </div>
+        <div>
+            <span style="font-size: 0.9rem; color: #475569;">
+                <strong>SINOSHOP 悬浮港团队</strong> · 
+                <a href="https://gitee.com/SINOSHOP" target="_blank" style="color: #1a5276; text-decoration: none;">技术开源</a>
+            </span>
         </div>
     </div>
 
