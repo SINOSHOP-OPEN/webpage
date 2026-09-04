@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SinoTide · High Tide Power · Extreme Research & Demonstration Project</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #f5f8fc;
+            color: #1a2a3a;
+            line-height: 1.7;
+            padding: 2rem 1.5rem;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 20, 40, 0.08);
+            padding: 2.8rem 3rem;
+        }
+
+        .header {
+            border-bottom: 2px solid #eaf0f6;
+            padding-bottom: 1.8rem;
+            margin-bottom: 2.2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: #0b2b4a;
+        }
+        .header .sub {
+            font-size: 1rem;
+            color: #2c5f8a;
+            font-weight: 500;
+            margin-top: 0.2rem;
+        }
+        .meta-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            background: #f1f6fe;
+            padding: 0.5rem 1.2rem;
+            border-radius: 60px;
+            font-size: 0.85rem;
+            color: #1a3c5e;
+        }
+        .lang-link {
+            margin-left: 1rem;
+            background: #eaf0f6;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+        }
+        .lang-link a {
+            color: #1a5276;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .lang-link a:hover {
+            text-decoration: underline;
+        }
+
+        .section { margin-bottom: 2.5rem; }
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #0b2b4a;
+            border-left: 6px solid #2e86c1;
+            padding-left: 1rem;
+            margin-bottom: 1.2rem;
+        }
+        .section-title-sm {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1a3c5e;
+            margin: 1.6rem 0 0.8rem 0;
+        }
+        p { margin-bottom: 0.9rem; color: #1e2f40; }
+        strong { color: #0b2b4a; }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 1rem 0 1.5rem 0;
+        }
+        .card {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 1.2rem 1.5rem;
+            border: 1px solid #eaf0f6;
+        }
+        .card .label { font-weight: 600; color: #0b2b4a; display: block; margin-bottom: 0.2rem; }
+
+        .table-wrap {
+            overflow-x: auto;
+            margin: 1rem 0 1.5rem 0;
+            border-radius: 14px;
+            border: 1px solid #e2e8f0;
+            background: #fafcff;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            min-width: 600px;
+        }
+        th {
+            background: #1a3a5c;
+            color: #fff;
+            padding: 0.7rem 1rem;
+            text-align: left;
+        }
+        td {
+            padding: 0.6rem 1rem;
+            border-bottom: 1px solid #eef2f6;
+            vertical-align: top;
+        }
+        tr:last-child td { border-bottom: none; }
+        tr:nth-child(even) { background: #f8fafc; }
+
+        .tag {
+            display: inline-block;
+            background: #dbeafe;
+            color: #1e3a8a;
+            padding: 0.1rem 0.7rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-right: 0.3rem;
+        }
+        .highlight {
+            background: #fef9e7;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-weight: 600;
+            color: #7d6608;
+        }
+
+        .lock-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 0.8rem;
+        }
+        .lock-item {
+            background: #f1f5f9;
+            padding: 0.6rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            border-left: 4px solid #2e86c1;
+        }
+
+        @media (max-width: 720px) {
+            .container { padding: 1.5rem; }
+            .header { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
+            .header h1 { font-size: 1.6rem; }
+            .grid-2 { grid-template-columns: 1fr; }
+            .lock-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 480px) {
+            .lock-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- Header -->
+    <div class="header">
+        <div>
+            <h1>Tidal Power Computing Depth-Keeping Bridge</h1>
+            <div class="sub">Extreme Research & Demonstration Project · Technical Overview</div>
+        </div>
+        <div class="meta-tags">
+            <span>📌 Version: V2.0</span>
+            <span>📅 2026-08-27</span>
+            <span>⚙️ Total Investment: ¥38M</span>
+            <span class="lang-link"><a href="sinotide-high-tide-power.html">🇨🇳 中文版</a></span>
+        </div>
+    </div>
+
+    <!-- Executive Summary -->
+    <div class="section">
+        <div class="section-title">I. Executive Summary</div>
+        <p>This project aims to leverage the Qiantang River's natural cooling source and tidal energy to build China's first integrated platform combining <strong>"computing temperature-controlled hosting + green energy output + extreme environment R&D"</strong>. Utilizing the independently developed <strong>"Dual-Timescale Adaptive Depth-Keeping Suspension"</strong> technology, the design achieves a comprehensive <strong>PUE ≤1.03</strong>, saving over 30% energy compared to traditional data centers.</p>
+        <p>Total investment is approximately <strong>¥38 million</strong>, with estimated average annual net revenue exceeding <strong>¥20 million</strong> and a static payback period of approximately <strong>1.9 years</strong>. The project is not only an innovative practice in green computing but also a demonstration of digital RMB smart contracts in infrastructure development.</p>
+        <div style="background: #f1f6fe; padding: 1rem 1.5rem; border-radius: 12px; margin-top: 0.8rem;">
+            <p style="margin-bottom: 0;"><strong>🎯 Core Requests</strong>: Permit First · Sandbox Guidance · State Capital Leadership · Joint Task Force</p>
+        </div>
+    </div>
+
+    <!-- Strategic Value -->
+    <div class="section">
+        <div class="section-title">II. Strategic Value</div>
+        <div class="grid-2">
+            <div class="card"><span class="label">🔬 Reform Trailblazer</span>Drawing from the Hangzhou Bay Bridge experience, introduce digital RMB smart contracts to achieve "dedicated funds, performance-based payment, automatic settlement" — creating a "Qiantang River Model" for new infrastructure investment and financing.</div>
+            <div class="card"><span class="label">💚 Industrial Closed Loop</span>Aligned with Zhejiang Province's "PUE≤1.25" mandatory constraint, achieve PUE≤1.03 through direct river water cooling, providing green computing power with over 30% comprehensive cost reduction for AI enterprises.</div>
+            <div class="card"><span class="label">🌊 Research Breakthrough</span>Validate equipment reliability in the real-world extreme tidal bore environment of the Qiantang River — tidal bore 3.5m, max tidal range 8.93m — filling the domestic gap in design specifications for engineering equipment in strong tidal bore sea areas.</div>
+            <div class="card"><span class="label">🏆 Platform Uniqueness</span>China's first commercial computing platform integrating "direct river cooling + tidal green power direct drive," poised to become a landmark project for the integrated development of "Ocean + Computing" in the Yangtze River Delta.</div>
+        </div>
+    </div>
+
+    <!-- Core Technology -->
+    <div class="section">
+        <div class="section-title">III. Core Technology</div>
+
+        <div class="section-title-sm">3.1 Dual-Timescale Adaptive Depth-Keeping Suspension</div>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Timescale</th><th>Response Mechanism</th><th>Function</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Second-Level</strong></td><td>Floating pressure-wing passively absorbs wave energy</td><td>Instantly stabilizes platform against wave disturbances</td></tr>
+                    <tr><td><strong>Hour-Level</strong></td><td>Hydraulic low-pass filter auto-adjusts water tanks</td><td>Dynamically compensates for tidal water level changes</td></tr>
+                    <tr><td><strong>Combined Effect</strong></td><td>Horizontal error <strong>&lt;1°</strong></td><td>Ensures stable operation of equipment under extreme sea conditions</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section-title-sm">3.2 Ten-Pillar Five-Wall I-Shape Modular Design</div>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Performance Metric</th><th>Improvement</th></tr></thead>
+                <tbody>
+                    <tr><td>Bending Moment</td><td>↓ 25%</td></tr>
+                    <tr><td>Bending Stiffness</td><td>↑ 4×</td></tr>
+                    <tr><td>Shear Capacity</td><td>↑ 30×</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section-title-sm">3.3 Multi-Layer Data Center Architecture</div>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Layer</th><th>Function</th><th>PUE</th><th>Load</th></tr></thead>
+                <tbody>
+                    <tr><td>Top</td><td>Solar PV</td><td>—</td><td>—</td></tr>
+                    <tr><td>Upper</td><td>High-density computing</td><td>≤1.05</td><td>120 kW</td></tr>
+                    <tr><td>Middle</td><td>Mid-density computing</td><td>≤1.02</td><td>25 kW</td></tr>
+                    <tr><td>Subsea</td><td>Efficient cooling</td><td>≤1.01</td><td>265 kW</td></tr>
+                    <tr><td>Bottom</td><td>Tidal generation + storage</td><td>—</td><td>—</td></tr>
+                    <tr><td><strong>Combined</strong></td><td>Cascade energy utilization</td><td><strong>≤1.03</strong></td><td><strong>410 kW</strong></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section-title-sm">3.4 Flood Safety</div>
+        <p>The floating bridge's flow obstruction area is <strong>340 m²</strong>, accounting for only <strong>1.4%–2.3%</strong> of the flood discharge cross-section (20,000 m²), well below the 5% limit stipulated by the <em>Guidelines for Flood Risk Assessment of Construction Projects within River Management Zones</em>.</p>
+    </div>
+
+    <!-- Business Model -->
+    <div class="section">
+        <div class="section-title">IV. Business Model & Financials</div>
+
+        <div class="section-title-sm">4.1 Revenue Structure (Full Production Year)</div>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Revenue Source</th><th>Amount (¥10k/year)</th><th>Share</th></tr></thead>
+                <tbody>
+                    <tr><td>AI Computing Hosting</td><td>1230</td><td>47%</td></tr>
+                    <tr><td>Green Computing Output</td><td>820</td><td>32%</td></tr>
+                    <tr><td>Hardware Testing Certification</td><td>200</td><td>8%</td></tr>
+                    <tr><td>Digital Data Subscription</td><td>150</td><td>6%</td></tr>
+                    <tr><td><strong>Total</strong></td><td><strong>2400</strong></td><td><strong>—</strong></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section-title-sm">4.2 Financial Metrics</div>
+        <div class="grid-2">
+            <div class="card"><span class="label">💰 Total Investment</span>¥38 million</div>
+            <div class="card"><span class="label">📈 Avg. Annual Net Revenue</span>≥¥20 million</div>
+            <div class="card"><span class="label">⏱️ Payback Period</span>~1.9 years</div>
+            <div class="card"><span class="label">📊 IRR</span>~28%</div>
+            <div class="card"><span class="label">📉 NPV (8% discount)</span>~¥45 million</div>
+            <div class="card"><span class="label">📉 Net Profit Margin</span>~77%</div>
+        </div>
+
+        <div class="section-title-sm">4.3 Sensitivity Analysis</div>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Scenario</th><th>Payback Period</th><th>IRR</th></tr></thead>
+                <tbody>
+                    <tr><td>Base Case</td><td>1.9 years</td><td>28%</td></tr>
+                    <tr><td>Revenue ↓ 10%</td><td>2.3 years</td><td>22%</td></tr>
+                    <tr><td>Cost ↑ 10%</td><td>2.5 years</td><td>20%</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p>Overall assessment: The project maintains strong investment viability even under conservative scenarios.</p>
+    </div>
+
+    <!-- Safety & Sandbox -->
+    <div class="section">
+        <div class="section-title">V. Seven-Tier Safety Protection</div>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Tier</th><th>Protection Measure</th><th>Function</th></tr></thead>
+                <tbody>
+                    <tr><td>①</td><td>Mangrove Wave-Dissipating Belt</td><td>Wave attenuation 55–75%</td></tr>
+                    <tr><td>②</td><td>Permeable Grid</td><td>Reduces wave impact force</td></tr>
+                    <tr><td>③</td><td>5-Way Spring Generation</td><td>Absorbs wave kinetic energy</td></tr>
+                    <tr><td>④</td><td>Hydraulic Damping</td><td>Suppresses structural vibration</td></tr>
+                    <tr><td>⑤</td><td>Flexible Limit</td><td>Controls displacement range</td></tr>
+                    <tr><td>⑥</td><td>Joint Protection Layer</td><td>Multiple redundancy protection</td></tr>
+                    <tr><td>⑦</td><td>Self-Navigation Escape</td><td>72h early warning, 1.5-knot evasive maneuvering</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section-title-sm">Sandbox Pilot · Five Safety Locks</div>
+        <div class="lock-grid">
+            <div class="lock-item"><strong>① Whitelist Lock</strong><br>Only whitelisted AI enterprises and energy suppliers</div>
+            <div class="lock-item"><strong>② Cap Lock</strong><br>Single contract ≤¥500k, daily cap ≤¥2M</div>
+            <div class="lock-item"><strong>③ State Capital Cushion</strong><br>State partner provides 20% risk reserve</div>
+            <div class="lock-item"><strong>④ Full Custody</strong><br>Bank special account custody, smart contract auto-settlement</div>
+            <div class="lock-item"><strong>⑤ Code-Based Distribution</strong><br>Revenue distribution rules written into contract, immutable</div>
+        </div>
+    </div>
+
+    <!-- Core Commitments -->
+    <div class="section">
+        <div class="section-title">VI. Core Commitments</div>
+        <div style="background: #f8fafc; padding: 1rem 1.8rem; border-radius: 12px; border-left: 4px solid #2e86c1; margin-bottom: 0.8rem;">
+            <p><strong>🔒 Flood Safety Red Line:</strong> Strictly enforce flood safety standards, control flow obstruction rate within 2.3%, ensure no impact on the Qiantang River's flood discharge or tidal landscape.</p>
+        </div>
+        <div style="background: #f8fafc; padding: 1rem 1.8rem; border-radius: 12px; border-left: 4px solid #2e86c1; margin-bottom: 0.8rem;">
+            <p><strong>🌿 Ecological Priority:</strong> Adopt ecologically friendly designs such as mangrove wave-dissipating belts, conduct regular environmental monitoring, ensure "zero negative impact" on aquatic ecology during construction and operation.</p>
+        </div>
+        <div style="background: #f8fafc; padding: 1rem 1.8rem; border-radius: 12px; border-left: 4px solid #2e86c1;">
+            <p><strong>🤝 People-Centered Mission:</strong> Project returns will prioritize technology R&D and regional public services, exploring new models where computing revenue benefits communities.</p>
+        </div>
+    </div>
+
+    <!-- Contact -->
+    <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 2px solid #eaf0f6;">
+        <div style="display: flex; flex-wrap: wrap; gap: 1.5rem 2.5rem; justify-content: space-between;">
+            <div>
+                <strong>SINOSHOP Floating Port Team</strong><br>
+                <span style="font-size: 0.9rem; color: #475569;">Open Source: <a href="https://gitee.com/SINOSHOP" target="_blank" style="color: #1a5276;">https://gitee.com/SINOSHOP</a></span>
+            </div>
+            <div>
+                <span style="font-size: 0.9rem; color: #475569;">WeChat Official: 海洋城市仿真实验</span><br>
+                <span style="font-size: 0.9rem; color: #475569;">Contact WeChat: sinosir3</span>
+            </div>
+            <div style="font-size: 0.85rem; color: #94a3b8;">
+                August 27, 2026
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
