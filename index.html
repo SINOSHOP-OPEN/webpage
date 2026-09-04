@@ -6,22 +6,15 @@
     <title>SINOSHOP · 技术体系总览 V3.0</title>
     <style>
         /* ===== 全局重置 & 基础 ===== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
             background: #f4f6fa;
             color: #1e293b;
             line-height: 1.6;
             padding: 0 1.5rem 3rem;
         }
-        .container {
-            max-width: 1300px;
-            margin: 0 auto;
-        }
+        .container { max-width: 1300px; margin: 0 auto; }
 
         /* ===== 头部 ===== */
         header {
@@ -41,7 +34,7 @@
             right: -20%;
             width: 60%;
             height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
             transform: rotate(15deg);
             pointer-events: none;
         }
@@ -79,6 +72,18 @@
             margin-left: 0.5rem;
             vertical-align: middle;
         }
+        .header-left .core-principle {
+            margin-top: 0.8rem;
+            font-size: 0.95rem;
+            color: #b0c9f0;
+            max-width: 700px;
+            line-height: 1.7;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 0.8rem;
+        }
+        .header-left .core-principle em {
+            font-style: italic;
+        }
         .header-right {
             display: flex;
             gap: 1.2rem;
@@ -88,15 +93,15 @@
             color: #cbdffa;
             text-decoration: none;
             padding: 0.4rem 1.2rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255,255,255,0.2);
             border-radius: 40px;
             transition: all 0.2s;
             font-size: 0.95rem;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255,255,255,0.05);
             backdrop-filter: blur(4px);
         }
         .header-right a:hover {
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255,255,255,0.15);
             border-color: #7aa9ff;
             color: #fff;
         }
@@ -119,10 +124,19 @@
             border-bottom: 3px solid transparent;
             transition: 0.2s;
         }
-        .nav-tabs a:hover {
-            color: #0b1a2e;
-            border-bottom-color: #1a2a44;
+        .nav-tabs a:hover { color: #0b1a2e; border-bottom-color: #1a2a44; }
+        .nav-tabs .lang-links {
+            margin-left: auto;
+            font-size: 0.85rem;
+            color: #94a3b8;
         }
+        .nav-tabs .lang-links a {
+            color: #1a2a44;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: none;
+        }
+        .nav-tabs .lang-links a:hover { text-decoration: underline; }
 
         /* ===== 通用卡片 ===== */
         .section {
@@ -155,13 +169,79 @@
             margin-bottom: 1.5rem;
             font-size: 1.05rem;
         }
-        hr {
-            border: none;
-            border-top: 1px solid #eef2f6;
-            margin: 1.5rem 0;
+        hr { border: none; border-top: 1px solid #eef2f6; margin: 1.5rem 0; }
+
+        /* ===== 核心纲领卡片 ===== */
+        .core-card {
+            background: #f1f5f9;
+            padding: 1.2rem 2rem;
+            border-radius: 1.2rem;
+            margin-bottom: 1.5rem;
+            border-left: 6px solid #d4a540;
+        }
+        .core-card .zh {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #0b1a2e;
+            letter-spacing: 0.5px;
+        }
+        .core-card .zh-sub {
+            font-size: 1.1rem;
+            color: #1a2a44;
+            margin-bottom: 0.2rem;
+        }
+        .core-card .en {
+            font-size: 1rem;
+            color: #475569;
+            font-weight: 300;
+            border-top: 1px solid #dbeafe;
+            padding-top: 0.4rem;
+            margin-top: 0.4rem;
         }
 
-        /* ===== 场景卡片网格 ===== */
+        /* ===== 哲学双栏 ===== */
+        .philosophy-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .philosophy-grid .main {
+            flex: 2;
+            min-width: 280px;
+        }
+        .philosophy-grid .main h4 { color: #1a2a44; margin-bottom: 0.3rem; }
+        .philosophy-grid .main .zh-phrase {
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #0b1a2e;
+            line-height: 1.8;
+        }
+        .philosophy-grid .main .en-phrase {
+            color: #475569;
+            font-size: 0.95rem;
+        }
+        .philosophy-grid .belief {
+            flex: 1;
+            min-width: 200px;
+            background: #f8fafc;
+            padding: 0.8rem 1.5rem;
+            border-radius: 1rem;
+            border: 1px solid #e2e8f0;
+        }
+        .philosophy-grid .belief h4 { color: #1a2a44; margin-bottom: 0.2rem; }
+        .philosophy-grid .belief .zh {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0b1a2e;
+            line-height: 1.5;
+        }
+        .philosophy-grid .belief .en {
+            font-size: 0.9rem;
+            color: #475569;
+        }
+
+        /* ===== 场景卡片 ===== */
         .scene-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -175,15 +255,8 @@
             border-left: 5px solid #1a2a44;
             transition: 0.2s;
         }
-        .scene-card:hover {
-            background: #f1f5f9;
-            transform: translateY(-3px);
-        }
-        .scene-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: #0b1a2e;
-        }
+        .scene-card:hover { background: #f1f5f9; transform: translateY(-3px); }
+        .scene-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; color: #0b1a2e; }
         .scene-card .tag {
             display: inline-block;
             background: #dbeafe;
@@ -193,17 +266,10 @@
             border-radius: 30px;
             margin-bottom: 0.6rem;
         }
-        .scene-card p {
-            font-size: 0.95rem;
-            color: #475569;
-            margin-bottom: 0.5rem;
-        }
-        .scene-card .highlight {
-            font-weight: 600;
-            color: #0b1a2e;
-        }
+        .scene-card p { font-size: 0.95rem; color: #475569; margin-bottom: 0.5rem; }
+        .scene-card .highlight { font-weight: 600; color: #0b1a2e; }
 
-        /* ===== 系统列表（十四大） ===== */
+        /* ===== 系统列表 ===== */
         .sys-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -219,52 +285,26 @@
             gap: 0.5rem;
             flex-wrap: wrap;
         }
-        .sys-item .code {
-            font-weight: 700;
-            color: #1a2a44;
-            min-width: 3.2rem;
-        }
-        .sys-item .name {
-            font-weight: 500;
-            color: #0b1a2e;
-        }
+        .sys-item .code { font-weight: 700; color: #1a2a44; min-width: 3.2rem; }
+        .sys-item .name { font-weight: 500; color: #0b1a2e; }
         .sys-item .desc {
             font-size: 0.85rem;
             color: #64748b;
             width: 100%;
             margin-top: 0.2rem;
         }
-        .sys-item .desc a {
-            color: #1a2a44;
-            text-decoration: none;
-            font-weight: 500;
+        .sys-item .desc a { color: #1a2a44; text-decoration: none; font-weight: 500; }
+        .sys-item .desc a:hover { text-decoration: underline; }
+        .sys-item.flagship-gold {
+            border: 2px solid #d4a540;
+            background: #fefcf5;
         }
-        .sys-item .desc a:hover {
-            text-decoration: underline;
+        .sys-item.flagship-gold .code { color: #d4a540; }
+        .sys-item.flagship-blue {
+            border: 2px solid #64c8ff;
+            background: #f5faff;
         }
-
-        /* ===== 技术路径 ===== */
-        .path-flow {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            gap: 0.8rem 1.5rem;
-            padding: 1rem 0;
-        }
-        .path-node {
-            background: #eef2f6;
-            padding: 0.5rem 1.2rem;
-            border-radius: 40px;
-            font-weight: 500;
-            color: #1e293b;
-            font-size: 0.95rem;
-        }
-        .path-arrow {
-            color: #94a3b8;
-            font-size: 1.5rem;
-            font-weight: 300;
-        }
+        .sys-item.flagship-blue .code { color: #64c8ff; }
 
         /* ===== 能源链路 ===== */
         .energy-chain {
@@ -282,11 +322,7 @@
             align-items: center;
             gap: 0.6rem 1.2rem;
         }
-        .energy-row .label {
-            font-weight: 600;
-            color: #1a2a44;
-            min-width: 100px;
-        }
+        .energy-row .label { font-weight: 600; color: #1a2a44; min-width: 100px; }
         .energy-row .items {
             display: flex;
             flex-wrap: wrap;
@@ -300,29 +336,12 @@
             border: 1px solid #d1d9e6;
         }
 
-        /* ===== 表格风格 ===== */
-        .table-wrap {
-            overflow-x: auto;
-            margin: 1rem 0;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.92rem;
-        }
-        th {
-            background: #1a2a44;
-            color: #fff;
-            padding: 0.6rem 0.8rem;
-            text-align: left;
-        }
-        td {
-            padding: 0.6rem 0.8rem;
-            border-bottom: 1px solid #e2e8f0;
-        }
-        tr:hover td {
-            background: #f8fafc;
-        }
+        /* ===== 表格 ===== */
+        .table-wrap { overflow-x: auto; margin: 1rem 0; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+        th { background: #1a2a44; color: #fff; padding: 0.6rem 0.8rem; text-align: left; }
+        td { padding: 0.6rem 0.8rem; border-bottom: 1px solid #e2e8f0; }
+        tr:hover td { background: #f8fafc; }
 
         /* ===== 底部 ===== */
         footer {
@@ -336,16 +355,10 @@
             color: #64748b;
             font-size: 0.9rem;
         }
-        footer a {
-            color: #1a2a44;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        footer a:hover {
-            text-decoration: underline;
-        }
+        footer a { color: #1a2a44; text-decoration: none; font-weight: 500; }
+        footer a:hover { text-decoration: underline; }
 
-        /* ===== 团队联系区 ===== */
+        /* ===== 团队联系 ===== */
         .contact-grid {
             display: flex;
             flex-wrap: wrap;
@@ -356,30 +369,12 @@
             padding: 1.5rem 2rem;
             border-radius: 1.2rem;
         }
-        .contact-left h4 {
-            color: #1a2a44;
-            font-size: 1.3rem;
-            margin-bottom: 0.2rem;
-        }
-        .contact-left p {
-            color: #475569;
-        }
-        .contact-right {
-            display: flex;
-            flex-direction: column;
-            gap: 0.4rem;
-        }
-        .contact-right span {
-            font-size: 0.95rem;
-        }
-        .contact-right a {
-            color: #1a2a44;
-            text-decoration: none;
-            border-bottom: 1px solid #d1d9e6;
-        }
-        .contact-right a:hover {
-            border-bottom-color: #1a2a44;
-        }
+        .contact-left h4 { color: #1a2a44; font-size: 1.3rem; margin-bottom: 0.2rem; }
+        .contact-left p { color: #475569; }
+        .contact-right { display: flex; flex-direction: column; gap: 0.4rem; }
+        .contact-right span { font-size: 0.95rem; }
+        .contact-right a { color: #1a2a44; text-decoration: none; border-bottom: 1px solid #d1d9e6; }
+        .contact-right a:hover { border-bottom-color: #1a2a44; }
 
         /* ===== 协同说明 ===== */
         .synergy-box {
@@ -393,57 +388,24 @@
             flex-wrap: wrap;
             gap: 0.5rem 1.5rem;
         }
-        .synergy-box span {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
-        }
-
-        /* ===== V3.0 新特性标识 ===== */
-        .v3-badge {
-            display: inline-block;
-            background: #d4a540;
-            color: #0b1a2e;
-            font-size: 0.55rem;
-            font-weight: 700;
-            padding: 0.05rem 0.5rem;
-            border-radius: 30px;
-            margin-left: 0.3rem;
-            vertical-align: middle;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .v3-highlight {
-            border-left-color: #d4a540 !important;
-        }
+        .synergy-box span { display: inline-flex; align-items: center; gap: 0.3rem; }
 
         /* ===== 响应式 ===== */
         @media (max-width: 700px) {
-            header .header-content {
-                flex-direction: column;
-                align-items: start;
-                gap: 1rem;
-            }
-            .header-left h1 {
-                font-size: 2.2rem;
-            }
-            .section {
-                padding: 1.5rem 1rem;
-            }
-            .section-title {
-                font-size: 1.5rem;
-            }
-            .contact-grid {
-                flex-direction: column;
-                align-items: start;
-            }
-            .sys-grid {
-                grid-template-columns: 1fr;
-            }
-            .synergy-box {
-                flex-direction: column;
-                gap: 0.3rem;
-            }
+            header .header-content { flex-direction: column; align-items: start; gap: 1rem; }
+            .header-left h1 { font-size: 2.2rem; }
+            .section { padding: 1.5rem 1rem; }
+            .section-title { font-size: 1.5rem; }
+            .contact-grid { flex-direction: column; align-items: start; }
+            .sys-grid { grid-template-columns: 1fr; }
+            .synergy-box { flex-direction: column; gap: 0.3rem; }
+            .philosophy-grid { flex-direction: column; }
+            .nav-tabs .lang-links { margin-left: 0; }
+        }
+        @media print {
+            body { background: white; padding: 0.1in; }
+            .container { box-shadow: none; padding: 0; }
+            th { background: #222 !important; color: white !important; }
         }
     </style>
 </head>
@@ -455,7 +417,10 @@
             <div class="header-content">
                 <div class="header-left">
                     <h1>SINOSHOP <span class="version-tag">V3.0</span></h1>
-                    <div class="sub">标准浮箱模块 · 十四大核心资产系统 · 技术总纲 V3.0</div>
+                    <div class="sub">海洋城市仿真实验 · 标准浮箱模块 · 十四大核心资产系统</div>
+                    <div class="core-principle">
+                        <em>“观天之道，执天之行。<br>三盗既宜，三才既安。”</em>
+                    </div>
                 </div>
                 <div class="header-right">
                     <a href="#scenes">六大场景</a>
@@ -463,11 +428,12 @@
                     <a href="#techpath">技术路径</a>
                     <a href="#energy">能源闭环</a>
                     <a href="index_001_backup.html" target="_blank">📄 查看旧版 001</a>
+                    <a href="index-en.html" style="border-color: #d4a540;">🌐 English</a>
                 </div>
             </div>
         </header>
 
-        <!-- ============================== 导航锚点 ============================== -->
+        <!-- ============================== 导航锚点（双语链接） ============================== -->
         <div class="nav-tabs">
             <a href="#scenes">🌊 六大应用场景</a>
             <a href="#systems">⚙️ 十四大资产系统</a>
@@ -475,11 +441,51 @@
             <a href="#energy">⚡ 能源闭环</a>
             <a href="#coupling">🔗 耦合逻辑</a>
             <a href="#materials">🧱 基础工艺</a>
+            <span class="lang-links">
+                <a href="index-en.html">🌐 English</a> ·
+                <a href="sinoshop-floating-module.html">📘 浮箱成本分析 (CN)</a> ·
+                <a href="sinoshop-floating-module-en.html">📘 Cost-Benefit (EN)</a>
+            </span>
         </div>
 
-        <!-- ============================== 简介 ============================== -->
+        <!-- ============================== 简介 (与英文版风格统一) ============================== -->
         <div class="section">
-            <div class="section-title">🚀 项目概述 <span class="badge">V3.0</span></div>
+            <div class="section-title">🚀 核心纲领与工程哲学 <span class="badge">V3.0</span></div>
+
+            <!-- 核心纲领 -->
+            <div class="core-card">
+                <div class="zh">观天之道 · 执天之行</div>
+                <div class="zh-sub">三盗既宜 · 三才既安</div>
+                <div class="en">
+                    Observe Nature's Order, Align with Ocean's Rhythm.<br>
+                    When the Three Harmonies Are Balanced, the Three Realms Rest Secure.
+                </div>
+            </div>
+
+            <!-- 工程哲学 + 精神信念 -->
+            <div class="philosophy-grid">
+                <div class="main">
+                    <h4>⚙️ 工程哲学</h4>
+                    <p class="zh-phrase">
+                        海生电 · 电养船 · 船搭桥 · 桥造城 · 城惠民 · 航天海 · 众生安
+                    </p>
+                    <p class="en-phrase">
+                        Ocean Generates Power, Power Sustains Ships, Ships Erect Bridges, Bridges Build Cities, Cities Bless the People.<br>
+                        Space-Ocean Synergy, All Dwell in Security.
+                    </p>
+                </div>
+                <div class="belief">
+                    <h4>🙏 精神信念</h4>
+                    <p class="zh">贞忠昭日月 · 惠民播春秋</p>
+                    <p class="en">
+                        Steadfast Loyalty glowing like the sun and moon;<br>
+                        Benevolence nourishing the tide of time.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 技术概述 -->
+            <hr>
             <p style="font-size:1.05rem; color:#334155;">
                 <strong>SINOSHOP</strong> 以一个标准模块、四层复合结构、六大应用场景，实现
                 <strong>“海生电、电养船、船搭桥、桥造城”</strong> 递进式设计哲学。
@@ -547,9 +553,7 @@
 
         <!-- ============================== 十四大资产系统 ============================== -->
         <div id="systems" class="section">
-            <div class="section-title">
-                ⚙️ 十四大核心资产系统 <span class="badge">V3.0</span>
-            </div>
+            <div class="section-title">⚙️ 十四大核心资产系统 <span class="badge">V3.0</span></div>
             <div class="section-sub">基于 FreeCAD 数字孪生骨架的强耦合体系，参数全局驱动。基础平台 → 旗舰升级 · 概念原型 → 科研旗舰 · 技术互哺闭环。</div>
 
             <h4 style="margin:1.2rem 0 0.6rem; color:#1a2a44;">顶层总控</h4>
@@ -559,7 +563,6 @@
 
             <h4 style="margin:1.2rem 0 0.6rem; color:#1a2a44;">核心物理基础设施</h4>
             <div class="sys-grid">
-                <!-- 001 基础平台 -->
                 <div class="sys-item">
                     <span class="code">001</span>
                     <span class="name">海面浮桥·防波堤·海洋能</span>
@@ -570,8 +573,6 @@
                         </span>
                     </span>
                 </div>
-
-                <!-- 002 概念原型 -->
                 <div class="sys-item">
                     <span class="code">002</span>
                     <span class="name">水面浮体·潮汐发电·算力浮桥</span>
@@ -582,8 +583,6 @@
                         </span>
                     </span>
                 </div>
-
-                <!-- 003-005 -->
                 <div class="sys-item">
                     <span class="code">003</span>
                     <span class="name">悬浮隧道动态载荷抵消</span>
@@ -599,8 +598,6 @@
                     <span class="name">深海定深悬浮交通枢纽</span>
                     <span class="desc">CDP 中流砥柱，连接 001/002/004</span>
                 </div>
-
-                <!-- 006-007 -->
                 <div class="sys-item">
                     <span class="code">006</span>
                     <span class="name">远洋运输海洋能动力</span>
@@ -617,8 +614,6 @@
                         <a href="https://github.com/SINOSHOP-OPEN/sinoship" target="_blank">🇬🇧 GitHub</a>
                     </span>
                 </div>
-
-                <!-- 008-009 -->
                 <div class="sys-item">
                     <span class="code">008</span>
                     <span class="name">长蛇形组合·八卦圆形避险通风</span>
@@ -629,8 +624,6 @@
                     <span class="name">可复用航天器蒸汽陶瓷防热外甲</span>
                     <span class="desc">航天级隔热，复用≥50 次，战略外挂</span>
                 </div>
-
-                <!-- 010-012 -->
                 <div class="sys-item">
                     <span class="code">010</span>
                     <span class="name">海洋城科幻影视/小说系统</span>
@@ -646,10 +639,8 @@
                     <span class="name">跨海通道·海洋城·文旅种养</span>
                     <span class="desc">顶层调度，融合算力+生态+救生</span>
                 </div>
-
-                <!-- ★ 013 旗舰升级版 -->
-                <div class="sys-item" id="013" style="border: 2px solid #d4a540; background: #fefcf5;">
-                    <span class="code" style="color:#d4a540;">⭐ 013</span>
+                <div class="sys-item flagship-gold" id="013">
+                    <span class="code">⭐ 013</span>
                     <span class="name">模块化智慧港口系统 <span style="font-size:0.6rem; background:#d4a540; color:#fff; padding:0.1rem 0.6rem; border-radius:20px;">旗舰</span></span>
                     <span class="desc">纤维混凝土复合结构 · 超疏水仿生防护 · 三区段波浪能发电 · 七级活水生态鱼道。
                         <a href="https://gitee.com/sinoshop/SinoPORT" target="_blank">🇨🇳 Gitee</a> ·
@@ -658,11 +649,9 @@
                         <span style="display:inline-block; margin-left:4px; font-size:0.65rem; color:#64c8ff; background:rgba(100,200,255,0.1); padding:0.1rem 0.5rem; border-radius:12px;">🔄 集成 014 技术</span>
                     </span>
                 </div>
-
-                <!-- ★ 014 科研旗舰 -->
-                <div class="sys-item" id="014" style="border: 2px solid #64c8ff; background: #f5faff;">
-                    <span class="code" style="color:#64c8ff;">⭐ 014</span>
-                    <span class="name">潮汐发电算力定深浮桥 <span style="font-size:0.6rem; background:#64c8ff; color:#0b1a2e; padding:0.1rem 0.6rem; border-radius:20px;">旗舰</span></span>
+                <div class="sys-item flagship-blue" id="014">
+                    <span class="code">⭐ 014</span>
+                    <span class="name">潮汐发电算力定深浮桥 <span style="font-size:0.6rem; background:#64c8ff; color:#0b1a2e; padding:0.1rem 0.6rem; border-radius:20px;">科研旗舰</span></span>
                     <span class="desc">双时间尺度定深悬浮 · 立体数据中心 · PUE≤1.03 · 七重安全防护 · 数字人民币智能合约。
                         <a href="https://gitee.com/sinoshop/SinoTide" target="_blank">🇨🇳 Gitee</a> ·
                         <a href="https://github.com/SINOSHOP-OPEN/SinoTide" target="_blank">🇬🇧 GitHub</a>
@@ -672,7 +661,6 @@
                 </div>
             </div>
 
-            <!-- 协同说明 -->
             <div class="synergy-box">
                 <span>🔄 <strong>技术演进</strong>：001 → 013 产业化升级 · 002 → 014 科研旗舰</span>
                 <span>🔄 <strong>技术协同</strong>：014 核心技术反哺 013，形成闭环</span>
@@ -781,19 +769,18 @@
                 <div style="background:#f8fafc; padding:1rem; border-radius:0.8rem; border-left:4px solid #1a2a44;">
                     <strong>🔥 SINOhotSKIN 薄壳系统</strong>
                     <div style="display:flex; flex-wrap:wrap; gap:0.5rem 1rem; margin-top:0.2rem;">
-                    <span style="font-size:0.8rem; background:#e2e8f0; padding:0.1rem 0.6rem; border-radius:30px;">V4.3-R4 基础版</span>
-                    <span style="font-size:0.8rem; background:#d4a540; color:#fff; padding:0.1rem 0.6rem; border-radius:30px;">⭐ V5.5-R1 升级版</span>
-         </div>
-                 <p style="font-size:0.9rem; color:#475569; margin-top:0.3rem;">
-                 大型海洋浮式薄壁防护，热/浪涌一体化，对标 SpaceX 星舰 TPS。
-                    <span style="background:#fefcf5; border:1px solid #d4a540; border-radius:12px; padding:0.1rem 0.6rem; font-size:0.75rem; color:#d4a540; margin-left:0.3rem;">最新</span>
-                 </p>
+                        <span style="font-size:0.8rem; background:#e2e8f0; padding:0.1rem 0.6rem; border-radius:30px;">V4.3-R4 基础版</span>
+                        <span style="font-size:0.8rem; background:#d4a540; color:#fff; padding:0.1rem 0.6rem; border-radius:30px;">⭐ V5.5-R1 升级版</span>
+                    </div>
+                    <p style="font-size:0.9rem; color:#475569; margin-top:0.3rem;">
+                        大型海洋浮式薄壁防护，热/浪涌一体化，对标 SpaceX 星舰 TPS。
+                    </p>
                     <p style="font-size:0.85rem; margin-top:0.3rem;">
                         <a href="https://gitee.com/sinoshop/sinohotskin" target="_blank">🇨🇳 Gitee</a> ·
                         <a href="https://github.com/SINOSHOP-OPEN/sinohotskin" target="_blank">🇬🇧 GitHub</a>
                         <span style="margin:0 0.3rem; color:#d1d9e6;">|</span>
                         <a href="https://sinoshop-open.github.io/webpage/SINOhotSKIN_V5.5-R1.html" target="_blank" style="color:#d4a540; font-weight:500;">📄 查看 V5.5-R1 完整技术方案</a>
-                   </p>
+                    </p>
                 </div>
                 <div style="background:#f8fafc; padding:1rem; border-radius:0.8rem; border-left:4px solid #1a2a44;">
                     <strong>V6.3「臻陶」厚板系统</strong>
@@ -815,7 +802,7 @@
             <div style="background:#f8fafc; padding:1.2rem 1.8rem; border-radius:1rem; font-family: monospace; font-size:0.95rem; line-height:2;">
                 <div>【Spreadsheet 全局参数总控台】</div>
                 <div style="padding-left:1.5rem;">↓（参数驱动）</div>
-                <div style="padding-left:2rem;">几何层（M18/薄壳/厚板） ＋ 工况层（发电量/深度/温度/储能）</div>
+                <div style="padding-left:2rem;">几何层（M18/薄壳/厚板）＋ 工况层（发电量/深度/温度/储能）</div>
                 <div style="padding-left:1.5rem;">↓（Link/ShapeBinder 引用）</div>
                 <div style="padding-left:2rem;">【Assembly 装配约束层】（空间位置、载荷传递、变形路径）</div>
                 <div style="padding-left:1.5rem;">↓</div>
