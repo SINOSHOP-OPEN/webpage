@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SINOhotSKIN V5.5-R1 · Xuan Jia · Marine Recovery Integrated Armor</title>
+    <style>
+        :root {
+            --primary: #1a3a5c;
+            --secondary: #2c5f8a;
+            --accent: #d4a540;
+            --bg: #f7f5f0;
+            --card-bg: #ffffff;
+            --text: #2d2d2d;
+            --border: #e0ddd5;
+            --table-header: #1a3a5c;
+            --table-alt: #f4f2ec;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Georgia", "Times New Roman", serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.75;
+            padding: 0;
+            margin: 0;
+        }
+        .toolbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: linear-gradient(135deg, #1a3a5c, #2c5f8a);
+            color: #fff;
+            padding: 16px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .toolbar-title {
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #f0e6c8;
+        }
+        .toolbar-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .btn-download {
+            background: linear-gradient(135deg, #d4a540, #c9952e);
+            color: #1a1a1a;
+            border: none;
+            padding: 12px 28px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 165, 64, 0.4);
+            font-family: "Georgia", "Times New Roman", serif;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-download:hover {
+            background: linear-gradient(135deg, #e6b850, #d4a540);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 165, 64, 0.6);
+        }
+        .btn-download:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 8px rgba(212, 165, 64, 0.4);
+        }
+        .btn-download svg {
+            width: 22px;
+            height: 22px;
+            fill: #1a1a1a;
+        }
+        .btn-home {
+            background: rgba(255, 255, 255, 0.15);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 12px 22px;
+            font-size: 15px;
+            font-weight: 500;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-family: "Georgia", "Times New Roman", serif;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            backdrop-filter: blur(4px);
+        }
+        .btn-home:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: #d4a540;
+        }
+        .btn-home a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .document-wrapper {
+            max-width: 950px;
+            margin: 90px auto 60px auto;
+            padding: 0 20px;
+        }
+        .document {
+            background: var(--card-bg);
+            border-radius: 6px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            padding: 50px 55px;
+            border: 1px solid var(--border);
+        }
+        .lang-switch {
+            text-align: right;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        .lang-switch a {
+            color: var(--secondary);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--border);
+            padding-bottom: 2px;
+            font-weight: 500;
+        }
+        .lang-switch a:hover {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+        h1 {
+            font-size: 26px;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 6px;
+            letter-spacing: 2px;
+            line-height: 1.4;
+        }
+        .subtitle {
+            text-align: center;
+            font-size: 16px;
+            color: var(--secondary);
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+        .meta-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0 30px 0;
+            font-size: 14px;
+        }
+        .meta-table td {
+            padding: 6px 12px;
+            border: 1px solid var(--border);
+            background: #faf9f5;
+        }
+        .meta-table td:first-child {
+            font-weight: bold;
+            background: #f0ede4;
+            width: 180px;
+            color: var(--primary);
+        }
+        h2 {
+            font-size: 20px;
+            color: var(--primary);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 8px;
+            margin: 35px 0 18px 0;
+            letter-spacing: 1px;
+        }
+        h3 {
+            font-size: 17px;
+            color: var(--secondary);
+            margin: 25px 0 12px 0;
+            letter-spacing: 0.5px;
+        }
+        p {
+            margin-bottom: 12px;
+            font-size: 15px;
+            text-align: justify;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0 20px 0;
+            font-size: 14px;
+        }
+        table th {
+            background: var(--table-header);
+            color: #fff;
+            padding: 10px 12px;
+            text-align: left;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+        table td {
+            padding: 9px 12px;
+            border: 1px solid var(--border);
+            vertical-align: top;
+        }
+        table tr:nth-child(even) {
+            background: var(--table-alt);
+        }
+        table tr:hover {
+            background: #faf5e8;
+        }
+        ul, ol {
+            margin: 8px 0 15px 25px;
+            font-size: 15px;
+        }
+        li {
+            margin-bottom: 6px;
+        }
+        .callout {
+            background: #f5f1e6;
+            border-left: 5px solid var(--accent);
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-size: 14px;
+            border-radius: 0 6px 6px 0;
+            font-style: italic;
+        }
+        .highlight-box {
+            background: #fffef8;
+            border: 1px solid #e8e0cc;
+            border-radius: 6px;
+            padding: 18px 22px;
+            margin: 18px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        .footer-sign {
+            text-align: right;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            font-size: 14px;
+            color: #555;
+        }
+        @media (max-width: 768px) {
+            .document { padding: 25px 18px; }
+            .toolbar { padding: 12px 16px; }
+            .toolbar-title { font-size: 14px; }
+            .btn-download { padding: 10px 18px; font-size: 14px; }
+            .btn-home { padding: 10px 16px; font-size: 13px; }
+            h1 { font-size: 20px; }
+            table { font-size: 12px; }
+            table th, table td { padding: 6px 8px; }
+        }
+        @media print {
+            .toolbar { display: none; }
+            .document-wrapper { margin: 0; max-width: 100%; padding: 0; }
+            .document { box-shadow: none; border: none; padding: 20px; }
+            body { background: #fff; }
+            .lang-switch { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="toolbar">
+        <div class="toolbar-title">📄 SINOhotSKIN V5.5-R1 · Open Concept</div>
+        <div class="toolbar-actions">
+            <a href="https://sinoshop-open.github.io/webpage/index.html" class="btn-home" style="color:#fff; text-decoration:none;">🏠 Home</a>
+            <a href="https://sinoshop-open.github.io/webpage/SINOhotSKIN_V5.5-R1.html" class="btn-home" style="color:#fff; text-decoration:none;">🇨🇳 中文版</a>
+            <button class="btn-download" onclick="downloadWord()" title="Download sanitized Word document">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zM6 20V4h7v5h5v11H6z"></path>
+                    <path d="M12 15l-4-4h2.5V8h3v3H16l-4 4z"></path>
+                </svg>
+                Download .doc
+            </button>
+        </div>
+    </div>
+
+    <div class="document-wrapper">
+        <div class="document" id="document-content">
+
+            <div class="lang-switch">
+                <a href="https://sinoshop-open.github.io/webpage/SINOhotSKIN_V5.5-R1.html">🇨🇳 中文版</a> &nbsp;|&nbsp;
+                <a href="https://sinoshop-open.github.io/webpage/index.html">🏠 Home</a>
+            </div>
+
+            <h1>SINOhotSKIN V5.5-R1<br>「Xuan Jia · Steam Ceramic · Marine Recovery Integrated Armor」<br>Technical Specification (Open Concept)</h1>
+
+            <p class="subtitle">Dingjunshan · Steam Ceramic · Xuan Jia · Marine Recovery Integrated Armor</p>
+
+            <table class="meta-table">
+                <tbody>
+                    <tr><td>Version</td><td>V5.5-R1-open</td></tr>
+                    <tr><td>Codename</td><td>Dingjunshan · Steam Ceramic · Xuan Jia · Marine Recovery Integrated Armor</td></tr>
+                    <tr><td>Date</td><td>2026-08-30</td></tr>
+                    <tr><td>Prepared by</td><td>SINOSHOP Engineering Team</td></tr>
+                    <tr><td>Document ID</td><td>SHS-SPEC-026-OPEN</td></tr>
+                    <tr><td>Applicable to</td><td>9-meter-class reusable spacecraft, for marine net capture / splashdown recovery</td></tr>
+                    <tr><td>Document Type</td><td>Open concept design — key engineering parameters sanitized, not manufacturing drawings</td></tr>
+                    <tr><td>Revision Note</td><td>Based on V5.4-R2, enhanced with marine recovery analysis: buoyancy, impact absorption, sealing, corrosion resistance, recovery interfaces, and rapid maintenance. This open version hides specific process parameters but retains the architectural philosophy.</td></tr>
+                </tbody>
+            </table>
+
+            <h2>1. Background & Design Objectives</h2>
+
+            <h3>1.1 Marine Recovery Advantages Review</h3>
+            <p>Compared to land-based recovery, marine recovery offers <strong>flexible landing zones, lower safety risks, minimal infrastructure investment, reduced structural loads, and greater mission adaptability</strong> — especially for large reusable spacecraft and high-inclination orbits. Key engineering challenges include:</p>
+            <ul>
+                <li>Net impact / splashdown energy absorption</li>
+                <li>Floating stability and attitude control on water</li>
+                <li>Long-term corrosion protection in high-salt, seawater immersion</li>
+                <li>Post-recovery rapid inspection and modular replacement</li>
+            </ul>
+            <p>This solution addresses these challenges with an integrated five-in-one armor system: <strong>Thermal Protection — Impact Absorption — Buoyancy — Sealing — Corrosion Resistance</strong>.</p>
+
+            <h3>1.2 Design Inputs (Public Summary)</h3>
+            <table>
+                <tbody>
+                    <tr><th>Parameter</th><th>Value / Range</th></tr>
+                    <tr><td>Vehicle Diameter</td><td>9 m (order of magnitude)</td></tr>
+                    <tr><td>Re-entry Mass</td><td>~100+ tons (e.g., 130 t class)</td></tr>
+                    <tr><td>Recovery Mode</td><td>Marine net capture primary, emergency splashdown secondary</td></tr>
+                    <tr><td>Max Net Impact Velocity</td><td>Vertical ≤5 m/s (public range)</td></tr>
+                    <tr><td>Design Sea State</td><td>Sea State 4, survival Sea State 6</td></tr>
+                    <tr><td>Floating Duration</td><td>≥72 hours</td></tr>
+                    <tr><td>Salt Spray Lifespan</td><td>≥10 years (cumulative)</td></tr>
+                    <tr><td>Reusability</td><td>≥10 flights (primary structure)</td></tr>
+                </tbody>
+            </table>
+
+            <h3>1.3 Design Objectives (Public Summary)</h3>
+            <table>
+                <tbody>
+                    <tr><th>Metric</th><th>Target</th></tr>
+                    <tr><td>Total Armor Mass</td><td>≤26 tons (~20% of re-entry mass)</td></tr>
+                    <tr><td>Stagnation Point Heat Flux</td><td>≥2 MW/m² (30 s sustained)</td></tr>
+                    <tr><td>Peak Impact Acceleration</td><td>≤15 g (vertical)</td></tr>
+                    <tr><td>Positive Buoyancy Reserve</td><td>≥5% of re-entry mass</td></tr>
+                    <tr><td>Buoyancy Redundancy</td><td>Any two independent buoyancy compartments breached — still positive buoyancy</td></tr>
+                    <tr><td>Seawater Immersion Seal</td><td>Critical equipment bays: 48 h no leakage</td></tr>
+                    <tr><td>Single Panel Replacement Time</td><td>≤30 min (at sea)</td></tr>
+                    <tr><td>Bottom Module Replacement Time</td><td>≤2 h (at sea)</td></tr>
+                </tbody>
+            </table>
+
+            <h2>2. Overall Architecture & Layer Sequence</h2>
+
+            <h3>2.1 Outer Layer Sequence (Windward Side, Conceptual)</h3>
+            <p>From outside to inside, layer thicknesses are zone-optimized per thermal and mechanical requirements. Specific values are not disclosed:</p>
+            <table>
+                <tbody>
+                    <tr><th>Layer</th><th>Name</th><th>Material / Structure (General)</th><th>Thickness (Order of Magnitude)</th><th>Function</th></tr>
+                    <tr><td>①</td><td>External TPS / Corrosion Barrier</td><td>Alumina-based foam ceramic, mortise-tenon surface, strap grooves on underside</td><td>~8–12 mm (zone-dependent)</td><td>Re-entry thermal protection, thermal shock resistance, seawater resistance</td></tr>
+                    <tr><td>—</td><td>Retention Straps</td><td>Alumina-based ceramic fiber straps, in underside grooves</td><td>~10 mm wide</td><td>Mechanical retention, operating temp &lt;800°C</td></tr>
+                    <tr><td>②</td><td>Outer Load-Bearing Panel</td><td>Basalt fiber-reinforced ceramic matrix composite</td><td>~4 mm</td><td>Supports ceramic layer</td></tr>
+                    <tr><td>③</td><td>Honeycomb Rubber Foam Buffer</td><td>Closed-cell honeycomb rubber (graded thickness)</td><td>~10–25 mm</td><td>Impact absorption, buoyancy, sealing</td></tr>
+                    <tr><td>④</td><td>Mid-Layer Honeycomb Skeleton</td><td>Basalt/bamboo fiber hybrid composite honeycomb</td><td>~3–4 mm</td><td>Structural connection, buoyancy compartment separation</td></tr>
+                    <tr><td>⑤</td><td>First Steam Cavity (Outer Water Reservoir)</td><td>Basalt fiber woven bag + distilled water</td><td>~2 mm cavity</td><td>Evaporative cooling, heat sink</td></tr>
+                    <tr><td>⑥</td><td>Second Steam Cavity (Inner Water Reservoir)</td><td>Basalt fiber woven bag + distilled water</td><td>~2 mm cavity</td><td>Secondary heat sink</td></tr>
+                    <tr><td>⑦</td><td>Inner Structural Panel</td><td>Alumina ceramic / carbon fiber hybrid</td><td>~2 mm</td><td>Sealing, internal pressure bearing</td></tr>
+                    <tr><td>⑧</td><td>Internal Thermal Insulation</td><td>Bamboo fiber / recycled plastic composite aerogel</td><td>~2–3 mm</td><td>Residual heat isolation</td></tr>
+                    <tr><td>⑨</td><td>Adapter Layer</td><td>Carbon/basalt fiber hybrid thin layer</td><td>~1–2 mm</td><td>Stress transition, anchoring interface</td></tr>
+                    <tr><td>⑩</td><td>Primary Load-Bearing Structure</td><td>Inherited stainless steel hull</td><td>~4 mm (existing)</td><td>Axial/bending primary load path</td></tr>
+                </tbody>
+            </table>
+
+            <div class="callout">The leeward side uses a simplified configuration: basalt fiber fabric outer layer (with high-temp coating) + honeycomb rubber foam + closed-cell foam buoyancy blocks + silicone rubber sealing layer — no ceramic or water reservoirs. Thickness adjusted as needed.</div>
+
+            <h3>2.2 Buoyancy & Sealing Integration (Concept)</h3>
+            <p><strong>Buoyancy Sources:</strong></p>
+            <ul>
+                <li>Hollow truss sealed cavities</li>
+                <li>Closed-cell honeycomb rubber foam</li>
+                <li>Additional closed-cell foam buoyancy blocks on leeward side</li>
+                <li>Bottom module with integrated inflatable buoyancy bags (optional)</li>
+            </ul>
+            <p>Preliminary estimates indicate the armor itself provides ~20 tons of buoyancy — insufficient for a 100+ ton vehicle. <strong>An external inflatable buoyancy system is required.</strong></p>
+
+            <div class="highlight-box">
+                <p><strong>Supplemental Buoyancy System (Concept):</strong></p>
+                <ul>
+                    <li><strong>Inflatable buoyancy bags</strong> housed within armor cavities, automatically or remotely deployed upon water contact.</li>
+                    <li>Total bag volume ≥100 m³ (scaled to re-entry mass), ensuring total buoyancy exceeds vehicle weight.</li>
+                    <li>Multiple independent bags distributed circumferentially — single bag failure does not compromise overall buoyancy.</li>
+                    <li>Bag material: multi-layer composite fabric (aramid/basalt fiber reinforced polyurethane) — seawater-resistant, UV-resistant, reusable.</li>
+                </ul>
+            </div>
+
+            <p><strong>Sealing Design:</strong></p>
+            <ul>
+                <li>All armor joints sealed with <strong>high-temp sealant + silicone rubber</strong> double seal.</li>
+                <li>Internal critical equipment bays independently sealed to IP68.</li>
+                <li>The stainless steel hull itself is a welded sealed structure providing basic watertight integrity.</li>
+                <li>All openings (strap grooves, anchor points) filled with flexible sealant.</li>
+            </ul>
+
+            <h2>3. Marine Recovery-Specific Design</h2>
+
+            <h3>3.1 Impact Attenuation System</h3>
+            <p><strong>Net Capture Mode:</strong></p>
+            <ul>
+                <li>Recovery net made of high-strength synthetic fibers, with pre-tension adjustable, max deflection ≥0.5 m.</li>
+                <li>Upon net contact, honeycomb rubber foam deforms to absorb energy, followed by net deflection to extend deceleration stroke.</li>
+                <li>Combined buffer system keeps peak acceleration well below 15 g — on the order of 2–3 g.</li>
+            </ul>
+            <p><strong>Emergency Splashdown Mode:</strong></p>
+            <ul>
+                <li>Relies on thickened honeycomb rubber in the bottom module + auxiliary inflatable bags.</li>
+                <li>Requires <strong>early deployment of drogue parachute</strong> or <strong>pre-inflated bags</strong> to reduce vertical velocity to ≤3 m/s, keeping combined acceleration within 15 g.</li>
+            </ul>
+
+            <h3>3.2 Recovery & Towing Interfaces</h3>
+            <ul>
+                <li><strong>Four primary lifting points</strong> pre-installed on the stainless steel hull — each rated ≥50 t, for crane recovery.</li>
+                <li>Lifting point structure: welded stainless steel lugs, passing through armor via disposable TPS covers.</li>
+                <li><strong>Towing points</strong> for mooring during recovery operations.</li>
+                <li>Local armor reinforcement around lifting points prevents stress damage.</li>
+            </ul>
+
+            <h3>3.3 Rapid Inspection & Modular Replacement</h3>
+            <ul>
+                <li><strong>Single panel replacement</strong>: release local straps — design target ≤30 min.</li>
+                <li><strong>Bottom module replacement</strong>: quick-release bolts — design target ≤2 h.</li>
+                <li><strong>Buoyancy bag inspection</strong>: via external maintenance ports.</li>
+            </ul>
+
+            <h2>4. Materials & Structural Detail (Conceptual)</h2>
+
+            <h3>4.1 Panel Geometry & Fixing</h3>
+            <ul>
+                <li><strong>Cylindrical windward side</strong>: square ceramic panels ~300 mm per side (order of magnitude), mortise-tenon joints, strap grooves on underside.</li>
+                <li><strong>Nose cone</strong>: hexagonal ceramic panels ~300 mm per side, three-tenon/three-mortise, underside grooves.</li>
+                <li><strong>Bottom module</strong>: square panels with thickened buffer layer — several hundred pieces.</li>
+                <li><strong>Leeward side</strong>: flexible rectangular panels — no ceramic, basalt fabric + high-temp coating, thickness ~10+ mm.</li>
+            </ul>
+
+            <h3>4.2 Strap System</h3>
+            <ul>
+                <li>Material: alumina-based ceramic fiber braided strap, width ~10 mm.</li>
+                <li>Pre-tension: circumferential ~tens to hundreds of N, axial slightly lower.</li>
+                <li>Anchoring: composite anchor blocks welded or bolted to stainless hull, spacing ~600 mm (panel-optimized).</li>
+                <li>Thermal compensation: high-temp alloy spring elements with insulating washers.</li>
+                <li>Total length determined by panel count.</li>
+            </ul>
+
+            <h3>4.3 Dual Steam Cavities</h3>
+            <ul>
+                <li>Water volume: heat-flux matched — ~0.5–1.0 L/m², total several hundred liters.</li>
+                <li>Water bags: basalt fiber woven, high-temp resistant, dual independent cavities.</li>
+                <li>Refill interface: ground refillable, reusable.</li>
+            </ul>
+
+            <h2>5. Mass & Performance Assessment (Public Summary)</h2>
+
+            <h3>5.1 Mass Budget</h3>
+            <p>Total armor mass ~<strong>26 tons</strong> — ~20% of re-entry mass. Thermal protection and buffer layers account for the largest share, followed by buoyancy system and structural adaptation.</p>
+
+            <h3>5.2 System-Level Mass Offset</h3>
+            <p>Marine recovery allows elimination or simplification of landing legs, retropulsive propellant, precision landing navigation equipment, etc. — saving several tons. Net mass increase is ~<strong>20 tons</strong> (~16%), which is acceptable.</p>
+
+            <h3>5.3 Performance Comparison</h3>
+            <table>
+                <tbody>
+                    <tr><th>Aspect</th><th>Land Recovery TPS</th><th>This Solution (Marine)</th></tr>
+                    <tr><td>Total Mass</td><td>~15 t</td><td>~26 t (net +11 t)</td></tr>
+                    <tr><td>Impact Attenuation</td><td>None</td><td>Honeycomb rubber + bags + net</td></tr>
+                    <tr><td>Buoyancy Assurance</td><td>None</td><td>Inflatable bags + closed-cell foam</td></tr>
+                    <tr><td>Sealing & Corrosion</td><td>Moderate</td><td>Multi-layer sealing + corrosion-resistant materials</td></tr>
+                    <tr><td>Recovery Interfaces</td><td>None</td><td>4 lifting points + towing points</td></tr>
+                    <tr><td>At-Sea Maintainability</td><td>Poor</td><td>Modular panels, rapid replacement</td></tr>
+                    <tr><td>Mission Adaptability</td><td>Land-only trajectories</td><td>Global海域 recovery</td></tr>
+                </tbody>
+            </table>
+
+            <h2>6. Verification Plan (Public Summary)</h2>
+
+            <h3>6.1 Ground Tests</h3>
+            <table>
+                <tbody>
+                    <tr><th>Test Item</th><th>Description (Sanitized)</th><th>Objective</th></tr>
+                    <tr><td>Impact Performance</td><td>Drop tests on specimens of varying thickness/hardness</td><td>Verify energy absorption efficiency</td></tr>
+                    <tr><td>Thermal Shock Cycling</td><td>High-temp ↔ seawater quench, multiple cycles</td><td>No cracks, strength degradation &lt;10%</td></tr>
+                    <tr><td>Strap Creep at High Temp</td><td>Sustained tension at elevated temperature</td><td>Relaxation &lt;5%</td></tr>
+                    <tr><td>Salt Spray & Seawater Immersion</td><td>Long-term salt fog test</td><td>No corrosion, seals intact</td></tr>
+                    <tr><td>Subscale Segment Water Impact</td><td>Subscale model drop test</td><td>Validate buffer performance & floating attitude</td></tr>
+                    <tr><td>Buoyancy Bag Tests</td><td>Inflation, loading, single-bag failure</td><td>Buoyancy达标, single-bag breach still positive</td></tr>
+                </tbody>
+            </table>
+
+            <h3>6.2 At-Sea Verification</h3>
+            <ul>
+                <li>Phase 1: Near-shore splashdown test — validate buoyancy, sealing, recovery procedures.</li>
+                <li>Phase 2: Suborbital flight followed by marine splashdown — validate TPS and full recovery cycle.</li>
+                <li>Phase 3: Full-scale Starship-class marine net capture recovery validation.</li>
+            </ul>
+
+            <h2>7. Conclusion</h2>
+            <p>This solution builds on V5.4-R2 with comprehensive enhancements for marine recovery:</p>
+            <ol>
+                <li><strong>Enhanced Buoyancy:</strong> External inflatable bag system ensures ≥72-hour flotation.</li>
+                <li><strong>Complete Impact Attenuation:</strong> Combined honeycomb rubber, inflatable bags, and recovery net — peak acceleration kept safe.</li>
+                <li><strong>Robust Sealing & Corrosion Protection:</strong> Multi-layer sealing, IP68 critical bays, ≥10-year salt spray life.</li>
+                <li><strong>Optimized Recovery & Maintenance:</strong> Modular panels enable rapid at-sea operations.</li>
+                <li><strong>Controllable System Mass:</strong> Net mass increase ~20 tons — acceptable for full marine recovery capability.</li>
+            </ol>
+            <p>This solution continues SINOSHOP's engineering philosophy: <strong>"Unlock the full potential of materials through the most intelligent architecture."</strong> It provides a conceptual technology pathway for marine recovery of Starship-class reusable spacecraft.</p>
+
+            <div class="footer-sign">
+                <p><strong>Prepared by</strong>: SINOhotSKIN Chief Engineer<br>
+                    <strong>Date</strong>: 2026-08-30</p>
+                <p><strong>Open Source Notice</strong>: This document is an open concept version — key engineering parameters have been sanitized. This document is licensed under Apache License 2.0, but complete engineering data is not included.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function downloadWord() {
+            const docContent = document.getElementById('document-content');
+            const wordHTML = `
+            <html xmlns:o="urn:schemas-microsoft-com:office:office"
+                  xmlns:w="urn:schemas-microsoft-com:office:word"
+                  xmlns="http://www.w3.org/TR/REC-html40">
+            <head>
+                <meta charset="UTF-8">
+                <title>SINOhotSKIN V5.5-R1 Open Concept</title>
+                <style>
+                    body { font-family: "Georgia", "Times New Roman", serif; font-size: 12pt; line-height: 1.75; color: #2d2d2d; max-width: 950px; margin: 30px auto; padding: 20px; }
+                    h1 { font-size: 20pt; color: #1a3a5c; text-align: center; }
+                    h2 { font-size: 16pt; color: #1a3a5c; border-bottom: 2px solid #d4a540; padding-bottom: 6px; margin-top: 28px; }
+                    h3 { font-size: 13pt; color: #2c5f8a; }
+                    table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 10pt; }
+                    th { background: #1a3a5c; color: #fff; padding: 8px 10px; }
+                    td { padding: 7px 10px; border: 1px solid #ccc; }
+                    ul, ol { margin-left: 22px; }
+                    .callout { background: #f5f1e6; border-left: 4px solid #d4a540; padding: 10px 16px; margin: 14px 0; font-style: italic; }
+                    .highlight-box { background: #fffef8; border: 1px solid #e0ddd5; padding: 14px 18px; margin: 14px 0; }
+                    .footer-sign { text-align: right; margin-top: 30px; padding-top: 15px; border-top: 1px solid #ccc; }
+                </style>
+            </head>
+            <body>
+                ${docContent.innerHTML}
+            </body>
+            </html>
+            `;
+            const blob = new Blob(['\ufeff' + wordHTML], { type: 'application/msword;charset=utf-8' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'SINOhotSKIN_V5.5-R1_Open_Concept.doc';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(link.href);
+            const btn = document.querySelector('.btn-download');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '✅ Download Started!';
+            btn.style.background = 'linear-gradient(135deg, #4CAF50, #45a049)';
+            setTimeout(() => { btn.innerHTML = originalText; btn.style.background = ''; }, 2000);
+        }
+    </script>
+
+</body>
+</html>
