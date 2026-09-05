@@ -65,6 +65,15 @@
             min-width: 160px;
             line-height: 1.4;
         }
+        .download-bar a {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: underline;
+            font-size: 13px;
+        }
+        .download-bar a:hover {
+            color: var(--accent);
+        }
         .btn-download {
             display: inline-flex;
             align-items: center;
@@ -154,6 +163,50 @@
             padding: 4px 14px;
             border-radius: 20px;
             white-space: nowrap;
+        }
+        .cover .meta a {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+        .cover .meta a:hover {
+            color: var(--accent);
+        }
+
+        /* ===== 相关文档区块 ===== */
+        .related-docs {
+            background: var(--highlight);
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid var(--accent);
+        }
+        .related-docs h3 {
+            margin: 0 0 8px 0;
+            color: var(--primary);
+            font-size: 16px;
+        }
+        .related-docs ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .related-docs li {
+            margin-bottom: 4px;
+        }
+        .related-docs a {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: underline;
+        }
+        .related-docs a:hover {
+            color: var(--accent);
+        }
+        .related-docs .file-size {
+            color: var(--muted);
+            font-size: 13px;
+        }
+        .related-docs .note {
+            color: var(--muted);
+            font-size: 13px;
         }
 
         /* ===== 章节标题 ===== */
@@ -254,6 +307,13 @@
             color: var(--muted);
             font-size: 13px;
         }
+        .footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
 
         /* ===== 响应式 ===== */
         @media (max-width: 768px) {
@@ -307,6 +367,9 @@
                 font-size: 13px;
                 line-height: 1.6;
             }
+            .related-docs {
+                padding: 12px 14px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -331,6 +394,12 @@
             .btn-download {
                 padding: 5px 10px;
                 font-size: 10px;
+            }
+            .related-docs {
+                padding: 10px 10px;
+            }
+            .related-docs h3 {
+                font-size: 14px;
             }
         }
 
@@ -362,42 +431,50 @@
             .cover h1 {
                 font-size: 20pt;
             }
+            .related-docs {
+                background: #f0f0f0 !important;
+                border-left: 2px solid #333 !important;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- 顶部下载栏 -->
+    <!-- ===== 顶部下载栏 ===== -->
     <div class="download-bar">
         <span class="doc-title">📄 SINOSHOP善乐生智慧马桶健康数据接入专项实施方案（讨论稿）</span>
-        <button class="btn-download" onclick="downloadHTML()" title="点击下载HTML文件">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
-            </svg>
-            下载HTML文件
-        </button>
+        <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+            <a href="https://sinoshop-open.github.io/webpage/" target="_blank">🏠 项目主页</a>
+            <button class="btn-download" onclick="downloadHTML()" title="点击下载HTML文件">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width:16px;height:16px;fill:#fff;flex-shrink:0;">
+                    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                </svg>
+                下载HTML文件
+            </button>
+        </div>
     </div>
 
-    <!-- 主容器 -->
+    <!-- ===== 主容器 ===== -->
     <div class="container">
         <div class="doc-card" id="doc-content">
 
-            <!-- 封面 -->
+            <!-- ===== 封面 ===== -->
             <div class="cover">
                 <div class="doc-badge">📋 讨论稿</div>
                 <h1>SINOSHOP善乐生智慧马桶健康数据接入<br>专项实施方案</h1>
                 <div class="meta">
                     <span>📅 编制日期：2026-09-03</span>
                     <span>📌 文档版本：V2.3-Final（终极审定版）</span>
-                    <span>🏷️ 专利依据：CN110534176B</span>
+                    <span>🏷️ 专利依据：<a href="https://github.com/SINOSHOP-OPEN/webpage/blob/main/CN2019106977501.pdf" target="_blank">CN110534176B</a></span>
+                    <span>🌐 <a href="https://sinoshop-open.github.io/webpage/" target="_blank">项目主页</a></span>
                 </div>
             </div>
 
-            <!-- 第一章 -->
+            <!-- ===== 第一章 项目概述 ===== -->
             <h2>第一章 项目概述</h2>
 
             <h3>1.1 项目定位与目标</h3>
-            <p>本项目基于发明专利 <strong>CN110534176B《一种大数据智能防病养生应用系统》</strong>，建设以智慧马桶为核心终端的健康数据平台，实现无感采集、智能分析与个性化养生方案推送。核心目标是<strong>建立个人健康动态数据库</strong>，探索用户共享健康数据的数字资产权益机制。</p>
+            <p>本项目基于发明专利 <strong><a href="https://github.com/SINOSHOP-OPEN/webpage/blob/main/CN2019106977501.pdf" target="_blank" style="color:#1a5276; text-decoration:underline;">CN110534176B《一种大数据智能防病养生应用系统》</a></strong>，建设以智慧马桶为核心终端的健康数据平台，实现无感采集、智能分析与个性化养生方案推送。核心目标是<strong>建立个人健康动态数据库</strong>，探索用户共享健康数据的数字资产权益机制。</p>
             <p><strong>全流程闭环</strong>：智慧马桶采集 → 边缘端S1-S4预处理 → 云端加密分析 → S5-S8方案匹配 → 养生方案推送 → 用户反馈/医生审核 → 算法迭代 → 脱敏数据集生成 → 数据产品入表 → 用户权益返还。</p>
             <p>本期聚焦"智慧马桶健康数据接入"，涵盖数据采集、云端分析、方案推送三大环节，同步建立数据产品体系、用户权益体系与开放生态架构。</p>
 
@@ -500,7 +577,7 @@
             <p><strong>（5）全域非医疗声明</strong>：本系统不属于医疗器械，不具备疾病诊断、治疗、预防功能。所有输出页面永久水印："非医疗诊断数据，仅作养生趋势参考"。禁用词清单：诊断、治疗、预防疾病、治愈等。审核记录留存≥3年。</p>
             <p><strong>（6）极端工况约束</strong>：断网、断电、传感失效、第三方API下线。<strong>RPO=0</strong>，网关<strong>RTO≤30s</strong>，本地缓存断点续传。</p>
 
-            <!-- 第二章 -->
+            <!-- ===== 第二章 系统总体架构 ===== -->
             <h2>第二章 系统总体架构</h2>
 
             <h3>2.1 总体架构</h3>
@@ -584,7 +661,7 @@
                 <li><strong>云端</strong>：仅接收算法输出结果、脱敏特征值、聚合统计值；原始明细数据不出域，仅关键事件哈希上链</li>
             </ul>
 
-            <!-- 第三章 -->
+            <!-- ===== 第三章 数据采集标准与合规红线 ===== -->
             <h2>第三章 数据采集标准与合规红线</h2>
 
             <h3>3.1 核心采集字段（最小必要集）</h3>
@@ -639,7 +716,7 @@
             <h3>3.5 宣传合规</h3>
             <p>所有宣传物料须合规审核；禁用词清单：诊断、治疗、预防疾病、治愈、疗效；统一话术：趋势监测、养生辅助、体质参考；记录留存≥3年。</p>
 
-            <!-- 第四章 -->
+            <!-- ===== 第四章 数据处理与资产目录 ===== -->
             <h2>第四章 数据处理与资产目录</h2>
 
             <h3>4.1 数据资产目录（HD-001至HD-007，独立编号体系）</h3>
@@ -691,7 +768,7 @@
             <h3>4.5 保留与销毁</h3>
             <p>HD-001/007：授权期+注销后90天全销毁；设备元档案：解绑后1年匿名归档；HD-002：匿名化数据可合法留存入账。</p>
 
-            <!-- 第五章 -->
+            <!-- ===== 第五章 防病养生大数据分析引擎 ===== -->
             <h2>第五章 防病养生大数据分析引擎</h2>
 
             <h3>5.1 核心算法S1-S8（权利要求10，详见附录三）</h3>
@@ -701,7 +778,6 @@
             <p><strong>算法版本管理</strong>：V[主].[次].[修订]；每次变更记录前后快照、原因、审批人、生效时间；月度审计日志。</p>
 
             <h3>5.2 TCM知识体系（最小工程化集）</h3>
-                        <h3>5.2 TCM知识体系（最小工程化集）</h3>
 
             <h4>（1）十二经脉时辰表</h4>
             <table>
@@ -779,11 +855,11 @@
                     <tr><td>舌象/紫暗瘀斑（注）</td><td>瘀血内阻、脉络不通</td><td>血瘀质</td><td>活血化瘀、通络止痛</td><td>#活血化瘀 #通络止痛</td></tr>
                 </tbody>
             </table>
-            <p><strong>工程调用</strong>：用户各维度输入信息经S1-S4计算后，自动匹配“气能量状态”与“体质映射”，生成对应“输出策略倾向”及“方案标签”，驱动S5-S8方案引擎进行权重匹配与方案推荐。</p>
+            <p><strong>工程调用</strong>：用户各维度输入信息经S1-S4计算后，自动匹配"气能量状态"与"体质映射"，生成对应"输出策略倾向"及"方案标签"，驱动S5-S8方案引擎进行权重匹配与方案推荐。</p>
             <p style="font-size:13px; color:#6c757d;"><em>注：舌象信息为远期规划输入字段，当前系统已预置映射规则，待硬件支持后自动激活。</em></p>
             <p><strong>工程调用方式</strong>：时辰表→S3时间维度调节因子；节气规则→S3节气维度调节因子；映射规则→S5-S8特征标签体系。</p>
 
-            <!-- 第六章 -->
+            <!-- ===== 第六章 用户数字资产权益体系 ===== -->
             <h2>第六章 用户数字资产权益体系</h2>
 
             <h3>6.1 三权分置模型</h3>
@@ -825,7 +901,7 @@
             <h3>6.4 授权与撤回</h3>
             <p>App端开关控制；撤回后立即停止纳入新数据集；已生成匿名数据无需追溯删除；未成年人不可共享数据。</p>
 
-            <!-- 第七章 -->
+            <!-- ===== 第七章 健康数据产品与开放生态 ===== -->
             <h2>第七章 健康数据产品与开放生态</h2>
 
             <h3>7.1 数据产品分层</h3>
@@ -875,7 +951,7 @@
             <h3>7.5 实施优先级</h3>
             <p>P0：开放平台架构+华为穿戴（T+1月）；P1：数据产品+用户数字资产账户（T+3月）；P2：多设备接入+产品上架（T+6月）；P3：医疗机构接入（T+9月）。</p>
 
-            <!-- 第八章 -->
+            <!-- ===== 第八章 AI持续学习反馈机制 ===== -->
             <h2>第八章 AI持续学习反馈机制</h2>
 
             <h3>8.1 学习闭环</h3>
@@ -886,7 +962,7 @@
             <h3>8.2 隐私保护</h3>
             <p>用户反馈脱敏处理；医生审核数据严格权限控制。</p>
 
-            <!-- 第九章 -->
+            <!-- ===== 第九章 硬件可维护性与设备校准 ===== -->
             <h2>第九章 硬件可维护性与设备校准</h2>
 
             <h3>9.1 传感模块可替换设计</h3>
@@ -916,7 +992,7 @@
             <h3>9.4 设备全生命周期元档案</h3>
             <p>模块更换、校准、固件升级时间戳+序列号+参数，哈希上链，预测性运维。</p>
 
-            <!-- 第十章 -->
+            <!-- ===== 第十章 数据资产入表路径 ===== -->
             <h2>第十章 数据资产入表路径</h2>
 
             <h3>10.1 入表六阶段</h3>
@@ -948,7 +1024,7 @@
             <h3>10.4 摊销</h3>
             <p>HD-001/003/006：3年；HD-002/004/005：2年；HD-007：不计入。</p>
 
-            <!-- 第十一章 -->
+            <!-- ===== 第十一章 分阶段实施计划 ===== -->
             <h2>第十一章 分阶段实施计划</h2>
 
             <h3>11.1 一期（0-6个月）</h3>
@@ -977,7 +1053,7 @@
             <h3>11.3 远期课题（另行立项）</h3>
             <p>闻诊/望诊视频、床垫接入、医疗机构深度接入、陪护服务、脉诊识别、跨区域交易。</p>
 
-            <!-- 第十二章 -->
+            <!-- ===== 第十二章 验收标准 ===== -->
             <h2>第十二章 验收标准</h2>
 
             <h3>12.1 功能验收</h3>
@@ -1012,7 +1088,7 @@
             <h3>12.2 合规验收</h3>
             <p>数据安全审查通过；专利授权副本完备；第三方协议模板完备；入表流程完成；删除凭证可演示；匿名化审计日志完备；公共数据池验证通过；溯源可审计；宣传合规验证通过；权益协议签署完成。</p>
 
-            <!-- 第十三章 -->
+            <!-- ===== 第十三章 项目预算 ===== -->
             <h2>第十三章 项目预算</h2>
 
             <h3>13.1 资金来源</h3>
@@ -1051,7 +1127,7 @@
             </table>
             <p>AI主导开发降低开发成本30%-50%。本预算为技术建议口径，以会计师事务所审定为准。</p>
 
-            <!-- 附录 -->
+            <!-- ===== 附录 ===== -->
             <h2>附录一：远期路线图</h2>
             <p>数据产品矩阵扩展、多源健康数据融合、中医养生大模型（另行立项）、机构数据协同、数据要素流通、用户数字资产权益扩展。</p>
 
@@ -1118,9 +1194,35 @@
                 </tbody>
             </table>
 
-            <!-- 页脚 -->
+            <!-- ===== 相关文档区块 ===== -->
+            <hr style="margin: 30px 0;">
+
+            <div class="related-docs">
+                <h3>📄 相关文档</h3>
+                <ul>
+                    <li>
+                        <a href="https://github.com/SINOSHOP-OPEN/webpage/blob/main/CN2019106977501.pdf" target="_blank">
+                            《一种大数据智能防病养生应用系统》发明专利说明书（CN110534176B）
+                        </a>
+                        <span class="file-size">（PDF，677KB）</span>
+                    </li>
+                    <li style="margin-top:4px;">
+                        <span class="note">📌 本方案基于上述专利技术构建，详细算法参见专利说明书第4-6页的S1-S8流程。</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- ===== 页脚 ===== -->
             <div class="footer">
-                <p><strong>本方案版本：V2.3（讨论稿）</strong><br>编制日期：2026-09-03</p>
+                <p>
+                    <strong>本方案版本：V2.3（讨论稿）</strong><br>
+                    编制日期：2026-09-03
+                </p>
+                <p style="margin-top:8px; font-size:12px;">
+                    <a href="https://sinoshop-open.github.io/webpage/" target="_blank">🌐 项目主页</a> &nbsp;|&nbsp;
+                    <a href="https://github.com/SINOSHOP-OPEN/webpage" target="_blank">📂 GitHub仓库</a> &nbsp;|&nbsp;
+                    <a href="https://github.com/SINOSHOP-OPEN/webpage/blob/main/CN2019106977501.pdf" target="_blank">📄 专利文件</a>
+                </p>
             </div>
 
         </div>
@@ -1130,16 +1232,13 @@
         function downloadHTML() {
             const docElement = document.documentElement;
             const htmlContent = '<!DOCTYPE html>\n' + docElement.outerHTML;
-
             const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
             const url = URL.createObjectURL(blob);
             const link = document.createElement('a');
             link.href = url;
             link.download = 'SINOSHOP善乐生智慧马桶健康数据接入专项实施方案20260903（讨论稿）.html';
-
             document.body.appendChild(link);
             link.click();
-
             setTimeout(() => {
                 document.body.removeChild(link);
                 URL.revokeObjectURL(url);
