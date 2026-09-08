@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SINOSHOP-SinoPORT V10.5 · Floating Port Module · Technical White Paper</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #f0f6fc;
+      font-family: 'Inter', -apple-system, system-ui, 'Segoe UI', Roboto, sans-serif;
+      padding: 32px 20px;
+      color: #0b1a2f;
+      line-height: 1.5;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 40px;
+      box-shadow: 0 24px 48px -16px rgba(0, 20, 40, 0.20);
+      padding: 44px 52px;
+      border: 1px solid rgba(255,255,255,0.5);
+    }
+    @media (max-width: 720px) { .container { padding: 24px 18px; } }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(145deg, #0b2b5c, #1a6e8a);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 6px;
+      line-height: 1.2;
+    }
+    .subhead {
+      font-size: 1.1rem;
+      color: #1f4a6e;
+      border-left: 5px solid #2a7faa;
+      padding-left: 20px;
+      background: #f7faff;
+      border-radius: 0 12px 12px 0;
+      padding: 12px 20px;
+      margin-bottom: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .subhead strong { color: #0b2b5c; font-weight: 700; }
+    .version-badge {
+      background: #0b2b5c;
+      color: white;
+      padding: 4px 18px;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-top: 44px;
+      margin-bottom: 18px;
+      color: #0b2b5c;
+      border-bottom: 3px solid #dce8f2;
+      padding-bottom: 10px;
+    }
+    .badge {
+      background: #1a5c8a;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 2px 16px;
+      border-radius: 40px;
+      display: inline-block;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+    .table-wrap {
+      overflow-x: auto;
+      margin: 18px 0 28px 0;
+      border-radius: 20px;
+      border: 1px solid #e2ecf5;
+      box-shadow: 0 4px 12px rgba(0,20,40,0.04);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      min-width: 560px;
+    }
+    th {
+      background: #eaf2fa;
+      color: #0b2b5c;
+      font-weight: 600;
+      padding: 14px 16px;
+      text-align: left;
+      border-bottom: 2px solid #cbdae6;
+      white-space: nowrap;
+    }
+    td {
+      padding: 12px 16px;
+      border-bottom: 1px solid #e6edf4;
+      vertical-align: top;
+    }
+    .highlight-cell { background: #f0f9ff; font-weight: 600; color: #005f8c; }
+    .value-down { color: #0f7b3a; font-weight: 700; }
+    .value-up { color: #b13e3e; font-weight: 700; }
+    .tag-green { background: #dff0e4; color: #0a5e38; padding: 2px 14px; border-radius: 40px; font-size: 0.8rem; font-weight: 600; display: inline-block; }
+    .tag-blue { background: #dcecfb; color: #005a8a; padding: 2px 14px; border-radius: 40px; font-size: 0.8rem; font-weight: 600; display: inline-block; }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px,1fr));
+      gap: 18px;
+      margin: 24px 0 28px;
+    }
+    .stat-card {
+      background: #f8fafc;
+      border-radius: 20px;
+      padding: 18px 16px;
+      border: 1px solid #e2ecf5;
+      text-align: center;
+    }
+    .stat-card .number { font-size: 2.0rem; font-weight: 700; color: #003f6b; line-height: 1.2; }
+    .stat-card .label { font-size: 0.85rem; color: #2c5778; margin-top: 4px; }
+
+    .blockquote {
+      background: #f4f9ff;
+      border-radius: 16px;
+      padding: 20px 28px;
+      border-left: 6px solid #1a7aaa;
+      margin: 24px 0;
+      font-style: italic;
+      color: #1d415e;
+    }
+    .summary-box {
+      background: linear-gradient(145deg, #f0f6fe, #e6eff8);
+      border-radius: 24px;
+      padding: 28px 32px;
+      margin-top: 28px;
+      border: 1px solid #cbdae6;
+    }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .summary-item {
+      background: #fff;
+      border-radius: 16px;
+      padding: 16px 18px;
+      border: 1px solid #dce6ef;
+    }
+    .summary-item .emoji { font-size: 1.8rem; display: block; margin-bottom: 4px; }
+    .summary-item .title { font-weight: 600; color: #0b2b5c; }
+    .summary-item .desc { font-size: 0.9rem; color: #2c5778; margin-top: 4px; }
+
+    .footer-version {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid #e2ecf5;
+      color: #5d7d99;
+      font-size: 0.85rem;
+    }
+    .footer-version .right {
+      background: #f0f4f8;
+      padding: 4px 16px;
+      border-radius: 40px;
+      font-weight: 500;
+    }
+    @media (max-width: 600px) { 
+      h1 { font-size: 2.0rem; } 
+      .container { padding: 20px 14px; }
+      .card-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <h1>⚓ SINOSHOP-SinoPORT<br>Floating Port Berth Module</h1>
+  <div class="subhead">
+    <span><strong>Self-Floating · Zero-Anchorage · Seven-Layer Bio-Inspired Composite</strong> ｜ 27m×27m×6m Standard Module ｜ Full Depth Adaptability</span>
+    <span class="version-badge">V10.5 · 2026.09.08</span>
+  </div>
+
+  <!-- Materials Overview -->
+  <h2>🧬 Seven-Layer Bio-Inspired Composite System <span class="badge">Self-Cleaning · Drag Reduction · Never Sinks</span></h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Layer</th><th>Material / Structure</th><th>Function</th><th>Key Parameter</th></tr></thead>
+      <tbody>
+        <tr><td>L7</td><td>Lotus-inspired superhydrophobic coating</td><td>Self-cleaning, anti-fouling</td><td>Contact angle ≥150°</td></tr>
+        <tr><td>L6</td><td>Shark-skin riblet microstructure</td><td>Drag reduction, antibacterial</td><td>Drag reduction 8%~17%</td></tr>
+        <tr><td>L5</td><td>Bamboo-basalt fiber composite</td><td>Impact resistance, load bearing</td><td>Tensile strength ≥180 MPa</td></tr>
+        <tr><td>L4</td><td>Hollow steel truss (Q690)</td><td>Main structural frame</td><td>40~50% weight reduction</td></tr>
+        <tr><td>L3</td><td>Fiber-reinforced concrete (C80~C100)</td><td>Compression resistance, durability</td><td>Compressive strength 50~80 MPa</td></tr>
+        <tr><td>L2</td><td>Syntactic foam (solid buoyancy)</td><td>Permanent flotation, sink-proof</td><td>Density 380~420 kg/m³</td></tr>
+        <tr><td>L1</td><td>Epoxy-ceramic sealing coating</td><td>Anti-corrosion, waterproofing</td><td>Service life ≥30 years</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Core Metrics Cards -->
+  <div class="card-grid">
+    <div class="stat-card"><div class="number">↓ 80~92%</div><div class="label">Initial Investment Reduction</div></div>
+    <div class="stat-card"><div class="number">6~9 months</div><div class="label">Construction Period</div></div>
+    <div class="stat-card"><div class="number">3~4 years</div><div class="label">Payback Period</div></div>
+    <div class="stat-card"><div class="number">1000~1500%</div><div class="label">50-Year ROI</div></div>
+  </div>
+
+  <!-- 1. Cost Comparison -->
+  <h2>💰 Cost Comparison: Deep Water 36m Berth</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Cost Item</th><th>Traditional Gravity (36m)</th><th>SinoPORT V10.5</th><th>Improvement</th></tr></thead>
+      <tbody>
+        <tr><td>Main Structure</td><td>¥450~700M</td><td class="highlight-cell">¥140~180M</td><td class="value-down">↓ 68~80%</td></tr>
+        <tr><td>Foundation / Piling</td><td>¥300~600M</td><td><span class="tag-green">0</span></td><td class="value-down">↓ 100%</td></tr>
+        <tr><td>Anchoring / Positioning</td><td>¥150~300M</td><td class="highlight-cell">¥2~4M</td><td class="value-down">↓ 98~99%</td></tr>
+        <tr><td>Breakwater / Revetment</td><td>¥200~350M</td><td><span class="tag-blue">0 (external)</span></td><td class="value-down">↓ 100%</td></tr>
+        <tr><td>Dredging</td><td>¥150~300M</td><td>¥5~10M</td><td class="value-down">↓ 96~98%</td></tr>
+        <tr><td><strong>Total Initial Investment</strong></td><td><strong>¥1,460~2,650M</strong></td><td class="highlight-cell"><strong>¥222~315M</strong></td><td class="value-down"><strong>↓ 80~92%</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 2. Construction Period -->
+  <h2>⏱️ Construction Period: From 6 Years to 6 Months</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Phase</th><th>Traditional (36m)</th><th>SinoPORT V10.5</th><th>Improvement</th></tr></thead>
+      <tbody>
+        <tr><td>Design</td><td>15~24 months</td><td>3~4 months</td><td class="value-down">↓ 80~85%</td></tr>
+        <tr><td>Foundation / Underwater</td><td>12~24 months</td><td><span class="tag-green">0</span></td><td class="value-down">↓ 100%</td></tr>
+        <tr><td>Factory Prefabrication</td><td>—</td><td>4~6 months (parallel)</td><td>—</td></tr>
+        <tr><td>On-site Assembly</td><td>—</td><td>1~2 months</td><td>Disruptive</td></tr>
+        <tr><td><strong>Total</strong></td><td><strong>48~72 months</strong></td><td class="highlight-cell"><strong>6~9 months</strong></td><td class="value-down"><strong>↓ 85~90%</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 3. Zero-Anchorage System -->
+  <h2>⚓ Zero-Anchorage / Zero-Mooring System</h2>
+  <div class="blockquote">
+    <strong>Core Logic:</strong> A 300m continuous berth has an inertia mass of <strong>120,000~150,000 tons</strong> (equivalent to an aircraft carrier). Under 0.6m wave height, displacement is only <strong>2~3 mm</strong>. Anchor chains / guide piles are <strong>completely eliminated</strong>.
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>System</th><th>Traditional</th><th>SinoPORT V10.5</th><th>Savings</th></tr></thead>
+      <tbody>
+        <tr><td>Anchoring / Piling</td><td>500~2,000 piles</td><td><span class="tag-green">Eliminated</span></td><td class="value-down">-¥50~100M</td></tr>
+        <tr><td>Anchor Chains / Mooring</td><td>100~300 tons</td><td><span class="tag-green">Eliminated</span></td><td class="value-down">-¥20~50M</td></tr>
+        <tr><td>Rigid Guide Piles</td><td>4~8×φ1.2m</td><td><span class="tag-green">Eliminated</span></td><td class="value-down">-¥5~10M</td></tr>
+        <tr><td>Positioning + Thruster</td><td>—</td><td>DGPS + Turbines</td><td>+¥3~4M</td></tr>
+        <tr><td><strong>Total Savings</strong></td><td></td><td></td><td class="value-down"><strong>↓ ¥70~160M</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 4. 50-Year Benefits -->
+  <h2>📈 50-Year Full Lifecycle Benefits</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Metric</th><th>Traditional (36m)</th><th>SinoPORT V10.5</th><th>Improvement</th></tr></thead>
+      <tbody>
+        <tr><td>Initial Investment</td><td>¥1,460~2,650M</td><td class="highlight-cell">¥222~315M</td><td class="value-down">↓ 80~92%</td></tr>
+        <tr><td>50-Year O&M</td><td>¥600~900M</td><td class="highlight-cell">¥125~200M</td><td class="value-down">↓ 78~83%</td></tr>
+        <tr><td>50-Year Total Cost</td><td>¥2,600~3,100M</td><td class="highlight-cell">¥425~530M</td><td class="value-down">↓ 82~86%</td></tr>
+        <tr><td>50-Year Revenue</td><td>¥3,500~5,200M</td><td class="highlight-cell">¥5,250~7,500M</td><td class="value-up">↑ 40~50%</td></tr>
+        <tr><td><strong>50-Year Net Profit</strong></td><td><strong>¥900~2,100M</strong></td><td class="highlight-cell"><strong>¥4,700~7,000M</strong></td><td class="value-up"><strong>↑ 200~400%</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 5. Payback & ROI -->
+  <h2>📊 Payback Period & ROI</h2>
+  <div class="card-grid">
+    <div class="stat-card"><div class="number">3~4 years</div><div class="label">Payback Period</div></div>
+    <div class="stat-card"><div class="number">14~25 years</div><div class="label">Traditional Payback</div></div>
+    <div class="stat-card"><div class="number">1000~1500%</div><div class="label">50-Year ROI</div></div>
+    <div class="stat-card"><div class="number">50~150%</div><div class="label">Traditional ROI</div></div>
+  </div>
+
+  <!-- 6. Comprehensive Comparison -->
+  <h2>🏁 Comprehensive Comparison</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Dimension</th><th>Traditional (36m)</th><th>SinoPORT V10.5</th><th>Improvement</th></tr></thead>
+      <tbody>
+        <tr><td>Initial Investment</td><td>¥1,460~2,650M</td><td class="highlight-cell">¥222~315M</td><td class="value-down">↓ 80~92%</td></tr>
+        <tr><td>Construction Period</td><td>48~72 months</td><td class="highlight-cell">6~9 months</td><td class="value-down">↓ 85~90%</td></tr>
+        <tr><td>Annual Net Profit</td><td>¥70~105M</td><td class="highlight-cell">¥105~150M</td><td class="value-up">↑ 40~50%</td></tr>
+        <tr><td>Payback Period</td><td>14~25 years</td><td class="highlight-cell">3~4 years</td><td class="value-down">↓ 80~88%</td></tr>
+        <tr><td>50-Year Net Profit</td><td>¥900~2,100M</td><td class="highlight-cell">¥4,700~7,000M</td><td class="value-up">↑ 200~400%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 7. Summary -->
+  <div class="summary-box">
+    <h3>🚀 Paradigm Shift: From Civil Engineering to Precision Manufacturing</h3>
+    <div class="summary-grid">
+      <div class="summary-item"><span class="emoji">🧩</span><div class="title">Material Revolution</div><div class="desc">Seven-layer bio-inspired composite, density 620~650 kg/m³ (1/4 of concrete)</div></div>
+      <div class="summary-item"><span class="emoji">⚓</span><div class="title">Zero-Anchorage</div><div class="desc">Complete elimination of anchor chains/piles, inertia mass replaces mechanical anchoring</div></div>
+      <div class="summary-item"><span class="emoji">🌊</span><div class="title">Full Depth Adaptability</div><div class="desc">Fully decoupled from water depth, single-layer 6m module adapts to ≤40m depth</div></div>
+      <div class="summary-item"><span class="emoji">🔄</span><div class="title">Migratable & Reconfigurable</div><div class="desc">Mortise-tenon connections + self-floating towing, ≥30 reuses</div></div>
+      <div class="summary-item"><span class="emoji">🌿</span><div class="title">Ecological Gain</div><div class="desc">Zero seabed contact + circular fishway, from damage to gain</div></div>
+    </div>
+    <p style="margin-top:20px; font-weight:500; color:#003f6b;">
+      <strong>Chief Engineer's Conclusion:</strong> SinoPORT V10.5 achieves 80~92% reduction in initial investment, 85~90% shorter construction period, 3~4 year payback, and 3~5× increase in 50-year net profit in deep-water (36m) scenarios.<br>
+      This is not just an upgrade in port construction technology—it is a <strong>paradigm-level reconfiguration</strong> of the fundamental unit of marine engineering.
+    </p>
+  </div>
+
+  <!-- Footer with Links -->
+  <div class="footer-version">
+    <span>Based on SINOSHOP design philosophy: <em>"Sea generates electricity, electricity powers ships, ships bridge cities, cities benefit people."</em></span>
+    <span class="right">V10.5 · 2026.09.08</span>
+  </div>
+
+  <div style="margin-top: 24px; padding: 16px 20px; background: #f7faff; border-radius: 16px; border: 1px solid #e2ecf5; display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; align-items: center;">
+    <div>
+      <strong>🔗 Related Resources</strong><br>
+      🏠 <a href="https://sinoshop-open.github.io/webpage/" style="color: #005f8c; text-decoration: none; font-weight: 500;">Project Homepage (EN)</a> &nbsp;|&nbsp;
+      🇨🇳 <a href="https://sinoshop-open.github.io/webpage/SinoPORT-V10.5.html" style="color: #005f8c; text-decoration: none; font-weight: 500;">Chinese Version</a>
+    </div>
+    <div>
+      📧 <a href="mailto:standards@sinoshop.org" style="color: #005f8c; text-decoration: none;">standards@sinoshop.org</a> &nbsp;|&nbsp;
+      📧 <a href="mailto:support@sinoshop.org" style="color: #005f8c; text-decoration: none;">support@sinoshop.org</a>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
