@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SINOSHOP-SinoPORT V10.5 · 悬浮港泊位模块 · 技术白皮书</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #f0f6fc;
+      font-family: 'Inter', -apple-system, system-ui, 'Segoe UI', Roboto, sans-serif;
+      padding: 32px 20px;
+      color: #0b1a2f;
+      line-height: 1.5;
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 40px;
+      box-shadow: 0 24px 48px -16px rgba(0, 20, 40, 0.20);
+      padding: 44px 52px;
+      border: 1px solid rgba(255,255,255,0.5);
+    }
+    @media (max-width: 720px) { .container { padding: 24px 18px; } }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(145deg, #0b2b5c, #1a6e8a);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 6px;
+      line-height: 1.2;
+    }
+    .subhead {
+      font-size: 1.1rem;
+      color: #1f4a6e;
+      border-left: 5px solid #2a7faa;
+      padding-left: 20px;
+      background: #f7faff;
+      border-radius: 0 12px 12px 0;
+      padding: 12px 20px;
+      margin-bottom: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .subhead strong { color: #0b2b5c; font-weight: 700; }
+    .version-badge {
+      background: #0b2b5c;
+      color: white;
+      padding: 4px 18px;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-top: 44px;
+      margin-bottom: 18px;
+      color: #0b2b5c;
+      border-bottom: 3px solid #dce8f2;
+      padding-bottom: 10px;
+    }
+    .badge {
+      background: #1a5c8a;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 2px 16px;
+      border-radius: 40px;
+      display: inline-block;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+    .table-wrap {
+      overflow-x: auto;
+      margin: 18px 0 28px 0;
+      border-radius: 20px;
+      border: 1px solid #e2ecf5;
+      box-shadow: 0 4px 12px rgba(0,20,40,0.04);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      min-width: 560px;
+    }
+    th {
+      background: #eaf2fa;
+      color: #0b2b5c;
+      font-weight: 600;
+      padding: 14px 16px;
+      text-align: left;
+      border-bottom: 2px solid #cbdae6;
+      white-space: nowrap;
+    }
+    td {
+      padding: 12px 16px;
+      border-bottom: 1px solid #e6edf4;
+      vertical-align: top;
+    }
+    .highlight-cell { background: #f0f9ff; font-weight: 600; color: #005f8c; }
+    .value-down { color: #0f7b3a; font-weight: 700; }
+    .value-up { color: #b13e3e; font-weight: 700; }
+    .tag-green { background: #dff0e4; color: #0a5e38; padding: 2px 14px; border-radius: 40px; font-size: 0.8rem; font-weight: 600; display: inline-block; }
+    .tag-blue { background: #dcecfb; color: #005a8a; padding: 2px 14px; border-radius: 40px; font-size: 0.8rem; font-weight: 600; display: inline-block; }
+    .tag-gold { background: #fdf2df; color: #8a6d1b; padding: 2px 14px; border-radius: 40px; font-size: 0.8rem; font-weight: 600; display: inline-block; }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px,1fr));
+      gap: 18px;
+      margin: 24px 0 28px;
+    }
+    .stat-card {
+      background: #f8fafc;
+      border-radius: 20px;
+      padding: 18px 16px;
+      border: 1px solid #e2ecf5;
+      text-align: center;
+    }
+    .stat-card .number { font-size: 2.0rem; font-weight: 700; color: #003f6b; line-height: 1.2; }
+    .stat-card .label { font-size: 0.85rem; color: #2c5778; margin-top: 4px; }
+
+    .blockquote {
+      background: #f4f9ff;
+      border-radius: 16px;
+      padding: 20px 28px;
+      border-left: 6px solid #1a7aaa;
+      margin: 24px 0;
+      font-style: italic;
+      color: #1d415e;
+    }
+    .summary-box {
+      background: linear-gradient(145deg, #f0f6fe, #e6eff8);
+      border-radius: 24px;
+      padding: 28px 32px;
+      margin-top: 28px;
+      border: 1px solid #cbdae6;
+    }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .summary-item {
+      background: #fff;
+      border-radius: 16px;
+      padding: 16px 18px;
+      border: 1px solid #dce6ef;
+    }
+    .summary-item .emoji { font-size: 1.8rem; display: block; margin-bottom: 4px; }
+    .summary-item .title { font-weight: 600; color: #0b2b5c; }
+    .summary-item .desc { font-size: 0.9rem; color: #2c5778; margin-top: 4px; }
+
+    .footer-version {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid #e2ecf5;
+      color: #5d7d99;
+      font-size: 0.85rem;
+    }
+    .footer-version .right {
+      background: #f0f4f8;
+      padding: 4px 16px;
+      border-radius: 40px;
+      font-weight: 500;
+    }
+    @media (max-width: 600px) { 
+      h1 { font-size: 2.0rem; } 
+      .container { padding: 20px 14px; }
+      .card-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <h1>⚓ SINOSHOP-SinoPORT<br>悬浮港泊位路基模块</h1>
+  <div class="subhead">
+    <span><strong>自浮式 · 零锚固 · 七层仿生复合材料</strong> ｜ 27m×27m×6m 标准化模块 ｜ 全水深适配</span>
+    <span class="version-badge">V10.5 · 2026.09.06</span>
+  </div>
+
+  <!-- 材料体系概览 -->
+  <h2>🧬 七层仿生复合材料体系 <span class="badge">自清洁 · 减阻 · 永不沉没</span></h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>层级</th><th>材料/结构</th><th>功能</th><th>关键参数</th></tr></thead>
+      <tbody>
+        <tr><td>L7</td><td>荷叶仿生超疏水涂层</td><td>自清洁 · 抗附着</td><td>接触角 ≥150°</td></tr>
+        <tr><td>L6</td><td>鲨鱼皮微结构</td><td>减阻 · 抑菌</td><td>减阻 8%~17%</td></tr>
+        <tr><td>L5</td><td>竹塑玄武岩纤维复合材料</td><td>抗冲击 · 承重</td><td>拉伸 ≥180 MPa</td></tr>
+        <tr><td>L4</td><td>中空桁架钢骨架 (Q690)</td><td>主承力框架</td><td>中空减重 40%~50%</td></tr>
+        <tr><td>L3</td><td>纤维混凝土包裹层 (C80~C100)</td><td>抗压 · 耐久</td><td>抗压 50~80 MPa</td></tr>
+        <tr><td>L2</td><td>蜂窝泡沫固体浮力材料</td><td>永久浮力 · 永不沉没</td><td>密度 380~420 kg/m³</td></tr>
+        <tr><td>L1</td><td>环氧陶瓷密封涂层</td><td>防腐 · 密封</td><td>寿命 ≥30年</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 核心优势卡片 -->
+  <div class="card-grid">
+    <div class="stat-card"><div class="number">↓ 80~92%</div><div class="label">初始投资降低</div></div>
+    <div class="stat-card"><div class="number">6~9个月</div><div class="label">建设周期</div></div>
+    <div class="stat-card"><div class="number">3~4年</div><div class="label">投资回收期</div></div>
+    <div class="stat-card"><div class="number">1000~1500%</div><div class="label">50年投资回报率</div></div>
+  </div>
+
+  <!-- 一、成本对比 -->
+  <h2>💰 一、成本重构：深水36m泊位</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>成本科目</th><th>传统重力式 (36m水深)</th><th>SinoPORT V10.5</th><th>优化幅度</th></tr></thead>
+      <tbody>
+        <tr><td>码头主体结构</td><td>4.5~7.0亿</td><td class="highlight-cell">1.4~1.8亿</td><td class="value-down">↓ 68%~80%</td></tr>
+        <tr><td>地基处理/桩基</td><td>3.0~6.0亿</td><td><span class="tag-green">0</span></td><td class="value-down">↓ 100%</td></tr>
+        <tr><td>锚泊/定位系统</td><td>1.5~3.0亿</td><td class="highlight-cell">0.02~0.04亿</td><td class="value-down">↓ 98%~99%</td></tr>
+        <tr><td>防波堤/护岸</td><td>2.0~3.5亿</td><td><span class="tag-blue">0 (外围独立)</span></td><td class="value-down">↓ 100%</td></tr>
+        <tr><td>疏浚工程</td><td>1.5~3.0亿</td><td>0.05~0.10亿</td><td class="value-down">↓ 96%~98%</td></tr>
+        <tr><td><strong>综合初始投资</strong></td><td><strong>14.6~26.5亿</strong></td><td class="highlight-cell"><strong>2.22~3.15亿</strong></td><td class="value-down"><strong>↓ 80%~92%</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 二、建设周期 -->
+  <h2>⏱️ 二、建设周期：从6年到半年</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>阶段</th><th>传统重力式 (36m)</th><th>SinoPORT V10.5</th><th>效率提升</th></tr></thead>
+      <tbody>
+        <tr><td>设计周期</td><td>15~24个月</td><td>3~4个月</td><td class="value-down">↓ 80%~85%</td></tr>
+        <tr><td>地基/水下施工</td><td>12~24个月</td><td><span class="tag-green">0</span></td><td class="value-down">↓ 100%</td></tr>
+        <tr><td>工厂预制</td><td>—</td><td>4~6个月 (并行)</td><td>—</td></tr>
+        <tr><td>现场装配</td><td>—</td><td>1~2个月</td><td>颠覆性</td></tr>
+        <tr><td><strong>总建设周期</strong></td><td><strong>48~72个月</strong></td><td class="highlight-cell"><strong>6~9个月</strong></td><td class="value-down"><strong>↓ 85%~90%</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 三、锚泊与定位系统 -->
+  <h2>⚓ 三、锚泊与定位：完全取消锚链/导桩</h2>
+  <div class="blockquote">
+    <strong>核心逻辑：</strong> 300m连续泊位总惯性质量达 120,000~150,000 吨（等效航母），在港内波高≤0.6m时位移仅 2~3 mm。锚链/导桩/锚固系统 <strong>完全取消</strong>，采用 DGPS+声学阵列 主动定位，可逆式水轮机微调。
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>系统</th><th>传统方案</th><th>SinoPORT V10.5</th><th>成本差异</th></tr></thead>
+      <tbody>
+        <tr><td>锚固/桩基</td><td>500~2000根桩</td><td><span class="tag-green">完全取消</span></td><td class="value-down">-5,000~10,000万</td></tr>
+        <tr><td>锚链/系泊</td><td>100~300吨</td><td><span class="tag-green">完全取消</span></td><td class="value-down">-2,000~5,000万</td></tr>
+        <tr><td>刚性导桩</td><td>4~8根×φ1.2m</td><td><span class="tag-green">完全取消</span></td><td class="value-down">-500~1,000万</td></tr>
+        <tr><td>定位+推进</td><td>—</td><td>DGPS + 水轮机微调</td><td>+300~400万</td></tr>
+        <tr><td><strong>合计节省</strong></td><td></td><td></td><td class="value-down"><strong>↓ 7,000~16,000万</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 四、效益分析 -->
+  <h2>📈 四、50年全生命周期效益</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>指标</th><th>传统重力式 (36m)</th><th>SinoPORT V10.5</th><th>优化幅度</th></tr></thead>
+      <tbody>
+        <tr><td>初始投资</td><td>14.6~26.5亿</td><td class="highlight-cell">2.22~3.15亿</td><td class="value-down">↓ 80%~92%</td></tr>
+        <tr><td>50年运维成本</td><td>6.0~9.0亿</td><td class="highlight-cell">1.25~2.0亿</td><td class="value-down">↓ 78%~83%</td></tr>
+        <tr><td>50年总成本</td><td>26.0~31.0亿</td><td class="highlight-cell">4.25~5.3亿</td><td class="value-down">↓ 82%~86%</td></tr>
+        <tr><td>50年累计收益</td><td>35~52亿</td><td class="highlight-cell">52.5~75亿</td><td class="value-up">↑ 40%~50%</td></tr>
+        <tr><td><strong>50年净收益</strong></td><td><strong>9~21亿</strong></td><td class="highlight-cell"><strong>47~70亿</strong></td><td class="value-up"><strong>↑ 200%~400%</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 五、回收期与回报率 -->
+  <h2>📊 五、回收期与投资回报率</h2>
+  <div class="card-grid">
+    <div class="stat-card"><div class="number">3~4年</div><div class="label">静态回收期</div></div>
+    <div class="stat-card"><div class="number">14~25年</div><div class="label">传统回收期</div></div>
+    <div class="stat-card"><div class="number">1000~1500%</div><div class="label">50年投资回报率</div></div>
+    <div class="stat-card"><div class="number">50~150%</div><div class="label">传统投资回报率</div></div>
+  </div>
+
+  <!-- 六、综合对比 -->
+  <h2>🏁 六、综合对比总览</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>维度</th><th>传统重力式 (36m)</th><th>SinoPORT V10.5</th><th>优化幅度</th></tr></thead>
+      <tbody>
+        <tr><td>初始投资</td><td>14.6~26.5亿</td><td class="highlight-cell">2.22~3.15亿</td><td class="value-down">↓ 80%~92%</td></tr>
+        <tr><td>建设周期</td><td>48~72个月</td><td class="highlight-cell">6~9个月</td><td class="value-down">↓ 85%~90%</td></tr>
+        <tr><td>年净收益</td><td>0.7~1.05亿</td><td class="highlight-cell">1.05~1.5亿</td><td class="value-up">↑ 40%~50%</td></tr>
+        <tr><td>回收期</td><td>14~25年</td><td class="highlight-cell">3~4年</td><td class="value-down">↓ 80%~88%</td></tr>
+        <tr><td>50年净收益</td><td>9~21亿</td><td class="highlight-cell">47~70亿</td><td class="value-up">↑ 200%~400%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 七、核心突破总结 -->
+  <div class="summary-box">
+    <h3>🚀 范式级重构：从土木工程到精密制造</h3>
+    <div class="summary-grid">
+      <div class="summary-item"><span class="emoji">🧩</span><div class="title">材料革命</div><div class="desc">七层仿生复合材料，等效密度 620~650 kg/m³（传统1/4）</div></div>
+      <div class="summary-item"><span class="emoji">⚓</span><div class="title">零锚固</div><div class="desc">完全取消锚链/导桩/桩基，惯性质量替代机械锚固</div></div>
+      <div class="summary-item"><span class="emoji">🌊</span><div class="title">全水深适配</div><div class="desc">与水深完全解耦，单层6m模块适配 ≤40m 水深</div></div>
+      <div class="summary-item"><span class="emoji">🔄</span><div class="title">可迁移重组</div><div class="desc">榫卯连接 + 自浮拖航，模块重复使用 ≥30次</div></div>
+      <div class="summary-item"><span class="emoji">🌿</span><div class="title">生态增益</div><div class="desc">零海床接触 + 圆形鱼道贯通，从损耗到增益</div></div>
+    </div>
+    <p style="margin-top:20px; font-weight:500; color:#003f6b;">
+      <strong>总工程师结论：</strong> SinoPORT V10.5 悬浮港模块在深水36m场景下，初始投资降低 80%~92%，建设周期缩短 85%~90%，回收期压缩至 3~4 年，50年净收益翻 3~5 倍。<br>
+      这不仅是港口建设技术的升级，更是海洋工程基础单元的 <strong>范式级重构</strong>。
+    </p>
+  </div>
+
+  <div class="footer-version">
+    <span>基于 SINOSHOP “海生电、电养船、船搭桥、桥造城” 设计哲学 · 技术开源白皮书</span>
+    <span class="right">V10.5 · 2026.09.06</span>
+  </div>
+
+</div>
+</body>
+</html>
