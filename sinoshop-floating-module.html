@@ -319,10 +319,34 @@
                 color: white !important;
             }
         }
-    </style>
+    
+  /* 全站导航条 */
+  .navbar {
+    display:flex; flex-wrap:wrap; gap:10px; align-items:center;
+    padding:12px 16px; margin:0 0 26px;
+    background:#0b2b5c; border-radius:14px;
+  }
+  .navbar a {
+    color:#cfe6fb; text-decoration:none; font-size:.9rem; font-weight:600;
+    padding:5px 14px; border-radius:20px; background:rgba(255,255,255,.10);
+    transition:background .15s;
+  }
+  .navbar a:hover { background:rgba(143,214,255,.28); color:#fff; }
+  .navbar .lang { margin-left:auto; background:#2a7faa; color:#fff; }
+</style>
 </head>
 <body>
-    <div class="container">
+      <div class="navbar">
+    <a href="index">🏠 首页 Home</a>
+    <a href="SinoPORT-V6.4">🚢 悬浮港 V6.4</a>
+    <a href="SinoPORT-V10.5">🚦 悬浮港 V10.5</a>
+    <a href="sinoshop-floating-module">🧲 标准浮箱</a>
+    <a href="sinotide-high-tide-power">🌊 潮流能</a>
+    <a href="SINOhotSKIN_V5.5-R1">🧮 hotSKIN</a>
+    <a href="https://github.com/SINOSHOP-OPEN/SinoPORT" target="_blank">🐛 源码</a>
+    <a class="lang" href="sinoshop-floating-module-en.html">🌐 English Version</a>
+  </div>
+<div class="container">
 
         <!-- 头部 -->
         <div class="doc-header">
@@ -340,7 +364,7 @@
         <!-- 相互链接 -->
         <div class="nav-links">
             <a href="index.html">🏠 返回首页 (index.html)</a>
-            <a href="V5.2.R2.html">🚀 查看 V5.2.R2 技术细节</a>
+            <a href="sinoshop-floating-module.html">🚀 查看 V5.2.R2 技术细节</a>
             <span style="color:#94a3b8;">|</span>
             <span style="color:#1a5276; font-weight:500;">📄 当前：六大场景成本分析</span>
         </div>
@@ -652,7 +676,7 @@
             <p style="font-size: 0.85rem; margin-top: 0.3rem;">本分析基于 SINOSHOP 标准浮箱模块 V1.0 与 SINOhotSKIN V5.2-R1 “玄甲” 海上回收技术。</p>
             <div style="margin-top: 1rem; display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
                 <a href="index.html" style="color: #1a5276; font-weight: 600;">🏠 返回首页 (index.html)</a>
-                <a href="V5.2.R2.html" style="color: #1a5276; font-weight: 600;">🚀 查看 V5.2.R2 技术细节</a>
+                <a href="sinoshop-floating-module.html" style="color: #1a5276; font-weight: 600;">🚀 查看 V5.2.R2 技术细节</a>
             </div>
         </div>
     </div>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SINOSHOP-SinoPORT V6.4 · 集成式多级活水生态通道 · 技术白皮书</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background:#f0f6fc;
+    font-family:'Microsoft YaHei','PingFang SC','Inter',-apple-system,system-ui,sans-serif;
+    padding:32px 20px; color:#0b1a2f; line-height:1.75;
+  }
+  .container {
+    max-width:1300px; margin:0 auto; background:#fff; border-radius:40px;
+    box-shadow:0 24px 48px -16px rgba(0,20,40,.20);
+    padding:44px 52px; border:1px solid rgba(255,255,255,.5);
+  }
+  @media (max-width:720px){ .container{ padding:24px 18px; } }
+
+  /* 全站导航条 */
+  .navbar {
+    display:flex; flex-wrap:wrap; gap:10px; align-items:center;
+    padding:12px 16px; margin-bottom:26px;
+    background:#0b2b5c; border-radius:14px;
+  }
+  .navbar a {
+    color:#cfe6fb; text-decoration:none; font-size:.9rem; font-weight:600;
+    padding:5px 14px; border-radius:20px; background:rgba(255,255,255,.10);
+    transition:background .15s;
+  }
+  .navbar a:hover { background:rgba(143,214,255,.28); color:#fff; }
+  .navbar .lang { margin-left:auto; background:#2a7faa; color:#fff; }
+
+  h1 {
+    font-size:2.7rem; font-weight:700; letter-spacing:-.02em;
+    background:linear-gradient(145deg,#0b2b5c,#1a6e8a);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    margin-bottom:6px; line-height:1.25;
+  }
+  .subhead {
+    font-size:1.05rem; color:#1f4a6e; border-left:5px solid #2a7faa;
+    background:#f7faff; border-radius:0 12px 12px 0;
+    padding:12px 20px; margin-bottom:28px;
+    display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center;
+  }
+  .subhead strong{ color:#0b2b5c; }
+  .version-badge {
+    background:#0b2b5c; color:#fff; padding:4px 18px;
+    border-radius:40px; font-size:.85rem; font-weight:600;
+  }
+  h2 {
+    font-size:1.5rem; color:#0b2b5c; margin:34px 0 14px;
+    padding-bottom:8px; border-bottom:2px solid #e3edf7;
+  }
+  h3 { font-size:1.12rem; color:#14507a; margin:20px 0 8px; }
+  p { margin-bottom:12px; color:#243b52; }
+  table {
+    width:100%; border-collapse:collapse; margin:16px 0; font-size:.94rem;
+    background:#fff; border-radius:12px; overflow:hidden;
+    box-shadow:0 2px 10px rgba(0,40,80,.08);
+  }
+  th { background:#0b2b5c; color:#fff; padding:11px 14px; text-align:left; font-weight:600; }
+  td { padding:10px 14px; border-bottom:1px solid #edf3f9; color:#243b52; }
+  tr:last-child td { border-bottom:none; }
+  tr:nth-child(even) td { background:#f8fbff; }
+  .hl { color:#c0392b; font-weight:700; }
+  .ok { color:#1e8449; font-weight:700; }
+  .card {
+    background:#f7faff; border:1px solid #dce9f7; border-radius:16px;
+    padding:18px 22px; margin:16px 0;
+  }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:14px; margin:18px 0; }
+  .stat {
+    background:#fff; border:1px solid #e3edf7; border-radius:14px;
+    padding:16px 18px; text-align:center;
+    box-shadow:0 2px 10px rgba(0,40,80,.06);
+  }
+  .stat .v { font-size:1.9rem; font-weight:700; color:#0b2b5c; }
+  .stat .l { font-size:.82rem; color:#5b7794; margin-top:4px; }
+  code {
+    background:#0f2a44; color:#8fd6ff; padding:2px 7px;
+    border-radius:5px; font-family:Consolas,'SF Mono',monospace; font-size:.88em;
+  }
+  pre {
+    background:#0f2a44; color:#dceaf7; padding:18px 20px; border-radius:12px;
+    overflow-x:auto; margin:14px 0; line-height:1.6;
+  }
+  pre code { background:none; color:inherit; padding:0; }
+  .note {
+    background:#fff8e6; border-left:5px solid #e8a33d;
+    padding:14px 18px; border-radius:0 10px 10px 0; margin:16px 0;
+  }
+  .note strong { color:#9a6206; }
+  .badges { display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 0; }
+  .badge {
+    background:#e8f2fb; color:#14507a; border:1px solid #cfe3f5;
+    padding:4px 13px; border-radius:40px; font-size:.82rem; font-weight:600;
+  }
+  ul { margin:10px 0 14px 22px; }
+  li { margin-bottom:7px; color:#243b52; }
+  footer {
+    margin-top:40px; padding-top:20px; border-top:1px solid #e3edf7;
+    font-size:.86rem; color:#6b8399; text-align:center;
+  }
+  a { color:#1a6e8a; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="navbar">
+    <a href="index.html">&#127968; 返回首页</a>
+    <a href="SinoPORT-V10.5.html">&#128340; V10.5</a>
+    <a href="SinoPORT-V10.5-en.html">&#128341; V10.5 (EN)</a>
+    <a href="https://github.com/SINOSHOP-OPEN/SinoPORT" target="_blank">&#128027; 源码仓库</a>
+    <a class="lang" href="SinoPORT-V6.4-en.html">&#127760; English Version</a>
+  </div>
+
+  <h1>&#9875; SINOSHOP-SinoPORT V6.4<br>集成式多级活水生态通道</h1>
+
+  <div class="subhead">
+    <div><strong>模块化悬浮港 &middot; 生态社区</strong><br>
+      一座<strong>会整港迁移</strong>的抗台风悬浮港。</div>
+    <span class="version-badge">编码规范 V6.4 &middot; 45 章</span>
+  </div>
+
+  <div class="badges">
+    <span class="badge">132 孔 &middot; D900</span>
+    <span class="badge">防波堤 381 m</span>
+    <span class="badge">泊位余量 334.9 m</span>
+    <span class="badge">生态通道 3.27 倍</span>
+    <span class="badge">整体迁移 1,200 m</span>
+  </div>
+
+  <h2>&#128202; 已验证数据</h2>
+  <p>下列每一个数字都由脚本判定。本项目<strong>没有手写的 PASS</strong>；
+     任何一项FAIL 都会返回非零退出码。</p>
+
+  <div class="grid">
+    <div class="stat"><div class="v">132</div><div class="l">金字塔孔数（D900）</div></div>
+    <div class="stat"><div class="v">381 m</div><div class="l">防波堤单侧总厚</div></div>
+    <div class="stat"><div class="v">334.9 m</div><div class="l">泊位最小余量</div></div>
+    <div class="stat"><div class="v">3.27&times;</div><div class="l">通道面积倍数</div></div>
+  </div>
+
+  <table>
+    <tr><th>项目</th><th>数值</th><th>验证方式</th></tr>
+    <tr><td>消浪金字塔</td>
+        <td>7 排 1/1/2/3/5/8/13 &times; 4 面 = <span class="hl">132 孔</span>，孔径 <b>D900</b></td>
+        <td class="ok">26 / 26 PASS</td></tr>
+    <tr><td>建模实体</td>
+        <td>单实体，<code>isValid() = True</code>，132 个 R450 圆柱面</td>
+        <td class="ok">FreeCAD 1.1（OCC）</td></tr>
+    <tr><td>半圆防波堤</td>
+        <td>单侧 <span class="hl">381 m</span> = 81 + 200 + 100，弦线 <b>R = 1,650</b></td>
+        <td class="ok">PASS</td></tr>
+    <tr><td>防波堤开口</td><td>9 &times; 150 m（占弧长 26%）</td><td class="ok">PASS</td></tr>
+    <tr><td>9 泊位</td><td>总宽 513 m，全部含于 R = 1,650 半圆内</td><td class="ok">9 / 9 PASS</td></tr>
+    <tr><td>泊位安全余量</td><td>最小 <span class="hl">334.9 m</span> &ge; 安全红线 <b>300 m</b></td><td class="ok">PASS</td></tr>
+    <tr><td>外浪衰减</td><td>15 m &rarr; 内浪 &lt; 0.6 m（25 倍）</td><td>解析估算</td></tr>
+    <tr><td>整体迁移</td><td>向海 <span class="hl">1,200 m</span></td><td>运动学演示</td></tr>
+    <tr><td>岸边景观</td><td>冬夏双状态，A&rarr;B&rarr;C&rarr;D 建造时序</td><td class="ok">23 / 23 PASS</td></tr>
+  </table>
+
+  <h2>&#127760; 拓扑级创新</h2>
+
+  <h3>为什么独立鱼道行不通</h3>
+  <p>传统方案必须<strong>额外修建独立鱼道</strong>（如七级结构），带来三个无法回避的问题：</p>
+  <ul>
+    <li><b>占额外空间</b> —— 平面与剖面都要为通道让位，挤占泊位与作业面。</li>
+    <li><b>易受风浪破坏</b> —— 独立结构，与主体<strong>寿命不同</strong>。</li>
+    <li><b>需额外模具</b> —— 独立构件 = 独立制造链。</li>
+  </ul>
+
+  <div class="note">
+    <p style="margin:0"><strong>其中第二点最致命。</strong>鱼道与主体寿命不同步，
+    会形成「<strong>鱼道先坏、主体尚好</strong>」的独立失效模式 ——
+    抗台风的受力结构还在，生态连通已经断了。</p>
+  </div>
+
+  <h3>升级做法：把通道做进承重结构</h3>
+  <p>SinoPORT 不是删除鱼道，而是把它<strong>升级</strong>为
+     <strong>集成式多级活水生态通道</strong>：</p>
+
+  <table>
+    <tr><th>模块</th><th>阵列</th><th>角色</th></tr>
+    <tr><td>MOD-STD（27 &times; 27 &times; 8 m）</td><td><b>10 柱 5 墙</b></td><td>主浮体</td></tr>
+    <tr><td>MOD-DM（27 &times; 27 &times; 6 m）</td><td><b>6 柱 3 墙</b></td><td>防波堤模块</td></tr>
+  </table>
+
+  <p>墙体承担抗台风受力，其预留孔洞构成生态通道 ——
+     <strong>一套模具，同时交付两项能力。</strong></p>
+
+  <h3>实测：集成后贯通面积不降反升</h3>
+  <table>
+    <tr><th>通水路径</th><th>规格</th><th>面积</th></tr>
+    <tr><td>承重预留孔洞</td><td>12 直通榫卯柱 &phi;300 mm</td><td>0.8482 m&sup2;</td></tr>
+    <tr><td>压载水舱三管束</td><td>&phi;2000 mm &times; 3</td><td>9.4248 m&sup2;</td></tr>
+    <tr><td><b>合计</b></td><td>&mdash;</td><td><b class="hl">10.2730 m&sup2;</b></td></tr>
+    <tr><td>被移除外挂鱼道</td><td>&phi;2000 mm 单管</td><td>3.1416 m&sup2;</td></tr>
+    <tr><td><b>倍数</b></td><td>&mdash;</td><td><b class="hl">3.27 倍</b></td></tr>
+  </table>
+
+  <div class="card">
+    <p style="margin:0"><b>所以呢？</b><br>
+    生态连通与抗台风，从两件互相牵制的事，
+    变成<strong>同一套模具同时交付的两项能力</strong> ——
+    不再需要在「加固结构」与「保障生态」之间做取舍。</p>
+  </div>
+
+  <div class="note">
+    <p style="margin:0"><strong>口径声明。</strong>1.4092% 的透水率是
+    <strong>几何实算</strong>（迎水面投影 729 m&sup2;），
+    <strong>不是 CFD 实测的流量交换率</strong>。两者是不同物理量，我们不混充。
+    复算命令：<code>python demo_evolution.py</code>（纯 Python，秒级出结果）。</p>
+  </div>
+
+  <h2>&#128295; 亲手跑一遍</h2>
+  <pre><code>git clone https://github.com/SINOSHOP-OPEN/SinoPORT.git
+cd SinoPORT
+python -m venv .venv
+.venv\Scripts\activate          # Windows
+pip install -r requirements.txt
+python demo.py                 # -&gt; 4 / 4 步 PASS</code></pre>
+
+  <p><code>demo.py</code> <strong>只需NumPy</strong> ——
+     不需要 FreeCAD、不需要 GPU、不需要 Blender。
+     它依次运行四个判据源：</p>
+
+  <table>
+    <tr><th>判据源</th><th>结果</th><th>判定内容</th></tr>
+    <tr><td><code>pyramid_spec_r6.py</code></td><td class="ok">26 / 26 PASS</td><td>132 孔布局规则，D900</td></tr>
+    <tr><td><code>bw_geometry.py</code></td><td class="ok">PASS</td><td>381 m 防波堤，弦线 R=1,650</td></tr>
+    <tr><td><code>berths_spec_r2.py</code></td><td class="ok">9 / 9 PASS</td><td>9 泊位全含于 R=1,650</td></tr>
+    <tr><td><code>shore_spec_r2.py</code></td><td class="ok">23 / 23 PASS</td><td>冬夏双状态</td></tr>
+  </table>
+
+  <h2>&#128200; 参数化 + 实测闭环</h2>
+  <p>举一个真实案例，说明我们不是走过场。当孔径从 1,000 mm 改为 900 mm 时，
+     若按面积（D&sup2;）外推挖除基准，会得到 <b>0.8100</b>；
+     但<strong>实测比值是 0.8609</strong> ——
+     因为孔径变小使间隙变宽（357 &rarr; 450 mm），相邻圆柱的斜切体重叠更少。
+     采用实测标定系数后，偏差从 <b>+7.93%</b> 收敛到 <b class="ok">+1.55%</b>。</p>
+
+  <div class="card">
+    <p style="margin:0"><b>几何一改，基准必须重新标定。</b>
+    这才是「参数化 + 实测闭环」的真实含义 ——
+    不是把参数写进文件，而是<strong>每次改动都重新验证并更新判据</strong>。</p>
+  </div>
+
+  <h2>&#9878;&#65039; 诚实边界</h2>
+  <table>
+    <tr><th>项目</th><th>状态</th></tr>
+    <tr><td>消浪水动力仿真</td><td><b>解析估算，非 CFD 实测</b> —— 已列入路线图</td></tr>
+    <tr><td>迁移动力学（拖航阻力、稳性）</td><td><b>运动学演示</b>，未做流体力验证</td></tr>
+    <tr><td>波浪能年发电量</td><td><b>白皮书参考值</b>，非本项目实测</td></tr>
+    <tr><td>材料配方</td><td><b>保密（NDA）</b>；仓库只公开结构与指标</td></tr>
+  </table>
+
+  <p>每一个创新数字都要能回答「<strong>所以呢？</strong>」——
+     而每一项局限都如实登记，不掩饰。</p>
+
+  <h2>&#128279; 许可协议</h2>
+  <p>Apache License 2.0。第三方工具（FreeCAD、FFmpeg、Blender）
+     均以<strong>独立进程</strong>调用，从不链接其库，故不触发 GPL 传染。</p>
+
+  <footer>
+    SinoPORT 工程团队 &middot; 2026-10-20<br>
+    源码：<a href="https://github.com/SINOSHOP-OPEN/SinoPORT" target="_blank">github.com/SINOSHOP-OPEN/SinoPORT</a>
+    &middot; 编码规范 V6.4<br>
+    本页全部数值均由脚本判定，无手写 PASS。
+  </footer>
+
+</div>
+</body>
+</html>
