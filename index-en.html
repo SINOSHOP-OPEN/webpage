@@ -508,6 +508,71 @@
         .philosophy p, .philosophy blockquote { font-size: .93rem; }
     }
 
+
+/* ── 四梯队串联消浪（V6.3-r1 §27.2）── */
+.tiers{ margin:26px 0 4px; }
+.tiers-head{ display:flex; align-items:baseline; gap:14px; flex-wrap:wrap;
+  margin-bottom:14px; }
+.tiers-head h3{ margin:0; font-size:1.16rem; letter-spacing:.04em;
+  color:#dff7ef; font-weight:700; }
+.tiers-head .sum{ font-size:.82rem; color:#7fe8c8; letter-spacing:.06em;
+  padding:3px 11px; border:1px solid rgba(0,200,150,.42); border-radius:999px;
+  background:rgba(0,200,150,.08); white-space:nowrap; }
+.tiers-head .sum b{ color:#b9ffe6; font-weight:700; }
+.tier-list{ list-style:none; margin:0; padding:0; display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr)); gap:11px; }
+@media (max-width:900px){ .tier-list{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:560px){ .tier-list{ grid-template-columns:1fr; } }
+.tier{ position:relative; padding:13px 14px 14px; border-radius:11px;
+  background:linear-gradient(160deg,rgba(8,26,40,.92),rgba(6,17,28,.92));
+  border:1px solid rgba(79,195,247,.26);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05); }
+.tier::before{ content:''; position:absolute; left:0; top:0; bottom:0; width:3px;
+  border-radius:11px 0 0 11px; }
+.tier.t1::before{ background:linear-gradient(180deg,#ff8a3d,#ff5f6d); }
+.tier.t2::before{ background:linear-gradient(180deg,#3ddc97,#0f9d76); }
+.tier.t3::before{ background:linear-gradient(180deg,#4fc3f7,#2f7fd6); }
+.tier.t4::before{ background:linear-gradient(180deg,#b39dff,#7a5ce0); }
+.tier .no{ display:inline-flex; align-items:center; justify-content:center;
+  width:20px; height:20px; margin-right:7px; border-radius:50%;
+  font-size:.74rem; font-weight:700; color:#04121c; vertical-align:middle; }
+.tier.t1 .no{ background:#ff8a3d; } .tier.t2 .no{ background:#3ddc97; }
+.tier.t3 .no{ background:#4fc3f7; } .tier.t4 .no{ background:#b39dff; }
+.tier .nm{ font-size:.95rem; font-weight:700; color:#e8f7ff; }
+.tier .r{ margin-top:7px; font-size:.72rem; color:#7d94a8; letter-spacing:.03em;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
+.tier .w{ display:inline-block; margin-top:8px; padding:2px 9px; border-radius:5px;
+  font-size:.76rem; font-weight:700; letter-spacing:.04em; }
+.tier.t1 .w{ background:rgba(255,138,61,.16); color:#ffb884;
+  border:1px solid rgba(255,138,61,.34); }
+.tier.t2 .w{ background:rgba(61,220,151,.14); color:#7ff0c0;
+  border:1px solid rgba(61,220,151,.32); }
+.tier.t3 .w{ background:rgba(79,195,247,.14); color:#9fd8ff;
+  border:1px solid rgba(79,195,247,.32); }
+.tier.t4 .w{ background:rgba(179,157,255,.14); color:#cdbdff;
+  border:1px solid rgba(179,157,255,.32); }
+.tier .tech{ margin-top:8px; font-size:.79rem; line-height:1.62; color:#a8c0d0; }
+.tiers-flow{ display:flex; align-items:center; justify-content:center; gap:7px;
+  flex-wrap:wrap; margin:15px 0 12px; font-size:.86rem; color:#8fd8c4;
+  letter-spacing:.05em; }
+.tiers-flow .arw{ color:#4fc3f7; font-weight:700; }
+.tiers-result{ display:flex; align-items:center; justify-content:center; gap:26px;
+  flex-wrap:wrap; padding:13px 18px; border-radius:11px;
+  background:linear-gradient(100deg,rgba(255,95,109,.10),rgba(0,200,150,.10));
+  border:1px solid rgba(0,200,150,.28); }
+.tiers-result .item{ text-align:center; }
+.tiers-result .lb{ font-size:.72rem; color:#7d94a8; letter-spacing:.09em;
+  text-transform:uppercase; }
+.tiers-result .vl{ margin-top:3px; font-size:1.32rem; font-weight:800;
+  letter-spacing:.02em; }
+.tiers-result .vl.hi{ color:#ff8f8f; } .tiers-result .vl.lo{ color:#5ee6b6; }
+.tiers-result .vd{ font-size:.76rem; color:#6fbfa4; }
+.tiers-note{ margin-top:11px; font-size:.75rem; color:#5f7a8d;
+  line-height:1.95; letter-spacing:.01em; }
+.tiers-note b{ color:#8fb8cc; font-weight:600; }
+.tiers-note b.tnb{ display:inline; }
+.tier .tech{ line-height:1.75; }
+.tiers-flow{ line-height:2.1; }
 </style>
 </head>
 <body>
@@ -557,6 +622,63 @@
                 </blockquote>
                 <p>SINOSHOP-SinoPORT abandons plastic digital illusions, perfectly integrating the Eastern survival wisdom of the I Ching Bagua array (Eight Gates and anti-wind chamfers) with top-tier fluid mechanics (spiral cable drainage and tumbler anti-overturning).</p>
                 <p>Every 3.6-metre height, every 0.1-metre radius carbon fibre cable, has endured the strict verification of double-precision floating-point cutting and bounding-box assertions. This is not just visual aesthetics; it is a marine engineering mechanics report ready for classification society review.</p>
+
+                <div class="tiers">
+                    <div class="tiers-head">
+                        <h3>Four-Tier Wave Dissipation · 381 m Combined</h3>
+                        <span class="sum">Outer <b>300 m</b> built from MOD-DM modules ＋ <b>81 m</b> inner bank from MOD-STD</span>
+                    </div>
+                    <ul class="tier-list">
+                        <li class="tier t1">
+                            <span class="no">1</span><span class="nm">Pyramid Breakwater</span>
+                            <span class="w">100 m</span>
+                            <div class="r">BW-SEA · R=1,850.1–1,950.1 · MOD-DM</div>
+                            <div class="tech">M18-PYR-K floating pyramid units (18×18×11.45 m) ＋ BW-WAVE dissipation cubes. The first impact is absorbed here.</div>
+                        </li>
+                        <li class="tier t2">
+                            <span class="no">2</span><span class="nm">Floating Mangrove Breakwater</span>
+                            <span class="w">100 m</span>
+                            <div class="r">BW-MID · R=1,750.1–1,850.1 · MOD-DM</div>
+                            <div class="tech">Mangroves arranged in five vertical layers (0 to −45 m): layer 1 for ecological dissipation, layers 2–5 for duct bundles ＋ PANGOOD direct-drive generation. 93% dissipation.</div>
+                        </li>
+                        <li class="tier t3">
+                            <span class="no">3</span><span class="nm">Garden Breakwater</span>
+                            <span class="w">100 m</span>
+                            <div class="r">BW-PORT · R=1,650.1–1,750.1 · MOD-DM</div>
+                            <div class="tech">Inner-port gardens with micro-generation — the typhoon defence line doubles as a liveable community edge.</div>
+                        </li>
+                        <li class="tier t4">
+                            <span class="no">4</span><span class="nm">MOD-STD Inner Breakwater</span>
+                            <span class="w">81 m</span>
+                            <div class="r">R=1,569.1–1,650.1 · MOD-STD · three 27 m runs</div>
+                            <div class="tech">Standard modules mortised with 3 mm seamless joints, delivering the final calm water surface inside the harbour.</div>
+                        </li>
+                    </ul>
+                    <div class="tiers-flow">
+                        Offshore 15 m<span class="arw">→</span>① Pyramid 100 m<span class="arw">→</span>② Mangrove 100 m<span class="arw">→</span>③ Garden 100 m<span class="arw">→</span>④ Inner 81 m<span class="arw">→</span> Inner harbour
+                    </div>
+                    <div class="tiers-result">
+                        <div class="item">
+                            <div class="lb">Anti-Typhoon Design</div>
+                            <div class="vl hi">15 m</div>
+                            <div class="vd">Category-5+ offshore wave (wind ≥ 51 m/s)</div>
+                        </div>
+                        <div class="item">
+                            <div class="lb">Attenuation</div>
+                            <div class="vl" style="color:#4fc3f7;">25×</div>
+                            <div class="vd">Achieved across four tiers</div>
+                        </div>
+                        <div class="item">
+                            <div class="lb">Inner Harbour</div>
+                            <div class="vl lo">&lt; 0.6 m</div>
+                            <div class="vd">Final inner-harbour wave height</div>
+                        </div>
+                    </div>
+                    <p class="tiers-note">
+                        Source: <b>SINOSHOP-SinoPORT Modular 3D Geometry Dataset Encoding Specification V6.3-r1, §27.2 / §27.3</b>.
+                        Note on wording: the 381 m is <span class="tnb">four dissipation tiers in cascade</span>, not a single 381 m-thick wall; a bare "total thickness" figure would hide how each tier contributes, so this site uses the four-tier formulation throughout.
+                    </p>
+                </div>
                 <div class="metrics">
                     <span class="chip">Dome height <b>3.600 m</b></span>
                     <span class="chip">Cable radius <b>0.100 m</b></span>

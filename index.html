@@ -508,6 +508,71 @@
         .philosophy p, .philosophy blockquote { font-size: .93rem; }
     }
 
+
+/* ── 四梯队串联消浪（V6.3-r1 §27.2）── */
+.tiers{ margin:26px 0 4px; }
+.tiers-head{ display:flex; align-items:baseline; gap:14px; flex-wrap:wrap;
+  margin-bottom:14px; }
+.tiers-head h3{ margin:0; font-size:1.16rem; letter-spacing:.04em;
+  color:#dff7ef; font-weight:700; }
+.tiers-head .sum{ font-size:.82rem; color:#7fe8c8; letter-spacing:.06em;
+  padding:3px 11px; border:1px solid rgba(0,200,150,.42); border-radius:999px;
+  background:rgba(0,200,150,.08); white-space:nowrap; }
+.tiers-head .sum b{ color:#b9ffe6; font-weight:700; }
+.tier-list{ list-style:none; margin:0; padding:0; display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr)); gap:11px; }
+@media (max-width:900px){ .tier-list{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:560px){ .tier-list{ grid-template-columns:1fr; } }
+.tier{ position:relative; padding:13px 14px 14px; border-radius:11px;
+  background:linear-gradient(160deg,rgba(8,26,40,.92),rgba(6,17,28,.92));
+  border:1px solid rgba(79,195,247,.26);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05); }
+.tier::before{ content:''; position:absolute; left:0; top:0; bottom:0; width:3px;
+  border-radius:11px 0 0 11px; }
+.tier.t1::before{ background:linear-gradient(180deg,#ff8a3d,#ff5f6d); }
+.tier.t2::before{ background:linear-gradient(180deg,#3ddc97,#0f9d76); }
+.tier.t3::before{ background:linear-gradient(180deg,#4fc3f7,#2f7fd6); }
+.tier.t4::before{ background:linear-gradient(180deg,#b39dff,#7a5ce0); }
+.tier .no{ display:inline-flex; align-items:center; justify-content:center;
+  width:20px; height:20px; margin-right:7px; border-radius:50%;
+  font-size:.74rem; font-weight:700; color:#04121c; vertical-align:middle; }
+.tier.t1 .no{ background:#ff8a3d; } .tier.t2 .no{ background:#3ddc97; }
+.tier.t3 .no{ background:#4fc3f7; } .tier.t4 .no{ background:#b39dff; }
+.tier .nm{ font-size:.95rem; font-weight:700; color:#e8f7ff; }
+.tier .r{ margin-top:7px; font-size:.72rem; color:#7d94a8; letter-spacing:.03em;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
+.tier .w{ display:inline-block; margin-top:8px; padding:2px 9px; border-radius:5px;
+  font-size:.76rem; font-weight:700; letter-spacing:.04em; }
+.tier.t1 .w{ background:rgba(255,138,61,.16); color:#ffb884;
+  border:1px solid rgba(255,138,61,.34); }
+.tier.t2 .w{ background:rgba(61,220,151,.14); color:#7ff0c0;
+  border:1px solid rgba(61,220,151,.32); }
+.tier.t3 .w{ background:rgba(79,195,247,.14); color:#9fd8ff;
+  border:1px solid rgba(79,195,247,.32); }
+.tier.t4 .w{ background:rgba(179,157,255,.14); color:#cdbdff;
+  border:1px solid rgba(179,157,255,.32); }
+.tier .tech{ margin-top:8px; font-size:.79rem; line-height:1.62; color:#a8c0d0; }
+.tiers-flow{ display:flex; align-items:center; justify-content:center; gap:7px;
+  flex-wrap:wrap; margin:15px 0 12px; font-size:.86rem; color:#8fd8c4;
+  letter-spacing:.05em; }
+.tiers-flow .arw{ color:#4fc3f7; font-weight:700; }
+.tiers-result{ display:flex; align-items:center; justify-content:center; gap:26px;
+  flex-wrap:wrap; padding:13px 18px; border-radius:11px;
+  background:linear-gradient(100deg,rgba(255,95,109,.10),rgba(0,200,150,.10));
+  border:1px solid rgba(0,200,150,.28); }
+.tiers-result .item{ text-align:center; }
+.tiers-result .lb{ font-size:.72rem; color:#7d94a8; letter-spacing:.09em;
+  text-transform:uppercase; }
+.tiers-result .vl{ margin-top:3px; font-size:1.32rem; font-weight:800;
+  letter-spacing:.02em; }
+.tiers-result .vl.hi{ color:#ff8f8f; } .tiers-result .vl.lo{ color:#5ee6b6; }
+.tiers-result .vd{ font-size:.76rem; color:#6fbfa4; }
+.tiers-note{ margin-top:11px; font-size:.75rem; color:#5f7a8d;
+  line-height:1.95; letter-spacing:.01em; }
+.tiers-note b{ color:#8fb8cc; font-weight:600; }
+.tiers-note b.tnb{ display:inline; }
+.tier .tech{ line-height:1.75; }
+.tiers-flow{ line-height:2.1; }
 </style>
 </head>
 <body>
@@ -557,6 +622,63 @@
                 </blockquote>
                 <p>SINOSHOP-SinoPORT 摒弃了塑料感的数字幻觉，将《易经》八卦阵列的东方生存智慧（八门遁甲与抗风倒角），与顶级流体力学（螺旋拉索导流与不倒翁防倾覆）完美融合。</p>
                 <p>每一个 3.6 米、每一根0.1 米半径的碳纤维拉索，都历经了双精度浮点数的切割与包络盒的严苛校验。这不仅是一场视觉美学，更是一份可以交由船级社审查的海工力学报告。</p>
+
+                <div class="tiers">
+                    <div class="tiers-head">
+                        <h3>四梯队串联消浪 · 合计 381 m</h3>
+                        <span class="sum">外围 <b>300 m</b> 由 MOD-DM 模块砌成 ＋ 内堤 <b>81 m</b> 由 MOD-STD 砌成</span>
+                    </div>
+                    <ul class="tier-list">
+                        <li class="tier t1">
+                            <span class="no">1</span><span class="nm">金字塔防波堤</span>
+                            <span class="w">100 m</span>
+                            <div class="r">BW-SEA · R=1,850.1~1,950.1 · MOD-DM</div>
+                            <div class="tech">M18-PYR-K 悬浮金字塔（18×18×11.45 m）＋ BW-WAVE 消浪立方。波浪首道冲击在此耗散。</div>
+                        </li>
+                        <li class="tier t2">
+                            <span class="no">2</span><span class="nm">悬浮红树林防波堤</span>
+                            <span class="w">100 m</span>
+                            <div class="r">BW-MID · R=1,750.1~1,850.1 · MOD-DM</div>
+                            <div class="tech">红树林五层垂向布置（0~−45 m），第 1 层生态消浪，第 2~5 层导流管束 ＋ PANGOOD 直驱发电，消浪 93%。</div>
+                        </li>
+                        <li class="tier t3">
+                            <span class="no">3</span><span class="nm">花园防波堤</span>
+                            <span class="w">100 m</span>
+                            <div class="r">BW-PORT · R=1,650.1~1,750.1 · MOD-DM</div>
+                            <div class="tech">近港区花园与生态微发电，兼具消浪与居住属性 —— 让抗台风防线本身成为可居住的社区边界。</div>
+                        </li>
+                        <li class="tier t4">
+                            <span class="no">4</span><span class="nm">MOD-STD 内防波堤</span>
+                            <span class="w">81 m</span>
+                            <div class="r">R=1,569.1~1,650.1 · MOD-STD · 三段 27 m</div>
+                            <div class="tech">标准模块砌成的内核堤，榫卯 3 mm 无间隙拼接，为内港提供最后的平静水面。</div>
+                        </li>
+                    </ul>
+                    <div class="tiers-flow">
+                        外海 15 m<span class="arw">→</span>① 金字塔 100 m<span class="arw">→</span>② 红树林 100 m<span class="arw">→</span>③ 花园 100 m<span class="arw">→</span>④ 内堤 81 m<span class="arw">→</span>内港
+                    </div>
+                    <div class="tiers-result">
+                        <div class="item">
+                            <div class="lb">Anti-Typhoon Design</div>
+                            <div class="vl hi">15 m</div>
+                            <div class="vd">18 级台风外浪（风速 ≥ 51 m/s）</div>
+                        </div>
+                        <div class="item">
+                            <div class="lb">Attenuation</div>
+                            <div class="vl" style="color:#4fc3f7;">25×</div>
+                            <div class="vd">四梯队共同实现</div>
+                        </div>
+                        <div class="item">
+                            <div class="lb">Inner Harbour</div>
+                            <div class="vl lo">&lt; 0.6 m</div>
+                            <div class="vd">内港终级浪高</div>
+                        </div>
+                    </div>
+                    <p class="tiers-note">
+                        参数出处：<b>SINOSHOP-SinoPORT 可移动抗台风悬浮港模块三维几何数据集编码规范 V6.3-r1 §27.2 / §27.3</b>。
+                        口径说明：381 m 是<span class="tnb">四道梯队串联</span>的消浪体系，而非一道 381 m 厚的墙；单一「总厚」表述会掩盖各梯队分工，故本站统一采用四梯队表述。
+                    </p>
+                </div>
                 <div class="metrics">
                     <span class="chip">穹顶高<b>3.600 m</b></span>
                     <span class="chip">拉索半径 <b>0.100 m</b></span>
