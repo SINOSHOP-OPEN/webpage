@@ -421,16 +421,103 @@
   }
   .navbar a:hover { background:rgba(143,214,255,.28); color:#fff; }
   .navbar .lang { margin-left:auto; background:#2a7faa; color:#fff; }
+
+    /* ===================== SINOSHOP 设计哲学（2026-07-20 新增） ===================== */
+    .philosophy {
+        position: relative;
+        margin: 34px 0 30px;
+        padding: 0;
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1px solid rgba(90, 200, 255, .34);
+        box-shadow: 0 18px 44px -18px rgba(0, 30, 60, .55),
+                    inset 0 1px 0 rgba(160, 230, 255, .18);
+        background: #07131f;
+    }
+    .philosophy-bg {
+        position: absolute; inset: 0;
+        background-size: cover; background-position: center;
+        opacity: .26;
+        filter: saturate(1.05);
+    }
+    .philosophy-veil {
+        position: absolute; inset: 0;
+        background:
+            linear-gradient(180deg, rgba(4,14,26,.90) 0%,
+                            rgba(4,14,26,.80) 45%,
+                            rgba(4,14,26,.93) 100%),
+            radial-gradient(120% 90% at 50% 0%, rgba(20,90,150,.30), transparent 62%);
+    }
+    .philosophy-inner { position: relative; padding: 34px 36px 30px; }
+    .philosophy-tag {
+        display: inline-block;
+        font-size: .70rem; font-weight: 700; letter-spacing: .22em;
+        color: #7fd8ff; text-transform: uppercase;
+        border: 1px solid rgba(127, 216, 255, .48);
+        border-radius: 999px; padding: 4px 14px;
+        background: rgba(127, 216, 255, .09);
+        margin-bottom: 14px;
+    }
+    .philosophy h2 {
+        margin: 0 0 6px;
+        font-size: 1.72rem; font-weight: 800; letter-spacing: .01em;
+        color: #eaf7ff;
+        text-shadow: 0 2px 18px rgba(90, 190, 255, .28);
+    }
+    .philosophy .rule {
+        width: 84px; height: 3px; border-radius: 2px; margin: 0 0 18px;
+        background: linear-gradient(90deg, #4fc3f7, #8f6cff);
+        box-shadow: 0 0 14px rgba(79, 195, 247, .55);
+    }
+    .philosophy p {
+        margin: 0 0 14px;
+        color: #cfe6f6; line-height: 1.92; font-size: .98rem;
+        max-width: 1080px;
+    }
+    .philosophy p:last-of-type { margin-bottom: 0; }
+    .philosophy blockquote {
+        margin: 0 0 16px; padding: 14px 20px;
+        border-left: 3px solid #4fc3f7;
+        background: rgba(79, 195, 247, .07);
+        border-radius: 0 12px 12px 0;
+        color: #e6f6ff; font-size: 1.02rem; line-height: 1.9;
+    }
+    .philosophy .metrics {
+        display: flex; flex-wrap: wrap; gap: 10px;
+        margin-top: 20px; padding-top: 18px;
+        border-top: 1px dashed rgba(127, 216, 255, .26);
+    }
+    .philosophy .chip {
+        font-size: .78rem; font-weight: 600; letter-spacing: .02em;
+        color: #a9dcff; padding: 5px 13px; border-radius: 999px;
+        background: rgba(79, 195, 247, .10);
+        border: 1px solid rgba(127, 216, 255, .30);
+    }
+    .philosophy .chip b { color: #ffd48a; font-weight: 800; }
+    .philosophy .figlink {
+        display: inline-block; margin-top: 16px;
+        font-size: .84rem; font-weight: 600; color: #8fdcff;
+        text-decoration: none;
+        border-bottom: 1px dotted rgba(143, 220, 255, .55);
+    }
+    .philosophy .figlink:hover { color: #ffd48a;
+        border-bottom-color: rgba(255, 212, 138, .7); }
+    @media (max-width: 720px) {
+        .philosophy-inner { padding: 24px 18px 22px; }
+        .philosophy h2 { font-size: 1.34rem; }
+        .philosophy p, .philosophy blockquote { font-size: .93rem; }
+    }
+
 </style>
 </head>
 <body>
       <div class="navbar">
-    <a href="index-en">🏠 首页 Home</a>
-    <a href="SinoPORT-V6.4-en">🚢 悬浮港 V6.4</a>
-    <a href="SinoPORT-V10.5-en">🚦 悬浮港 V10.5</a>
-    <a href="sinoshop-floating-module-en">🧲 标准浮箱</a>
-    <a href="sinotide-high-tide-power-en">🌊 潮流能</a>
-    <a href="SINOhotSKIN_V5.5-R1-en">🧮 hotSKIN</a>
+    <a href="index-en.html">🏠 首页 Home</a>
+    <a href="SinoPORT-V6.4-en.html">🚢 悬浮港 V6.4</a>
+    <a href="SinoPORT-V10.5-en.html">🚦 悬浮港 V10.5</a>
+    <a href="sinoshop-floating-module-en.html">🧲 标准浮箱</a>
+    <a href="sinotide-high-tide-power-en.html">🌊 潮流能</a>
+    <a href="SINOhotSKIN_V5.5-R1-en.html">🧮 hotSKIN</a>
     <a href="https://github.com/SINOSHOP-OPEN/SinoPORT" target="_blank">🐛 源码</a>
     <a class="lang" href="index.html">🇨🇳 中文版</a>
   </div>
@@ -456,6 +543,35 @@
                 </div>
             </div>
         </header>
+
+        <!-- ====================== SINOSHOP DESIGN PHILOSOPHY ====================== -->
+        <section class="philosophy" id="philosophy">
+            <div class="philosophy-bg" style="background-image:url('assets/img/modstd-r2-night.png')"></div>
+            <div class="philosophy-veil"></div>
+            <div class="philosophy-inner">
+                <span class="philosophy-tag">Design Philosophy</span>
+                <h2>SINOSHOP Design Philosophy</h2>
+                <div class="rule"></div>
+                <blockquote>
+                    While ordinary AIGC still stitches together random pixels using probabilistic models, every floating house in SINOSHOP is an engineering entity deduced from rigorous mathematical equations and the FreeCAD physics engine.
+                </blockquote>
+                <p>SINOSHOP-SinoPORT abandons plastic digital illusions, perfectly integrating the Eastern survival wisdom of the I Ching Bagua array (Eight Gates and anti-wind chamfers) with top-tier fluid mechanics (spiral cable drainage and tumbler anti-overturning).</p>
+                <p>Every 3.6-metre height, every 0.1-metre radius carbon fibre cable, has endured the strict verification of double-precision floating-point cutting and bounding-box assertions. This is not just visual aesthetics; it is a marine engineering mechanics report ready for classification society review.</p>
+                <div class="metrics">
+                    <span class="chip">Dome height <b>3.600 m</b></span>
+                    <span class="chip">Cable radius <b>0.100 m</b></span>
+                    <span class="chip">Eight Gates <b>8×</b></span>
+                    <span class="chip">Crescent bays <b>8×</b></span>
+                    <span class="chip">Carbon-fibre stays <b>8×</b></span>
+                    <span class="chip">BBox tolerance <b>0.1 mm</b></span>
+                    <span class="chip">Solid assertions <b>21/21 PASS</b></span>
+                </div>
+                <a class="figlink" href="SinoPORT-V6.4-en.html" target="_blank">
+                    → Read the full MOD-STD technical white paper (3.6 m dome · 8-stay flow guidance · crescent bay windows)
+                </a>
+            </div>
+        </section>
+
 
         <!-- ============================== 导航锚点（双语链接） ============================== -->
         <div class="nav-tabs">

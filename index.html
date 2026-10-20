@@ -421,16 +421,103 @@
   }
   .navbar a:hover { background:rgba(143,214,255,.28); color:#fff; }
   .navbar .lang { margin-left:auto; background:#2a7faa; color:#fff; }
+
+    /* ===================== SINOSHOP 设计哲学（2026-07-20 新增） ===================== */
+    .philosophy {
+        position: relative;
+        margin: 34px 0 30px;
+        padding: 0;
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1px solid rgba(90, 200, 255, .34);
+        box-shadow: 0 18px 44px -18px rgba(0, 30, 60, .55),
+                    inset 0 1px 0 rgba(160, 230, 255, .18);
+        background: #07131f;
+    }
+    .philosophy-bg {
+        position: absolute; inset: 0;
+        background-size: cover; background-position: center;
+        opacity: .26;
+        filter: saturate(1.05);
+    }
+    .philosophy-veil {
+        position: absolute; inset: 0;
+        background:
+            linear-gradient(180deg, rgba(4,14,26,.90) 0%,
+                            rgba(4,14,26,.80) 45%,
+                            rgba(4,14,26,.93) 100%),
+            radial-gradient(120% 90% at 50% 0%, rgba(20,90,150,.30), transparent 62%);
+    }
+    .philosophy-inner { position: relative; padding: 34px 36px 30px; }
+    .philosophy-tag {
+        display: inline-block;
+        font-size: .70rem; font-weight: 700; letter-spacing: .22em;
+        color: #7fd8ff; text-transform: uppercase;
+        border: 1px solid rgba(127, 216, 255, .48);
+        border-radius: 999px; padding: 4px 14px;
+        background: rgba(127, 216, 255, .09);
+        margin-bottom: 14px;
+    }
+    .philosophy h2 {
+        margin: 0 0 6px;
+        font-size: 1.72rem; font-weight: 800; letter-spacing: .01em;
+        color: #eaf7ff;
+        text-shadow: 0 2px 18px rgba(90, 190, 255, .28);
+    }
+    .philosophy .rule {
+        width: 84px; height: 3px; border-radius: 2px; margin: 0 0 18px;
+        background: linear-gradient(90deg, #4fc3f7, #8f6cff);
+        box-shadow: 0 0 14px rgba(79, 195, 247, .55);
+    }
+    .philosophy p {
+        margin: 0 0 14px;
+        color: #cfe6f6; line-height: 1.92; font-size: .98rem;
+        max-width: 1080px;
+    }
+    .philosophy p:last-of-type { margin-bottom: 0; }
+    .philosophy blockquote {
+        margin: 0 0 16px; padding: 14px 20px;
+        border-left: 3px solid #4fc3f7;
+        background: rgba(79, 195, 247, .07);
+        border-radius: 0 12px 12px 0;
+        color: #e6f6ff; font-size: 1.02rem; line-height: 1.9;
+    }
+    .philosophy .metrics {
+        display: flex; flex-wrap: wrap; gap: 10px;
+        margin-top: 20px; padding-top: 18px;
+        border-top: 1px dashed rgba(127, 216, 255, .26);
+    }
+    .philosophy .chip {
+        font-size: .78rem; font-weight: 600; letter-spacing: .02em;
+        color: #a9dcff; padding: 5px 13px; border-radius: 999px;
+        background: rgba(79, 195, 247, .10);
+        border: 1px solid rgba(127, 216, 255, .30);
+    }
+    .philosophy .chip b { color: #ffd48a; font-weight: 800; }
+    .philosophy .figlink {
+        display: inline-block; margin-top: 16px;
+        font-size: .84rem; font-weight: 600; color: #8fdcff;
+        text-decoration: none;
+        border-bottom: 1px dotted rgba(143, 220, 255, .55);
+    }
+    .philosophy .figlink:hover { color: #ffd48a;
+        border-bottom-color: rgba(255, 212, 138, .7); }
+    @media (max-width: 720px) {
+        .philosophy-inner { padding: 24px 18px 22px; }
+        .philosophy h2 { font-size: 1.34rem; }
+        .philosophy p, .philosophy blockquote { font-size: .93rem; }
+    }
+
 </style>
 </head>
 <body>
       <div class="navbar">
-    <a href="index">🏠 首页 Home</a>
-    <a href="SinoPORT-V6.4">🚢 悬浮港 V6.4</a>
+    <a href="index.html">🏠 首页 Home</a>
+    <a href="SinoPORT-V6.4.html">🚢 悬浮港 V6.4</a>
     <a href="SinoPORT-V10.5.html">🚦 悬浮港 V10.5</a>
-    <a href="sinoshop-floating-module">🧲 标准浮箱</a>
-    <a href="sinotide-high-tide-power">🌊 潮流能</a>
-    <a href="SINOhotSKIN_V5.5-R1">🧮 hotSKIN</a>
+    <a href="sinoshop-floating-module.html">🧲 标准浮箱</a>
+    <a href="sinotide-high-tide-power.html">🌊 潮流能</a>
+    <a href="SINOhotSKIN_V5.5-R1.html">🧮 hotSKIN</a>
     <a href="https://github.com/SINOSHOP-OPEN/SinoPORT" target="_blank">🐛 源码</a>
     <a class="lang" href="index-en.html">🌐 English Version</a>
   </div>
@@ -456,6 +543,35 @@
                 </div>
             </div>
         </header>
+
+        <!-- ============================== SINOSHOP 设计哲学 ============================== -->
+        <section class="philosophy" id="philosophy">
+            <div class="philosophy-bg" style="background-image:url('assets/img/modstd-r2-night.png')"></div>
+            <div class="philosophy-veil"></div>
+            <div class="philosophy-inner">
+                <span class="philosophy-tag">Design Philosophy · 设计哲学</span>
+                <h2>SINOSHOP 设计哲学</h2>
+                <div class="rule"></div>
+                <blockquote>
+                    当普通的 AIGC 还在靠概率模型拼凑随机像素时，SINOSHOP 的每一座悬浮屋，都是基于严谨的数学方程式与FreeCAD 物理引擎推演出的工程实体。
+                </blockquote>
+                <p>SINOSHOP-SinoPORT 摒弃了塑料感的数字幻觉，将《易经》八卦阵列的东方生存智慧（八门遁甲与抗风倒角），与顶级流体力学（螺旋拉索导流与不倒翁防倾覆）完美融合。</p>
+                <p>每一个 3.6 米、每一根0.1 米半径的碳纤维拉索，都历经了双精度浮点数的切割与包络盒的严苛校验。这不仅是一场视觉美学，更是一份可以交由船级社审查的海工力学报告。</p>
+                <div class="metrics">
+                    <span class="chip">穹顶高<b>3.600 m</b></span>
+                    <span class="chip">拉索半径 <b>0.100 m</b></span>
+                    <span class="chip">八门遁甲 <b>8×</b></span>
+                    <span class="chip">月牙光窗 <b>8×</b></span>
+                    <span class="chip">碳纤维拉索 <b>8×</b></span>
+                    <span class="chip">包络盒容差 <b>0.1 mm</b></span>
+                    <span class="chip">实体校验 <b>21/21 PASS</b></span>
+                </div>
+                <a class="figlink" href="SinoPORT-V6.4.html" target="_blank">
+                    → 查看 MOD-STD 完整技术白皮书（3.6 m穹顶 · 八索导流 · 月牙湾光窗）
+                </a>
+            </div>
+        </section>
+
 
         <!-- ============================== 导航锚点（双语链接） ============================== -->
         <div class="nav-tabs">
