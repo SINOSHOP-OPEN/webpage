@@ -235,6 +235,84 @@
        由金字塔 + 立方体 + 涡轮 + 弹簧 + MOD-DM 本体<b>四层共同承担</b>。</p>
   </div>
 
+
+<h2>&#129517; BW-GRID 下层网格稳定层 · 一期工程（§46.11 / §46.14 / §46.15）</h2>
+  <p>防波堤底部不是实心底板，而是一张<b>张紧缆索网</b>（BW-GRID）：
+     199 根径向辐条 + 环向分段链，<b>上下双层</b>，锚定悬浮浮屋、球船与
+     金字塔立方体的五向浮动弹簧发电体系，同时保留底部水体的导流通道。
+     下图为一期（迎海区 100 m 环带）的实测几何渲染。</p>
+
+  <div class="grid">
+    <div class="stat"><div class="v">119.39</div>
+      <div class="l">ha 一期环带面积<br>R = 1,850.1~1,950.1 m</div></div>
+    <div class="stat"><div class="v">199</div>
+      <div class="l">根径向辐条<br>上下双层 · 60 m 网格</div></div>
+    <div class="stat"><div class="v">106</div>
+      <div class="l">道环向分段链<br>间距 112.63 m（S5）</div></div>
+    <div class="stat"><div class="v">200.5%</div>
+      <div class="l">抗扭满足度<br>门槛 200%</div></div>
+  </div>
+
+  <h3>一期几何 · 俯视（几何正确性凭据）</h3>
+  <p>正投影实测标注：三个同心半径圆可回读到 §46.11 裁定的
+     <b>R = 1,850.1 / 1,950.1 m</b>，环链 106 道可逐点清点。</p>
+  <p><img src="assets/img/bwgrid-top.png" alt="BW-GRID 一期俯视"
+        style="width:100%;max-width:1000px;border-radius:10px;
+               border:1px solid rgba(255,255,255,.12)"></p>
+
+  <h3>构造细部 · 辐条 / 环链 / 三管束 / 立方体位</h3>
+  <p>局部<b>真实比例</b>渲染（60 m 网格）：三管束节点为每辐条根部一组
+     （GEN / FLOAT / WATER），立方体位为 60 m 网格交点上的
+     <b>稀疏点式</b>布置。</p>
+  <p><img src="assets/img/bwgrid-detail.png" alt="BW-GRID 一期网格近景"
+        style="width:100%;max-width:1000px;border-radius:10px;
+               border:1px solid rgba(255,255,255,.12)"></p>
+
+  <h3>降本方案 S5（§46.14）</h3>
+  <table>
+    <tr><th>路径</th><th>措施</th><th>效果</th><th>关键约束</th></tr>
+    <tr><td><b>A</b></td>
+        <td>环链间距 60 → <span class="hl">112.63 m</span>（106 道）</td>
+        <td>锚具 199 → 106 套、张拉航段减半</td>
+        <td>抗扭须 ≥ 200%</td></tr>
+    <tr><td><b>B</b></td>
+        <td>缆索<b>国产化替代</b></td>
+        <td>800 → 480 元/延米（<b>−40%</b>）</td>
+        <td>须提供破断/疲劳/防腐型式试验</td></tr>
+    <tr><td><b>C</b></td>
+        <td>Φ60 → <span class="hl">Φ50</span> + <b>同步降预张力</b></td>
+        <td>截面 −30.6% → 333 元/延米；自重 −30.6%</td>
+        <td>恒定拉应力 ≤ 40 MPa（红线 46-AF）</td></tr>
+    <tr><td><b>叠加</b></td>
+        <td>方案 S5（B + C + A 的锚具收益）</td>
+        <td>一期 <span class="hl">0.5094 → 0.2048 亿元</span>（省 <b>59.8%</b>）</td>
+        <td>抗扭 <b>200.5%</b> ✓</td></tr>
+  </table>
+
+  <p><img src="assets/img/bwgrid-iso.png" alt="BW-GRID 一期轴测（S5 方案）"
+        style="width:100%;max-width:1000px;border-radius:10px;
+               border:1px solid rgba(255,255,255,.12)"></p>
+  <p><img src="assets/img/bwgrid-iso-baseline.png"
+        alt="BW-GRID 一期基线轴测（降本前）"
+        style="width:100%;max-width:1000px;border-radius:10px;
+               border:1px solid rgba(255,255,255,.12)"></p>
+
+  <div class="honest">
+    <h3>&#9888;&#65039; 诚实边界（BW-GRID）</h3>
+    <p><b>环链间距放大并不省缆索</b> —— 环链总长 = 中径周长 × 双层，
+       <b>与间距无关</b>；省下的是<b>锚具数与海上张拉工时</b>，
+       属施工组织收益，不是材料成本（红线 46-AO）。</p>
+    <p><b>降规格必须同步降预张力</b> —— 保持原预张力而缩小截面，
+       Φ50 的恒定拉应力会从 40 升到 57.6 MPa，违反红线 46-AF；
+       且降规格会降低抗扭能力，须以增加环链道数补偿（红线 46-AK / 46-AL）。</p>
+    <p>造价单价 800 元/延米与国产化 −40% 均为<b>量级假设</b>（红线 46-AC）；
+       Φ50 的 333 元/延米由截面比推算，<b>非报价</b>；
+       允许应力 200 MPa <b>须厂家确认</b>；拖曳力 4,981.5 kN <b>须水池试验</b>；
+       抗扭为「张力×力臂」简化模型，<b>未做空间桁架有限元</b>。</p>
+    <p>图中缆索直径与三管束管径为<b>视觉放大</b>（×45 / ×3.2）——
+       真实 Φ50 mm 在 3,900 m 环带下不足 0.3 px，肉眼不可见。
+       所有<b>平面尺寸标注均为真实值</b>，未经放大。</p>
+  </div>
   <h2>&#127760; 拓扑级创新</h2>
 
   <h3>为什么独立鱼道行不通</h3>

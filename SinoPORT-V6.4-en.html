@@ -245,6 +245,98 @@
        turbine + springs + the MOD-DM body.</p>
   </div>
 
+
+<h2>&#129517; BW-GRID Sub-layer Grid Stabiliser &mdash; Phase 1 Engineering
+    (§46.11 / §46.14 / §46.15)</h2>
+  <p>The breakwater floor is not a solid base slab but a <b>tensioned cable grid</b>
+     (BW-GRID): 199 radial spokes plus hoop chain segments, laid in
+     <b>two layers</b>, anchoring the floating houses, sphere vessels and
+     pyramid cubes into the five-way spring power system &mdash; while keeping
+     the flow path under the breakwater open. Below is the measured geometry
+     of Phase 1 (the 100 m seaward band).</p>
+
+  <div class="grid">
+    <div class="stat"><div class="v">119.39</div>
+      <div class="l">ha Phase 1 band area<br>R = 1,850.1&ndash;1,950.1 m</div></div>
+    <div class="stat"><div class="v">199</div>
+      <div class="l">radial spokes<br>two layers &middot; 60 m grid</div></div>
+    <div class="stat"><div class="v">106</div>
+      <div class="l">hoop chain segments<br>112.63 m spacing (S5)</div></div>
+    <div class="stat"><div class="v">200.5%</div>
+      <div class="l">torsion margin<br>threshold 200%</div></div>
+  </div>
+
+  <h3>Phase 1 geometry &mdash; plan view</h3>
+  <p>Orthographic, dimensioned: the three concentric radius circles can be read
+     back to the <b>R = 1,850.1 / 1,950.1 m</b> values fixed in &sect;46.11, and
+     the 106 hoop segments can be counted one by one.</p>
+  <p><img src="assets/img/bwgrid-top.png" alt="BW-GRID Phase 1 plan view"
+        style="width:100%;max-width:1000px;border-radius:10px;
+               border:1px solid rgba(255,255,255,.12)"></p>
+
+  <h3>Construction detail &mdash; spokes / hoop chains / tri-pipe / cube seats</h3>
+  <p>Rendered at <b>true scale</b> (60 m grid): each spoke root carries one
+     three-pipe bundle (GEN / FLOAT / WATER); the cube seats sit at 60 m grid
+     intersections in a <b>sparse point pattern</b>.</p>
+  <p><img src="assets/img/bwgrid-detail.png" alt="BW-GRID Phase 1 grid detail"
+        style="width:100%;max-width:1000px;border-radius:10px;
+               border:1px solid rgba(255,255,255,.12)"></p>
+
+  <h3>Cost option S5 (&sect;46.14)</h3>
+  <table>
+    <tr><th>Path</th><th>Measure</th><th>Effect</th><th>Constraint</th></tr>
+    <tr><td><b>A</b></td>
+        <td>Hoop spacing 60 &rarr; <span class="hl">112.63 m</span> (106 segments)</td>
+        <td>Anchors 199 &rarr; 106, half the tensioning runs</td>
+        <td>Torsion must stay &ge; 200%</td></tr>
+    <tr><td><b>B</b></td>
+        <td><b>Domestic cable substitution</b></td>
+        <td>800 &rarr; 480 CNY/m (<b>&minus;40%</b>)</td>
+        <td>Type tests: breakage / fatigue / corrosion</td></tr>
+    <tr><td><b>C</b></td>
+        <td>&Phi;60 &rarr; <span class="hl">&Phi;50</span> with <b>pretension reduced
+            to match</b></td>
+        <td>Section &minus;30.6% &rarr; 333 CNY/m; self-weight &minus;30.6%</td>
+        <td>Constant tensile stress &le; 40 MPa (redline 46-AF)</td></tr>
+    <tr><td><b>Combined</b></td>
+        <td>Option S5 (B + C + anchor saving of A)</td>
+        <td>Phase 1 <span class="hl">&yen;50.94 M &rarr; &yen;20.48 M</span>
+            (<b>&minus;59.8%</b>)</td>
+        <td>Torsion <b>200.5%</b> &#10003;</td></tr>
+  </table>
+
+  <p><img src="assets/img/bwgrid-iso.png" alt="BW-GRID Phase 1 isometric (Option S5)"
+        style="width:100%;max-width:1000px;border-radius:10px;
+               border:1px solid rgba(255,255,255,.12)"></p>
+  <p><img src="assets/img/bwgrid-iso-baseline.png"
+        alt="BW-GRID Phase 1 baseline isometric (before cost reduction)"
+        style="width:100%;max-width:1000px;border-radius:10px;
+               border:1px solid rgba(255,255,255,.12)"></p>
+
+  <div class="honest">
+    <h3>&#9888;&#65039; Honest boundaries (BW-GRID)</h3>
+    <p><b>Widening the hoop spacing does not save cable</b> &mdash; total hoop
+       length = mid-radius circumference &times; two layers, <b>independent of
+       spacing</b>. What it saves is <b>anchor count and offshore tensioning
+       time</b>: a construction-logistics gain, not a material saving
+       (redline 46-AO).</p>
+    <p><b>Down-sizing a cable must reduce pretension to match</b> &mdash;
+       keeping the original pretension on a &Phi;50 section raises the constant
+       tensile stress from 40 to 57.6 MPa, breaching redline 46-AF; and
+       down-sizing also reduces torsional capacity, so extra hoop segments are
+       required to compensate (redlines 46-AK / 46-AL).</p>
+    <p>800 CNY/m and the 40% domestic discount are <b>order-of-magnitude
+       estimates</b> (redline 46-AC); the 333 CNY/m for &Phi;50 is derived from
+       the section ratio, <b>not a quotation</b>; the 200 MPa allowable stress
+       <b>must be confirmed by the manufacturer</b>; the 4,981.5 kN drag load
+       <b>requires flume testing</b>; the torsion figure comes from a simplified
+       tension&times;lever-arm model, <b>not a spatial truss finite-element
+       analysis</b>.</p>
+    <p>Cable diameters and three-pipe bundles are <b>visually enlarged</b>
+       (×45 / ×3.2) &mdash; a real &Phi;50 mm section is under 0.3 px across a
+       3,900 m band and cannot be seen. All <b>plan dimension annotations are
+       true values</b>, never enlarged.</p>
+  </div>
   <h2>&#127760; The topology-level innovation</h2>
 
   <h3>Why a separate fishway fails</h3>
