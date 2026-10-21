@@ -1,0 +1,8 @@
+# 版本备份（旧版保留不删，但不入库）
+*.r0-*
+*.r0
+index_001_backup_restored.html
+
+# 临时产物
+_ffmpeg*
+_*.log
