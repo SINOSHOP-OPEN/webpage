@@ -115,6 +115,66 @@
   @media(max-width:640px){
     .hero h1{font-size:1.9rem} .sec-title{font-size:1.5rem}
   }
+
+    /* ===== 专页：视频与宣发文案 ===== */
+    .pfilm {
+        display:grid; grid-template-columns:minmax(0,1fr) 240px; gap:1rem;
+        align-items:start; margin-top:.4rem;
+    }
+    .pfilm .pv {
+        border-radius:1rem; overflow:hidden; background:#000;
+        border:1px solid rgba(125,211,252,.26);
+        box-shadow:0 10px 30px rgba(0,0,0,.32);
+    }
+    .pfilm .pv video { display:block; width:100%; height:auto; }
+    .pfilm .pc {
+        padding:.65rem .85rem; font-size:.78rem; color:#5d7590; line-height:1.75;
+        background:rgba(2,10,20,.04); border-top:1px solid rgba(13,110,180,.12);
+    }
+    .pfilm .pc b { color:#0b1a2e; }
+    .pfilm .side { display:flex; flex-direction:column; gap:.8rem; }
+    .pfilm .side .box {
+        border:1px solid rgba(13,110,180,.18); border-radius:.9rem;
+        padding:.75rem .8rem; background:rgba(2,10,20,.03);
+    }
+    .pfilm .side .box h4 {
+        font-size:.74rem; letter-spacing:.12em; text-transform:uppercase;
+        color:var(--cy); margin-bottom:.5rem;
+    }
+    .pfilm .side .box video {
+        width:100%; border-radius:.55rem; display:block;
+        border:1px solid rgba(13,110,180,.2);
+    }
+    .pfilm .side .box p { font-size:.76rem; color:#5d7590; line-height:1.7; margin-top:.45rem; }
+    .pfilm .btns { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.9rem; }
+    .pfilm .btns a {
+        font-size:.8rem; font-weight:600; text-decoration:none;
+        padding:.45rem .95rem; border-radius:999px;
+        border:1px solid rgba(13,110,180,.3); color:#0b1a2e;
+        background:rgba(13,110,180,.06);
+    }
+    .pfilm .btns a.pri {
+        background:linear-gradient(135deg,#0ea5a0,#0b7ea8); color:#fff; border-color:transparent;
+    }
+    .pquote {
+        margin:1.4rem 0 .2rem; padding:1.1rem 1.3rem;
+        background:linear-gradient(135deg,rgba(13,110,180,.07),rgba(14,165,160,.06));
+        border-left:4px solid var(--cy); border-radius:.2rem 1rem 1rem .2rem;
+    }
+    .pquote .tag {
+        font-size:.7rem; letter-spacing:.16em; text-transform:uppercase;
+        color:var(--cy); margin-bottom:.55rem; font-weight:700;
+    }
+    .pquote p { font-size:1rem; line-height:2.05; color:#0f2338; }
+    .pquote .note {
+        margin-top:.7rem; font-size:.8rem; line-height:1.85; color:#4b6b85;
+        border-top:1px dashed rgba(13,110,180,.25); padding-top:.6rem;
+    }
+    @media (max-width:880px) {
+        .pfilm { grid-template-columns:1fr; }
+        .pfilm .side { flex-direction:row; flex-wrap:wrap; }
+        .pfilm .side > * { flex:1 1 200px; }
+    }
 </style>
 </head>
 <body>
@@ -189,29 +249,37 @@
   <!-- ==================== 视频 ==================== -->
   <section id="film">
     <h2 class="sec-title">影像</h2>
-    <div class="sec-sub">30 秒精华片 · 完整 108 秒工程展示片（可在技术体系总览页观看）</div>
-    <div class="vbox">
-      <h3>▶ 30 秒精华片 · 悬浮港可移动抗台风生态花园社区</h3>
-      <video controls preload="metadata" playsinline
-             src="assets/img/eco-garden-30s.mp4"></video>
-      <p style="color:var(--mist);font-size:.92rem;margin-top:.8rem">
-        剪辑结构：可移动（独有性）→ 八索浮屋 → 四梯队消浪 → 海生电 → 链上惠民 →
-        <b style="color:var(--gold)">力学灵魂</b>。收尾落在力学上，而不是落在口号上。
-      </p>
-      <p style="color:var(--mist);font-size:.92rem;margin-top:.5rem">
-        竖版（1080×1920）为社交媒体适配版本，<b>上下补了独立信息条</b>，
-        不是横版的简单裁切 —— 标题、关键数据都不丢。
-      </p>
+    <div class="sec-sub">108 秒完整工程片 + 30 秒竖版精华 · 首页首屏可直接播放</div>
+    <div class="pfilm">
+      <div>
+        <div class="pv">
+          <video controls playsinline preload="metadata"
+                 poster="assets/img/hero-mechanics.png"
+                 src="assets/img/eco-garden-108s.mp4"></video>
+          <div class="pc">
+            <b>《SINOSHOP-SinoPORT 悬浮港工程展示》</b> · 1920×1080 · 30 fps · 108.000 s<br>
+            <b>结构</b> 8 根张力索（R 0.100 m）拉结红色穹顶（底径 27.000 m / 顶高 3.600 m）
+            与底部悬浮网格平台（29.2 × 29.1 m）　·　
+            <b>消浪</b> 四梯队串联合计 381 m，15 m 外浪 → &lt; 0.6 m 内港
+          </div>
+        </div>
+        <div class="btns">
+          <a class="pri" href="assets/img/eco-garden-108s.mp4" download>⬇ 下载 108 s 完整版</a>
+          <a href="assets/img/eco-garden-30s.mp4" download>⬇ 30 s 横版</a>
+          <a href="assets/img/eco-garden-30s-vert.mp4" download>⬇ 30 s 竖版</a>
+          <a href="index.html">🏠 回首页首屏观看</a>
+        </div>
+      </div>
+      <div class="side">
+        <div class="box">
+          <h4>Vertical · 竖版</h4>
+          <video controls playsinline preload="none" poster="assets/img/modstd-night.png"
+                 src="assets/img/eco-garden-30s-vert.mp4"></video>
+          <p>1080×1920 · 30.000 s · 社交媒体版</p>
+        </div>
+      </div>
     </div>
-    <div class="vbox" style="margin-top:1.2rem;max-width:420px">
-      <h3>▶ 竖版 · 社交媒体</h3>
-      <video controls preload="metadata" playsinline
-             src="assets/img/eco-garden-30s-vert.mp4"></video>
-    </div>
-  </section>
 
-  <!-- ==================== 力学 ==================== -->
-  <section id="mech">
     <h2 class="sec-title">抗台风力学解析</h2>
     <div class="sec-sub">结构压舱：8 根张力索把穹顶与底座拉成超级刚体</div>
     <div class="grid g2">
@@ -297,6 +365,24 @@
 
   <!-- ==================== 关键数据 ==================== -->
   <section>
+    <div class="pquote" id="pitch">
+      <div class="tag">Launch Copy · 发布文案</div>
+      <p>不是 AIGC 的塑料幻觉，是对物理数学规则精益求精的坚持！SINOSHOP-SinoPORT
+      悬浮港工程展示！⚓ 无桩基·超级刚体：8 根张力索死死锁住红色穹顶，台风根本推不动！
+      🌪️ 25 倍极限消浪：15 米狂浪进港，秒变 0.6 米静水！🌿 八卦阵 + 红树林：
+      硬核力学与东方哲学的完美交融。每一个数字，都有代码断言作证；每一根拉索，
+      都经得起船级社的审查。看中国硬核工程师如何把《易经》和流体力学‘焊牢在大海上’！</p>
+      <p class="note">
+        <b>工程口径说明</b>（本页表述以《编码规范 V6.3-r1》为准）：
+        消浪性能以<b>透射系数区间</b>表征，依据缩尺模型与 CFD 模拟给出，不采用单一固定百分比；
+        15 m → 0.6 m 为四梯队串联体系的浪高比值（25×）。
+        制造装配公差执行船级社（如 ABS）建造规范，关键连接部位按疲劳要求单独规定。
+        离岸工况配置锚泊定位系统，按 DNV-ST-N001 规范设计，离岸距离以锚泊分析结果与水深条件为前提。
+        抗台风下沉、消防及救生舱脱离均采用硬线/就地逻辑控制的自动触发；
+        区块链仅作为事后存证与审计，不参与安全动作的实时决策回路。
+      </p>
+    </div>
+
     <h2 class="sec-title">工程声明</h2>
     <div class="tech" style="margin-bottom:1.2rem">
       <p><b>水动力与污损</b>：水动力分析中已计入目标服役周期内的污损粗糙度增长对阻力与附加质量的影响，并设置可检查、可清理的防污措施。</p>
