@@ -714,6 +714,76 @@
 .tiers-note b.tnb{ display:inline; }
 .tier .tech{ line-height:1.75; }
 .tiers-flow{ line-height:2.1; }
+
+    /* ===== 赛事展示专区（Competition Showcase）===== */
+    .showcase { position: relative; }
+    .showcase-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+      gap: 1.2rem; margin-top: 1rem;
+    }
+    .sc-card {
+      background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 14px;
+      padding: 1.2rem 1.3rem; position: relative; overflow: hidden;
+      display: flex; flex-direction: column;
+    }
+    /* 卡片等高：末段内容贴底对齐，视觉更整 */
+    .sc-card > p:last-child, .sc-card > .sc-kv:last-child { margin-top: auto; }
+    .sc-card > .sc-kv + .sc-kv { margin-top: .45rem; }
+    .sc-card::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+      background: linear-gradient(180deg, #1a2a44, #38bdf8);
+    }
+    .sc-card h4 { color: #0b1a2e; margin: 0 0 .5rem; font-size: 1.05rem; }
+    .sc-card .sc-tag {
+      display: inline-block; font-size: .72rem; letter-spacing: .08em;
+      color: #0369a1; background: #e0f2fe; padding: .1rem .5rem;
+      border-radius: 999px; margin-bottom: .45rem; font-weight: 600;
+    }
+    .sc-card p { font-size: .9rem; color: #475569; margin: 0 0 .6rem; }
+    .sc-card p:last-child { margin-bottom: 0; }
+    .sc-kv { font-size: .85rem; color: #334155; }
+    .sc-kv b { color: #0b1a2e; }
+    .sc-chain {
+      font-family: ui-monospace, 'Cascadia Mono', Consolas, monospace;
+      font-size: .78rem; line-height: 1.9; color: #334155;
+      background: #0b1a2e; padding: .8rem .9rem; border-radius: 8px;
+      overflow-x: auto; white-space: pre; margin: .2rem 0 .6rem;
+    }
+    .sc-chain .k { color: #7dd3fc; }
+    .sc-chain .s { color: #86efac; }
+    .sc-assert {
+      display: flex; align-items: center; gap: .5rem; font-size: .85rem;
+      color: #15803d; background: #f0fdf4; border: 1px solid #bbf7d0;
+      border-radius: 8px; padding: .5rem .7rem; margin: .2rem 0 .6rem;
+    }
+    .sc-assert .dot {
+      width: .5rem; height: .5rem; border-radius: 999px; background: #22c55e;
+      flex: 0 0 auto; box-shadow: 0 0 0 3px rgba(34,197,94,.18);
+    }
+    .sc-stats {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: .8rem; margin: 1rem 0 .4rem;
+    }
+    .sc-stat {
+      background: #fff; border: 1px solid #e2e8f0; border-radius: 12px;
+      padding: .8rem .9rem; text-align: center;
+    }
+    .sc-stat .v {
+      font-size: 1.5rem; font-weight: 800; color: #1a2a44; line-height: 1.2;
+    }
+    .sc-stat .l { font-size: .78rem; color: #64748b; margin-top: .15rem; }
+    .sc-pdf {
+      display: inline-flex; align-items: center; gap: .45rem;
+      background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.30);
+      color: #e0f2fe; text-decoration: none; font-size: .88rem;
+      padding: .42rem .85rem; border-radius: 999px;
+      transition: background .18s, border-color .18s, transform .18s;
+    }
+    .sc-pdf:hover {
+      background: rgba(125,211,252,.20); border-color: rgba(125,211,252,.60);
+      transform: translateY(-1px);
+    }
+    .sc-pdf .dl { font-size: 1rem; line-height: 1; }
 </style>
 </head>
 <body>
@@ -735,7 +805,7 @@
             <div class="header-content">
                 <div class="header-left">
                     <h1>SINOSHOP <span class="version-tag">V3.0</span></h1>
-                    <div class="sub">Ocean City Simulation Project · Standard Floating Module · 12 Core Asset Systems</div>
+                    <div class="sub">Ocean City Simulation Project · Standard Floating Module · 10 Core Asset Systems</div>
                     <div class="core-principle">
                         <em>“Observe Nature's Order, Align with Ocean's Rhythm.<br>When the Three Harmonies Are Balanced, the Three Realms Rest Secure.”</em>
                     </div>
@@ -744,6 +814,7 @@
                     <a href="#film">🎬 Engineering Film</a>
                     <a href="#scenes">6 Scenarios</a>
                     <a href="#systems">Asset Systems</a>
+                    <a href="#competition">🏆 Showcase</a>
                     <a href="#techpath">Tech Path</a>
                     <a href="#energy">Energy Loop</a>
                     <a href="index_001_backup.html" target="_blank">📄 View V1.0 Backup</a>
@@ -815,6 +886,7 @@
                 <a class="vbtn" href="assets/img/eco-garden-30s-vert.mp4" download>
                     ⬇ Download 30 s vertical (3.4 MB)</a>
                 <a class="vbtn" href="eco-garden-en.html">📘 Eco-Garden white paper</a>
+                            <a class="sc-pdf" href="docs/papers/SINOPORT_Competition_Brief_2026_EN.pdf" target="_blank" rel="noopener"><span class="dl">📄</span>Competition Brief (PDF)</a>
             </div>
 
             <div class="vquote" id="pitch">
@@ -856,6 +928,35 @@
                 <blockquote>
                     While ordinary AIGC still stitches together random pixels using probabilistic models, every floating house in SINOSHOP is an engineering entity deduced from rigorous mathematical equations and the FreeCAD physics engine.
                 </blockquote>
+
+                <!-- ★ Assertion evidence bar: the statement is script-guaranteed (red line 60-E) -->
+                <div class="sc-assert" style="margin:.9rem 0 .7rem; background:rgba(34,197,94,.10); border-color:rgba(34,197,94,.35); color:#d1fae5;">
+                    <span class="dot"></span>
+                    <span style="font-size:.92rem;">
+                        <b style="color:#6ee7b7;">This statement is script-guaranteed</b> &mdash;
+                        we <b style="color:#6ee7b7;">refuse to hand-write PASS</b>:
+                        solid validation <b style="color:#6ee7b7;">21 / 21 PASS</b>;
+                        any failing assertion blocks the pipeline.
+                    </span>
+                </div>
+                <div class="sc-stats" style="margin:.6rem 0 .8rem;">
+                    <div class="sc-stat" style="background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.14);">
+                        <div class="v" style="color:#7dd3fc;">10</div>
+                        <div class="l" style="color:#8fb3d9;">core asset systems<br>one skeleton</div></div>
+                    <div class="sc-stat" style="background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.14);">
+                        <div class="v" style="color:#7dd3fc;">132</div>
+                        <div class="l" style="color:#8fb3d9;">attenuation pyramid<br>measured apertures</div></div>
+                    <div class="sc-stat" style="background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.14);">
+                        <div class="v" style="color:#7dd3fc;">381 m</div>
+                        <div class="l" style="color:#8fb3d9;">four-tier wave<br>attenuation, total</div></div>
+                    <div class="sc-stat" style="background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.14);">
+                        <div class="v" style="color:#7dd3fc;">334.9 m</div>
+                        <div class="l" style="color:#8fb3d9;">berth safety clearance<br>&ge; 300 m redline</div></div>
+                </div>
+                <div class="sc-chain" style="margin:0 0 1rem;">Every subsystem comes from <span class="s">the same parameter chain</span> &mdash;
+change one value and the whole chain follows, so drawings and hardware can never drift apart
+<span class="k">Spreadsheet master sheet</span> &rarr; geometry &middot; load cases &rarr; ShapeBinder
+&rarr; <span class="s">Assembly constraints</span> &rarr; BIM attributes &rarr; TechDraw &rarr; digital asset registry</div>
                 <p>SINOSHOP-SinoPORT abandons plastic digital illusions, perfectly integrating the Eastern survival wisdom of the I Ching Bagua array (Eight Gates and anti-wind chamfers) with top-tier fluid mechanics (spiral cable drainage and tumbler anti-overturning).</p>
                 <p>Every 3.6-metre height, every 0.100 m radius carbon fibre cable, is verified item by item against classification-society building codes and the fatigue requirements of critical connections. This is not just visual aesthetics; it is a marine engineering mechanics report ready for classification society review.</p>
 
@@ -934,7 +1035,7 @@
         <!-- ============================== 导航锚点（双语链接） ============================== -->
         <div class="nav-tabs">
             <a href="#scenes">🌊 6 Application Scenarios</a>
-            <a href="#systems">⚙️ 12 Asset Systems</a>
+            <a href="#systems">⚙️ 10 Asset Systems</a>
             <a href="#techpath">🧩 Tech Path</a>
             <a href="#energy">⚡ Energy Loop</a>
             <a href="#coupling">🔗 Coupling Logic</a>
@@ -1080,9 +1181,9 @@
             </div>
         </section>
 
-        <!-- ============================== 十二大资产系统 ============================== -->
+        <!-- ============================== 十大资产系统 ============================== -->
         <div id="systems" class="section">
-            <div class="section-title">⚙️ 12 Core Asset Systems <span class="badge">V3.0</span></div>
+            <div class="section-title">⚙️ 10 Core Asset Systems <span class="badge">V3.0</span></div>
             <div class="section-sub">Strongly coupled systems based on the FreeCAD digital twin framework, globally parameter-driven. Foundation platform → Flagship upgrade · Concept prototype → Research flagship · Technology mutual-feedback loop.</div>
 
             <h4 style="margin:1.2rem 0 0.6rem; color:#1a2a44;">Top-Level Control</h4>
@@ -1196,7 +1297,7 @@
             <div class="synergy-box">
                 <span>🔄 <strong>Tech Evolution</strong>: 001 → 013 Industrial Upgrade · 002 → 014 Research Flagship</span>
                 <span>🔄 <strong>Tech Synergy</strong>: Core tech from 014 feeds back into 013, forming a closed loop</span>
-                <span>⭐ <strong>12 Systems</strong>: Full coverage from foundational tech to flagship applications</span>
+                <span>⭐ <strong>10 Systems</strong>: Full coverage from foundational tech to flagship applications</span>
                 <span>🏷️ <strong>V3.0 Upgrade</strong>: System architecture重构 · Flagship versions integrated into core asset system</span>
             </div>
 
@@ -1342,7 +1443,101 @@
             </div>
         </div>
 
-        <!-- ============================== 团队与联系 ============================== -->
+        
+        <!-- ============================== Competition Showcase ============================== -->
+        <div class="section showcase" id="competition">
+            <div class="section-title">🏆 Competition Showcase <span class="badge">2026</span></div>
+            <div class="section-sub">
+                The evidence chain for the 2026 Open-Source Industry Solution Innovation Competition:
+                inspectable architecture, reproducible assertions, verifiable data, auditable governance.
+            </div>
+
+            <div class="sc-stats">
+              <div class="sc-stat"><div class="v">10</div><div class="l">core asset systems<br>one coupled whole</div></div>
+              <div class="sc-stat"><div class="v">21/21</div><div class="l">independent assertions<br>all passing</div></div>
+              <div class="sc-stat"><div class="v">132</div><div class="l">attenuation pyramid<br>measured apertures</div></div>
+              <div class="sc-stat"><div class="v">77.1%</div><div class="l">shell vs plain steel<br>lightweighting</div></div>
+            </div>
+
+            <div class="showcase-grid">
+
+              <div class="sc-card">
+                <span class="sc-tag">01 · Open-Source Architecture</span>
+                <h4>FreeCAD Parametric Digital Twin Skeleton</h4>
+                <p>Every subsystem is driven by one parametric skeleton — geometry, load cases,
+                   assembly constraints, business attributes and drawings all come from
+                   <b>the same parameter chain</b>. Change one value and the whole chain follows;
+                   drawings and hardware can never drift apart.</p>
+                <div class="sc-chain"><span class="k">Spreadsheet master parameter sheet</span>
+↓
+Geometry layer · Load-case layer
+↓
+Link / ShapeBinder references
+↓
+<span class="s">Assembly constraints</span> (position · load path · deformation)
+↓
+BIM / Arch attributes
+↓
+TechDraw drawings + IFC filing + digital asset registry</div>
+                <p class="sc-kv">Ten core asset systems (001&ndash;006, 008, 009, 011, 012) share this skeleton —
+                   <b>not ten isolated subsystems, but one strongly coupled system</b>.</p>
+              </div>
+
+              <div class="sc-card">
+                <span class="sc-tag">02 · Verification Loop</span>
+                <h4>We Refuse to Hand-write PASS</h4>
+                <div class="sc-assert"><span class="dot"></span>
+                  Solid validation <b>21 / 21 PASS</b> · every assertion script green</div>
+                <p>Every figure we publish comes from an <b>independent assertion script</b>,
+                   never from a hand-filled conclusion. If any check FAILs, the pipeline stops.</p>
+                <p class="sc-kv">The mechanism is a four-stage loop:
+                   <b>model &rarr; assert &rarr; criterion &rarr; verdict</b>.
+                   Geometry is generated by script, criteria are re-checked by script,
+                   verdicts are emitted by script — <b>humans write the copy, not the PASS</b>.</p>
+                <p class="sc-kv">Unfinished items are registered just as honestly
+                   (wave attenuation is an analytical estimate; migration is a kinematic
+                   demonstration) and are listed on the public roadmap.</p>
+              </div>
+
+              <div class="sc-card">
+                <span class="sc-tag">03 · Deployment &amp; Business Value</span>
+                <h4>Six Objectives</h4>
+                <p class="sc-kv">
+                  <b>Lightweighting</b> 77.1% lighter shell &rarr; material, transport and dry-dock all saved<br>
+                  <b>Self-floating</b> the structure floats on its own; ballast only trims<br>
+                  <b>Standardisation</b> component coding 100% traceable<br>
+                  <b>Safety</b> buoyancy reserve redline 60%~80% band<br>
+                  <b>Economy · Durability · Efficiency</b> each backed by measurement
+                </p>
+                <p>Six application scenarios share one standard float module —
+                   <b>R&amp;D cost shared, supply chain pooled, maintenance unified</b>,
+                   amortising life-cycle cost at scale.</p>
+                <p class="sc-kv">Verified: attenuation pyramid <b>132 apertures</b> ·
+                   semi-circular breakwater <b>381 m</b> ·
+                   berth safety clearance <b>334.9 m</b>.</p>
+              </div>
+
+              <div class="sc-card">
+                <span class="sc-tag">04 · Open-Source Governance</span>
+                <h4>Apache 2.0 &middot; Hash Attestation</h4>
+                <p>Code is released under <b>Apache 2.0</b>; third-party dependencies are
+                   invoked as independent processes with licences itemised —
+                   <b>no GPL contamination</b>.</p>
+                <p class="sc-kv">Governance artefacts: LICENSE · README · CONTRIBUTING ·
+                   Issue/PR templates · dependency compliance note · validation scripts ·
+                   validation output JSON — <b>all public</b>.</p>
+                <p class="sc-kv">Every digital asset carries a <b>SHA-256 fingerprint</b>,
+                   re-read and matched against the physical file —
+                   <b>verifiable, traceable, reproducible</b>.</p>
+                <p class="sc-kv" style="color:#b45309;">
+                  <b>Confidentiality level L3</b>: the full internal coding standard is
+                   highest-classification and is <b>not published in any public repository</b>;
+                   only verified data and value claims are disclosed.</p>
+              </div>
+
+            </div>
+        </div>
+<!-- ============================== 团队与联系 ============================== -->
         <div id="contact" class="section">
             <div class="section-title">🤝 Team & Contact</div>
             <div class="contact-grid">

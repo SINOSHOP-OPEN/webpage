@@ -714,6 +714,76 @@
 .tiers-note b.tnb{ display:inline; }
 .tier .tech{ line-height:1.75; }
 .tiers-flow{ line-height:2.1; }
+
+    /* ===== 赛事展示专区（Competition Showcase）===== */
+    .showcase { position: relative; }
+    .showcase-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+      gap: 1.2rem; margin-top: 1rem;
+    }
+    .sc-card {
+      background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 14px;
+      padding: 1.2rem 1.3rem; position: relative; overflow: hidden;
+      display: flex; flex-direction: column;
+    }
+    /* 卡片等高：末段内容贴底对齐，视觉更整 */
+    .sc-card > p:last-child, .sc-card > .sc-kv:last-child { margin-top: auto; }
+    .sc-card > .sc-kv + .sc-kv { margin-top: .45rem; }
+    .sc-card::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+      background: linear-gradient(180deg, #1a2a44, #38bdf8);
+    }
+    .sc-card h4 { color: #0b1a2e; margin: 0 0 .5rem; font-size: 1.05rem; }
+    .sc-card .sc-tag {
+      display: inline-block; font-size: .72rem; letter-spacing: .08em;
+      color: #0369a1; background: #e0f2fe; padding: .1rem .5rem;
+      border-radius: 999px; margin-bottom: .45rem; font-weight: 600;
+    }
+    .sc-card p { font-size: .9rem; color: #475569; margin: 0 0 .6rem; }
+    .sc-card p:last-child { margin-bottom: 0; }
+    .sc-kv { font-size: .85rem; color: #334155; }
+    .sc-kv b { color: #0b1a2e; }
+    .sc-chain {
+      font-family: ui-monospace, 'Cascadia Mono', Consolas, monospace;
+      font-size: .78rem; line-height: 1.9; color: #334155;
+      background: #0b1a2e; padding: .8rem .9rem; border-radius: 8px;
+      overflow-x: auto; white-space: pre; margin: .2rem 0 .6rem;
+    }
+    .sc-chain .k { color: #7dd3fc; }
+    .sc-chain .s { color: #86efac; }
+    .sc-assert {
+      display: flex; align-items: center; gap: .5rem; font-size: .85rem;
+      color: #15803d; background: #f0fdf4; border: 1px solid #bbf7d0;
+      border-radius: 8px; padding: .5rem .7rem; margin: .2rem 0 .6rem;
+    }
+    .sc-assert .dot {
+      width: .5rem; height: .5rem; border-radius: 999px; background: #22c55e;
+      flex: 0 0 auto; box-shadow: 0 0 0 3px rgba(34,197,94,.18);
+    }
+    .sc-stats {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: .8rem; margin: 1rem 0 .4rem;
+    }
+    .sc-stat {
+      background: #fff; border: 1px solid #e2e8f0; border-radius: 12px;
+      padding: .8rem .9rem; text-align: center;
+    }
+    .sc-stat .v {
+      font-size: 1.5rem; font-weight: 800; color: #1a2a44; line-height: 1.2;
+    }
+    .sc-stat .l { font-size: .78rem; color: #64748b; margin-top: .15rem; }
+    .sc-pdf {
+      display: inline-flex; align-items: center; gap: .45rem;
+      background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.30);
+      color: #e0f2fe; text-decoration: none; font-size: .88rem;
+      padding: .42rem .85rem; border-radius: 999px;
+      transition: background .18s, border-color .18s, transform .18s;
+    }
+    .sc-pdf:hover {
+      background: rgba(125,211,252,.20); border-color: rgba(125,211,252,.60);
+      transform: translateY(-1px);
+    }
+    .sc-pdf .dl { font-size: 1rem; line-height: 1; }
 </style>
 </head>
 <body>
@@ -735,7 +805,7 @@
             <div class="header-content">
                 <div class="header-left">
                     <h1>SINOSHOP <span class="version-tag">V3.0</span></h1>
-                    <div class="sub">海洋城市仿真实验 · 标准浮箱模块 · 十二大核心资产系统</div>
+                    <div class="sub">海洋城市仿真实验 · 标准浮箱模块 · 十大核心资产系统</div>
                     <div class="core-principle">
                         <em>“观天之道，执天之行。<br>三盗既宜，三才既安。”</em>
                     </div>
@@ -744,6 +814,7 @@
                     <a href="#film">🎬 工程片</a>
                     <a href="#scenes">六大场景</a>
                     <a href="#systems">资产系统</a>
+                    <a href="#competition">🏆 赛事专区</a>
                     <a href="#techpath">技术路径</a>
                     <a href="#energy">能源闭环</a>
                     <a href="index_001_backup.html" target="_blank">📄 查看旧版 001</a>
@@ -813,6 +884,7 @@
                 <a class="vbtn" href="assets/img/eco-garden-30s-vert.mp4" download>
                     ⬇ 下载 30 s 竖版（3.4 MB）</a>
                 <a class="vbtn" href="eco-garden.html">📘 生态花园社区白皮书</a>
+                            <a class="sc-pdf" href="docs/papers/SINOPORT_Competition_Brief_2026_EN.pdf" target="_blank" rel="noopener"><span class="dl">📄</span>下载赛事说明文档 (PDF)</a>
             </div>
 
             <div class="vquote" id="pitch">
@@ -846,6 +918,35 @@
                 <blockquote>
                     当普通的 AIGC 还在靠概率模型拼凑随机像素时，SINOSHOP 的每一座悬浮屋，都是基于严谨的数学方程式与FreeCAD 物理引擎推演出的工程实体。
                 </blockquote>
+
+                <!-- ★ 断言证据条：紧接宣言，以可复现数据支撑（红线 60-E） -->
+                <div class="sc-assert" style="margin:.9rem 0 .7rem; background:rgba(34,197,94,.10); border-color:rgba(34,197,94,.35); color:#d1fae5;">
+                    <span class="dot"></span>
+                    <span style="font-size:.92rem;">
+                        <b style="color:#6ee7b7;">这句宣言由脚本担保</b> ——
+                        本项目<b style="color:#6ee7b7;">拒绝手写 PASS</b>：
+                        实体校验 <b style="color:#6ee7b7;">21 / 21 PASS</b>，
+                        任何一项断言 FAIL 都会阻断流水线。
+                    </span>
+                </div>
+                <div class="sc-stats" style="margin:.6rem 0 .8rem;">
+                    <div class="sc-stat" style="background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.14);">
+                        <div class="v" style="color:#7dd3fc;">10</div>
+                        <div class="l" style="color:#8fb3d9;">核心资产系统<br>同一副骨骼</div></div>
+                    <div class="sc-stat" style="background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.14);">
+                        <div class="v" style="color:#7dd3fc;">132</div>
+                        <div class="l" style="color:#8fb3d9;">消浪金字塔<br>实测孔数</div></div>
+                    <div class="sc-stat" style="background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.14);">
+                        <div class="v" style="color:#7dd3fc;">381 m</div>
+                        <div class="l" style="color:#8fb3d9;">四梯队串联消浪<br>合计</div></div>
+                    <div class="sc-stat" style="background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.14);">
+                        <div class="v" style="color:#7dd3fc;">334.9 m</div>
+                        <div class="l" style="color:#8fb3d9;">泊位安全余量<br>≥ 300 m 红线</div></div>
+                </div>
+                <div class="sc-chain" style="margin:0 0 1rem;">全部子系统出自<span class="s">同一条参数链</span> ——
+改一处即全链同步，杜绝「图纸与实物两张皮」
+<span class="k">Spreadsheet 参数总控台</span> → 几何层 · 工况层 → ShapeBinder 引用
+→ <span class="s">Assembly 装配约束</span> → BIM 属性 → TechDraw 出图 → 数字资产库</div>
                 <p>SINOSHOP-SinoPORT 摒弃了塑料感的数字幻觉，将《易经》八卦阵列的东方生存智慧（八门遁甲与抗风倒角），与顶级流体力学（螺旋拉索导流与不倒翁防倾覆）完美融合。</p>
                 <p>每一个 3.6 米、每一根 0.100 m 半径的碳纤维拉索，都按船级社建造规范与关键连接部位的疲劳要求逐项校核。这不仅是一场视觉美学，更是一份可以交由船级社审查的海工力学报告。</p>
 
@@ -924,7 +1025,7 @@
         <!-- ============================== 导航锚点（双语链接） ============================== -->
         <div class="nav-tabs">
             <a href="#scenes">🌊 六大应用场景</a>
-            <a href="#systems">⚙️ 十二大资产系统</a>
+            <a href="#systems">⚙️ 十大资产系统</a>
             <a href="#techpath">🧩 技术路径</a>
             <a href="#energy">⚡ 能源闭环</a>
             <a href="#coupling">🔗 耦合逻辑</a>
@@ -1071,9 +1172,9 @@
             </div>
         </section>
 
-        <!-- ============================== 十二大资产系统 ============================== -->
+        <!-- ============================== 十大资产系统 ============================== -->
         <div id="systems" class="section">
-            <div class="section-title">⚙️ 十二大核心资产系统 <span class="badge">V3.0</span></div>
+            <div class="section-title">⚙️ 十大核心资产系统 <span class="badge">V3.0</span></div>
             <div class="section-sub">基于 FreeCAD 数字孪生骨架的强耦合体系，参数全局驱动。基础平台 → 旗舰升级 · 概念原型 → 科研旗舰 · 技术互哺闭环。</div>
 
             <h4 style="margin:1.2rem 0 0.6rem; color:#1a2a44;">顶层总控</h4>
@@ -1186,7 +1287,7 @@
             <div class="synergy-box">
                 <span>🔄 <strong>技术演进</strong>：001 → 013 产业化升级 · 002 → 014 科研旗舰</span>
                 <span>🔄 <strong>技术协同</strong>：014 核心技术反哺 013，形成闭环</span>
-                <span>⭐ <strong>12 大系统</strong>：完整覆盖从基础技术到旗舰应用的产业闭环</span>
+                <span>⭐ <strong>10 大系统</strong>：完整覆盖从基础技术到旗舰应用的产业闭环</span>
                 <span>🏷️ <strong>V3.0 升级</strong>：系统架构重构 · 旗舰版纳入核心资产体系</span>
             </div>
 
@@ -1332,7 +1433,97 @@
             </div>
         </div>
 
-        <!-- ============================== 团队与联系 ============================== -->
+        
+        <!-- ============================== 赛事展示专区 ============================== -->
+        <div class="section showcase" id="competition">
+            <div class="section-title">🏆 赛事展示专区 · Competition Showcase <span class="badge">2026</span></div>
+            <div class="section-sub">
+                面向「2026 北京开源行业解决方案创新赛」的证据链：
+                架构可查、断言可复现、数据可核对、治理可审计。
+            </div>
+
+            <div class="sc-stats">
+              <div class="sc-stat"><div class="v">10</div><div class="l">核心资产系统<br>强耦合单体系</div></div>
+              <div class="sc-stat"><div class="v">21/21</div><div class="l">独立断言脚本<br>全数通过</div></div>
+              <div class="sc-stat"><div class="v">132</div><div class="l">消浪金字塔<br>实测孔数</div></div>
+              <div class="sc-stat"><div class="v">77.1%</div><div class="l">壳壁比纯钢<br>轻量化</div></div>
+            </div>
+
+            <div class="showcase-grid">
+
+              <!-- ① 开源架构总览 -->
+              <div class="sc-card">
+                <span class="sc-tag">01 · 开源架构总览</span>
+                <h4>FreeCAD 参数化数字孪生骨架</h4>
+                <p>全部子系统由同一套参数化骨架驱动 —— 几何、工况、装配约束、业务属性与出图
+                   出自同一条参数链，改一处即全链同步，杜绝「图纸与实物两张皮」。</p>
+                <div class="sc-chain"><span class="k">Spreadsheet 参数总控台</span>
+↓
+几何层 · 工况层
+↓
+Link / ShapeBinder 引用
+↓
+<span class="s">Assembly 装配约束</span>（空间位置 · 载荷传递 · 变形路径）
+↓
+BIM / Arch 业务属性
+↓
+TechDraw 图纸 + IFC 备案 + 数字资产库</div>
+                <p class="sc-kv">十项核心资产系统（001~006、008、009、011、012）共用该骨架 ——
+                   <b>不是十个孤立子系统，而是一套强耦合体系</b>。</p>
+              </div>
+
+              <!-- ② 技术验证闭环 -->
+              <div class="sc-card">
+                <span class="sc-tag">02 · 技术验证闭环</span>
+                <h4>我们拒绝手写 PASS</h4>
+                <div class="sc-assert"><span class="dot"></span>
+                  实体校验 <b>21 / 21 PASS</b> · 断言脚本全数通过</div>
+                <p>每一个对外公布的数字，都来自<b>独立断言脚本</b>的判定，
+                   而非人工填写的结论。任一项校验 FAIL，都会阻断流水线。</p>
+                <p class="sc-kv">机制：<b>建模 → 断言 → 判据 → 结论</b> 四段闭环。
+                   几何由脚本生成，判据由脚本复核，结论由脚本产出 ——
+                   <b>人可以写文案，但不能写 PASS</b>。</p>
+                <p class="sc-kv">未做项同样如实登记（消浪为解析估算、迁移为运动学演示），
+                   并列入公开路线图。</p>
+              </div>
+
+              <!-- ③ 场景落地与商业价值 -->
+              <div class="sc-card">
+                <span class="sc-tag">03 · 场景落地与商业价值</span>
+                <h4>六宗旨价值主张</h4>
+                <p class="sc-kv">
+                  <b>轻量化</b> 77.1% 壳壁比纯钢轻 → 材料、运力、坞站三处同省<br>
+                  <b>浮空性</b> 结构本体即浮，压载仅为调载手段<br>
+                  <b>标准化</b> 构件编码 100% 可追溯<br>
+                  <b>安全</b> 浮力储备红线 60%~80% 带心<br>
+                  <b>节约 · 耐用 · 高效</b> 各有实测支撑
+                </p>
+                <p>六大应用场景共享同一标准浮箱模块 ——
+                   <b>研发成本分摊、供应链共享、维护统一</b>，
+                   规模化摊薄全生命周期成本。</p>
+                <p class="sc-kv">已验证数据：消浪金字塔 <b>132 孔</b> ·
+                   半圆防波堤 <b>381 m</b> · 泊位安全余量 <b>334.9 m</b>。</p>
+              </div>
+
+              <!-- ④ 开源治理 -->
+              <div class="sc-card">
+                <span class="sc-tag">04 · 开源治理</span>
+                <h4>Apache 2.0 · 哈希存证</h4>
+                <p>代码以 <b>Apache 2.0</b> 协议开放；第三方依赖以独立进程调用，
+                   逐项登记许可，<b>不触发 GPL 传染</b>。</p>
+                <p class="sc-kv">治理物：LICENSE · README · CONTRIBUTING ·
+                   Issue/PR 模板 · 依赖合规说明 · 校验脚本 · 校验产物 JSON
+                   —— <b>全部公开</b>。</p>
+                <p class="sc-kv">每个数字资产均登记 <b>SHA-256 指纹</b>，
+                   哈希与实物文件逐件回读一致 —— <b>可验证、可追溯、可复现</b>。</p>
+                <p class="sc-kv" style="color:#b45309;">
+                  <b>保密等级 L3</b>：内部编码规范全文属内部最高密级，
+                   不在任何公开仓库发布；对外仅公开已验证数据与价值主张。</p>
+              </div>
+
+            </div>
+        </div>
+<!-- ============================== 团队与联系 ============================== -->
         <div id="contact" class="section">
             <div class="section-title">🤝 团队与联系</div>
             <div class="contact-grid">
