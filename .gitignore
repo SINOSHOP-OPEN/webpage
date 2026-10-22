@@ -10,7 +10,7 @@ _shots/
 
 # ★ 渲染与建模脚本 —— 内部工具，绝不入公开仓
 #   （内含内部规范出处注释与建模过程说明）
-calc_quadrant_tide.py
+calc_tide_basin.py
 render_tide_figures.py
 render_tide_anim.py
 insert_tide_into_video.py
