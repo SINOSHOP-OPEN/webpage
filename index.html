@@ -807,7 +807,7 @@
                     <h1>SINOSHOP <span class="version-tag">V3.0</span></h1>
                     <div class="sub">海洋城市仿真实验 · 标准浮箱模块 · 十大核心资产系统</div>
                     <div class="core-principle">
-                        <em>“观天之道，执天之行。<br>三盗既宜，三才既安。”</em>
+                        <em>“观天之道 · 执天之行<br>实事求是 · 人海和谐”</em>
                     </div>
                 </div>
                 <div class="header-right">
@@ -841,11 +841,12 @@
                 <div class="vplayer">
                     <video controls playsinline preload="metadata"
                            poster="assets/img/hero-mechanics.png"
-                           src="assets/img/eco-garden-108s.mp4"></video>
+                           src="assets/img/eco-garden-116s-tide.mp4"></video>
                     <div class="vplayer-cap">
-                        <span><b>00:00–01:48</b> 完整版横屏工程片</span>
+                        <span><b>00:00–01:56</b> 完整版横屏工程片（含潮汐发电模块段）</span>
                         <span><b>结构</b> 8 根张力索（R0.100 m）拉结红色穹顶与底部悬浮网格平台</span>
                         <span><b>消浪</b> 四梯队串联 381 m，15 m 外浪 → &lt; 0.6 m 内港</span>
+                        <span><b>发电</b> 潮汐发电水舱 · 零耗能 · 浮体高度恒定（&lt; 0.15 m）</span>
                     </div>
                 </div>
                 <div class="vside">
@@ -875,8 +876,10 @@
                     </div>
 
             <div class="vhero-cta">
-                <a class="vbtn primary" href="assets/img/eco-garden-108s.mp4" download>
-                    ⬇ 下载 108 s 完整版（16.4 MB）</a>
+                <a class="vbtn primary" href="assets/img/eco-garden-116s-tide.mp4" download>
+                    ⬇ 下载 116 s 完整版（含潮汐发电模块 · 18.6 MB）</a>
+                <a class="vbtn" href="assets/img/eco-garden-108s.mp4" download>
+                    ⬇ 下载 108 s 原始完整版（16.4 MB）</a>
                 <a class="vbtn" href="assets/img/eco-garden-30s.mp4" download>
                     ⬇ 下载 30 s 横版（5.3 MB）</a>
                 <a class="vbtn" href="assets/img/eco-garden-30s-vert.mp4" download>
@@ -1042,10 +1045,10 @@
             <!-- 核心纲领 -->
             <div class="core-card">
                 <div class="zh">观天之道 · 执天之行</div>
-                <div class="zh-sub">三盗既宜 · 三才既安</div>
+                <div class="zh-sub">实事求是 · 人海和谐</div>
                 <div class="en">
                     Observe Nature's Order, Align with Ocean's Rhythm.<br>
-                    When the Three Harmonies Are Balanced, the Three Realms Rest Secure.
+                    Seeking Truth from Facts, Harmonious Coexistence of Man and Ocean.
                 </div>
             </div>
 
@@ -1076,7 +1079,7 @@
             <p style="font-size:1.05rem; color:#334155;">
                 <strong>SINOSHOP</strong> 以一个标准模块、四层复合结构、六大应用场景，实现
                 <strong>“海生电、电养船、船搭桥、桥造城”</strong> 递进式设计哲学。
-                底层遵循 <strong>“实事求是、以术载道、人海共生”</strong> 的核心理念，
+                底层遵循 <strong>“实事求是、以术载道、人海和谐”</strong> 的核心理念，
                 通过 FreeCAD 参数化数字孪生骨架将全部子系统强耦合联动，拒绝孤立部件设计。
             </p>
             <div style="display:flex; flex-wrap:wrap; gap:1.2rem; margin-top:1.2rem;">
@@ -1287,6 +1290,22 @@
                 <span>🔄 <strong>技术协同</strong>：014 核心技术反哺 013，形成闭环</span>
                 <span>⭐ <strong>10 大系统</strong>：完整覆盖从基础技术到旗舰应用的产业闭环</span>
                 <span>🏷️ <strong>V3.0 升级</strong>：系统架构重构 · 旗舰版纳入核心资产体系</span>
+            </div>
+
+            <h4 style="margin:1.2rem 0 0.6rem; color:#1a2a44;">零耗能与恒高专项（数据集“关节”）</h4>
+            <div class="sys-grid">
+                <div class="sys-item">
+                    <span class="code">010</span>
+                    <span class="name">潮汐发电水舱</span>
+                    <span class="desc">利用 MOD-STD 10 柱 5 墙、MOD-DM 6 墙 3 柱的<b>柱墙内部空间</b>（壳壁与桁架支撑之外），
+                        按分舱布置潮汐发电水舱。液位随外部水面<b>自然起落</b> —— 无泵、无外力、无控制器，
+                        补放水本身即顺流而下，驱动涡轮发电；同时排水/蓄水恰好抵消组合墙浸没面积变化引起的浮力失衡，
+                        浮体在潮汐中<b>高度恒定</b>。
+                        <span style="display:inline-block; margin-left:6px; background:#2e7d5b; color:#fff; font-size:0.65rem; padding:0.1rem 0.6rem; border-radius:20px;">
+                            <a href="#tide" style="color:#fff; text-decoration:none;">⬆ 详见数据集与工程图</a>
+                        </span>
+                    </span>
+                </div>
             </div>
 
             <h4 style="margin:1.2rem 0 0.6rem; color:#1a2a44;">功能与特殊防护（数据集“铠甲”）</h4>
@@ -1522,6 +1541,80 @@ TechDraw 图纸 + IFC 备案 + 数字资产库</div>
             </div>
         </div>
 <!-- ============================== 团队与联系 ============================== -->
+        <div id="tide" class="section">
+            <div class="section-title">🌊 浮体恒定高度潮汐发电模块 <span class="badge">数据集 · 可复现</span></div>
+            <div class="section-sub">潮汐发电水舱 —— 零耗能自然水面起落发电 + 浮体高度恒定。全部结论由本机脚本判定，工程图与数据集可下载复核。</div>
+
+            <div class="sc-grid" style="margin-top:1.2rem;">
+                <div class="sc-card">
+                    <h3>① 零耗能</h3>
+                    <p>水舱为<b>自由液面</b>，靠水头自然找平，<b>无泵、无外力、无控制器</b>。补/放水由物理失衡驱动 —— 这就是「零耗能」的物理来源。</p>
+                </div>
+                <div class="sc-card">
+                    <h3>② 顺流发电</h3>
+                    <p>水舱补/放水<b>本身即水流</b>，顺流驱动导流管内涡轮组 —— 顺流发电，非强迫。本页与视频<b>均不列发电量绝对值</b>。</p>
+                </div>
+                <div class="sc-card">
+                    <h3>③ 高度恒定</h3>
+                    <p>水舱排水/蓄水抵消组合墙浸没面积变化引起的浮力失衡。潮位起伏 <b>3.784 m</b> 条件下，浮体竖向位移 <b>&lt; 0.09 m</b>，优于规范目标 <b>&lt; 0.15 m</b>。</p>
+                </div>
+            </div>
+
+            <h4 style="margin:1.6rem 0 0.6rem; color:#1a2a44;">几何核算与三值互锁</h4>
+            <div class="sys-grid">
+                <div class="sys-item">
+                    <span class="code">840</span>
+                    <span class="name">m³ · 潮汐发电水舱净容积</span>
+                    <span class="desc">规范口径（§46.2.2）。MOD-STD 侧 10 柱 5 墙 = <b>5 组 = 20 舱</b>（红线 46-E：柱墙一一配对），MOD-DM 侧 6 墙 3 柱 = <b>9 组</b>（红线 46-G）。</span>
+                </div>
+                <div class="sys-item">
+                    <span class="code">20</span>
+                    <span class="name">舱 · 分舱组数</span>
+                    <span class="desc">每 2 柱 1 墙 = 1 组，1 组 4 舱；10 柱 5 墙 = 5 组 = 20 舱。单舱容积 <b>42 m³</b>。</span>
+                </div>
+                <div class="sys-item">
+                    <span class="code">42</span>
+                    <span class="name">m³ · 单舱容积（三值互锁）</span>
+                    <span class="desc">840 ÷ 20 = 42.0000 —— <b>整除无余数</b>。改舱数则 42 变；改 840 则 42 变；只有同时锁死 840 与 20，42 才唯一（红线 46-F）。</span>
+                </div>
+            </div>
+
+            <h4 style="margin:1.6rem 0 0.6rem; color:#1a2a44;">数据集与工程图（可下载复核）</h4>
+            <div class="sc-grid">
+                <div class="sc-card">
+                    <h3>📊 数据集</h3>
+                    <p>MOD-STD / MOD-DM 各 <b>2,881 行 × 10 列</b>，48 h 潮汐历程、60 s 步长。字段含潮位、组合墙浸没截面积、净浮力失衡、水舱液位、净流量、浮体位移、浮力补偿率、涡轮进口流速。</p>
+                    <p style="margin-top:0.6rem;">
+                        <a class="vbtn" href="assets/data/tide_MOD-STD_quadrant_dataset.csv" download>⬇ MOD-STD 数据集 CSV</a>
+                        <a class="vbtn" href="assets/data/tide_MOD-DM_quadrant_dataset.csv" download>⬇ MOD-DM 数据集 CSV</a>
+                    </p>
+                </div>
+                <div class="sc-card">
+                    <h3>🖼 工程图</h3>
+                    <p>四张：潮汐发电水舱平面布置 · 零耗能机理链 · 高度恒定数据集曲线 · 竖向剖面（水舱严格内置柱墙层）。</p>
+                    <p style="margin-top:0.6rem;">
+                        <a class="vbtn" href="assets/img/tide/fig1_quadrant_tide_plan.png" download>⬇ 平面布置</a>
+                        <a class="vbtn" href="assets/img/tide/fig2_zero_energy_mechanism.png" download>⬇ 机理链</a>
+                        <a class="vbtn" href="assets/img/tide/fig3_height_constant_datasets.png" download>⬇ 高度恒定曲线</a>
+                        <a class="vbtn" href="assets/img/tide/fig4_vertical_section.png" download>⬇ 竖向剖面</a>
+                    </p>
+                </div>
+                <div class="sc-card">
+                    <h3>📘 技术说明</h3>
+                    <p>机理推导、几何核算、建模方法与<b>三次修正留痕</b>（发散 / 补偿对象错 / 吃水映射错）、假设登记、结果与红线自检，全部可复现。</p>
+                    <p style="margin-top:0.6rem;">
+                        <a class="vbtn" href="assets/data/技术说明_浮体恒定高度潮汐发电模块.md" download>⬇ 下载技术说明 Markdown</a>
+                    </p>
+                </div>
+            </div>
+
+            <div style="margin-top:1.2rem; padding:0.9rem 1.2rem; background:#f8fafc; border-radius:0.8rem; border-left:3px solid #2e7d5b; font-size:0.9rem; color:#334155;">
+                <b>口径说明（诚实披露）</b>：全部实测输入取自 SINOPORT 内部编码规范 V6.5（§4.6.1 / §4.6.4 / §46.2 / §46.3 / §46.4 / §279），
+                逐项标注出处；假设项（潮差与周期量级、潮型数、液面时间常数、涡轮效率曲线、浸没面积插值）已在技术说明中显式登记。
+                本页与视频<b>均不列发电量绝对值</b>（红线 46-P-7）。规范中的 L3 密级条款未在本页披露。
+            </div>
+        </div>
+
         <div id="contact" class="section">
             <div class="section-title">🤝 团队与联系</div>
             <div class="contact-grid">

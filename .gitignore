@@ -7,3 +7,14 @@ index_001_backup_restored.html
 _ffmpeg*
 _*.log
 _shots/
+
+# ★ 渲染与建模脚本 —— 内部工具，绝不入公开仓
+#   （内含内部规范出处注释与建模过程说明）
+calc_quadrant_tide.py
+render_tide_figures.py
+render_tide_anim.py
+insert_tide_into_video.py
+update_web_tide.py
+gitee_tide_readme.py
+*_frames*/
+_tide_anim_frames/
