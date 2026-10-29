@@ -129,6 +129,25 @@ footer{border-top:1px solid var(--line);padding:64px 0 48px;text-align:center}
 .foot-links a{color:var(--dim);margin:0 10px}
 .foot-links a:hover{color:var(--em)}
 .copyright{margin-top:22px;font-size:11.5px;color:var(--faint);letter-spacing:.08em}
+
+/* ◆ 20261029 核心纲领置顶 */
+/* ── 核心纲领 · SINOSHOP 海洋文明精神图腾 ── */
+.creed-gate{background:radial-gradient(120% 150% at 50% 0%,#0a2839 0%,#04101d 48%,#020a12 100%);border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.creed-gate::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(29,158,117,.55),transparent)}
+.creed-gate .wrap{max-width:920px;margin:0 auto;padding:66px 24px 60px;text-align:center}
+.cg-mark{font-size:11px;letter-spacing:.42em;color:var(--faint);text-transform:uppercase}
+.cg-mark b{color:var(--em);font-weight:500}
+.cg-rule{display:block;margin:24px auto 0;width:46px;height:2px;background:var(--gold);opacity:.6}
+.cg-item + .cg-item{margin-top:36px;padding-top:34px;border-top:1px solid rgba(201,214,226,.08)}
+.cg-label{font-size:11.5px;letter-spacing:.3em;color:var(--em);margin-bottom:14px}
+.cg-label span{color:var(--faint);letter-spacing:.22em;margin-left:10px;font-size:10.5px}
+.cg-zh{font-family:"Songti SC","STSong","Noto Serif CJK SC","Source Han Serif SC","SimSun",serif;font-size:clamp(18px,2.2vw,23px);letter-spacing:.14em;color:#eef4fa;line-height:2}
+.cg-en{font-family:Georgia,"Times New Roman",serif;font-size:12.5px;letter-spacing:.04em;color:var(--dim);margin-top:11px;line-height:1.95;font-style:italic;max-width:720px;margin-left:auto;margin-right:auto}
+
+/* ── 展示片 ── */
+.film-player{margin:0}
+.film-player video{display:block;width:100%;aspect-ratio:16/9;background:#020810;border:1px solid var(--line);border-radius:4px}
+.film-links{margin-top:14px;color:var(--faint);font-size:13px;letter-spacing:.05em}
 </style>
 </head>
 <body>
@@ -137,7 +156,7 @@ footer{border-top:1px solid var(--line);padding:64px 0 48px;text-align:center}
   <div class="mark">SINO<em>PORT</em> · SINOSHOP</div>
   <div class="topnav">
     <nav>
-      <a href="#creed">理念</a><a href="#tech">技术</a><a href="#community">社区</a><a href="#footer">仓库</a>
+      <a href="#creed-gate">纲领</a><a href="#creed">理念</a><a href="#tech">技术</a><a href="#community">社区</a><a href="#footer">仓库</a>
     </nav>
     <div class="lang" id="langSwitch">
       <button type="button" data-lang="zh" class="on">中文</button><span style="color:var(--faint);font-size:12px">|</span><button type="button" data-lang="en">English</button>
@@ -150,6 +169,30 @@ footer{border-top:1px solid var(--line);padding:64px 0 48px;text-align:center}
   </div>
   <a class="wp-banner" href="whitepaper.html" style="width:100%;margin-top:11px">📢 白皮书正式发布 · 《悬浮高度恒定装配式建筑发电消浪技术白皮书》 → 阅读</a>
 </div></div>
+
+<!-- ═══ 核心纲领 · SINOSHOP 海洋文明精神图腾（置顶） ═══ -->
+<section id="creed-gate" class="creed-gate" aria-label="SINOSHOP 海洋文明核心纲领 Core Principle of Ocean Civilisation"><div class="wrap">
+  <div class="cg-mark">SINOSHOP · <b>海洋文明核心纲领</b> · CORE PRINCIPLE OF OCEAN CIVILISATION</div>
+  <span class="cg-rule" aria-hidden="true"></span>
+
+  <div class="cg-item">
+    <div class="cg-label">核心纲领 <span>CORE PRINCIPLE</span></div>
+    <div class="cg-zh">观天之道，执天之行，三盗既宜，三才既安。</div>
+    <div class="cg-en">Observe Nature's Order, Align with Ocean's Rhythm. When the Three Harmonies Are Balanced, the Three Realms Rest Secure.</div>
+  </div>
+
+  <div class="cg-item">
+    <div class="cg-label">工程哲学 <span>INDUSTRIAL PHILOSOPHY</span></div>
+    <div class="cg-zh">海生电、电养船、船搭桥、桥造城、城惠民。航天海，众生安。</div>
+    <div class="cg-en">Ocean Generates Power, Power Sustains Ships, Ships erect Bridges, Bridges Build Cities, Cities bless the People, Space-Ocean Synergy, All dwell in security.</div>
+  </div>
+
+  <div class="cg-item">
+    <div class="cg-label">精神信念 <span>SPIRITUAL BELIEF</span></div>
+    <div class="cg-zh">贞忠昭日月，惠民播春秋。</div>
+    <div class="cg-en">Steadfast Loyalty glowing like the sun and moon; Benevolence nourishing the tide of time.</div>
+  </div>
+</div></section>
 
 <!-- ═══ 首屏：左惊涛 · 右澄海 ═══ -->
 <header class="hero">
@@ -329,10 +372,30 @@ footer{border-top:1px solid var(--line);padding:64px 0 48px;text-align:center}
   <div class="tech-note">边界照实披露：极端微观交叉工况仍在通过开源仿真持续优化；部分关键工艺尚未完成实船验证；现有量化结论属于机级筛选计算，为缩尺试验提供边界参考，不替代物理实测。说不知道，比说知道更接近工程。</div>
 </div></section>
 
+
+<!-- ═══ 展示片 ═══ -->
+<section id="film" class="film"><div class="wrap">
+  <div class="sec-head">
+    <div class="no">03 / FILM</div>
+    <h2>108 秒 · 技术展示片</h2>
+    <p>悬浮港 · 跨海隧道 · 海洋城市 —— 三者合一，一段看完。视频即托管于本页，点开即播，无需下载。</p>
+  </div>
+  <figure class="film-player">
+    <video controls preload="metadata" playsinline poster="showcase/SINOPORT_Tech_Showcase_108s_poster.jpg">
+      <source src="showcase/SINOPORT_Tech_Showcase_108s.mp4" type="video/mp4">
+      您的浏览器不支持内嵌视频 —— <a href="showcase/SINOPORT_Tech_Showcase_108s.mp4">点此播放 / 下载</a>。
+    </video>
+  </figure>
+  <div class="film-links">
+    <a href="showcase/SINOPORT_Tech_Showcase_108s.mp4" target="_blank" rel="noopener">▶ 在新标签页播放</a><span>　·　</span>
+    <a href="https://github.com/SINOSHOP-OPEN/SinoPORT/tree/main/showcase" target="_blank" rel="noopener">🐙 仓库源文件</a>
+  </div>
+</div></section>
+
 <!-- ═══ 社区 ═══ -->
 <section id="community" class="community"><div class="wrap">
   <div class="sec-head">
-    <div class="no">03 / COMMUNITY</div>
+    <div class="no">04 / COMMUNITY</div>
     <h2>同行者</h2>
   </div>
 
@@ -629,12 +692,14 @@ footer{border-top:1px solid var(--line);padding:64px 0 48px;text-align:center}
  [
   ".topnav nav a",
   [
+   "纲领",
    "理念",
    "技术",
    "社区",
    "仓库"
   ],
   [
+   "Principle",
    "Philosophy",
    "Technology",
    "Community",
