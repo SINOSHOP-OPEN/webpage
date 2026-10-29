@@ -146,7 +146,7 @@ python verify_public_dataset.py
     for(var j=0;j<btns.length;j++) btns[j].className = (btns[j].getAttribute("data-lang")===lang?"on":"");
     try{ localStorage.setItem("sinoport_lang", lang); }catch(e){}
   }
-  var saved="zh"; try{ saved = localStorage.getItem("sinoport_lang") || "zh"; }catch(e){}
+  var saved="zh"; try{ var qp=new URLSearchParams(location.search).get("lang"); saved = qp || localStorage.getItem("sinoport_lang") || "zh"; }catch(e){}
   if(!/^(zh|en)$/.test(saved)) saved="zh";
   function boot(){ apply(saved);
     var btns=document.querySelectorAll("#langSwitch button");
