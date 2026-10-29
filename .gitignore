@@ -1,0 +1,20 @@
+# 版本备份（旧版保留不删，但不入库）
+*.r0-*
+*.r0
+index_001_backup_restored.html
+
+# 临时产物
+_ffmpeg*
+_*.log
+_shots/
+
+# ★ 渲染与建模脚本 —— 内部工具，绝不入公开仓
+#   （内含内部规范出处注释与建模过程说明）
+calc_tide_basin.py
+render_tide_figures.py
+render_tide_anim.py
+insert_tide_into_video.py
+update_web_tide.py
+gitee_tide_readme.py
+*_frames*/
+_tide_anim_frames/
