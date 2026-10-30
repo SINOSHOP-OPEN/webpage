@@ -27,15 +27,10 @@
 
 *Steadfast Loyalty glowing like the sun and moon; Benevolence nourishing the tide of time.*
 
----
-
-> 官网、仓库、文档三处同源 —— 一处修订，三处同步。纲领文本以正式发布稿为准。
 <!-- CREED:END -->
-
 
 🌐 **在线展示页 / Live showcase**：[https://sinoshop-open.github.io/webpage/](https://sinoshop-open.github.io/webpage/)
 **108 秒技术展示片** —— [▶ 在线播放（GitHub Pages · 点开即看 · 无需下载）](https://sinoshop-open.github.io/webpage/#film)
-
 
 **中文** —— SinoPORT 是一座**不靠打桩的海上浮港**：无桩基悬浮 + 柔性缓冲消浪，把极端海况转化为可用的电能。本仓库承载项目的中英双语展示门面：A 宣传 · B 验证 · C 交流。
 
