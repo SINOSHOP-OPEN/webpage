@@ -1,6 +1,41 @@
 # webpage · SINOSHOP 项目展示页 / Project Showcase
 
+<!-- CREED:START -->
+<!-- ◆ 20261029 核心纲领置顶 -->
+
+## 🌊 SINOSHOP · 海洋文明核心纲领
+
+**CORE PRINCIPLE OF OCEAN CIVILISATION**
+
+---
+
+**【核心纲领 Core Principle】**
+
+### 观天之道，执天之行，三盗既宜，三才既安。
+
+*Observe Nature's Order, Align with Ocean's Rhythm. When the Three Harmonies Are Balanced, the Three Realms Rest Secure.*
+
+**【工程哲学 Industrial Philosophy】**
+
+### 海生电、电养船、船搭桥、桥造城、城惠民。航天海，众生安。
+
+*Ocean Generates Power, Power Sustains Ships, Ships erect Bridges, Bridges Build Cities, Cities bless the People, Space-Ocean Synergy, All dwell in security.*
+
+**【精神信念 Spiritual Belief】**
+
+### 贞忠昭日月，惠民播春秋。
+
+*Steadfast Loyalty glowing like the sun and moon; Benevolence nourishing the tide of time.*
+
+---
+
+> 官网、仓库、文档三处同源 —— 一处修订，三处同步。纲领文本以正式发布稿为准。
+<!-- CREED:END -->
+
+
 🌐 **在线展示页 / Live showcase**：[https://sinoshop-open.github.io/webpage/](https://sinoshop-open.github.io/webpage/)
+**108 秒技术展示片** —— [▶ 在线播放（GitHub Pages · 点开即看 · 无需下载）](https://sinoshop-open.github.io/webpage/#film)
+
 
 **中文** —— SinoPORT 是一座**不靠打桩的海上浮港**：无桩基悬浮 + 柔性缓冲消浪，把极端海况转化为可用的电能。本仓库承载项目的中英双语展示门面：A 宣传 · B 验证 · C 交流。
 

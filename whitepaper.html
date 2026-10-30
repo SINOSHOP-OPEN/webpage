@@ -48,6 +48,7 @@ footer{border-top:1px solid var(--line);margin-top:50px;padding:22px 0 40px;colo
 .cg-label span{color:var(--dim);letter-spacing:.22em;margin-left:10px;font-size:10.5px}
 .cg-zh{font-family:"Songti SC","STSong","Noto Serif CJK SC","Source Han Serif SC","SimSun",serif;font-size:clamp(17px,2vw,21px);letter-spacing:.14em;color:#eef4fa;line-height:2}
 .cg-en{font-family:Georgia,"Times New Roman",serif;font-size:12.5px;color:var(--dim);margin-top:9px;line-height:1.9;font-style:italic}
+  .film{width:100%;max-width:960px;display:block;margin:18px auto;border:1px solid rgba(120,190,255,.22);border-radius:8px;background:#04101c}
 </style>
 </head>
 <body>
@@ -104,6 +105,14 @@ python verify_public_dataset.py
   <a class="dl" href="docs/whitepaper/SINOSHOP_技术白皮书_V2.0.pdf">下载 PDF 全文</a>
   <a class="dl" href="https://gitee.com/sinoshop/SinoPORT/blob/master/docs/SINOSHOP_Technical_Whitepaper_V2.0.md">Markdown 源文件</a>
 
+  <h2>108 秒技术展示片 · 技术总览</h2>
+  <video class="film" controls preload="metadata" playsinline
+         poster="showcase/SINOPORT_Tech_Showcase_108s_poster.jpg">
+    <source src="showcase/SINOPORT_Tech_Showcase_108s.mp4" type="video/mp4">
+    您的浏览器不支持内嵌视频 —— <a href="showcase/SINOPORT_Tech_Showcase_108s.mp4">点此播放 / 下载</a>。
+  </video>
+  <p style="margin:10px 0 4px"><a class="dl" href="showcase/SINOPORT_Tech_Showcase_108s.mp4" target="_blank" rel="noopener">▶ 在新标签页播放 / 下载 MP4</a></p>
+
   <h2>核心验证结论 · 证据卡</h2>
   <img class="card" src="docs/whitepaper/stability_28of28_card.png" alt="稳性核算结论：28/28 断言通过，K &gt; 15">
   <img class="card" src="docs/whitepaper/flexible_envelope_2_5mm_card.png" alt="柔性位移包络：2-5mm 受控微位移，吸能效率 &gt; 90%">
@@ -151,11 +160,13 @@ python verify_public_dataset.py
   "h2",
   [
    "一键复现 —— 每一个结论背后都有代码",
+   "108 秒技术展示片 · 技术总览",
    "核心验证结论 · 证据卡",
    "白皮书结构"
   ],
   [
    "One-Command Reproduction — Every Conclusion Has Code Behind It",
+   "108s Technical Showcase — Overview",
    "Core Verified Results · Evidence Cards",
    "Whitepaper Structure"
   ]
