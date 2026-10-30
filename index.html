@@ -179,32 +179,12 @@ footer{border-top:1px solid var(--line);padding:64px 0 48px;text-align:center}
 .ek-btn.gold:hover{box-shadow:0 0 26px -8px rgba(201,163,92,.75)}
 .ek-btn.ghost{border-color:rgba(140,180,210,.32);background:rgba(255,255,255,.03);color:#cfe2ee;font-weight:500}
 .ek-btn.ghost:hover{border-color:rgba(140,180,210,.6);box-shadow:none}
-.ek-cover{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;
-  min-height:150px;border-radius:8px;border:1px dashed rgba(120,190,255,.3);background:
-  linear-gradient(160deg,rgba(29,158,117,.10),rgba(4,16,28,.6));text-align:center;padding:18px}
-.ek-cover-ic{font-size:30px;line-height:1}
-.ek-cover-t{font-size:13.5px;letter-spacing:.05em;color:#dceaf3;font-weight:600}
-.ek-cover-s{font-size:11.5px;color:var(--faint);letter-spacing:.03em}
+.ek-preview{width:100%;border-radius:8px;border:1px solid rgba(120,190,255,.16);background:#fff;display:block}
+.ek-wide{grid-column:1/-1}
 .ek-video{width:100%;border-radius:8px;border:1px solid rgba(120,190,255,.16);background:#04101c;display:block}
 .ek-note{margin:14px 0 0;font-size:11.5px;line-height:1.8;color:var(--faint)}
 @media (max-width:720px){.eval-kit{padding:20px 15px}.ek-grid{gap:12px}}
 
-/* ── 评测直链 · 全宽 PDF 阅读层（20261030） ── */
-.pdf-modal{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;
-  padding:28px;background:rgba(2,8,16,.93);backdrop-filter:blur(6px)}
-.pdf-modal.open{display:flex}
-.pdf-modal .pm-box{position:relative;width:min(1180px,96vw);height:min(88vh,900px);display:flex;flex-direction:column;
-  border:1px solid rgba(201,163,92,.4);border-radius:12px;overflow:hidden;background:#04101c;
-  box-shadow:0 30px 90px -30px rgba(0,0,0,.95)}
-.pdf-modal .pm-bar{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid rgba(120,190,255,.16);
-  background:linear-gradient(90deg,rgba(29,158,117,.16),rgba(5,13,22,0))}
-.pdf-modal .pm-bar .pm-t{font-size:13.5px;letter-spacing:.06em;color:#eef4fa;font-weight:600}
-.pdf-modal .pm-bar .pm-s{font-size:11.5px;color:var(--faint)}
-.pdf-modal .pm-bar .pm-x{margin-left:auto;width:34px;height:34px;border-radius:8px;cursor:pointer;
-  border:1px solid rgba(140,180,210,.32);background:rgba(255,255,255,.04);color:#cfe2ee;font-size:18px;line-height:1}
-.pdf-modal .pm-x:hover{border-color:rgba(29,158,117,.6);color:#eafff6}
-.pdf-modal iframe{flex:1;width:100%;border:0;background:#0a1723}
-@media (max-width:720px){.pdf-modal{padding:10px}.pdf-modal .pm-box{width:100%;height:92vh}}
 </style>
 </head>
 <body>
@@ -378,17 +358,6 @@ footer{border-top:1px solid var(--line);padding:64px 0 48px;text-align:center}
   </div>
 
   
-<!-- ═══ 全宽 PDF 阅读层（评测直链用） ═══ -->
-<div class="pdf-modal" id="pdfModal" role="dialog" aria-modal="true" aria-label="核心技术报告 V2.0 在线阅读">
-  <div class="pm-box">
-    <div class="pm-bar">
-      <span class="pm-t">核心技术报告 · V2.0</span>
-      <span class="pm-s">13 页 · 页面内直接翻阅 · 按 ESC 关闭</span>
-      <button class="pm-x" type="button" id="pdfCloseBtn" aria-label="关闭">×</button>
-    </div>
-    <iframe src="docs/media/papers/SINOPORT_Core_Physics_Report_V2.0.pdf" title="SINOPORT 核心技术报告 V2.0 在线阅读"></iframe>
-  </div>
-</div>
 
 <!-- ═══ 评测直链 · EVALUATION KIT（20261030 防死链巡检新增） ═══ -->
   <div class="eval-kit" id="eval-kit">
@@ -397,14 +366,13 @@ footer{border-top:1px solid var(--line);padding:64px 0 48px;text-align:center}
     <p class="ek-lead">以下为提交给评审的核心材料，<b>全部可在本页直接查看</b>：技术报告在页面内翻阅，演示视频在页面内直接播放（<b>无需下载</b>）。也提供 Gitee 直链作为备用通道。</p>
     <div class="ek-grid">
 
-      <div class="ek-card">
+      <div class="ek-card ek-wide">
         <div class="ek-ic">📄</div>
         <div class="ek-t">核心技术报告 · V2.0</div>
-        <div class="ek-d">13 页全文 · 物理模型、能量闭环、稳性与消浪结论 · <b>点击下方按钮在页面内全宽阅读</b></div>
-        <div class="ek-cover"><span class="ek-cover-ic">📄</span><span class="ek-cover-t">SINOPORT 核心技术报告 V2.0</span><span class="ek-cover-s">13 页 · 点击展开阅读器</span></div>
+        <div class="ek-d">13 页全文 · 物理模型、能量闭环、稳性与消浪结论 · <b>下方可直接翻阅</b></div>
+        <iframe class="ek-preview" src="docs/media/papers/SINOPORT_Core_Physics_Report_V2.0.pdf" title="SINOPORT 核心技术报告 V2.0" height="620"></iframe>
         <div class="ek-actions">
-          <button class="ek-btn gold" type="button" id="pdfOpenBtn">📄 在页面内展开阅读</button>
-          <a class="ek-btn ghost" href="docs/media/papers/SINOPORT_Core_Physics_Report_V2.0.pdf" target="_blank" rel="noopener">↗ 新标签页阅读</a>
+          <a class="ek-btn gold" href="docs/media/papers/SINOPORT_Core_Physics_Report_V2.0.pdf" target="_blank" rel="noopener">📄 全屏阅读报告</a>
           <a class="ek-btn ghost" href="docs/media/papers/SINOPORT_Core_Physics_Report_V2.0.pdf" download>⬇ 下载 PDF</a>
           <a class="ek-btn ghost" href="https://gitee.com/sinoshop/sinoport-public/releases/download/v2.0/SINOPORT_Core_Physics_Report_V2.0.pdf" target="_blank" rel="noopener">💻 Gitee 备用直链</a>
         </div>
@@ -869,22 +837,6 @@ footer{border-top:1px solid var(--line);padding:64px 0 48px;text-align:center}
     for(var j=0;j<btns.length;j++){ (function(b){ b.addEventListener("click",function(){ apply(b.getAttribute("data-lang")); }); })(btns[j]); }
   }
   if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",boot); else boot();
-})();
-</script>
-
-<script>
-/* ── 全宽 PDF 阅读层：开 / 关（20261030） ── */
-(function(){
-  var m = document.getElementById('pdfModal');
-  var ob = document.getElementById('pdfOpenBtn');
-  var cb = document.getElementById('pdfCloseBtn');
-  if(!m) return;
-  function open(){ m.classList.add('open'); document.body.style.overflow='hidden'; }
-  function close(){ m.classList.remove('open'); document.body.style.overflow=''; }
-  if(ob) ob.addEventListener('click', open);
-  if(cb) cb.addEventListener('click', close);
-  m.addEventListener('click', function(e){ if(e.target === m) close(); });
-  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') close(); });
 })();
 </script>
 
