@@ -185,6 +185,36 @@ footer{border-top:1px solid var(--line);padding:64px 0 48px;text-align:center}
 .ek-note{margin:14px 0 0;font-size:11.5px;line-height:1.8;color:var(--faint)}
 @media (max-width:720px){.eval-kit{padding:20px 15px}.ek-grid{gap:12px}}
 
+
+/* ═══ 星系导航面板 · STAR NEXUS ═══ */
+.nexus{padding:64px 0 72px;border-top:1px solid rgba(27,58,90,.55);
+      background:linear-gradient(180deg,rgba(6,20,36,0),rgba(6,20,36,.55))}
+.nx-kicker{font-family:var(--mono);font-size:11.5px;letter-spacing:2.6px;color:var(--em);
+           text-transform:uppercase;margin-bottom:12px}
+.nx-title{font-size:clamp(21px,2.6vw,30px);color:#fff;margin:0 0 12px;font-weight:680;letter-spacing:-.2px}
+.nx-lede{color:var(--dim);font-size:14.5px;max-width:720px;margin:0 0 30px;line-height:1.8}
+.nx-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:14px}
+.nx-card{display:block;position:relative;padding:20px 20px 16px;border:1px solid rgba(27,58,90,.72);
+         border-radius:9px;background:linear-gradient(180deg,rgba(10,33,54,.72),rgba(7,26,44,.55));
+         text-decoration:none;transition:border-color .2s,transform .2s,box-shadow .2s}
+.nx-card:hover{border-color:var(--em);transform:translateY(-3px);
+               box-shadow:0 14px 34px rgba(0,0,0,.42)}
+.nx-badge{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:1.4px;
+          padding:3px 9px;border-radius:3px;border:1px solid rgba(29,158,117,.42);
+          background:rgba(29,158,117,.12);color:var(--em);margin-bottom:11px}
+.nx-name{font-size:16px;color:#fff;font-weight:640;margin-bottom:7px;letter-spacing:.2px}
+.nx-desc{font-size:13px;color:var(--dim);line-height:1.72;margin-bottom:12px}
+.nx-links{display:flex;flex-wrap:wrap;gap:6px 12px;font-size:11.5px;color:var(--faint)}
+.nx-links span{font-family:var(--mono);letter-spacing:.3px}
+.nx-mother{border-color:rgba(232,180,90,.42);
+           background:linear-gradient(180deg,rgba(43,32,10,.5),rgba(10,33,54,.55))}
+.nx-mother .nx-badge{border-color:rgba(232,180,90,.5);background:rgba(232,180,90,.12);color:var(--gold)}
+.nx-ver .nx-badge{border-color:rgba(43,108,176,.5);background:rgba(43,108,176,.16);color:#8fc4f5}
+.nx-foot{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:26px;padding-top:20px;
+        border-top:1px solid rgba(27,58,90,.55)}
+.nx-foot a{font-size:13px;color:var(--dim);text-decoration:none;transition:color .18s}
+.nx-foot a:hover{color:var(--em)}
+@media(max-width:760px){.nexus{padding:46px 0 52px}}
 </style>
 </head>
 <body>
@@ -506,6 +536,71 @@ footer{border-top:1px solid var(--line);padding:64px 0 48px;text-align:center}
 </div></section>
 
 <!-- ═══ 页脚 ═══ -->
+<!-- STAR:NEXUS:START -->
+<section id="nexus" class="nexus"><div class="wrap">
+  <div class="nx-kicker">SINOSHOP · STAR SYSTEM</div>
+  <h2 class="nx-title">星系互联 · 一次抵达，全域可达</h2>
+  <p class="nx-lede">主母舰与各子项目共享同一套工程哲学与验证纪律 —— 结论由脚本判定，
+  文档由同一源头渲染，页面彼此可达。任一入口进入，都能走回母港。</p>
+
+  <div class="nx-grid">
+
+    <a class="nx-card nx-mother" href="https://gitee.com/sinoshop/SinoPORT">
+      <div class="nx-badge">母舰</div>
+      <div class="nx-name">SinoPORT · 悬浮港</div>
+      <div class="nx-desc">数字孪生驱动的创新海洋能源基建 —— 主仓、公开断言层与白皮书。</div>
+      <div class="nx-links">
+        <span>💻 Gitee 主仓</span><span>🐙 GitHub 镜像</span>
+      </div>
+    </a>
+
+    <a class="nx-card" href="https://gitee.com/sinoshop/SinoTide">
+      <div class="nx-badge">算力</div>
+      <div class="nx-name">SinoTide · 潮汐定深浮桥</div>
+      <div class="nx-desc">江水直冷 × 潮汐绿电直驱，立体数据中心的绿色算力新基建。</div>
+      <div class="nx-links"><span>📄 技术说明（网页版）</span></div>
+    </a>
+
+    <a class="nx-card" href="https://gitee.com/sinoshop/sinoship">
+      <div class="nx-badge">船舶</div>
+      <div class="nx-name">SINOSHIP · 海上移动装备</div>
+      <div class="nx-desc">船舶、极地运输与海上移动装备的工程应用层。</div>
+      <div class="nx-links"><span>📄 项目主页</span></div>
+    </a>
+
+    <a class="nx-card" href="https://gitee.com/sinoshop/sinohotskin">
+      <div class="nx-badge">热防护</div>
+      <div class="nx-name">SINOhotSKIN · 东方瓷甲</div>
+      <div class="nx-desc">双层壳解耦架构 —— 外层瓷甲防热，内层铁骨承力。</div>
+      <div class="nx-links"><span>📄 技术白皮书（网页版）</span></div>
+    </a>
+
+    <a class="nx-card" href="https://github.com/SINOSHOP-OPEN/SINOSHOP-Sandbox">
+      <div class="nx-badge">悬赏</div>
+      <div class="nx-name">SINOSHOP-Sandbox · 挑战书</div>
+      <div class="nx-desc">CHALLENGE-010 驭风者 —— 全向气旋三维拓扑气动抬升算法，开放全球共解。</div>
+      <div class="nx-links"><span>📄 思维范式接口</span><span>📋 产品手册</span><span>📖 故事章节</span></div>
+    </a>
+
+    <a class="nx-card nx-ver" href="docs/evidence/">
+      <div class="nx-badge">验证</div>
+      <div class="nx-name">仿真验证证据总览</div>
+      <div class="nx-desc">已提交登记审核中的数字资产 · 结论级验证证据 —— 15 条验证主线、
+        361 项物理断言、19 份核验结果 JSON，全部公网可复现。</div>
+      <div class="nx-links"><span>📊 证据页</span><span>🗂 17 份数据集映射表</span></div>
+    </a>
+
+  </div>
+
+  <div class="nx-foot">
+    <a href="https://gitee.com/sinoshop">🌐 Gitee 组织首页</a>
+    <a href="https://github.com/SINOSHOP-OPEN">🐙 GitHub 镜像组织</a>
+    <a href="docs/evidence/">📊 仿真验证证据</a>
+    <a href="docs/datasets/">🗂 数据集映射表</a>
+  </div>
+</div></section>
+<!-- STAR:NEXUS:END -->
+
 <footer id="footer"><div class="wrap">
   <div class="final">用AI工具，展示<em>真善美</em>和<em>智慧</em>，享受恒久的喜乐</div>
   <div class="law">充分发挥AI人工智能作用造福众生，是我们的享受人生意义的一种方式。</div>

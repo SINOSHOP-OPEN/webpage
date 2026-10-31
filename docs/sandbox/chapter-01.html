@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>《山海补天》第一章 · 台风混沌压境</title>
+<meta name="description" content="台风混沌压境 —— 海天观测港如何在五级风正面袭来时，守住中央观测核心的绝对稳静区。">
+<meta property="og:title" content="《山海补天》第一章 · 台风混沌压境">
+<meta property="og:description" content="台风混沌压境 —— 海天观测港如何在五级风正面袭来时，守住中央观测核心的绝对稳静区。">
+<meta property="og:type" content="website">
+<style>
+:root{
+  /* ★ 统一到主母舰官网视觉体系（website-gh/index.html 的 CSS 变量）——
+     全星系一脉相承：深空蓝底 · 翡翠绿主色 · 金色点缀 */
+  --bg:#04101d; --bg-2:#071a2c; --panel:#071a2c; --panel-2:#0a2136;
+  --line:#12314c; --line-2:#1a3f5e;
+  --ink:#dbe7f3; --ink-2:#b4c8dc; --ink-3:#8fa8bf; --ink-4:#5f7890;
+  --green:#1d9e75; --green-l:#2ee6a8; --green-d:#146b4f;
+  --blue:#2b6cb0; --gold:#e8b45a; --red:#c05656;
+  --mono:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,"JetBrains Mono",monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei","PingFang SC","Hiragino Sans GB",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--sans);font-size:15.5px;line-height:1.78;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+a{color:var(--green-l);text-decoration:none;border-bottom:1px solid rgba(46,230,168,.28);transition:.18s}
+a:hover{color:#6bffd0;border-bottom-color:var(--green-l)}
+strong{color:#fff;font-weight:650}
+em{color:var(--ink-2)}
+
+/* ── 页头 ── */
+.hero{
+  border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(1100px 460px at 14% -12%,rgba(29,158,117,.20),transparent 62%),
+    radial-gradient(900px 400px at 92% -18%,rgba(43,108,176,.14),transparent 60%),
+    linear-gradient(180deg,#061a2c 0%,var(--bg) 100%);
+  padding:52px 0 40px;position:relative;overflow:hidden;
+}
+.hero::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--green) 22%,var(--blue) 62%,transparent);
+}
+.wrap{max-width:1120px;margin:0 auto;padding:0 26px}
+.eyebrow{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:2.6px;color:var(--green-l);
+  text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:11px;
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--green);flex:none}
+.hero h1{
+  margin:0 0 16px;font-size:clamp(26px,3.4vw,40px);line-height:1.24;font-weight:700;
+  letter-spacing:-.4px;color:#fff;
+}
+.hero .lede{margin:0;max-width:760px;color:var(--ink-2);font-size:15.5px}
+.hero .tags{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+.tag{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.4px;
+  padding:5px 12px;border-radius:3px;border:1px solid var(--line-2);
+  background:rgba(29,158,117,.09);color:var(--green-l);
+}
+.tag.b{background:rgba(43,108,176,.1);border-color:rgba(43,108,176,.42);color:#8fc4f5}
+.tag.g{background:rgba(201,162,39,.1);border-color:rgba(201,162,39,.4);color:#e2c86a}
+.tag.n{background:rgba(143,168,191,.08);color:var(--ink-3)}
+
+/* ── 导航条 ── */
+.nav{border-bottom:1px solid var(--line);background:rgba(4,16,29,.94);position:sticky;top:0;z-index:50;backdrop-filter:blur(10px)}
+.nav .wrap{display:flex;align-items:center;gap:4px;height:52px;overflow-x:auto}
+.nav .brand{font-family:var(--mono);font-size:12px;letter-spacing:1.6px;color:var(--ink-4);margin-right:14px;white-space:nowrap}
+.nav a{
+  font-size:13.5px;color:var(--ink-2);padding:7px 13px;border-radius:4px;
+  border:1px solid transparent;white-space:nowrap;transition:.16s;
+}
+.nav a:hover{background:var(--panel);border-color:var(--line-2);color:#fff;border-bottom-color:transparent}
+.nav a.back{color:var(--green-l);border-color:rgba(46,230,168,.3);background:rgba(29,158,117,.08)}
+
+/* ── 正文 ── */
+main{padding:44px 0 76px}
+.doc{max-width:1120px}
+.doc h1{display:none}
+.doc h2{
+  font-size:20px;margin:52px 0 18px;color:#fff;font-weight:680;letter-spacing:.2px;
+  padding:0 0 12px 14px;border-left:3px solid var(--green);position:relative;
+}
+.doc h2::after{content:"";position:absolute;left:14px;right:0;bottom:0;height:1px;background:var(--line)}
+.doc h3{font-size:16.5px;margin:32px 0 13px;color:#e8f0f7;font-weight:650;letter-spacing:.2px}
+.doc h3::before{content:"▸";color:var(--green);margin-right:9px;font-size:13px}
+.doc h4{font-size:14.5px;margin:22px 0 10px;color:var(--ink-2)}
+.doc p{margin:0 0 15px;color:var(--ink-2)}
+.doc ul,.doc ol{margin:0 0 18px;padding-left:22px;color:var(--ink-2)}
+.doc li{margin:6px 0}
+.doc li::marker{color:var(--green)}
+.doc hr{border:0;height:1px;background:var(--line);margin:38px 0}
+
+/* ── 表格（斑马纹 + 悬浮） ── */
+.tw{overflow-x:auto;margin:0 0 24px;border:1px solid var(--line);border-radius:7px;background:var(--panel)}
+table{width:100%;border-collapse:collapse;font-size:13.8px;min-width:520px}
+thead th{
+  background:var(--panel-2);color:#fff;font-weight:640;text-align:left;
+  padding:13px 15px;border-bottom:1px solid var(--line-2);white-space:nowrap;
+  font-size:13px;letter-spacing:.3px;position:sticky;top:0;
+}
+tbody td{padding:12px 15px;border-bottom:1px solid rgba(34,48,63,.55);color:var(--ink-2);vertical-align:top}
+tbody tr:nth-child(even){background:rgba(23,33,46,.5)}
+tbody tr:nth-child(odd){background:transparent}
+tbody tr{transition:background .16s,box-shadow .16s}
+tbody tr:hover{background:rgba(29,158,117,.10);box-shadow:inset 3px 0 0 var(--green)}
+tbody tr:hover td{color:var(--ink)}
+tbody tr:last-child td{border-bottom:0}
+
+/* ── 代码块（带高亮 UI 框） ── */
+.code{
+  margin:0 0 24px;border:1px solid var(--line-2);border-radius:8px;overflow:hidden;
+  background:#030c16;box-shadow:0 12px 32px rgba(0,0,0,.34);
+}
+.code-hd{
+  display:flex;align-items:center;gap:9px;padding:9px 14px;
+  background:linear-gradient(180deg,#0a2136,#071a2c);border-bottom:1px solid var(--line);
+}
+.code-hd .dot{width:9px;height:9px;border-radius:50%;flex:none}
+.code-hd .dot.r{background:#c05656}.code-hd .dot.y{background:#c9a227}.code-hd .dot.g{background:#1d9e75}
+.code-hd .lang{
+  font-family:var(--mono);font-size:11px;letter-spacing:1.4px;color:var(--ink-3);
+  margin-left:6px;text-transform:uppercase;
+}
+.code-hd .hint{margin-left:auto;font-family:var(--mono);font-size:10.5px;color:var(--ink-4);letter-spacing:.8px}
+.code pre{margin:0;padding:16px 18px;overflow-x:auto}
+.code code{
+  font-family:var(--mono);font-size:13px;line-height:1.72;color:#cfe0f0;
+  display:block;white-space:pre;
+}
+.tk-kw{color:#f0a6c8}.tk-str{color:#8fe0b4}.tk-num{color:#e8c98a}
+.tk-com{color:#5f7890;font-style:italic}.tk-fn{color:#7fc0ee}.tk-op{color:#9fb6cc}
+
+/* ── 行内代码 ── */
+code.inl{
+  font-family:var(--mono);font-size:12.6px;background:rgba(29,158,117,.10);
+  border:1px solid rgba(46,230,168,.18);color:#7fe8c4;padding:1.5px 6px;border-radius:4px;
+}
+
+/* ── 引用块 / 声明卡 ── */
+blockquote{
+  margin:0 0 24px;padding:16px 20px;background:var(--panel);
+  border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:6px;color:var(--ink-2);
+}
+blockquote p:last-child{margin-bottom:0}
+blockquote strong{color:#fff}
+.statement{
+  margin:0 0 26px;padding:18px 22px;border-radius:7px;
+  background:linear-gradient(180deg,rgba(201,162,39,.09),rgba(201,162,39,.03));
+  border:1px solid rgba(201,162,39,.34);border-left:3px solid var(--gold);
+}
+.statement strong{color:#f0d98a}
+
+/* ── 图片 ── */
+figure{margin:0 0 26px}
+.doc img{
+  max-width:100%;height:auto;display:block;border:1px solid var(--line-2);
+  border-radius:8px;background:#fff;padding:8px;
+  box-shadow:0 14px 34px rgba(0,0,0,.42);
+}
+figcaption{font-family:var(--mono);font-size:12px;color:var(--ink-4);margin-top:9px;text-align:center}
+
+/* ── 页脚 ── */
+.foot{border-top:1px solid var(--line);padding:30px 0 46px;color:var(--ink-4);font-size:13px}
+.foot .row{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;margin-bottom:14px}
+.foot a{color:var(--ink-2);border-bottom-color:var(--line-2)}
+.foot a:hover{color:var(--green-l)}
+.motto{
+  font-family:var(--mono);font-size:13.5px;color:var(--green-l);letter-spacing:.5px;
+  padding-top:18px;border-top:1px solid var(--line);margin-top:6px;
+}
+.foot .fine{font-size:12px;color:var(--ink-4);margin-top:10px;line-height:1.7}
+
+@media(max-width:760px){
+  .hero{padding:38px 0 30px}
+  .wrap{padding:0 18px}
+  main{padding:30px 0 56px}
+  .doc h2{font-size:18px}
+  tbody td{padding:10px 12px}
+}
+@media print{
+  body{background:#fff;color:#000}
+  .nav,.code-hd .hint{display:none}
+}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <div class="eyebrow">SINOSHOP Sandbox ｜ 硬核科幻 · 开源工程</div>
+  <h1>《山海补天》第一章 · 台风混沌压境</h1>
+  <p class="lede">台风混沌压境 —— 海天观测港如何在五级风正面袭来时，守住中央观测核心的绝对稳静区。</p>
+  <div class="tags"><span class="tag">核科幻</span><span class="tag">源叙事</span><span class="tag">程即叙事</span></div>
+</div></header>
+<nav class="nav"><div class="wrap"><span class="brand">SINOSHOP · SINO-PORT</span><a href="../evidence/">证据总览</a><a href="../datasets/">数据集映射表</a><a href="https://gitee.com/sinoshop/SinoPORT" class="back">← 回到 Gitee 仓库</a><a href="https://sinoshop-open.github.io/webpage/">项目展示页</a></div></nav>
+<main><div class="wrap"><div class="doc">
+<p>《SINOSHOP海洋城·山海补天》第一章 台风混沌压境（全平台首发定稿｜起点/公众号/GitHub三刊同步，融合法藏六合光学+SHIELD65模块化+OpenFOAM流体仿真+文丘里1:4空化工程锚点+人性心理刻画，2280字） 【楔子倒叙开篇｜首发导语：东方古法光学×现代开源海洋工程硬核科幻，正文剧情同步对应GitHub <code class="inl">venturi-1to4-power</code>技术悬赏议题】 晨光破开南荒大荒漫天残云，连片SHIELD65竹玄武六边穹顶横卧南荒碧波，一块块构件夹层松烟水墨导电光路循着盛唐法藏镜灯六合分光逻辑铺展，滔天狂浪撞向六边阵列，顺着仿生鲨鱼皮沟槽逐层拆分、消解。黄爔澜指尖落定，SINOSHOP全套L1-L2流体算法一键全平台开源，海量OpenFOAM仿真工程文档、模块加工图纸顺着四海航道，瞬间推送至东、西、北三大荒域海岛开源协作站点。远岸康养小楼窗边黄母凭栏远眺，对岸功德石碑前梁永龙静静伫立，茫茫沧海隔断行路，二人遥遥颔首，半生知己、隔世研镜的心事尽藏一眼静默。孤礁之上，混沌孑然伫立，望着沿岸难民人手免费造屋图纸就地营建，耗费半生海洋垄断布局尽数落空，满心算计化作泡影。</p>
+<p>时光倒溯十五日，南荒远洋低压气旋层层堆叠，台风“混沌”在深海悄然积蓄破坏力，咸腥冷雨裹挟细碎浪沫，顺着海风灌满近海SINOSHOP全域工程指挥中心。铅灰云层沉沉覆压整片南荒海面，巨型全息监测幕墙铺满整面墙体，全域洋流监测曲线全线飘红，猩红预警色块如同蔓延的灾疫，密密麻麻爬满大荒南经海图。各地工段负责人远程接入会议，密闭厅堂之内，抱怨、惊惧彼此纠缠，喧闹声响撞在钢化玻璃上往复回荡。</p>
+<p>“我驻守南荒滨海三十三年，三度亲历超等级飓风，全钢筋现浇围堰尽数溃塌，如今仅凭古法演化的SHIELD六边柔性模块、依托OpenFOAM推演的流体方案，凭空想要以水治水，本质是空耗国库钱粮！”从业半生的老牌工程师重重一掌拍落实木桌案，指尖叩击桌面的闷响混着窗外浪啸。身旁现场分包工长连连叹气，眉宇间裹着连日焦灼：“滩头数千工匠夜夜被惊涛扰得难眠，人人惧台风殒命，再执意按原方案推进，不消三五日，整条施工班组就要全员停工散伙。”</p>
+<p>满场之人尽数被天灾恐慌裹挟，本能偏向稳妥停工方案。黄爔澜深谙人际心理：人遇未知危难，本能优先规避风险，群体盲从是常态，当众强硬驳斥只会激化对立、加深所有人的抵触心态；想要说服众人，必先共情消解防备，再以实测仿真数据落地论证。她压下即刻辩驳的念头，静静等候满堂牢骚尽数散尽，待到厅堂声响缓缓回落，才放缓语速，眉眼平和。</p>
+<p>“诸位常年扎根荒海滩涂，岁岁亲历狂涛吞田、岸堤倾塌，如今气象预警逐级抬升，忧心耗材损耗、牵挂手下匠人生计，全是人之常情。倘若换作我执掌一处工段，眼见黑云吞覆沧海，同样会萌生退守避险的念头。”</p>
+<p>短短一席体谅之语，瞬间消融大半紧绷氛围，原本剑拔弩张的一众工程师纷纷放松肩背，不少人坐姿放缓，凝神静待后续推演。黄爔澜抬手滑动触控大屏，一套<strong>古法镜阵思想+OpenFOAM现代算法融合仿真沙盘</strong>徐徐铺展：整套推演模型借鉴盛唐法藏因陀罗网六合空间光学原理，将复杂海洋流场依托无数SHIELD65竹塑六边形单元完成可视化拆分，<strong>全书首个核心攻关课题正式落地：文丘里1:4缩径空化难题，喉部截面缩至原尺寸1/4后流体流速暴涨16倍，局部静压骤降催生海量空泡，空泡溃灭时如同无数微型金刚石持续啃蚀模块外壁，正是当前制约穹顶落地的关键工程痛点，对应GitHub仓库<code class="inl">venturi-1to4-power</code>全球悬赏优化课题，攻关方向包含沟槽曲率、腔体入口角度双重迭代优化</strong>。</p>
+<p>“传统围堰垒石硬堵洪流，恰似肉身阻拦奔湍；法藏古人以单镜拆分千缕光影，我们便依托文丘里流体规律打造六边泄洪廊道。百万组OpenFOAM迭代演算证实：台风眼过境前，天地天然预留六小时全域稳态窗口期，顺势疏导浪涛，远胜于实心硬质海堤。”话音落，全息屏上模拟飓风顺着六边沟槽层层分流的动态画面徐徐播放，屏幕旁同步弹出GitHub悬赏议题简短注解，方便线上工程读者对照查阅。</p>
+<p>一众老工程师眉头紧锁，疑虑仍盘旋心底，嘴上不再高声争辩。一旁苏明指尖反复摩挲泛黄旧工程图纸，过往为迎合资本、压缩造价，亲手设计廉价短寿堤防、汛期溃塌致海岛流民被困的往事骤然闪回脑海，全息小窗里北经海岛被海水吞没、孩童蜷缩泥滩的画面循环闪动。一边是混沌斯许诺的高额项目分红、终身入股收益，一边是万千灾民赖以活命的开源图纸，两种念头在他心底反复撕扯、拉锯。</p>
+<p>就在众人进退两难之际，会客室木门被侍者缓缓推开，混沌斯资本特使身着挺括正装，怀中烫金装订的合作协议平铺长案，唇角挂着拿捏利弊的算计笑意：“黄总工，项目现阶段资金缺口巨大，我司全额包揽后续所有建设投入，唯一交换条件：L3层级全套流体算法独家私有化授权，全球同类跨海工程由我方垄断运营，工期直接缩短两年，在座所有技术人员均可参股年年分红。”</p>
+<p>交谈间隙，特使瞥过屏上的文丘里仿真构型，语气漫不经心透出资本短视：“何苦死磕1:4缩径带来的空蚀难题？直接把缩径比例改成1:2，空化隐患当场消除，研发算力与试验成本全部省下，资本市场只看重落地速度，没必要拘泥书本流体理论。”一句话直白撕开资本逻辑：为短期投产舍弃结构耐久与长期海洋适配性，恰是开源理念与资本垄断的核心矛盾。</p>
+<p>优厚筹码摆在眼前，不少工程师眸光骤然发亮，原本坚持停工的心思顷刻动摇。黄爔澜垂眸端详桌角迷你SHIELD六边玄武摆件，构件夹层蜿蜒水墨纹路与法藏镜灯光路同源，黄家“技术无私，功德归诸天下”的祖训在心底盘旋。少时听长辈闲谈旧事：早年独门近海工艺被资本锁死垄断，滨海聚落无自建能力、常年流离漂泊的惨状历历在目。她暗自权衡利弊：眼前注资是短期解药，却是捆缚四海万民的枷锁，算法一旦标价出让，整套六边泄洪工艺沦为圈海牟利工具，荒岛百姓再也无缘免费领取建房图纸。</p>
+<p>“整套六合架构脱胎盛唐法藏造物初心，从仿真推演到预制量产，自诞生起便归属四海苍生。图纸是荒滩难民安身之本，绝不能明码标价、归入私资库房。”黄爔澜抬眸，语调沉稳铿锵。</p>
+<p>特使面色瞬间由和煦转为阴冷，指节死死攥紧纸面：“倘若台风骤至，工程全盘倾覆，数万海岛百姓流离失所，这般罪责，黄总工如何承担？” “就算实体穹顶被巨浪损毁，开源图纸仍能就地取材复刻搭建屋舍；算法私有化，整片山海的生路才会被永久封禁。”黄爔抬手，将合作文书轻轻推回案前，立场分毫不让。</p>
+<p>特使一声铁青冷哼，拂袖离场，出门瞬间暗中布下眼线，四处搜罗施工细微纰漏，连夜撰稿筹备全网抹黑，预备以“仿古玄学空耗国资”掀起舆论风波。</p>
+<p>苏凝望着全息屏里衣衫褴褛的滩头难民，旧日溃堤的愧疚与眼前惨状重合，多年被功利思维桎梏的心结尽数化开，低声自语：“从前只盯着账面盈亏本末倒置，往后全力扩充万厂产能，批量复刻六边构件，全套工艺无偿分发各荒海岛。”</p>
+<p>窗外狂风撞得钢化玻璃阵阵嗡鸣，近海成片预制SHIELD模块随暗流缓缓起伏，夹层水墨光路在阴云天光里若隐若现。黄爔抬目望向无垠沧海，语声清朗悠远：“世人困于眼前风浪与细碎私利，唯有循山海流体本源、攻克空化难关，依托六合之术，方能补齐沧海缺憾。”</p>
+<p>话音未落，光屏边角断断续续跳出细碎深海数据流，讯号源头直指万米龙宫算力基地。远在深渊之下的梁诚，正依托SINOSHOP六边分布式算力阵列，孤身迎战混沌斯海量僵尸节点首轮突袭，海面谈判博弈尚未落定，深海隐秘算力暗战已然悄然启幕，一场横跨四大荒域、围绕技术开源与资源垄断的资本围剿大幕，伴着呼啸海风缓缓拉开。</p>
+</div></div></main>
+<footer class="foot"><div class="wrap">
+  <div class="row"><a href="https://gitee.com/sinoshop/SinoPORT">Gitee 主仓</a><a href="https://github.com/SINOSHOP-OPEN">GitHub 镜像组织</a><a href="../evidence/">仿真验证证据</a><a href="https://sinoshop-open.github.io/webpage/">项目展示页</a></div>
+  观天之道，执天之行。　碳基硅基共舞。
+  <div class="fine">本页为公开开源文档的网页呈现，内容与仓库内源文件一致；结论由脚本判定，退出码为零才算通过。</div>
+</div></footer>
+</body>
+</html>

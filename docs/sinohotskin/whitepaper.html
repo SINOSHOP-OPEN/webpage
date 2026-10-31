@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>东方瓷甲 · 技术白皮书 V4.2.1</title>
+<meta name="description" content="面向可重复使用航天器的自适应热防护标准模块系统 —— 外层「瓷甲」防热，内层「铁骨」承力；V4.2.1「隆中对」开放交互式仿真平台。">
+<meta property="og:title" content="东方瓷甲 · 技术白皮书 V4.2.1">
+<meta property="og:description" content="面向可重复使用航天器的自适应热防护标准模块系统 —— 外层「瓷甲」防热，内层「铁骨」承力；V4.2.1「隆中对」开放交互式仿真平台。">
+<meta property="og:type" content="website">
+<style>
+:root{
+  /* ★ 统一到主母舰官网视觉体系（website-gh/index.html 的 CSS 变量）——
+     全星系一脉相承：深空蓝底 · 翡翠绿主色 · 金色点缀 */
+  --bg:#04101d; --bg-2:#071a2c; --panel:#071a2c; --panel-2:#0a2136;
+  --line:#12314c; --line-2:#1a3f5e;
+  --ink:#dbe7f3; --ink-2:#b4c8dc; --ink-3:#8fa8bf; --ink-4:#5f7890;
+  --green:#1d9e75; --green-l:#2ee6a8; --green-d:#146b4f;
+  --blue:#2b6cb0; --gold:#e8b45a; --red:#c05656;
+  --mono:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,"JetBrains Mono",monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei","PingFang SC","Hiragino Sans GB",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--sans);font-size:15.5px;line-height:1.78;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+a{color:var(--green-l);text-decoration:none;border-bottom:1px solid rgba(46,230,168,.28);transition:.18s}
+a:hover{color:#6bffd0;border-bottom-color:var(--green-l)}
+strong{color:#fff;font-weight:650}
+em{color:var(--ink-2)}
+
+/* ── 页头 ── */
+.hero{
+  border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(1100px 460px at 14% -12%,rgba(29,158,117,.20),transparent 62%),
+    radial-gradient(900px 400px at 92% -18%,rgba(43,108,176,.14),transparent 60%),
+    linear-gradient(180deg,#061a2c 0%,var(--bg) 100%);
+  padding:52px 0 40px;position:relative;overflow:hidden;
+}
+.hero::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--green) 22%,var(--blue) 62%,transparent);
+}
+.wrap{max-width:1120px;margin:0 auto;padding:0 26px}
+.eyebrow{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:2.6px;color:var(--green-l);
+  text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:11px;
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--green);flex:none}
+.hero h1{
+  margin:0 0 16px;font-size:clamp(26px,3.4vw,40px);line-height:1.24;font-weight:700;
+  letter-spacing:-.4px;color:#fff;
+}
+.hero .lede{margin:0;max-width:760px;color:var(--ink-2);font-size:15.5px}
+.hero .tags{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+.tag{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.4px;
+  padding:5px 12px;border-radius:3px;border:1px solid var(--line-2);
+  background:rgba(29,158,117,.09);color:var(--green-l);
+}
+.tag.b{background:rgba(43,108,176,.1);border-color:rgba(43,108,176,.42);color:#8fc4f5}
+.tag.g{background:rgba(201,162,39,.1);border-color:rgba(201,162,39,.4);color:#e2c86a}
+.tag.n{background:rgba(143,168,191,.08);color:var(--ink-3)}
+
+/* ── 导航条 ── */
+.nav{border-bottom:1px solid var(--line);background:rgba(4,16,29,.94);position:sticky;top:0;z-index:50;backdrop-filter:blur(10px)}
+.nav .wrap{display:flex;align-items:center;gap:4px;height:52px;overflow-x:auto}
+.nav .brand{font-family:var(--mono);font-size:12px;letter-spacing:1.6px;color:var(--ink-4);margin-right:14px;white-space:nowrap}
+.nav a{
+  font-size:13.5px;color:var(--ink-2);padding:7px 13px;border-radius:4px;
+  border:1px solid transparent;white-space:nowrap;transition:.16s;
+}
+.nav a:hover{background:var(--panel);border-color:var(--line-2);color:#fff;border-bottom-color:transparent}
+.nav a.back{color:var(--green-l);border-color:rgba(46,230,168,.3);background:rgba(29,158,117,.08)}
+
+/* ── 正文 ── */
+main{padding:44px 0 76px}
+.doc{max-width:1120px}
+.doc h1{display:none}
+.doc h2{
+  font-size:20px;margin:52px 0 18px;color:#fff;font-weight:680;letter-spacing:.2px;
+  padding:0 0 12px 14px;border-left:3px solid var(--green);position:relative;
+}
+.doc h2::after{content:"";position:absolute;left:14px;right:0;bottom:0;height:1px;background:var(--line)}
+.doc h3{font-size:16.5px;margin:32px 0 13px;color:#e8f0f7;font-weight:650;letter-spacing:.2px}
+.doc h3::before{content:"▸";color:var(--green);margin-right:9px;font-size:13px}
+.doc h4{font-size:14.5px;margin:22px 0 10px;color:var(--ink-2)}
+.doc p{margin:0 0 15px;color:var(--ink-2)}
+.doc ul,.doc ol{margin:0 0 18px;padding-left:22px;color:var(--ink-2)}
+.doc li{margin:6px 0}
+.doc li::marker{color:var(--green)}
+.doc hr{border:0;height:1px;background:var(--line);margin:38px 0}
+
+/* ── 表格（斑马纹 + 悬浮） ── */
+.tw{overflow-x:auto;margin:0 0 24px;border:1px solid var(--line);border-radius:7px;background:var(--panel)}
+table{width:100%;border-collapse:collapse;font-size:13.8px;min-width:520px}
+thead th{
+  background:var(--panel-2);color:#fff;font-weight:640;text-align:left;
+  padding:13px 15px;border-bottom:1px solid var(--line-2);white-space:nowrap;
+  font-size:13px;letter-spacing:.3px;position:sticky;top:0;
+}
+tbody td{padding:12px 15px;border-bottom:1px solid rgba(34,48,63,.55);color:var(--ink-2);vertical-align:top}
+tbody tr:nth-child(even){background:rgba(23,33,46,.5)}
+tbody tr:nth-child(odd){background:transparent}
+tbody tr{transition:background .16s,box-shadow .16s}
+tbody tr:hover{background:rgba(29,158,117,.10);box-shadow:inset 3px 0 0 var(--green)}
+tbody tr:hover td{color:var(--ink)}
+tbody tr:last-child td{border-bottom:0}
+
+/* ── 代码块（带高亮 UI 框） ── */
+.code{
+  margin:0 0 24px;border:1px solid var(--line-2);border-radius:8px;overflow:hidden;
+  background:#030c16;box-shadow:0 12px 32px rgba(0,0,0,.34);
+}
+.code-hd{
+  display:flex;align-items:center;gap:9px;padding:9px 14px;
+  background:linear-gradient(180deg,#0a2136,#071a2c);border-bottom:1px solid var(--line);
+}
+.code-hd .dot{width:9px;height:9px;border-radius:50%;flex:none}
+.code-hd .dot.r{background:#c05656}.code-hd .dot.y{background:#c9a227}.code-hd .dot.g{background:#1d9e75}
+.code-hd .lang{
+  font-family:var(--mono);font-size:11px;letter-spacing:1.4px;color:var(--ink-3);
+  margin-left:6px;text-transform:uppercase;
+}
+.code-hd .hint{margin-left:auto;font-family:var(--mono);font-size:10.5px;color:var(--ink-4);letter-spacing:.8px}
+.code pre{margin:0;padding:16px 18px;overflow-x:auto}
+.code code{
+  font-family:var(--mono);font-size:13px;line-height:1.72;color:#cfe0f0;
+  display:block;white-space:pre;
+}
+.tk-kw{color:#f0a6c8}.tk-str{color:#8fe0b4}.tk-num{color:#e8c98a}
+.tk-com{color:#5f7890;font-style:italic}.tk-fn{color:#7fc0ee}.tk-op{color:#9fb6cc}
+
+/* ── 行内代码 ── */
+code.inl{
+  font-family:var(--mono);font-size:12.6px;background:rgba(29,158,117,.10);
+  border:1px solid rgba(46,230,168,.18);color:#7fe8c4;padding:1.5px 6px;border-radius:4px;
+}
+
+/* ── 引用块 / 声明卡 ── */
+blockquote{
+  margin:0 0 24px;padding:16px 20px;background:var(--panel);
+  border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:6px;color:var(--ink-2);
+}
+blockquote p:last-child{margin-bottom:0}
+blockquote strong{color:#fff}
+.statement{
+  margin:0 0 26px;padding:18px 22px;border-radius:7px;
+  background:linear-gradient(180deg,rgba(201,162,39,.09),rgba(201,162,39,.03));
+  border:1px solid rgba(201,162,39,.34);border-left:3px solid var(--gold);
+}
+.statement strong{color:#f0d98a}
+
+/* ── 图片 ── */
+figure{margin:0 0 26px}
+.doc img{
+  max-width:100%;height:auto;display:block;border:1px solid var(--line-2);
+  border-radius:8px;background:#fff;padding:8px;
+  box-shadow:0 14px 34px rgba(0,0,0,.42);
+}
+figcaption{font-family:var(--mono);font-size:12px;color:var(--ink-4);margin-top:9px;text-align:center}
+
+/* ── 页脚 ── */
+.foot{border-top:1px solid var(--line);padding:30px 0 46px;color:var(--ink-4);font-size:13px}
+.foot .row{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;margin-bottom:14px}
+.foot a{color:var(--ink-2);border-bottom-color:var(--line-2)}
+.foot a:hover{color:var(--green-l)}
+.motto{
+  font-family:var(--mono);font-size:13.5px;color:var(--green-l);letter-spacing:.5px;
+  padding-top:18px;border-top:1px solid var(--line);margin-top:6px;
+}
+.foot .fine{font-size:12px;color:var(--ink-4);margin-top:10px;line-height:1.7}
+
+@media(max-width:760px){
+  .hero{padding:38px 0 30px}
+  .wrap{padding:0 18px}
+  main{padding:30px 0 56px}
+  .doc h2{font-size:18px}
+  tbody td{padding:10px 12px}
+}
+@media print{
+  body{background:#fff;color:#000}
+  .nav,.code-hd .hint{display:none}
+}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <div class="eyebrow">SINOhotSKIN ｜ 双层壳解耦 · 热防护标准模块</div>
+  <h1>东方瓷甲 · 技术白皮书 V4.2.1</h1>
+  <p class="lede">面向可重复使用航天器的自适应热防护标准模块系统 —— 外层「瓷甲」防热，内层「铁骨」承力；V4.2.1「隆中对」开放交互式仿真平台。</p>
+  <div class="tags"><span class="tag">层壳解耦</span><span class="tag">甲防热</span><span class="tag">骨承力</span><span class="tag g">开放仿真</span></div>
+</div></header>
+<nav class="nav"><div class="wrap"><span class="brand">SINOSHOP · SINO-PORT</span><a href="../evidence/">证据总览</a><a href="../datasets/">数据集映射表</a><a href="https://gitee.com/sinoshop/SinoPORT" class="back">← 回到 Gitee 仓库</a><a href="https://sinoshop-open.github.io/webpage/">项目展示页</a></div></nav>
+<main><div class="wrap"><div class="doc">
+<h1>SINOhotSKIN 技术白皮书 V4.2.1（公开脱敏版）</h1>
+<h2>摘要</h2>
+<p>SINOhotSKIN 是一套面向高超声速飞行器与可重复使用航天器的自适应热防护标准模块系统。</p>
+<h2>设计哲学：观天之道，执天之行</h2>
+<p>系统遵循&quot;天人合一&quot;的工程伦理。外层瓷甲抵御极端热流，内层铁骨承载机械载荷。</p>
+<p>在 SINOSHOP 生态中，本系统服务于： <strong>海生电 → 电养船 → 船搭桥 → 桥造城 → 城惠民 → 众生安</strong></p>
+<h2>系统架构</h2>
+<ul><li>逆向惰性吹除均压系统</li><li>负泊松比蜂窝桁架芯</li><li>SMA 形状记忆合金智能锁</li><li>梯度孔隙陶瓷限流进气</li><li>RMI/TLP 同质连接工艺</li></ul>
+<h2>应用前景</h2>
+<ul><li>可重复使用运载器热防护</li><li>极地船舶高温部件隔热（协同 SINOSHIP）</li><li>悬浮隧道（SFT）防火模块（协同 SINOSFT）</li></ul>
+<blockquote>海生电、电养船、船搭桥、桥造城、城惠民、众生安。</blockquote>
+</div></div></main>
+<footer class="foot"><div class="wrap">
+  <div class="row"><a href="https://gitee.com/sinoshop/SinoPORT">Gitee 主仓</a><a href="https://github.com/SINOSHOP-OPEN">GitHub 镜像组织</a><a href="../evidence/">仿真验证证据</a><a href="https://sinoshop-open.github.io/webpage/">项目展示页</a></div>
+  观天之道，执天之行。　碳基硅基共舞。
+  <div class="fine">本页为公开开源文档的网页呈现，内容与仓库内源文件一致；结论由脚本判定，退出码为零才算通过。</div>
+</div></footer>
+</body>
+</html>

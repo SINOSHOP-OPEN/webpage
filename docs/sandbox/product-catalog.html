@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>产品手册 · Product Catalog</title>
+<meta name="description" content="CHALLENGE-010 驭风者挑战的产品化目录 —— 开放接口、验收判据与知识悬赏规则。">
+<meta property="og:title" content="产品手册 · Product Catalog">
+<meta property="og:description" content="CHALLENGE-010 驭风者挑战的产品化目录 —— 开放接口、验收判据与知识悬赏规则。">
+<meta property="og:type" content="website">
+<style>
+:root{
+  /* ★ 统一到主母舰官网视觉体系（website-gh/index.html 的 CSS 变量）——
+     全星系一脉相承：深空蓝底 · 翡翠绿主色 · 金色点缀 */
+  --bg:#04101d; --bg-2:#071a2c; --panel:#071a2c; --panel-2:#0a2136;
+  --line:#12314c; --line-2:#1a3f5e;
+  --ink:#dbe7f3; --ink-2:#b4c8dc; --ink-3:#8fa8bf; --ink-4:#5f7890;
+  --green:#1d9e75; --green-l:#2ee6a8; --green-d:#146b4f;
+  --blue:#2b6cb0; --gold:#e8b45a; --red:#c05656;
+  --mono:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,"JetBrains Mono",monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei","PingFang SC","Hiragino Sans GB",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--sans);font-size:15.5px;line-height:1.78;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+a{color:var(--green-l);text-decoration:none;border-bottom:1px solid rgba(46,230,168,.28);transition:.18s}
+a:hover{color:#6bffd0;border-bottom-color:var(--green-l)}
+strong{color:#fff;font-weight:650}
+em{color:var(--ink-2)}
+
+/* ── 页头 ── */
+.hero{
+  border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(1100px 460px at 14% -12%,rgba(29,158,117,.20),transparent 62%),
+    radial-gradient(900px 400px at 92% -18%,rgba(43,108,176,.14),transparent 60%),
+    linear-gradient(180deg,#061a2c 0%,var(--bg) 100%);
+  padding:52px 0 40px;position:relative;overflow:hidden;
+}
+.hero::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--green) 22%,var(--blue) 62%,transparent);
+}
+.wrap{max-width:1120px;margin:0 auto;padding:0 26px}
+.eyebrow{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:2.6px;color:var(--green-l);
+  text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:11px;
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--green);flex:none}
+.hero h1{
+  margin:0 0 16px;font-size:clamp(26px,3.4vw,40px);line-height:1.24;font-weight:700;
+  letter-spacing:-.4px;color:#fff;
+}
+.hero .lede{margin:0;max-width:760px;color:var(--ink-2);font-size:15.5px}
+.hero .tags{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+.tag{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.4px;
+  padding:5px 12px;border-radius:3px;border:1px solid var(--line-2);
+  background:rgba(29,158,117,.09);color:var(--green-l);
+}
+.tag.b{background:rgba(43,108,176,.1);border-color:rgba(43,108,176,.42);color:#8fc4f5}
+.tag.g{background:rgba(201,162,39,.1);border-color:rgba(201,162,39,.4);color:#e2c86a}
+.tag.n{background:rgba(143,168,191,.08);color:var(--ink-3)}
+
+/* ── 导航条 ── */
+.nav{border-bottom:1px solid var(--line);background:rgba(4,16,29,.94);position:sticky;top:0;z-index:50;backdrop-filter:blur(10px)}
+.nav .wrap{display:flex;align-items:center;gap:4px;height:52px;overflow-x:auto}
+.nav .brand{font-family:var(--mono);font-size:12px;letter-spacing:1.6px;color:var(--ink-4);margin-right:14px;white-space:nowrap}
+.nav a{
+  font-size:13.5px;color:var(--ink-2);padding:7px 13px;border-radius:4px;
+  border:1px solid transparent;white-space:nowrap;transition:.16s;
+}
+.nav a:hover{background:var(--panel);border-color:var(--line-2);color:#fff;border-bottom-color:transparent}
+.nav a.back{color:var(--green-l);border-color:rgba(46,230,168,.3);background:rgba(29,158,117,.08)}
+
+/* ── 正文 ── */
+main{padding:44px 0 76px}
+.doc{max-width:1120px}
+.doc h1{display:none}
+.doc h2{
+  font-size:20px;margin:52px 0 18px;color:#fff;font-weight:680;letter-spacing:.2px;
+  padding:0 0 12px 14px;border-left:3px solid var(--green);position:relative;
+}
+.doc h2::after{content:"";position:absolute;left:14px;right:0;bottom:0;height:1px;background:var(--line)}
+.doc h3{font-size:16.5px;margin:32px 0 13px;color:#e8f0f7;font-weight:650;letter-spacing:.2px}
+.doc h3::before{content:"▸";color:var(--green);margin-right:9px;font-size:13px}
+.doc h4{font-size:14.5px;margin:22px 0 10px;color:var(--ink-2)}
+.doc p{margin:0 0 15px;color:var(--ink-2)}
+.doc ul,.doc ol{margin:0 0 18px;padding-left:22px;color:var(--ink-2)}
+.doc li{margin:6px 0}
+.doc li::marker{color:var(--green)}
+.doc hr{border:0;height:1px;background:var(--line);margin:38px 0}
+
+/* ── 表格（斑马纹 + 悬浮） ── */
+.tw{overflow-x:auto;margin:0 0 24px;border:1px solid var(--line);border-radius:7px;background:var(--panel)}
+table{width:100%;border-collapse:collapse;font-size:13.8px;min-width:520px}
+thead th{
+  background:var(--panel-2);color:#fff;font-weight:640;text-align:left;
+  padding:13px 15px;border-bottom:1px solid var(--line-2);white-space:nowrap;
+  font-size:13px;letter-spacing:.3px;position:sticky;top:0;
+}
+tbody td{padding:12px 15px;border-bottom:1px solid rgba(34,48,63,.55);color:var(--ink-2);vertical-align:top}
+tbody tr:nth-child(even){background:rgba(23,33,46,.5)}
+tbody tr:nth-child(odd){background:transparent}
+tbody tr{transition:background .16s,box-shadow .16s}
+tbody tr:hover{background:rgba(29,158,117,.10);box-shadow:inset 3px 0 0 var(--green)}
+tbody tr:hover td{color:var(--ink)}
+tbody tr:last-child td{border-bottom:0}
+
+/* ── 代码块（带高亮 UI 框） ── */
+.code{
+  margin:0 0 24px;border:1px solid var(--line-2);border-radius:8px;overflow:hidden;
+  background:#030c16;box-shadow:0 12px 32px rgba(0,0,0,.34);
+}
+.code-hd{
+  display:flex;align-items:center;gap:9px;padding:9px 14px;
+  background:linear-gradient(180deg,#0a2136,#071a2c);border-bottom:1px solid var(--line);
+}
+.code-hd .dot{width:9px;height:9px;border-radius:50%;flex:none}
+.code-hd .dot.r{background:#c05656}.code-hd .dot.y{background:#c9a227}.code-hd .dot.g{background:#1d9e75}
+.code-hd .lang{
+  font-family:var(--mono);font-size:11px;letter-spacing:1.4px;color:var(--ink-3);
+  margin-left:6px;text-transform:uppercase;
+}
+.code-hd .hint{margin-left:auto;font-family:var(--mono);font-size:10.5px;color:var(--ink-4);letter-spacing:.8px}
+.code pre{margin:0;padding:16px 18px;overflow-x:auto}
+.code code{
+  font-family:var(--mono);font-size:13px;line-height:1.72;color:#cfe0f0;
+  display:block;white-space:pre;
+}
+.tk-kw{color:#f0a6c8}.tk-str{color:#8fe0b4}.tk-num{color:#e8c98a}
+.tk-com{color:#5f7890;font-style:italic}.tk-fn{color:#7fc0ee}.tk-op{color:#9fb6cc}
+
+/* ── 行内代码 ── */
+code.inl{
+  font-family:var(--mono);font-size:12.6px;background:rgba(29,158,117,.10);
+  border:1px solid rgba(46,230,168,.18);color:#7fe8c4;padding:1.5px 6px;border-radius:4px;
+}
+
+/* ── 引用块 / 声明卡 ── */
+blockquote{
+  margin:0 0 24px;padding:16px 20px;background:var(--panel);
+  border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:6px;color:var(--ink-2);
+}
+blockquote p:last-child{margin-bottom:0}
+blockquote strong{color:#fff}
+.statement{
+  margin:0 0 26px;padding:18px 22px;border-radius:7px;
+  background:linear-gradient(180deg,rgba(201,162,39,.09),rgba(201,162,39,.03));
+  border:1px solid rgba(201,162,39,.34);border-left:3px solid var(--gold);
+}
+.statement strong{color:#f0d98a}
+
+/* ── 图片 ── */
+figure{margin:0 0 26px}
+.doc img{
+  max-width:100%;height:auto;display:block;border:1px solid var(--line-2);
+  border-radius:8px;background:#fff;padding:8px;
+  box-shadow:0 14px 34px rgba(0,0,0,.42);
+}
+figcaption{font-family:var(--mono);font-size:12px;color:var(--ink-4);margin-top:9px;text-align:center}
+
+/* ── 页脚 ── */
+.foot{border-top:1px solid var(--line);padding:30px 0 46px;color:var(--ink-4);font-size:13px}
+.foot .row{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;margin-bottom:14px}
+.foot a{color:var(--ink-2);border-bottom-color:var(--line-2)}
+.foot a:hover{color:var(--green-l)}
+.motto{
+  font-family:var(--mono);font-size:13.5px;color:var(--green-l);letter-spacing:.5px;
+  padding-top:18px;border-top:1px solid var(--line);margin-top:6px;
+}
+.foot .fine{font-size:12px;color:var(--ink-4);margin-top:10px;line-height:1.7}
+
+@media(max-width:760px){
+  .hero{padding:38px 0 30px}
+  .wrap{padding:0 18px}
+  main{padding:30px 0 56px}
+  .doc h2{font-size:18px}
+  tbody td{padding:10px 12px}
+}
+@media print{
+  body{background:#fff;color:#000}
+  .nav,.code-hd .hint{display:none}
+}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <div class="eyebrow">SINOSHOP Sandbox ｜ CHALLENGE-010 · 产品手册</div>
+  <h1>产品手册 · Product Catalog</h1>
+  <p class="lede">CHALLENGE-010 驭风者挑战的产品化目录 —— 开放接口、验收判据与知识悬赏规则。</p>
+  <div class="tags"><span class="tag">品目录</span><span class="tag">收判据</span><span class="tag g">知识悬赏</span><span class="tag">放共建</span></div>
+</div></header>
+<nav class="nav"><div class="wrap"><span class="brand">SINOSHOP · SINO-PORT</span><a href="../evidence/">证据总览</a><a href="../datasets/">数据集映射表</a><a href="https://gitee.com/sinoshop/SinoPORT" class="back">← 回到 Gitee 仓库</a><a href="https://sinoshop-open.github.io/webpage/">项目展示页</a></div></nav>
+<main><div class="wrap"><div class="doc">
+<h1>SINOSHOP核心标准模块产品手册</h1>
+<p><strong>版本</strong>：v1.0-Final (开源技术与商业供应链对冲版) <strong>编码</strong>：SINOSHOP-R21A-PRODUCT-CATALOG-2026 <strong>用途</strong>：面向全球工程采购商的核心标准模块技术规格书与边界选型指南</p>
+<h2>模块一：SHIELD-65 正六边形竹塑玄武岩复合装甲板</h2>
+<h3>规格参数</h3>
+<div class="tw"><table><thead><tr><th>项目</th><th>参数</th></tr></thead><tbody><tr><td>编码</td><td>SINOSHOP-R21A-SHIELD-65</td></tr><tr><td>总厚度</td><td>65 cm</td></tr><tr><td>核心层拓扑</td><td>63 cm 厚、边长 21 cm 的正六边形凹槽密封榫卯卡扣行管网格</td></tr><tr><td>几何特征尺寸</td><td>内切圆直径 ~36.4 cm，对角线 42 cm，空间中空率 ≥ 70%</td></tr><tr><td>骨架与桁架材料</td><td>竹塑玄武岩纤维复合材料（BFPC）+ 加密轻质钢桁架</td></tr><tr><td>外部表层（1 cm）</td><td>仿生荷叶微纳超疏水结构 + 仿生鲨鱼皮微米级纵向沟槽减阻材料</td></tr><tr><td>内部表层（1 cm）</td><td>仿生稻杆纤维多孔、高弹、多层中空弹性阻尼复合层</td></tr><tr><td>抗屈曲与剪切强度</td><td>≥ 5 MPa（有限元分析应力网状扩散设计）</td></tr><tr><td>极限耐候环境</td><td>-100℃ ~ +80℃（无低温冷脆转变温度）</td></tr><tr><td>设计运行寿命</td><td>≥ 50 年（化学钝化防腐，天然耐酸碱盐雾）</td></tr></tbody></table></div>
+<h3>性能优势</h3>
+<ul><li><strong>极限耗能</strong>：正六边形蜂窝网格将外部局部撞击的应力波沿 120° 节点呈网状向外扩散，极限状态下通过六边形行管的微观挤压形变，主动吸收 98% 的破坏性能量，锁死破损边界，实现“局部牺牲、整船/整桥不破舱”。</li><li><strong>自洁与动态减阻</strong>：外表层疏水接触角 ≥ 150°，使藤壶、藻类孢子在流速冲刷下 100% 自动脱落；鲨鱼皮沟槽能抑制流体边界层紊流突变，稳定层流，降低摩擦阻力 8%-12%。</li><li><strong>轻量与自重释放</strong>：相较于同等抗压强度的实心钢制结构舱壁，本模块整体自重减轻 38%，释放出的载重空间可等额置换为底部常压储氢（LOHC/固态金属氢化物）容纳空间。</li></ul>
+<h3>应用场景</h3>
+<ul><li>R21A-MPV零燃料远洋巨轮、R21A-ARC极地破冰船防侵蚀外壳与分隔舱壁。</li><li>兼容R21A规范的固定式海洋城市防波堤、海面滑行自稳定浮桥侧面、悬浮隧道管节防护外壳及高层建筑抗震剪力墙。</li></ul>
+<h2>模块二：SIPHON-21 内防震虹吸消能水舱模组</h2>
+<h3>规格参数</h3>
+<div class="tw"><table><thead><tr><th>项目</th><th>参数</th></tr></thead><tbody><tr><td>编码</td><td>SINOSHOP-R21A-SIPHON-21</td></tr><tr><td>空间架构</td><td>完全模块化嵌入 SHIELD-65 正六边形中空桁架层内部</td></tr><tr><td>工作流体回路</td><td>封闭循环纯净淡水（流体B回路，全过程机械零接触海水）</td></tr><tr><td>虹吸喉部缩径比</td><td>1:4 变截面文丘里喉部，流速放大 4 倍，流体动能放大 16 倍</td></tr><tr><td>额定动力学响应</td><td>结构振幅变幅平抑率 ≥ 78.4%，主动消纳 ≥ 85% 的共振及水锤应力</td></tr><tr><td>额定二次发电功率</td><td>在极端海况/台风载荷下，单模组可持续贡献 4 MW - 5 MW 的额外电流</td></tr><tr><td>核心机电结构</td><td>异形碳纤维叶片永磁高频水轮发动机组</td></tr><tr><td>流体稳定保障</td><td>集成微型超声波脱气装置（防极高频交变震动下的虹吸流体气化断流）</td></tr><tr><td>控制与安全内核</td><td>智能压电电磁阀组（AI PID瞬态预测模型，烧录于FPGA硬件加密混淆固件中）</td></tr></tbody></table></div>
+<h3>性能优势</h3>
+<ul><li><strong>主动消能，化害为利</strong>：本模组并非刚性对抗台风或波浪，而是利用虹吸效应的自持抽吸力产生反向阻尼。将破坏性的不规则强震转化为闭环淡水的高速定向流动，既保护了结构寿命，同时完成二次捕能发电。</li><li><strong>主能源级联并网</strong>：模组捕获的二次高频电能通过船载/城防直流母线并网，优先供给高压PEM电解制氢矩阵。当主A/B水舱发电系统在极端海况下发生保护性降载时，本系统自动并网填补功率缺口，确保存储气垫与制氢连续运行。</li><li><strong>物理零侵蚀</strong>：由于传能柱塞/隔膜的阻断，昂贵的喉部与叶片全程接触不到海水，从源头消除了电化学腐蚀与海生物附着，设计运行寿命拉高至 50 年。</li></ul>
+<h2>模块三：淡海隔离凯夫拉传能隔膜总成</h2>
+<h3>规格参数</h3>
+<div class="tw"><table><thead><tr><th>项目</th><th>参数</th></tr></thead><tbody><tr><td>编码</td><td>SINOSHOP-R21A-MEMBRANE</td></tr><tr><td>结构安全拓扑</td><td>三腔室、三层柔性隔离矩阵（海水区 - 氟化液缓冲夹层 - 纯净淡水区）</td></tr><tr><td>外层/中层材料</td><td>耐低温高弹硅氟聚氨酯弹性复合膜（-50℃ 环境下不发生低温冷脆）</td></tr><tr><td>核心内层材料</td><td>高刚性石墨烯改性芳纶（Kevlar）交叉编织传递层</td></tr><tr><td>传能与力学性能</td><td>压力与压能无损传递效率 ≥ 99.5%，抗交变疲劳循环次数 ≥ 10⁸ 次</td></tr><tr><td>安全监控边界</td><td>夹层抽真空设计，内置高灵敏度化学示踪剂与水分监测传感器</td></tr><tr><td>工艺制造标准</td><td>离线无尘基地整体高能电子束一体化焊接（不可无损拆卸逆向工艺）</td></tr></tbody></table></div>
+<h3>性能优势</h3>
+<ul><li><strong>绝对零浸润与失效隔离</strong>：本总成是维持整个动力和消能环路“机械零侵害”的灵魂。它100%阻断外侧有害流体，若外层膜遭遇极端异物刺破，夹层真空度变化将瞬间触发传感器，系统在毫秒内切断故障单舱，由相邻六边形模组分担载荷，支持不限期大洋续航。</li><li><strong>工艺保密壁垒</strong>：总成模块具备独特的防逆向破拆设计。一旦非授权强行割开金属密封外壳，空气涌入将导致内部微量化学示踪剂瞬时剧烈氧化，使隔膜基体自毁式溶解，彻底杜绝技术流失。</li></ul>
+<h2>模块四：R21A-Fluid-Coupling 标准流体快插接头</h2>
+<h3>规格参数</h3>
+<div class="tw"><table><thead><tr><th>项目</th><th>参数</th></tr></thead><tbody><tr><td>编码</td><td>SINOSHOP-R21A-Fluid-Coupling</td></tr><tr><td>级联操作规范</td><td>推入式棘轮自锁结构（支持工业4.0陆地预制预装、海上乐高式拼装总装）</td></tr><tr><td>双重自密封系统</td><td>自愈合橡胶膨胀条（遇水自动溶胀封堵微观缝隙）+ 高氟O型双向密封圈</td></tr><tr><td>机械运行指标</td><td>插拔机械寿命 ≥ 10,000 次，额定耐受瞬态过载压力 0 - 25 MPa</td></tr><tr><td>材质级配</td><td>316L奥氏体不锈钢 + BFPC（竹塑玄武岩）外扩卡环</td></tr><tr><td>标准通径架构</td><td>DN25 / DN50 / DN100 全系列标准化接口</td></tr></tbody></table></div>
+<h3>性能优势与级联规范</h3>
+<ul><li><strong>跨平台通用并网</strong>：作为标准能量与流体接口（兼容 R21A-ES-01 能源及 R21A-FW-01 淡水协议），它使移动的 R21A-MPV 巨轮在靠泊固定海洋城市节点时，能够将船载富余高压氢气、低沸点介质或超纯淡水无风险、零泄漏地反向泵送并入城市微网，成为城市的移动能源站与应急调峰库。</li></ul>
+<h2>五、供应链安全与采购规则</h2>
+<p>为了保障 SINOSHOP 生态的全球共识，同时锁死底层商业主权，特制定如下全球特许采购法案：</p>
+<ol><li><strong>结构开源，核心控死</strong>：采购商可根据开源图纸，在本土船厂自行加工焊接 SHIELD-65 钢制基础桁架板、非核心的船体外壳和储罐（如本地化LOHC常规储罐）。</li></ol>
+<ol><li><strong>关键部件指定基地加注</strong>：凡涉及核心性能的 <strong>BFPC六边形行管成品、R21A-SIPHON-21控制柜（内置FPGA加密算法固件）、MEMBRANE真空隔膜总成</strong>，必须统一向 SINOSHOP 全球指定制造基地（中国基地）统一订购。若私自山寨替代件，将触发 AI 数字孪生模型的“控制链逻辑断裂陷阱”，在极端海况下系统将无法保障平稳航行与消能率。</li></ol>
+<h3>最小起订量（MOQ）与配套比例</h3>
+<ul><li><strong>SINOSHOP-R21A-SHIELD-65 标准板</strong>：10 块起订，标准配比 1:4 提供专用榫卯连接件。</li><li><strong>SINOSHOP-R21A-SIPHON-21 模组</strong>：5 组起订，必须 1:1 标配 FPGA 硬件混淆加密控制柜。</li></ul>
+<h3>采购联系通道</h3>
+<p>SINOSHOP 全球供应链与 R21A 标准特许特遣部：[此处填写您的商务联系邮箱]</p>
+<p><em>本选型规格说明书由梁振雄先生与 SINOSHOP AI军团协同编制。数据及曲线基于 R21A 主网流固耦合数字孪生仿真系统定版，其硬件接口与思维范式最终解释权归 SINOSHOP 所有。</em></p>
+</div></div></main>
+<footer class="foot"><div class="wrap">
+  <div class="row"><a href="https://gitee.com/sinoshop/SinoPORT">Gitee 主仓</a><a href="https://github.com/SINOSHOP-OPEN">GitHub 镜像组织</a><a href="../evidence/">仿真验证证据</a><a href="https://sinoshop-open.github.io/webpage/">项目展示页</a></div>
+  观天之道，执天之行。　碳基硅基共舞。
+  <div class="fine">本页为公开开源文档的网页呈现，内容与仓库内源文件一致；结论由脚本判定，退出码为零才算通过。</div>
+</div></footer>
+</body>
+</html>

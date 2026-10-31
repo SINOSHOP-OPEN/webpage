@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SinoTide · 潮汐发电算力定深浮桥</title>
+<meta name="description" content="双时间尺度定深悬浮 · 立体数据中心 · 江水直冷 —— 以潮汐绿电直驱的算力温控托管平台。">
+<meta property="og:title" content="SinoTide · 潮汐发电算力定深浮桥">
+<meta property="og:description" content="双时间尺度定深悬浮 · 立体数据中心 · 江水直冷 —— 以潮汐绿电直驱的算力温控托管平台。">
+<meta property="og:type" content="website">
+<style>
+:root{
+  /* ★ 统一到主母舰官网视觉体系（website-gh/index.html 的 CSS 变量）——
+     全星系一脉相承：深空蓝底 · 翡翠绿主色 · 金色点缀 */
+  --bg:#04101d; --bg-2:#071a2c; --panel:#071a2c; --panel-2:#0a2136;
+  --line:#12314c; --line-2:#1a3f5e;
+  --ink:#dbe7f3; --ink-2:#b4c8dc; --ink-3:#8fa8bf; --ink-4:#5f7890;
+  --green:#1d9e75; --green-l:#2ee6a8; --green-d:#146b4f;
+  --blue:#2b6cb0; --gold:#e8b45a; --red:#c05656;
+  --mono:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,"JetBrains Mono",monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei","PingFang SC","Hiragino Sans GB",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--sans);font-size:15.5px;line-height:1.78;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+a{color:var(--green-l);text-decoration:none;border-bottom:1px solid rgba(46,230,168,.28);transition:.18s}
+a:hover{color:#6bffd0;border-bottom-color:var(--green-l)}
+strong{color:#fff;font-weight:650}
+em{color:var(--ink-2)}
+
+/* ── 页头 ── */
+.hero{
+  border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(1100px 460px at 14% -12%,rgba(29,158,117,.20),transparent 62%),
+    radial-gradient(900px 400px at 92% -18%,rgba(43,108,176,.14),transparent 60%),
+    linear-gradient(180deg,#061a2c 0%,var(--bg) 100%);
+  padding:52px 0 40px;position:relative;overflow:hidden;
+}
+.hero::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--green) 22%,var(--blue) 62%,transparent);
+}
+.wrap{max-width:1120px;margin:0 auto;padding:0 26px}
+.eyebrow{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:2.6px;color:var(--green-l);
+  text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:11px;
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--green);flex:none}
+.hero h1{
+  margin:0 0 16px;font-size:clamp(26px,3.4vw,40px);line-height:1.24;font-weight:700;
+  letter-spacing:-.4px;color:#fff;
+}
+.hero .lede{margin:0;max-width:760px;color:var(--ink-2);font-size:15.5px}
+.hero .tags{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+.tag{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.4px;
+  padding:5px 12px;border-radius:3px;border:1px solid var(--line-2);
+  background:rgba(29,158,117,.09);color:var(--green-l);
+}
+.tag.b{background:rgba(43,108,176,.1);border-color:rgba(43,108,176,.42);color:#8fc4f5}
+.tag.g{background:rgba(201,162,39,.1);border-color:rgba(201,162,39,.4);color:#e2c86a}
+.tag.n{background:rgba(143,168,191,.08);color:var(--ink-3)}
+
+/* ── 导航条 ── */
+.nav{border-bottom:1px solid var(--line);background:rgba(4,16,29,.94);position:sticky;top:0;z-index:50;backdrop-filter:blur(10px)}
+.nav .wrap{display:flex;align-items:center;gap:4px;height:52px;overflow-x:auto}
+.nav .brand{font-family:var(--mono);font-size:12px;letter-spacing:1.6px;color:var(--ink-4);margin-right:14px;white-space:nowrap}
+.nav a{
+  font-size:13.5px;color:var(--ink-2);padding:7px 13px;border-radius:4px;
+  border:1px solid transparent;white-space:nowrap;transition:.16s;
+}
+.nav a:hover{background:var(--panel);border-color:var(--line-2);color:#fff;border-bottom-color:transparent}
+.nav a.back{color:var(--green-l);border-color:rgba(46,230,168,.3);background:rgba(29,158,117,.08)}
+
+/* ── 正文 ── */
+main{padding:44px 0 76px}
+.doc{max-width:1120px}
+.doc h1{display:none}
+.doc h2{
+  font-size:20px;margin:52px 0 18px;color:#fff;font-weight:680;letter-spacing:.2px;
+  padding:0 0 12px 14px;border-left:3px solid var(--green);position:relative;
+}
+.doc h2::after{content:"";position:absolute;left:14px;right:0;bottom:0;height:1px;background:var(--line)}
+.doc h3{font-size:16.5px;margin:32px 0 13px;color:#e8f0f7;font-weight:650;letter-spacing:.2px}
+.doc h3::before{content:"▸";color:var(--green);margin-right:9px;font-size:13px}
+.doc h4{font-size:14.5px;margin:22px 0 10px;color:var(--ink-2)}
+.doc p{margin:0 0 15px;color:var(--ink-2)}
+.doc ul,.doc ol{margin:0 0 18px;padding-left:22px;color:var(--ink-2)}
+.doc li{margin:6px 0}
+.doc li::marker{color:var(--green)}
+.doc hr{border:0;height:1px;background:var(--line);margin:38px 0}
+
+/* ── 表格（斑马纹 + 悬浮） ── */
+.tw{overflow-x:auto;margin:0 0 24px;border:1px solid var(--line);border-radius:7px;background:var(--panel)}
+table{width:100%;border-collapse:collapse;font-size:13.8px;min-width:520px}
+thead th{
+  background:var(--panel-2);color:#fff;font-weight:640;text-align:left;
+  padding:13px 15px;border-bottom:1px solid var(--line-2);white-space:nowrap;
+  font-size:13px;letter-spacing:.3px;position:sticky;top:0;
+}
+tbody td{padding:12px 15px;border-bottom:1px solid rgba(34,48,63,.55);color:var(--ink-2);vertical-align:top}
+tbody tr:nth-child(even){background:rgba(23,33,46,.5)}
+tbody tr:nth-child(odd){background:transparent}
+tbody tr{transition:background .16s,box-shadow .16s}
+tbody tr:hover{background:rgba(29,158,117,.10);box-shadow:inset 3px 0 0 var(--green)}
+tbody tr:hover td{color:var(--ink)}
+tbody tr:last-child td{border-bottom:0}
+
+/* ── 代码块（带高亮 UI 框） ── */
+.code{
+  margin:0 0 24px;border:1px solid var(--line-2);border-radius:8px;overflow:hidden;
+  background:#030c16;box-shadow:0 12px 32px rgba(0,0,0,.34);
+}
+.code-hd{
+  display:flex;align-items:center;gap:9px;padding:9px 14px;
+  background:linear-gradient(180deg,#0a2136,#071a2c);border-bottom:1px solid var(--line);
+}
+.code-hd .dot{width:9px;height:9px;border-radius:50%;flex:none}
+.code-hd .dot.r{background:#c05656}.code-hd .dot.y{background:#c9a227}.code-hd .dot.g{background:#1d9e75}
+.code-hd .lang{
+  font-family:var(--mono);font-size:11px;letter-spacing:1.4px;color:var(--ink-3);
+  margin-left:6px;text-transform:uppercase;
+}
+.code-hd .hint{margin-left:auto;font-family:var(--mono);font-size:10.5px;color:var(--ink-4);letter-spacing:.8px}
+.code pre{margin:0;padding:16px 18px;overflow-x:auto}
+.code code{
+  font-family:var(--mono);font-size:13px;line-height:1.72;color:#cfe0f0;
+  display:block;white-space:pre;
+}
+.tk-kw{color:#f0a6c8}.tk-str{color:#8fe0b4}.tk-num{color:#e8c98a}
+.tk-com{color:#5f7890;font-style:italic}.tk-fn{color:#7fc0ee}.tk-op{color:#9fb6cc}
+
+/* ── 行内代码 ── */
+code.inl{
+  font-family:var(--mono);font-size:12.6px;background:rgba(29,158,117,.10);
+  border:1px solid rgba(46,230,168,.18);color:#7fe8c4;padding:1.5px 6px;border-radius:4px;
+}
+
+/* ── 引用块 / 声明卡 ── */
+blockquote{
+  margin:0 0 24px;padding:16px 20px;background:var(--panel);
+  border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:6px;color:var(--ink-2);
+}
+blockquote p:last-child{margin-bottom:0}
+blockquote strong{color:#fff}
+.statement{
+  margin:0 0 26px;padding:18px 22px;border-radius:7px;
+  background:linear-gradient(180deg,rgba(201,162,39,.09),rgba(201,162,39,.03));
+  border:1px solid rgba(201,162,39,.34);border-left:3px solid var(--gold);
+}
+.statement strong{color:#f0d98a}
+
+/* ── 图片 ── */
+figure{margin:0 0 26px}
+.doc img{
+  max-width:100%;height:auto;display:block;border:1px solid var(--line-2);
+  border-radius:8px;background:#fff;padding:8px;
+  box-shadow:0 14px 34px rgba(0,0,0,.42);
+}
+figcaption{font-family:var(--mono);font-size:12px;color:var(--ink-4);margin-top:9px;text-align:center}
+
+/* ── 页脚 ── */
+.foot{border-top:1px solid var(--line);padding:30px 0 46px;color:var(--ink-4);font-size:13px}
+.foot .row{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;margin-bottom:14px}
+.foot a{color:var(--ink-2);border-bottom-color:var(--line-2)}
+.foot a:hover{color:var(--green-l)}
+.motto{
+  font-family:var(--mono);font-size:13.5px;color:var(--green-l);letter-spacing:.5px;
+  padding-top:18px;border-top:1px solid var(--line);margin-top:6px;
+}
+.foot .fine{font-size:12px;color:var(--ink-4);margin-top:10px;line-height:1.7}
+
+@media(max-width:760px){
+  .hero{padding:38px 0 30px}
+  .wrap{padding:0 18px}
+  main{padding:30px 0 56px}
+  .doc h2{font-size:18px}
+  tbody td{padding:10px 12px}
+}
+@media print{
+  body{background:#fff;color:#000}
+  .nav,.code-hd .hint{display:none}
+}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <div class="eyebrow">SINOSHOP 生态 ｜ 潮汐定深 · 立体算力</div>
+  <h1>SinoTide · 潮汐发电算力定深浮桥</h1>
+  <p class="lede">双时间尺度定深悬浮 · 立体数据中心 · 江水直冷 —— 以潮汐绿电直驱的算力温控托管平台。</p>
+  <div class="tags"><span class="tag">汐定深</span><span class="tag">体算力</span><span class="tag">水直冷</span><span class="tag g">七重安全防护</span></div>
+</div></header>
+<nav class="nav"><div class="wrap"><span class="brand">SINOSHOP · SINO-PORT</span><a href="../evidence/">证据总览</a><a href="../datasets/">数据集映射表</a><a href="https://gitee.com/sinoshop/SinoPORT" class="back">← 回到 Gitee 仓库</a><a href="https://sinoshop-open.github.io/webpage/">项目展示页</a></div></nav>
+<main><div class="wrap"><div class="doc">
+<p>&lt;div align=&quot;center&quot;&gt;</p>
+<p>&lt;img src=&quot;docs/assets/sinotide-concept.jpg&quot; alt=&quot;SinoTide · 潮汐发电算力定深浮桥 · 概念图&quot; width=&quot;100%&quot;&gt;</p>
+<p>&lt;br&gt;&lt;br&gt;</p>
+<h1>SinoTide — 潮汐发电算力定深浮桥</h1>
+<h3>SINOSHOP 生态 · 绿色算力新基建</h3>
+<p>&lt;br&gt;</p>
+<blockquote><strong>观天之道，执天之行。</strong>　<em>Observe Nature&#x27;s Order, Align with Ocean&#x27;s Rhythm.</em><br><strong>碳基硅基共舞</strong> —— 江水直冷 × 潮汐绿电直驱，为 AI 大模型提供可核验的算力底座。</blockquote>
+<p>&lt;br&gt;</p>
+<p>&lt;code&gt;🌊 潮汐定深&lt;/code&gt; &amp;nbsp; &lt;code&gt;🧮 立体算力&lt;/code&gt; &amp;nbsp; &lt;code&gt;❄️ 江水直冷&lt;/code&gt; &amp;nbsp; &lt;code&gt;🛡️ 七重安全防护&lt;/code&gt; &amp;nbsp; &lt;code&gt;Apache-2.0&lt;/code&gt; &amp;nbsp;</p>
+<p>&lt;br&gt;</p>
+<h3>🌐 星系导航 · STAR NAVIGATION</h3>
+<p><strong>🌐 <a href="https://sinoshop-open.github.io/webpage/">SINOPORT 官网展示页</a> ｜ 💻 <a href="https://gitee.com/sinoshop/SinoPORT">SINOPORT 主仓库</a> ｜ 🐙 <a href="https://github.com/SINOSHOP-OPEN">GitHub 镜像组织</a></strong></p>
+<p>&lt;/div&gt;</p>
+<h1>SinoTide — 潮汐发电算力定深浮桥</h1>
+<p><strong>双时间尺度定深悬浮 · 立体数据中心 · PUE≤1.03 · 七重安全防护 · 世界级强涌潮验证平台</strong></p>
+<blockquote>观天之道，执天之行，造福众生。</blockquote>
+<p><strong><a href="https://sinoshop-open.github.io/webpage/">🌐 访问项目官网展示页 (GitHub Pages)</a></strong> ｜ <strong><a href="https://github.com/SINOSHOP-OPEN/SinoPORT">🐙 GitHub 镜像仓库</a></strong> ｜ <strong><a href="https://gitee.com/sinoshop/SinoPORT">💻 Gitee 主仓库</a></strong></p>
+<hr>
+<h2>📌 项目简介</h2>
+<p>SinoTide 是 SINOSHOP 生态下的绿色算力新基建项目，国内首个“江水直冷 + 潮汐绿电直驱”商用算力平台。项目采用自主研发的<strong>双时间尺度自适应定深悬浮</strong>技术，在钱塘江强涌潮环境中构建“算力温控托管 + 绿色能源输出 + 极限环境科研”一体化平台。</p>
+<p><strong>核心价值</strong>：综合 PUE≤1.03，较传统数据中心节能 30% 以上，为 AI 大模型企业提供具有显著成本优势的绿色算力。</p>
+<hr>
+<h2>🎯 核心突破</h2>
+<div class="tw"><table><thead><tr><th>技术模块</th><th>核心突破</th><th>关键指标</th></tr></thead><tbody><tr><td><strong>双时间尺度定深悬浮</strong></td><td>秒级波浪抑制 + 小时级潮汐补偿联动</td><td>水平度误差 &lt;1°，适应潮头 3.5m，最大潮差 8.93m</td></tr><tr><td><strong>十柱五墙工字型模块</strong></td><td>高强度模块化结构，弯矩降低 25%</td><td>抗弯刚度提升 4 倍，抗剪能力提升 30 倍</td></tr><tr><td><strong>立体数据中心</strong></td><td>五层空间布局（光伏 + 上层 + 中层 + 水下 + 底层）</td><td>总算力负荷达数百千瓦级</td></tr><tr><td><strong>PUE 极致优化</strong></td><td>江水直冷 + 潮汐绿电，无需机械制冷</td><td>综合 PUE ≤1.03（水下 PUE≤1.01）</td></tr><tr><td><strong>七重安全防护</strong></td><td>红树林消浪 + 透水网格 + 五向发电 + 液力阻尼 + 柔性限位 + 联合防护 + 慢速自航</td><td>波高衰减 55~75%，72 小时预警，机动避险</td></tr><tr><td><strong>投资回报</strong></td><td>多元化收入矩阵 + 数字人民币智能合约</td><td>投资回收期显著短于传统基建项目</td></tr></tbody></table></div>
+<hr>
+<h2>🏗️ 核心技术架构</h2>
+<h3>1. 双时间尺度自适应定深悬浮</h3>
+<p>针对强涌潮环境，研发秒级高频波浪抑制与小时级低频潮汐补偿联动机制：</p>
+<div class="tw"><table><thead><tr><th>时间尺度</th><th>响应机制</th><th>功能</th></tr></thead><tbody><tr><td><strong>秒级响应</strong></td><td>浮动压浪翼被动吸收波浪动能</td><td>瞬间平复波浪扰动，保持平台平稳</td></tr><tr><td><strong>小时级响应</strong></td><td>水力低通滤波器自动调节水舱</td><td>动态抵消潮汐引起的水位升降影响</td></tr><tr><td><strong>综合效果</strong></td><td>水平度误差 &lt;1°</td><td>确保机房设备在极端海况下稳定运行</td></tr></tbody></table></div>
+<h3>2. 十柱五墙工字型模块化设计</h3>
+<div class="tw"><table><thead><tr><th>性能指标</th><th>优化幅度</th></tr></thead><tbody><tr><td>弯矩</td><td>↓ 25%</td></tr><tr><td>抗弯刚度</td><td>↑ 4 倍</td></tr><tr><td>节点抗剪能力</td><td>↑ 30 倍</td></tr></tbody></table></div>
+<h3>3. 七重安全防护体系</h3>
+<div class="tw"><table><thead><tr><th>层级</th><th>防护措施</th><th>功能</th></tr></thead><tbody><tr><td>①</td><td>红树林消浪堤</td><td>波高衰减 55~75%</td></tr><tr><td>②</td><td>纵横透水网格</td><td>降低波浪冲击力</td></tr><tr><td>③</td><td>弹簧五向发电</td><td>吸收波浪动能</td></tr><tr><td>④</td><td>液力阻尼</td><td>抑制结构振动</td></tr><tr><td>⑤</td><td>柔性限位</td><td>控制位移范围</td></tr><tr><td>⑥</td><td>联合防护层</td><td>多重冗余保护</td></tr><tr><td>⑦</td><td>慢速自航避险</td><td>72 小时预警，机动避让</td></tr></tbody></table></div>
+<h3>4. 立体数据中心架构</h3>
+<div class="tw"><table><thead><tr><th>层级</th><th>功能</th><th>PUE</th></tr></thead><tbody><tr><td><strong>顶层</strong></td><td>光伏发电</td><td>—</td></tr><tr><td><strong>上层机房</strong></td><td>高算力密度</td><td>≤1.05</td></tr><tr><td><strong>中层机房</strong></td><td>中算力密度</td><td>≤1.02</td></tr><tr><td><strong>水下机房</strong></td><td>高效散热</td><td>≤1.01</td></tr><tr><td><strong>底层</strong></td><td>潮汐发电 + 储能</td><td>—</td></tr><tr><td><strong>综合效果</strong></td><td>能源梯级利用</td><td><strong>≤1.03</strong></td></tr></tbody></table></div>
+<hr>
+<h2>📊 商业模式与财务概览</h2>
+<h3>收入结构（达产年）</h3>
+<div class="tw"><table><thead><tr><th>收入来源</th><th>占比</th></tr></thead><tbody><tr><td>AI 算力温控托管</td><td>约 45–50%</td></tr><tr><td>绿色算力输出</td><td>约 30–35%</td></tr><tr><td>硬件极限测试认证</td><td>约 8–10%</td></tr><tr><td>数字生数据订阅</td><td>约 5–8%</td></tr></tbody></table></div>
+<h3>财务概览</h3>
+<div class="tw"><table><thead><tr><th>指标</th><th>数值</th></tr></thead><tbody><tr><td>项目投资规模</td><td>数千万元级</td></tr><tr><td>达产年净收益</td><td>预期效益显著</td></tr><tr><td>投资回收期</td><td>&lt; 3 年</td></tr><tr><td>IRR（内部收益率）</td><td>预期 25% 以上</td></tr></tbody></table></div>
+<p><em>注：以上数据基于项目可研估算，实际以实施为准。</em></p>
+<hr>
+<h2>🗺️ 实施路径与开展计划</h2>
+<p>项目采用 <strong>“三步走”</strong> 实施路径：</p>
+<div class="tw"><table><thead><tr><th>阶段</th><th>时间</th><th>核心任务</th><th>关键里程碑</th><th>验收标准</th></tr></thead><tbody><tr><td><strong>第一步：极限科研验证期</strong></td><td>第 1–2 年</td><td>完成科研浮台建设与连续强涌潮测试</td><td>交付《强涌潮环境浮式算力平台技术验证报告》</td><td>PUE 实测 ≤1.05，结构安全零事故</td></tr><tr><td><strong>第二步：沙盒试点启动期</strong></td><td>第 3–5 年</td><td>接入数字人民币智能合约，实现“算力-能源-金融”闭环</td><td>智能合约交易笔数 &gt;1000 笔，资金清算零差错</td><td>形成可复制的商业与合规模式</td></tr><tr><td><strong>第三步：审慎推广应用期</strong></td><td>第 5 年后</td><td>基于验证数据制定行业标准，向沿海地区复制推广</td><td>输出 3 项以上国家/行业标准</td><td>推动“海洋+算力”融合产业规模化发展</td></tr></tbody></table></div>
+<h3>科研验证平台建设</h3>
+<div class="tw"><table><thead><tr><th>项目</th><th>规格/内容</th></tr></thead><tbody><tr><td><strong>科研浮台规模</strong></td><td>60 米级模块化浮台</td></tr><tr><td><strong>测试环境</strong></td><td>钱塘江强涌潮真实海域（潮头 3.5m，最大潮差 8.93m）</td></tr><tr><td><strong>测试周期</strong></td><td>72 小时连续不间断运行</td></tr><tr><td><strong>核心验证内容</strong></td><td>双时间尺度定深悬浮精度、PUE 实测值、七重安全防护有效性、设备耐候性</td></tr><tr><td><strong>交付成果</strong></td><td>《强涌潮环境浮式算力平台技术验证报告》</td></tr></tbody></table></div>
+<h3>沙盒试点五道安全锁</h3>
+<div class="tw"><table><thead><tr><th>安全锁</th><th>内容</th></tr></thead><tbody><tr><td>① <strong>对象锁定</strong></td><td>仅限白名单内 AI 企业与能源供应商参与</td></tr><tr><td>② <strong>额度封顶</strong></td><td>单笔合约金额上限 50 万元，日累计上限 200 万元</td></tr><tr><td>③ <strong>国资安全垫</strong></td><td>国资方提供风险准备金</td></tr><tr><td>④ <strong>资金全托管</strong></td><td>银行专户托管，智能合约自动清算</td></tr><tr><td>⑤ <strong>分配代码化</strong></td><td>收益分配规则写入合约，不可篡改</td></tr></tbody></table></div>
+<hr>
+<h2>🚀 拓展规划</h2>
+<h3>1. 技术延伸</h3>
+<div class="tw"><table><thead><tr><th>方向</th><th>内容</th><th>目标</th></tr></thead><tbody><tr><td><strong>极地环境验证</strong></td><td>将定深悬浮技术迁移至极地冰层下海洋能动力系统</td><td>验证低温高盐环境下的装备可靠性</td></tr><tr><td><strong>深海温差能耦合</strong></td><td>探索深海温差能与氢能耦合的前瞻性技术路径</td><td>构建“潮汐能 + 温差能 + 氢能”多能互补体系</td></tr><tr><td><strong>数字孪生升级</strong></td><td>基于 FreeCAD 数字孪生骨架，构建全生命周期智能运维平台</td><td>实现远程监控、预测性维护与自动化调度</td></tr></tbody></table></div>
+<h3>2. 产业复制</h3>
+<div class="tw"><table><thead><tr><th>方向</th><th>内容</th><th>目标</th></tr></thead><tbody><tr><td><strong>沿海算力网络</strong></td><td>向沿海省份复制“潮汐发电算力浮桥”模式</td><td>构建全国首个沿海绿色算力走廊</td></tr><tr><td><strong>海洋能源融合</strong></td><td>与海上风电、波浪能发电、潮汐能形成互补</td><td>实现高比例绿电自给的海洋算力集群</td></tr><tr><td><strong>国际技术输出</strong></td><td>面向沿海地区输出技术方案</td><td>推动中国标准走向世界</td></tr></tbody></table></div>
+<h3>3. 生态拓展</h3>
+<div class="tw"><table><thead><tr><th>方向</th><th>内容</th><th>目标</th></tr></thead><tbody><tr><td><strong>红树林修复</strong></td><td>以红树林消浪堤为核心，形成“生态 + 能源 + 算力”三位一体的海洋绿色基础设施</td><td>打造碳中和海洋算力生态示范区</td></tr><tr><td><strong>数据资产化</strong></td><td>将潮汐水文、结构响应、能耗数据资产化</td><td>探索海洋数据要素价值化路径</td></tr><tr><td><strong>RWA 数字资产</strong></td><td>将绿色算力收益通证化，引入 RWA 区块链融资模式</td><td>构建“绿电 → 绿算力 → 绿资产”价值闭环</td></tr></tbody></table></div>
+<h3>4. 标准输出</h3>
+<div class="tw"><table><thead><tr><th>方向</th><th>内容</th><th>目标</th></tr></thead><tbody><tr><td><strong>行业标准制定</strong></td><td>基于验证数据，制定《强涌潮海域浮式算力平台设计规范》</td><td>填补国内强涌潮海域海洋工程装备设计规范空白</td></tr><tr><td><strong>绿色算力标准</strong></td><td>推动“江水直冷 + 绿电直驱”算力平台评价标准</td><td>引领绿色算力基础设施标准化建设</td></tr><tr><td><strong>数字人民币标准</strong></td><td>输出基建领域数字人民币智能合约应用标准</td><td>为新型基础设施投融资改革提供参考样本</td></tr></tbody></table></div>
+<hr>
+<h2>🛠️ 技术栈</h2>
+<div class="tw"><table><thead><tr><th>领域</th><th>技术/工具</th></tr></thead><tbody><tr><td>结构设计</td><td>FreeCAD 数字孪生骨架</td></tr><tr><td>定深悬浮</td><td>双时间尺度自适应系统</td></tr><tr><td>数据中心</td><td>五层立体架构，江水直冷</td></tr><tr><td>能源系统</td><td>潮汐发电 + 光伏 + 陶瓷沙石储能</td></tr><tr><td>安全防护</td><td>七重安全体系</td></tr><tr><td>金融科技</td><td>数字人民币智能合约</td></tr></tbody></table></div>
+<hr>
+<h2>🔗 快速链接</h2>
+<ul><li>🏠 <strong>项目主页</strong>：<a href="https://sinoshop-open.github.io/webpage/">https://sinoshop-open.github.io/webpage/</a></li><li>📂 <strong>SINOSHOP 组织</strong>：<a href="https://gitee.com/sinoshop">https://gitee.com/sinoshop</a></li><li>🌊 <strong>SINOSHOP-OS</strong>：<a href="https://gitee.com/sinoshop/sinoshop-os">https://gitee.com/sinoshop/sinoshop-os</a></li><li>🏗️ <strong>SinoPORT</strong>：<a href="https://gitee.com/sinoshop/SinoPORT">https://gitee.com/sinoshop/SinoPORT</a></li><li>📧 <strong>联系邮箱</strong>：standards@sinoshop.org</li></ul>
+<hr>
+<h2>📜 开源许可证</h2>
+<p>本项目采用 <strong>Apache License 2.0</strong>。详见 LICENSE 文件。</p>
+<hr>
+<h2>🤝 参与贡献</h2>
+<p>欢迎通过 Issue 或 Pull Request 参与贡献。</p>
+<blockquote>贞忠昭日月，惠民播春秋。</blockquote>
+<hr>
+<h2>⚠️ 免责声明</h2>
+<p>本 README 中披露的技术指标、性能数据及财务预测均基于当前研发进展和合理商业预期。部分数据已做模糊化处理，仅供参考。项目实际实施以最终技术方案和商业合同为准。</p>
+<ul><li>核心技术参数：基于原型验证数据</li><li>财务预测：基于行业通用模型估算</li><li>专利信息：以国家知识产权局最终公告为准</li><li>合作模式：以实际商务谈判为准</li></ul>
+<hr>
+<h2>📬 联系方式</h2>
+<p>🌊 <strong>SINOSHOP</strong> — 自浮式智能海洋城市运营平台</p>
+<ul><li>🏠 <strong>项目主页</strong>：<a href="https://sinoshop-open.github.io/webpage/">https://sinoshop-open.github.io/webpage/</a></li><li>📂 <strong>开源仓库</strong>：<a href="https://gitee.com/sinoshop/sinoshop-os">https://gitee.com/sinoshop/sinoshop-os</a></li><li>🌐 <strong>GitHub 国际镜像</strong>：<a href="https://github.com/SINOSHOP-OPEN">SINOSHOP-OPEN</a></li><li>📧 <strong>联系邮箱</strong>：standards@sinoshop.org</li></ul>
+<hr>
+<blockquote>🌊 观天之道，执天之行，造福众生。<br>🌊 <strong>海生电、电养船、船搭桥、桥造城、航天海、众生安。</strong><br>✨ <strong>贞忠昭日月，惠民播春秋。</strong></blockquote>
+<hr>
+<p>🌐 <strong>English Version</strong>: <a href="https://github.com/SINOSHOP-OPEN/SinoTide">View on GitHub</a></p>
+<p><em>最后更新：2026-09-02 | SinoTide v1.0</em></p>
+</div></div></main>
+<footer class="foot"><div class="wrap">
+  <div class="row"><a href="https://gitee.com/sinoshop/SinoPORT">Gitee 主仓</a><a href="https://github.com/SINOSHOP-OPEN">GitHub 镜像组织</a><a href="../evidence/">仿真验证证据</a><a href="https://sinoshop-open.github.io/webpage/">项目展示页</a></div>
+  观天之道，执天之行。　碳基硅基共舞。
+  <div class="fine">本页为公开开源文档的网页呈现，内容与仓库内源文件一致；结论由脚本判定，退出码为零才算通过。</div>
+</div></footer>
+</body>
+</html>
