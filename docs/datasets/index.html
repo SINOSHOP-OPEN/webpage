@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>已提交审核数据集 · 仿真验证证据总览</title>
+<meta name="description" content="已向广东省数据知识产权登记平台提交登记、当前处于「待审核」阶段的 17 份核心数据集，逐份列出其结论级验证证据与公网直链 —— 点开即得文件本体，无需登录。">
+<meta property="og:title" content="已提交审核数据集 · 仿真验证证据总览">
+<meta property="og:description" content="已向广东省数据知识产权登记平台提交登记、当前处于「待审核」阶段的 17 份核心数据集，逐份列出其结论级验证证据与公网直链 —— 点开即得文件本体，无需登录。">
+<meta property="og:type" content="website">
+<style>
+:root{
+  --bg:#0b1118; --bg-2:#0f1721; --panel:#131c27; --panel-2:#17212e;
+  --line:#22303f; --line-2:#2c3d4f;
+  --ink:#f2f6fa; --ink-2:#c3ced9; --ink-3:#8b9aab; --ink-4:#5f6f80;
+  --green:#1d9e75; --green-l:#2ee6a8; --green-d:#146b4f;
+  --blue:#2b6cb0; --gold:#c9a227; --red:#c05656;
+  --mono:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,"JetBrains Mono",monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei","PingFang SC","Hiragino Sans GB",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--sans);font-size:15.5px;line-height:1.78;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+a{color:var(--green-l);text-decoration:none;border-bottom:1px solid rgba(46,230,168,.28);transition:.18s}
+a:hover{color:#6bffd0;border-bottom-color:var(--green-l)}
+strong{color:#fff;font-weight:650}
+em{color:var(--ink-2)}
+
+/* ── 页头 ── */
+.hero{
+  border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(1100px 460px at 14% -12%,rgba(29,158,117,.16),transparent 62%),
+    radial-gradient(900px 400px at 92% -18%,rgba(43,108,176,.14),transparent 60%),
+    linear-gradient(180deg,#0d1620 0%,var(--bg) 100%);
+  padding:52px 0 40px;position:relative;overflow:hidden;
+}
+.hero::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--green) 22%,var(--blue) 62%,transparent);
+}
+.wrap{max-width:1120px;margin:0 auto;padding:0 26px}
+.eyebrow{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:2.6px;color:var(--green-l);
+  text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:11px;
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--green);flex:none}
+.hero h1{
+  margin:0 0 16px;font-size:clamp(26px,3.4vw,40px);line-height:1.24;font-weight:700;
+  letter-spacing:-.4px;color:#fff;
+}
+.hero .lede{margin:0;max-width:760px;color:var(--ink-2);font-size:15.5px}
+.hero .tags{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+.tag{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.4px;
+  padding:5px 12px;border-radius:3px;border:1px solid var(--line-2);
+  background:rgba(29,158,117,.09);color:var(--green-l);
+}
+.tag.b{background:rgba(43,108,176,.1);border-color:rgba(43,108,176,.42);color:#8fc4f5}
+.tag.g{background:rgba(201,162,39,.1);border-color:rgba(201,162,39,.4);color:#e2c86a}
+.tag.n{background:rgba(255,255,255,.03);color:var(--ink-3)}
+
+/* ── 导航条 ── */
+.nav{border-bottom:1px solid var(--line);background:rgba(10,16,23,.92);position:sticky;top:0;z-index:50;backdrop-filter:blur(10px)}
+.nav .wrap{display:flex;align-items:center;gap:4px;height:52px;overflow-x:auto}
+.nav .brand{font-family:var(--mono);font-size:12px;letter-spacing:1.6px;color:var(--ink-4);margin-right:14px;white-space:nowrap}
+.nav a{
+  font-size:13.5px;color:var(--ink-2);padding:7px 13px;border-radius:4px;
+  border:1px solid transparent;white-space:nowrap;transition:.16s;
+}
+.nav a:hover{background:var(--panel);border-color:var(--line-2);color:#fff;border-bottom-color:transparent}
+.nav a.back{color:var(--green-l);border-color:rgba(46,230,168,.3);background:rgba(29,158,117,.08)}
+
+/* ── 正文 ── */
+main{padding:44px 0 76px}
+.doc{max-width:1120px}
+.doc h1{display:none}
+.doc h2{
+  font-size:20px;margin:52px 0 18px;color:#fff;font-weight:680;letter-spacing:.2px;
+  padding:0 0 12px 14px;border-left:3px solid var(--green);position:relative;
+}
+.doc h2::after{content:"";position:absolute;left:14px;right:0;bottom:0;height:1px;background:var(--line)}
+.doc h3{font-size:16.5px;margin:32px 0 13px;color:#e8f0f7;font-weight:650;letter-spacing:.2px}
+.doc h3::before{content:"▸";color:var(--green);margin-right:9px;font-size:13px}
+.doc h4{font-size:14.5px;margin:22px 0 10px;color:var(--ink-2)}
+.doc p{margin:0 0 15px;color:var(--ink-2)}
+.doc ul,.doc ol{margin:0 0 18px;padding-left:22px;color:var(--ink-2)}
+.doc li{margin:6px 0}
+.doc li::marker{color:var(--green)}
+.doc hr{border:0;height:1px;background:var(--line);margin:38px 0}
+
+/* ── 表格（斑马纹 + 悬浮） ── */
+.tw{overflow-x:auto;margin:0 0 24px;border:1px solid var(--line);border-radius:7px;background:var(--panel)}
+table{width:100%;border-collapse:collapse;font-size:13.8px;min-width:520px}
+thead th{
+  background:var(--panel-2);color:#fff;font-weight:640;text-align:left;
+  padding:13px 15px;border-bottom:1px solid var(--line-2);white-space:nowrap;
+  font-size:13px;letter-spacing:.3px;position:sticky;top:0;
+}
+tbody td{padding:12px 15px;border-bottom:1px solid rgba(34,48,63,.55);color:var(--ink-2);vertical-align:top}
+tbody tr:nth-child(even){background:rgba(23,33,46,.5)}
+tbody tr:nth-child(odd){background:transparent}
+tbody tr{transition:background .16s,box-shadow .16s}
+tbody tr:hover{background:rgba(29,158,117,.10);box-shadow:inset 3px 0 0 var(--green)}
+tbody tr:hover td{color:var(--ink)}
+tbody tr:last-child td{border-bottom:0}
+
+/* ── 代码块（带高亮 UI 框） ── */
+.code{
+  margin:0 0 24px;border:1px solid var(--line-2);border-radius:8px;overflow:hidden;
+  background:#0a121a;box-shadow:0 12px 32px rgba(0,0,0,.34);
+}
+.code-hd{
+  display:flex;align-items:center;gap:9px;padding:9px 14px;
+  background:linear-gradient(180deg,#16202c,#111a24);border-bottom:1px solid var(--line);
+}
+.code-hd .dot{width:9px;height:9px;border-radius:50%;flex:none}
+.code-hd .dot.r{background:#c05656}.code-hd .dot.y{background:#c9a227}.code-hd .dot.g{background:#1d9e75}
+.code-hd .lang{
+  font-family:var(--mono);font-size:11px;letter-spacing:1.4px;color:var(--ink-3);
+  margin-left:6px;text-transform:uppercase;
+}
+.code-hd .hint{margin-left:auto;font-family:var(--mono);font-size:10.5px;color:var(--ink-4);letter-spacing:.8px}
+.code pre{margin:0;padding:16px 18px;overflow-x:auto}
+.code code{
+  font-family:var(--mono);font-size:13px;line-height:1.72;color:#d6e2ec;
+  display:block;white-space:pre;
+}
+.tk-kw{color:#ff9ec4}.tk-str{color:#9ce6b4}.tk-num{color:#f5c877}
+.tk-com{color:#5a6b7c;font-style:italic}.tk-fn{color:#8fc4f5}.tk-op{color:#9fb0c0}
+
+/* ── 行内代码 ── */
+code.inl{
+  font-family:var(--mono);font-size:12.6px;background:rgba(29,158,117,.10);
+  border:1px solid rgba(46,230,168,.18);color:#7fe8c4;padding:1.5px 6px;border-radius:4px;
+}
+
+/* ── 引用块 / 声明卡 ── */
+blockquote{
+  margin:0 0 24px;padding:16px 20px;background:var(--panel);
+  border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:6px;color:var(--ink-2);
+}
+blockquote p:last-child{margin-bottom:0}
+blockquote strong{color:#fff}
+.statement{
+  margin:0 0 26px;padding:18px 22px;border-radius:7px;
+  background:linear-gradient(180deg,rgba(201,162,39,.09),rgba(201,162,39,.03));
+  border:1px solid rgba(201,162,39,.34);border-left:3px solid var(--gold);
+}
+.statement strong{color:#f0d98a}
+
+/* ── 图片 ── */
+figure{margin:0 0 26px}
+.doc img{
+  max-width:100%;height:auto;display:block;border:1px solid var(--line-2);
+  border-radius:8px;background:#fff;padding:10px;
+}
+figcaption{font-family:var(--mono);font-size:12px;color:var(--ink-4);margin-top:9px;text-align:center}
+
+/* ── 页脚 ── */
+.foot{border-top:1px solid var(--line);padding:30px 0 46px;color:var(--ink-4);font-size:13px}
+.foot .row{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;margin-bottom:14px}
+.foot a{color:var(--ink-2);border-bottom-color:var(--line-2)}
+.foot a:hover{color:var(--green-l)}
+.motto{
+  font-family:var(--mono);font-size:13.5px;color:var(--green-l);letter-spacing:.5px;
+  padding-top:18px;border-top:1px solid var(--line);margin-top:6px;
+}
+.foot .fine{font-size:12px;color:var(--ink-4);margin-top:10px;line-height:1.7}
+
+@media(max-width:760px){
+  .hero{padding:38px 0 30px}
+  .wrap{padding:0 18px}
+  main{padding:30px 0 56px}
+  .doc h2{font-size:18px}
+  tbody td{padding:10px 12px}
+}
+@media print{
+  body{background:#fff;color:#000}
+  .nav,.code-hd .hint{display:none}
+}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <div class="eyebrow">SINOSHOP · SINO-PORT ｜ 已提交登记审核中的数字资产</div>
+  <h1>已提交审核数据集 · 仿真验证证据总览</h1>
+  <p class="lede">已向广东省数据知识产权登记平台提交登记、当前处于「待审核」阶段的 17 份核心数据集，逐份列出其结论级验证证据与公网直链 —— 点开即得文件本体，无需登录。</p>
+  <div class="tags"><span class="tag">7 份登记项</span><span class="tag"> 类验证形态</span><span class="tag">7 条核验直链</span><span class="tag g">零死链实测</span></div>
+</div></header>
+<nav class="nav"><div class="wrap"><span class="brand">SINOSHOP · SINO-PORT</span><a href="../evidence/">证据总览</a><a href="../datasets/">数据集映射表</a><a href="https://gitee.com/sinoshop/SinoPORT" class="back">← 回到 Gitee 仓库</a><a href="https://sinoshop-open.github.io/webpage/">项目展示页</a></div></nav>
+<main><div class="wrap"><div class="doc">
+<h1>已提交审核数据集 · 仿真验证证据总览</h1>
+<blockquote>平台：广东省数据知识产权登记平台　｜　核对时间：2026-10-31<br>下列 <strong>17 份</strong>数据集<strong>均已向平台提交登记，当前处于「待审核」阶段</strong>，<br><strong>尚未取得登记证书</strong>。本页展示的是平台受理状态与<strong>结论级验证证据</strong>，<br><strong>不构成任何形式的权利授予、认证或确权主张</strong>。<br>每一条链接均为<strong>公网直链</strong>，点开即得文件本体，无需登录。</blockquote>
+<hr>
+<h2>一、总览</h2>
+<div class="tw"><table><thead><tr><th>#</th><th>数据集名称</th><th>验证形态</th><th>核验结果链接数</th></tr></thead><tbody><tr><td>1</td><td>悬浮港可移动模块三维几何数据集（V10·13NPZ）</td><td>⚪ 无独立仿真结论</td><td>0</td></tr><tr><td>2</td><td>模块化恒定潮汐发电技术数据集</td><td>🟣 可复算性验证</td><td>1</td></tr><tr><td>3</td><td>可移动抗台风浮屋标准模块三维几何数据集（12STL）</td><td>⚪ 无独立仿真结论</td><td>0</td></tr><tr><td>4</td><td>模块化智慧港口系统工程模型数据集（21FCStd+21STEP）</td><td>⚪ 无独立仿真结论</td><td>0</td></tr><tr><td>5</td><td>可移动抗台风模块三维几何数据集编码规范数据集</td><td>⚪ 无独立仿真结论</td><td>0</td></tr><tr><td>6</td><td>泊位路基模块可移动潮汐发电数据集</td><td>🔵 要素装配验证</td><td>1</td></tr><tr><td>7</td><td>悬浮红树林消浪可以移动抗台风发电数据集</td><td>🔵 要素装配验证</td><td>1</td></tr><tr><td>8</td><td>消浪可以移动抗台风数据集</td><td>🔵 要素装配验证</td><td>1</td></tr><tr><td>9</td><td>悬浮生态花园消浪可以移动抗台风发电数据集</td><td>🔵 要素装配验证</td><td>1</td></tr><tr><td>10</td><td>悬浮交通大道可移动发电数据集</td><td>🔵 要素装配验证</td><td>1</td></tr><tr><td>11</td><td>悬浮港直径大路可移动发电数据集</td><td>🔵 要素装配验证</td><td>1</td></tr><tr><td>12</td><td>工程参数主控与资产台账数据集</td><td>⚪ 无独立仿真结论</td><td>0</td></tr><tr><td>13</td><td>生态花园社区工程展示成片数据集</td><td>⚪ 无独立仿真结论</td><td>0</td></tr><tr><td>14</td><td>SinoPORT-SinoSFT 浮体载荷发电技术数据集</td><td>🟢 带核验结果 JSON</td><td>7</td></tr><tr><td>15</td><td>SinoPORT-SinoSFT 波浪发电消浪技术数据集</td><td>🟢 带核验结果 JSON</td><td>8</td></tr><tr><td>16</td><td>SINOSHOP 浮体风力与振动冲击发电技术数据集</td><td>🟢 带核验结果 JSON</td><td>4</td></tr><tr><td>17</td><td>悬浮高度恒定装配式建筑技术数据集</td><td>🟣 可复算性验证</td><td>1</td></tr></tbody></table></div>
+<p><strong>验证形态说明</strong></p>
+<ul><li>🟢 <strong>带核验结果 JSON</strong> —— 归档包内含 <code class="inl">verify_NN_*</code> 核验结果 → 与公开仓同名文件一一对应</li><li>🔵 <strong>要素装配验证</strong> —— 归档包内含 <code class="inl">要素装配与验证.json</code> → 由数据自洽性检验脚本承接复核</li><li>🟣 <strong>可复算性验证</strong> —— 归档包内含可复算性核验 → 由数据自洽性检验脚本承接复核</li><li>⚪ <strong>无独立仿真结论</strong> —— 纯几何载体 / 工程模型 / 编码规范 / 参数台账 / 展示成片 —— 本身即数据，无独立物理仿真结论</li></ul>
+<hr>
+<h2>二、逐数据集验证证据</h2>
+<h3>1. 悬浮港可移动模块三维几何数据集（V10·13NPZ）</h3>
+<ul><li><strong>验证形态</strong>：⚪ 无独立仿真结论 —— 三维几何数据集（V10·13NPZ）—— 几何载体本身即数据，无独立仿真结论</li></ul>
+<blockquote>纯几何载体 / 工程模型 / 编码规范 / 参数台账 / 展示成片 —— 本身即数据，无独立物理仿真结论</blockquote>
+<blockquote>注：无独立仿真结论（不硬凑链接）</blockquote>
+<h3>2. 模块化恒定潮汐发电技术数据集</h3>
+<ul><li><strong>验证形态</strong>：🟣 可复算性验证 —— 模块化恒定潮汐发电技术数据集 —— 几何+容积核验，含内部几何参数（不外露）</li></ul>
+<div class="tw"><table><thead><tr><th>验证主线</th><th>结果文件</th><th>公网直链</th></tr></thead><tbody><tr><td>数据自洽性检验 · 配置矩阵可复算</td><td><code class="inl">verify_public_dataset.py</code></td><td><a href="https://gitee.com/sinoshop/sinoport-public/raw/master/verify/verify_public_dataset.py">打开</a></td></tr></tbody></table></div>
+<h3>3. 可移动抗台风浮屋标准模块三维几何数据集（12STL）</h3>
+<ul><li><strong>验证形态</strong>：⚪ 无独立仿真结论 —— 可移动抗台风浮屋标准模块三维几何数据集（12STL）—— 几何载体，无独立仿真结论</li></ul>
+<blockquote>纯几何载体 / 工程模型 / 编码规范 / 参数台账 / 展示成片 —— 本身即数据，无独立物理仿真结论</blockquote>
+<blockquote>注：无独立仿真结论（不硬凑链接）</blockquote>
+<h3>4. 模块化智慧港口系统工程模型数据集（21FCStd+21STEP）</h3>
+<ul><li><strong>验证形态</strong>：⚪ 无独立仿真结论 —— 模块化智慧港口系统工程模型数据集（21FCStd+21STEP）—— 工程模型，无独立仿真结论</li></ul>
+<blockquote>纯几何载体 / 工程模型 / 编码规范 / 参数台账 / 展示成片 —— 本身即数据，无独立物理仿真结论</blockquote>
+<blockquote>注：无独立仿真结论（不硬凑链接）</blockquote>
+<h3>5. 可移动抗台风模块三维几何数据集编码规范数据集</h3>
+<ul><li><strong>验证形态</strong>：⚪ 无独立仿真结论 —— 三维几何数据集编码规范数据集 —— 编码规范条款，无独立仿真结论</li></ul>
+<blockquote>纯几何载体 / 工程模型 / 编码规范 / 参数台账 / 展示成片 —— 本身即数据，无独立物理仿真结论</blockquote>
+<blockquote>注：无独立仿真结论（不硬凑链接）</blockquote>
+<h3>6. 泊位路基模块可移动潮汐发电数据集</h3>
+<ul><li><strong>验证形态</strong>：🔵 要素装配验证 —— 泊位路基要素参数与装配验证 —— 约束校验（开口避让 / 参数一致性）</li></ul>
+<div class="tw"><table><thead><tr><th>验证主线</th><th>结果文件</th><th>公网直链</th></tr></thead><tbody><tr><td>数据自洽性检验 · 要素装配约束可脚本复核</td><td><code class="inl">verify_public_dataset.py</code></td><td><a href="https://gitee.com/sinoshop/sinoport-public/raw/master/verify/verify_public_dataset.py">打开</a></td></tr></tbody></table></div>
+<h3>7. 悬浮红树林消浪可以移动抗台风发电数据集</h3>
+<ul><li><strong>验证形态</strong>：🔵 要素装配验证 —— 红树林防波堤要素参数与装配验证</li></ul>
+<div class="tw"><table><thead><tr><th>验证主线</th><th>结果文件</th><th>公网直链</th></tr></thead><tbody><tr><td>数据自洽性检验 · 要素装配约束可脚本复核</td><td><code class="inl">verify_public_dataset.py</code></td><td><a href="https://gitee.com/sinoshop/sinoport-public/raw/master/verify/verify_public_dataset.py">打开</a></td></tr></tbody></table></div>
+<h3>8. 消浪可以移动抗台风数据集</h3>
+<ul><li><strong>验证形态</strong>：🔵 要素装配验证 —— 消浪要素参数与装配验证</li></ul>
+<div class="tw"><table><thead><tr><th>验证主线</th><th>结果文件</th><th>公网直链</th></tr></thead><tbody><tr><td>数据自洽性检验 · 要素装配约束可脚本复核</td><td><code class="inl">verify_public_dataset.py</code></td><td><a href="https://gitee.com/sinoshop/sinoport-public/raw/master/verify/verify_public_dataset.py">打开</a></td></tr></tbody></table></div>
+<h3>9. 悬浮生态花园消浪可以移动抗台风发电数据集</h3>
+<ul><li><strong>验证形态</strong>：🔵 要素装配验证 —— 生态花园消浪要素参数与装配验证</li></ul>
+<div class="tw"><table><thead><tr><th>验证主线</th><th>结果文件</th><th>公网直链</th></tr></thead><tbody><tr><td>数据自洽性检验 · 要素装配约束可脚本复核</td><td><code class="inl">verify_public_dataset.py</code></td><td><a href="https://gitee.com/sinoshop/sinoport-public/raw/master/verify/verify_public_dataset.py">打开</a></td></tr></tbody></table></div>
+<h3>10. 悬浮交通大道可移动发电数据集</h3>
+<ul><li><strong>验证形态</strong>：🔵 要素装配验证 —— 悬浮交通大道要素参数与装配验证</li></ul>
+<div class="tw"><table><thead><tr><th>验证主线</th><th>结果文件</th><th>公网直链</th></tr></thead><tbody><tr><td>数据自洽性检验 · 要素装配约束可脚本复核</td><td><code class="inl">verify_public_dataset.py</code></td><td><a href="https://gitee.com/sinoshop/sinoport-public/raw/master/verify/verify_public_dataset.py">打开</a></td></tr></tbody></table></div>
+<h3>11. 悬浮港直径大路可移动发电数据集</h3>
+<ul><li><strong>验证形态</strong>：🔵 要素装配验证 —— 悬浮港直径大路要素参数与装配验证</li></ul>
+<div class="tw"><table><thead><tr><th>验证主线</th><th>结果文件</th><th>公网直链</th></tr></thead><tbody><tr><td>数据自洽性检验 · 要素装配约束可脚本复核</td><td><code class="inl">verify_public_dataset.py</code></td><td><a href="https://gitee.com/sinoshop/sinoport-public/raw/master/verify/verify_public_dataset.py">打开</a></td></tr></tbody></table></div>
+<h3>12. 工程参数主控与资产台账数据集</h3>
+<ul><li><strong>验证形态</strong>：⚪ 无独立仿真结论 —— 工程参数主控与资产台账数据集 —— 台账类，无独立仿真结论</li></ul>
+<blockquote>纯几何载体 / 工程模型 / 编码规范 / 参数台账 / 展示成片 —— 本身即数据，无独立物理仿真结论</blockquote>
+<blockquote>注：无独立仿真结论（不硬凑链接）</blockquote>
+<h3>13. 生态花园社区工程展示成片数据集</h3>
+<ul><li><strong>验证形态</strong>：⚪ 无独立仿真结论 —— 生态花园社区工程展示成片数据集 —— 成片类，无独立仿真结论</li></ul>
+<blockquote>纯几何载体 / 工程模型 / 编码规范 / 参数台账 / 展示成片 —— 本身即数据，无独立物理仿真结论</blockquote>
+<blockquote>注：无独立仿真结论（不硬凑链接）</blockquote>
+<h3>14. SinoPORT-SinoSFT 浮体载荷发电技术数据集</h3>
+<ul><li><strong>验证形态</strong>：🟢 带核验结果 JSON —— 浮体载荷发电技术数据集 —— 携带 verify_02/05/10/11/12/15 六条主线结果</li></ul>
+<div class="tw"><table><thead><tr><th>验证主线</th><th>结果文件</th><th>公网直链</th></tr></thead><tbody><tr><td>载荷抵消</td><td><code class="inl">verify_02_load_cancellation_results.json</code></td><td><a href="https://gitee.com/sinoshop/sinoport-public/raw/master/verify/verify_02_summary.json">打开</a></td></tr><tr><td>载荷抵消</td><td><code class="inl">verify_02_summary.json</code></td><td><a href="https://gitee.com/sinoshop/sinoport-public/raw/master/verify/verify_02_summary.json">打开</a></td></tr><tr><td>多吨位载荷响应</td><td><code class="inl">verify_05_load_tonnage_summary.json</code></td><td><a href="https://gitee.com/sinoshop/sinoport-public/raw/master/verify/verify_05_lcs_tonnage_summary.json">打开</a></td></tr><tr><td>载荷转移</td><td><code class="inl">verify_10_load_transfer_summary.json</code></td><td><a href="https://gitee.com/sinoshop/sinoport-public/raw/master/verify/verify_10_load_transfer_summary.json">打开</a></td></tr><tr><td>全生命周期相对经济性</td><td><code class="inl">verify_11_economics_lcc_summary.json</code></td><td><a href="https://gitee.com/sinoshop/sinoport-public/raw/master/verify/verify_11_economics_lcc_summary.json">打开</a></td></tr><tr><td>压力卸载</td><td><code class="inl">verify_12_pressure_unload_summary.json</code></td><td><a href="https://gitee.com/sinoshop/sinoport-public/raw/master/verify/verify_12_pressure_unload_summary.json">打开</a></td></tr><tr><td>A/B 闭环耦合</td><td><code class="inl">verify_15_ab_coupling_summary.json</code></td><td><a href="https://gitee.com/sinoshop/sinoport-public/raw/master/verify/verify_15_ab_coupling_summary.json">打开</a></td></tr></tbody></table></div>
+<blockquote>注：同名不同名（归档 verify_02_load_cancellation_results.json → 公开仓 verify_02_summary.json）<br>注：同名不同名（归档 verify_05_load_tonnage_summary.json → 公开仓 verify_05_lcs_tonnage_summary.json）</blockquote>
+<h3>15. SinoPORT-SinoSFT 波浪发电消浪技术数据集</h3>
+<ul><li><strong>验证形态</strong>：🟢 带核验结果 JSON —— 波浪发电消浪技术数据集 —— 携带 verify_01/03/04/08/09 五条主线结果</li></ul>
+<div class="tw"><table><thead><tr><th>验证主线</th><th>结果文件</th><th>公网直链</th></tr></thead><tbody><tr><td>波浪衰减</td><td><code class="inl">verify_01_summary.json</code></td><td><a href="https://gitee.com/sinoshop/sinoport-public/raw/master/verify/verify_01_summary.json">打开</a></td></tr><tr><td>波浪衰减</td><td><code class="inl">verify_01_wave_attenuation_381m_results.json</code></td><td><a href="https://gitee.com/sinoshop/sinoport-public/raw/master/verify/verify_01_wave_attenuation_381m_results.json">打开</a></td></tr><tr><td>恒定潮位</td><td><code class="inl">verify_03_summary.json</code></td><td><a href="https://gitee.com/sinoshop/sinoport-public/raw/master/verify/verify_03_summary.json">打开</a></td></tr><tr><td>恒定潮位</td><td><code class="inl">verify_03_tidal_height_constant_results.json</code></td><td><a href="https://gitee.com/sinoshop/sinoport-public/raw/master/verify/verify_03_tidal_height_constant_results.json">打开</a></td></tr><tr><td>多级消浪</td><td><code class="inl">verify_04_summary.json</code></td><td><a href="https://gitee.com/sinoshop/sinoport-public/raw/master/verify/verify_04_summary.json">打开</a></td></tr><tr><td>多级消浪</td><td><code class="inl">verify_04_wave_multilevel_summary.json</code></td><td><a href="https://gitee.com/sinoshop/sinoport-public/raw/master/verify/verify_04_wave_multilevel_summary.json">打开</a></td></tr><tr><td>48 小时连续潮汐</td><td><code class="inl">verify_08_tidal48_summary.json</code></td><td><a href="https://gitee.com/sinoshop/sinoport-public/raw/master/verify/verify_08_tidal48_summary.json">打开</a></td></tr><tr><td>双向泊位流场</td><td><code class="inl">verify_09_bidirectional_berth_summary.json</code></td><td><a href="https://gitee.com/sinoshop/sinoport-public/raw/master/verify/verify_09_bidirectional_berth_summary.json">打开</a></td></tr></tbody></table></div>
+<h3>16. SINOSHOP 浮体风力与振动冲击发电技术数据集</h3>
+<ul><li><strong>验证形态</strong>：🟢 带核验结果 JSON —— 浮体风力与振动冲击发电技术数据集 —— 携带 verify_06/07/13/14 四条主线结果</li></ul>
+<div class="tw"><table><thead><tr><th>验证主线</th><th>结果文件</th><th>公网直链</th></tr></thead><tbody><tr><td>复合结构力学</td><td><code class="inl">verify_06_composite_material_summary.json</code></td><td><a href="https://gitee.com/sinoshop/sinoport-public/raw/master/verify/verify_06_composite_material_summary.json">打开</a></td></tr><tr><td>缆索应力</td><td><code class="inl">verify_07_cable_stress_summary.json</code></td><td><a href="https://gitee.com/sinoshop/sinoport-public/raw/master/verify/verify_07_cable_stress_summary.json">打开</a></td></tr><tr><td>频带分配</td><td><code class="inl">verify_13_band_allocation_summary.json</code></td><td><a href="https://gitee.com/sinoshop/sinoport-public/raw/master/verify/verify_13_band_allocation_summary.json">打开</a></td></tr><tr><td>载荷分配</td><td><code class="inl">verify_14_load_allocation_summary.json</code></td><td><a href="https://gitee.com/sinoshop/sinoport-public/raw/master/verify/verify_14_load_allocation_summary.json">打开</a></td></tr></tbody></table></div>
+<h3>17. 悬浮高度恒定装配式建筑技术数据集</h3>
+<ul><li><strong>验证形态</strong>：🟣 可复算性验证 —— 悬浮高度恒定装配式建筑技术数据集 —— 配置矩阵可复算（1200 条 × 17 字段）</li></ul>
+<div class="tw"><table><thead><tr><th>验证主线</th><th>结果文件</th><th>公网直链</th></tr></thead><tbody><tr><td>数据自洽性检验 · 配置矩阵可复算</td><td><code class="inl">verify_public_dataset.py</code></td><td><a href="https://gitee.com/sinoshop/sinoport-public/raw/master/verify/verify_public_dataset.py">打开</a></td></tr></tbody></table></div>
+<hr>
+<h2>三、公共验证层入口（对全部 17 份均适用）</h2>
+<div class="tw"><table><thead><tr><th>用途</th><th>直链</th></tr></thead><tbody><tr><td><strong>仿真验证证据总览（网页版）</strong></td><td><a href="https://sinoshop-open.github.io/webpage/docs/evidence/">evidence/index.html</a></td></tr><tr><td>聚合运行器（Gitee · 一条命令跑完 15 条主线）</td><td><a href="https://gitee.com/sinoshop/sinoport-public/raw/master/verify/run_all_public_verifications.py">run_all_public_verifications.py</a></td></tr><tr><td>聚合运行器（GitHub）</td><td><a href="https://raw.githubusercontent.com/SINOSHOP-OPEN/SinoPORT/main/verify/run_all_public_verifications.py">run_all_public_verifications.py</a></td></tr><tr><td>数字存证清单（43 份文件 SHA-256）</td><td><a href="https://gitee.com/sinoshop/sinoport-public/raw/master/verify/MANIFEST_public_assertions.md">MANIFEST_public_assertions.md</a></td></tr><tr><td>AI Agent 最小骨架</td><td><a href="https://gitee.com/sinoshop/sinoport-public/raw/master/verify/agent_min_skeleton.py">agent_min_skeleton.py</a></td></tr><tr><td>数据自洽性检验脚本（B / C 类承接）</td><td><a href="https://gitee.com/sinoshop/sinoport-public/raw/master/verify/verify_public_dataset.py">verify_public_dataset.py</a></td></tr><tr><td>门面入口（Gitee 主仓）</td><td><a href="https://gitee.com/sinoshop/SinoPORT">sinoshop/SinoPORT</a></td></tr><tr><td>门面入口（GitHub 主仓）</td><td><a href="https://github.com/SINOSHOP-OPEN/SinoPORT">SINOSHOP-OPEN/SinoPORT</a></td></tr></tbody></table></div>
+<hr>
+<h2>四、边界声明</h2>
+<ul><li>本页只列<strong>结论级</strong>验证证据与可复现路径；</li><li>归档侧的真实几何尺寸、材料配比与流体参数<strong>不在公网</strong>；</li><li>结论由脚本判定，退出码为零才算通过；无法验证时如实报告 <code class="inl">BLOCKED</code>。</li></ul>
+<blockquote>人可以写文案，但不能写 PASS。</blockquote>
+</div></div></main>
+<footer class="foot"><div class="wrap">
+  <div class="row"><a href="https://gitee.com/sinoshop/SinoPORT">Gitee 主仓</a><a href="https://github.com/SINOSHOP-OPEN/SinoPORT">GitHub 主仓</a><a href="../evidence/">仿真验证证据</a><a href="https://sinoshop-open.github.io/webpage/">项目展示页</a></div>
+  人可以写文案，但不能写 PASS。
+  <div class="fine">下列数据集均已提交登记、处于「待审核」阶段，尚未取得登记证书；本页仅展示平台受理状态与结论级验证证据，不构成任何形式的权利授予、认证或确权主张。</div>
+</div></footer>
+</body>
+</html>
