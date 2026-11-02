@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海洋文明工程宣言 · SINOSHOP</title>
+<style>
+  :root{
+    --deep:#040b18; --mid:#071627; --panel:#0a1f33; --line:#13324c;
+    --emerald:#2ee6a8; --gold:#e8c27a; --ice:#dbeef8; --mute:#7ea4bf;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:radial-gradient(ellipse at 50% -12%, #0b2743 0%, var(--mid) 46%, var(--deep) 100%);
+    color:var(--ice);
+    font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB",sans-serif;
+    line-height:1.95; overflow-x:hidden;
+  }
+  /* ─── 星空 ─── */
+  .stars,.stars2{position:fixed;inset:0;pointer-events:none;z-index:0}
+  .stars{background-image:
+    radial-gradient(1.6px 1.6px at 8% 18%, #fff8 50%, transparent 51%),
+    radial-gradient(1px 1px at 26% 6%, #fff6 50%, transparent 51%),
+    radial-gradient(1.3px 1.3px at 44% 24%, #fff7 50%, transparent 51%),
+    radial-gradient(1px 1px at 63% 12%, #fff5 50%, transparent 51%),
+    radial-gradient(1.8px 1.8px at 79% 28%, #fff8 50%, transparent 51%),
+    radial-gradient(1px 1px at 92% 8%, #fff6 50%, transparent 51%),
+    radial-gradient(1.2px 1.2px at 15% 40%, #fff5 50%, transparent 51%),
+    radial-gradient(1px 1px at 55% 38%, #fff4 50%, transparent 51%);
+    animation:twinkle 7s ease-in-out infinite alternate}
+  .stars2{background-image:
+    radial-gradient(1px 1px at 33% 30%, #fff4 50%, transparent 51%),
+    radial-gradient(1.4px 1.4px at 71% 20%, #fff5 50%, transparent 51%),
+    radial-gradient(1px 1px at 87% 36%, #fff3 50%, transparent 51%);
+    animation:twinkle 11s ease-in-out infinite alternate-reverse}
+  @keyframes twinkle{from{opacity:.45}to{opacity:.95}}
+  /* ─── 三层海浪 ─── */
+  .sea{position:fixed;left:0;right:0;bottom:0;pointer-events:none;z-index:0}
+  .sea svg{display:block;width:100%;height:150px}
+  .layer{transform-origin:center}
+  .l1{animation:sway 13s ease-in-out infinite alternate}
+  .l2{animation:sway 9s ease-in-out infinite alternate-reverse}
+  .l3{animation:sway 17s ease-in-out infinite alternate}
+  @keyframes sway{from{transform:translateX(-18px)}to{transform:translateX(18px)}}
+  main{position:relative;z-index:1;max-width:1060px;margin:0 auto;padding:0 26px 200px}
+  /* ─── 首屏 ─── */
+  header{text-align:center;padding:96px 0 60px}
+  .kicker{font-size:.8rem;letter-spacing:.55em;color:#5f9e86;margin-bottom:22px}
+  h1{font-size:clamp(2rem,5.4vw,3.3rem);font-weight:800;letter-spacing:.14em;
+     background:linear-gradient(100deg,#a9e7d3,var(--emerald) 42%,var(--gold) 96%);
+     -webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{margin-top:20px;font-size:clamp(.98rem,2.5vw,1.28rem);letter-spacing:.3em;color:var(--ice)}
+  .sub b{color:var(--gold);font-weight:700}
+  .rule{width:120px;height:1px;margin:34px auto 0;
+    background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+  /* ─── 章节 ─── */
+  section{margin:70px 0}
+  .head{display:flex;align-items:baseline;gap:18px;margin-bottom:20px}
+  .no{font-family:Georgia,serif;font-size:2.4rem;color:rgba(232,194,122,.3);font-weight:700;line-height:1}
+  h2{font-size:1.42rem;letter-spacing:.24em;color:#eff8ff;font-weight:700}
+  h2 span{color:var(--emerald)}
+  .card{background:linear-gradient(165deg,rgba(10,31,51,.86),rgba(6,20,33,.9));
+    border:1px solid var(--line);border-radius:16px;padding:32px 36px;
+    box-shadow:0 24px 60px -34px #000}
+  .card p{color:#c3dcec;margin-bottom:12px}
+  .card p:last-child{margin-bottom:0}
+  .em{color:var(--emerald);font-weight:700}
+  .gd{color:var(--gold);font-weight:700}
+  /* 30米常数 · 数字凯旋 */
+  .const{text-align:center;padding:44px 20px 30px;border-radius:20px;
+    background:radial-gradient(ellipse at 50% 30%, rgba(46,230,168,.09), transparent 68%);
+    border:1px solid rgba(46,230,168,.18)}
+  .const .n{font-size:clamp(3.6rem,10vw,6.4rem);font-weight:900;color:var(--emerald);
+    line-height:1;text-shadow:0 0 46px rgba(46,230,168,.4);letter-spacing:.04em}
+  .const .n small{font-size:.26em;color:#bfeee0;font-weight:700;letter-spacing:.3em;margin-left:.3em}
+  .const .t{margin-top:14px;color:var(--mute);letter-spacing:.3em;font-size:.92rem}
+  /* 六阶循环 */
+  .cycle{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media(max-width:900px){.cycle{grid-template-columns:1fr 1fr}}
+  @media(max-width:600px){.cycle{grid-template-columns:1fr}}
+  .step{position:relative;background:linear-gradient(168deg,#0b2237,#071829);
+    border:1px solid var(--line);border-radius:14px;padding:24px 22px;
+    transition:transform .35s ease, border-color .35s ease}
+  .step:hover{transform:translateY(-6px);border-color:rgba(46,230,168,.45)}
+  .step h3{color:var(--emerald);font-size:1.06rem;letter-spacing:.16em;margin-bottom:9px}
+  .step h3 i{font-style:normal;color:#5b829c;font-family:Georgia,serif;margin-right:8px}
+  .step p{font-size:.9rem;color:#b4cfe0}
+  /* 三条宏观主张 */
+  .three{display:flex;flex-wrap:wrap;gap:14px}
+  .pill{flex:1 1 200px;border:1px solid rgba(232,194,122,.28);border-radius:12px;
+    padding:18px 16px;background:rgba(232,194,122,.05)}
+  .pill b{display:block;color:var(--gold);letter-spacing:.16em;margin-bottom:6px;font-size:1rem}
+  .pill span{color:#a9c6d9;font-size:.86rem}
+  /* 五大准则 */
+  .creed{list-style:none}
+  .creed li{padding:12px 0 12px 54px;position:relative;color:#c3dcec;
+    border-bottom:1px dashed rgba(19,50,76,.9)}
+  .creed li:last-child{border-bottom:none}
+  .creed li::before{content:"◆";position:absolute;left:12px;top:12px;color:var(--emerald);font-size:.8rem}
+  /* 尾诗 */
+  .poem{text-align:center;padding:60px 16px}
+  .poem p{font-size:clamp(1.05rem,2.9vw,1.45rem);letter-spacing:.34em;color:#eaf6ff;margin:10px 0}
+  .poem p b{color:var(--gold)}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:34px 0 20px;text-align:center;
+    color:var(--mute);font-size:.86rem;letter-spacing:.18em;line-height:2}
+  footer a{color:var(--emerald);text-decoration:none}
+  .fade{animation:fade .9s ease both}
+  @keyframes fade{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+  .d1{animation-delay:.12s}.d2{animation-delay:.24s}.d3{animation-delay:.36s}
+</style>
+</head>
+<body>
+<div class="stars"></div>
+<div class="stars2"></div>
+
+<div class="sea">
+  <svg viewBox="0 0 1440 150" preserveAspectRatio="none">
+    <path class="layer l3" d="M0,84 C220,44 460,116 700,80 C940,46 1180,110 1440,74 L1440,150 L0,150 Z" fill="#061523" opacity=".85"/>
+    <path class="layer l2" d="M0,100 C240,66 480,122 720,92 C960,64 1200,116 1440,88 L1440,150 L0,150 Z" fill="#081b2c" opacity=".9"/>
+    <path class="layer l1" d="M0,118 C260,90 520,132 760,110 C1000,90 1240,126 1440,106 L1440,150 L0,150 Z" fill="#0a2135"/>
+  </svg>
+</div>
+
+<main>
+  <header>
+    <div class="kicker fade">S I N O S H O P · 工 程 技 术 宣 言</div>
+    <h1 class="fade d1">海洋文明工程宣言</h1>
+    <div class="sub fade d2"><b>海生电</b> · 电养船 · 船搭桥 · 桥造城 · 城惠民 · <b>众生安</b></div>
+    <div class="rule fade d3"></div>
+  </header>
+
+  <section>
+    <div class="head"><div class="no">01</div><h2>五重<span>困境</span></h2></div>
+    <div class="card">
+      <p>人类文明存在五大结构性瓶颈：科技生态难以协同，城建受限于土地资源，
+      发展红利难以普惠，物质精神发展失衡，资产体系滞后时代。</p>
+      <p>SINOSHOP 重塑生态、工程、价值、人文、资产底层秩序——<span class="em">依数字资产五大准则，搭建价值闭环</span>。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="head"><div class="no">02</div><h2><span>30 米</span>常数</h2></div>
+    <div class="const">
+      <div class="n">30<small>M</small></div>
+      <div class="t">道法自然，万物有数 —— 全域尺度皆为三十米之整数倍</div>
+    </div>
+    <div class="card" style="margin-top:22px">
+      <p>标准单元取<span class="gd">三十米</span>，百组串联、三千成编。此常数非随意取整，
+      而是由流体、结构、深海建造与安全疏散四重推演共同收敛出的<span class="em">工程共识基准</span>。</p>
+      <p>单元之内，综合管廊承载高铁、货运与公路通行；单元之上，救生舱阵列均匀布设，
+      使疏散容量与人流密度同步生长——<span class="em">尺度即安全</span>。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="head"><div class="no">03</div><h2>六阶<span>循环</span></h2></div>
+    <div class="cycle">
+      <div class="step"><h3><i>I</i>海生电</h3><p>依托潮汐、洋流、波浪与温差零碳发电，三管合一构型配直驱机组，向海取能、以能养海。</p></div>
+      <div class="step"><h3><i>II</i>电养船</h3><p>自产绿电驱动氢能船队，零排放运行。集运输、发电、拼装、清污、运维、科研、贸易于一体。</p></div>
+      <div class="step"><h3><i>III</i>船搭桥</h3><p>AI 智能自锁船队动态重组：常态成通途，极端海况切换阵型整体下潜，以柔克刚。</p></div>
+      <div class="step"><h3><i>IV</i>桥造城</h3><p>依托生长机制向外拓展，不填海、不破坏滩涂。九门百坊承载人居，观星台集聚人文。</p></div>
+      <div class="step"><h3><i>V</i>城惠民</h3><p>公海自贸体系与数字资产三型并举——数据确权、实体上链、未来价值前置普惠。</p></div>
+      <div class="step"><h3><i>VI</i>众生安</h3><p>步行可达救生舱；断电时蓄光材料长效照明；海啸模式以多层水压缓冲守护全域安全。</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="head"><div class="no">04</div><h2>一孔两用 · <span>正六边形蜂窝</span></h2></div>
+    <div class="card">
+      <p>壳壁顶部由桁架围合成<span class="em">正六边形蜂窝格孔</span>，格孔内嵌透明板——
+      平日是乘客观望海色的窗，应急时同一个开孔即成为救生舱出壳的通道。</p>
+      <p>两用<span class="gd">不设转换机构</span>：应急时刻，人不一定有能力去操作任何机关。
+      最好的机构，是没有机构。</p>
+      <p>六边形是自然界最懂得节省的形：以最少的材料围出最大的空间。
+      我们把这一古老智慧请进深海——<span class="em">让结构自己学会节俭</span>。</p>
+    </div>
+    <div class="three" style="margin-top:18px">
+      <div class="pill"><b>一孔两用</b><span>天窗与救生通道共用同一开口，不靠机关，靠构造</span></div>
+      <div class="pill"><b>蜂窝格孔</b><span>以最少材料围出最大空间，格孔自承、单元互换</span></div>
+      <div class="pill"><b>双体系逃生</b><span>步行通道网与救生舱阵列互为冗余，合并达标，不虚报单一体系</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="head"><div class="no">05</div><h2>材料<span>觉醒</span></h2></div>
+    <div class="card">
+      <p>融合竹纤维、玄武岩、稻秆与再生高密度聚酯，打造六边形智能榫卯复合管壁。</p>
+      <p>管壁集成电力、光纤、制热、声学<span class="em">四网合一</span>；记忆合金温控自锁，
+      免螺栓快速装配，<span class="em">长寿命设计</span>。</p>
+      <p>随水流光影渐变，伴海浪律动发声，恒温释放远红外光波，适配人体康养——
+      <span class="gd">工程材料也可以有体温</span>。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="head"><div class="no">06</div><h2>道法<span>自然</span></h2></div>
+    <div class="card">
+      <p>五层悬浮红树林防波体系，分级消减海浪能量，不筑硬堤、不隔断潮汐。
+      数年成林，岁岁固碳——<span class="em">以生态之法，解工程之题</span>。</p>
+      <p>AI 全域监测海洋环境，无人船回收海面塑料与油污，废弃物再生为工程建材，
+      形成<span class="gd">治海 · 再生 · 复用</span>的永续闭环。</p>
+      <p>悬浮不搅动海床，防波如红树林一般与海共生——技术是手段，善意是目的。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="head"><div class="no">07</div><h2>文明的<span>回答</span></h2></div>
+    <div class="card">
+      <p>以零碳能源修复生态，以海上新城突破土地约束，以合规数字资产实现价值普惠，
+      以开放自贸释放发展红利，以人文创新均衡物质精神发展——<span class="em">一体破解时代五大困境</span>。</p>
+      <p>SINOSHOP 并非单一工程或商业模式，而是一套
+      <span class="gd">生态 · 能源 · 工程 · 城市 · 贸易 · 算力 · 数据 · 资产 · 未来价值</span>
+      全域自洽的人海共生文明体系。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="head"><div class="no">08</div><h2>真实数字资产<span>五大准则</span></h2></div>
+    <div class="card">
+      <ul class="creed">
+        <li>独立完整生态，不依附单一平台</li>
+        <li>锚定现实场景，可持续创造价值</li>
+        <li>自主算力算法，搭建完整技术底座</li>
+        <li>链上确权存证，权属唯一全程溯源</li>
+        <li>第三方独立清结算，收益分配公开透明</li>
+      </ul>
+    </div>
+    <div class="three" style="margin-top:18px">
+      <div class="pill"><b>RDA 真实数据资产</b><span>能源、生态、算力、运维原生数据，确权沉淀，持续增值</span></div>
+      <div class="pill"><b>RWA 现实资产上链</b><span>实体工程数字化确权，盘活存量，合规流通</span></div>
+      <div class="pill"><b>RMA 未来价值资产</b><span>远期价值前置评估，前置普惠</span></div>
+    </div>
+  </section>
+
+  <div class="poem">
+    <p>百模百接三千米，<b>一统功能分</b>。</p>
+    <p>一脉相承三十米，<b>海城终现天地间</b>。</p>
+  </div>
+
+  <footer>
+    <div>SINOSHOP 悬浮港隧道浮桥 · 工程技术宣言</div>
+    <div>以术载道 · 造福众生 · 存好心 · 说好话 · 行好事</div>
+    <div style="margin-top:14px"><a href="../README.md">← 返回 SinoSFT 仓库</a></div>
+  </footer>
+</main>
+</body>
+</html>
