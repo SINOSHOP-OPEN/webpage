@@ -1,0 +1,296 @@
+/* ==========================================================================
+   SINOSHOP 统一系统形象 · 主题层 theme.css
+   --------------------------------------------------------------------------
+   定位：全站唯一的「身份层」。所有页面在自身内联样式之后加载本文件，
+        靠 CSS 层叠顺序完成两件事，且**不改动任何页面原有样式**：
+
+     ① 令牌桥接 —— 把各页面各自命名的变量（--bg / --deep / --panel /
+        --green / --em …）统一重定向到同一套色板，页面无需改一行代码即换肤；
+     ② 统一外壳 —— 提供全站一致的站点导航条（.sn-bar）与页脚（.sn-foot），
+        并统一徽章、金线、卡片等基础构件。
+
+   色板（深空蓝 ＋ 翡翠绿 ＋ 金线）：
+     底 #04101d · 面板 #071a2c · 面板二 #0a2136
+     翡翠 #1d9e75（深 #0f6e56）· 金 #e8b45a
+     墨 #dbe7f3 · 次墨 #8fa8bf · 淡墨 #5f7890
+   ========================================================================== */
+
+:root{
+  /* ── 统一色板（权威定义） ── */
+  --sn-deep:#04101d;
+  --sn-panel:#071a2c;
+  --sn-panel2:#0a2136;
+  --sn-ink:#dbe7f3;
+  --sn-dim:#8fa8bf;
+  --sn-faint:#5f7890;
+  --sn-em:#1d9e75;
+  --sn-em-dim:#0f6e56;
+  --sn-em-soft:rgba(29,158,117,.12);
+  --sn-gold:#e8b45a;
+  --sn-line:rgba(201,214,226,.14);
+  --sn-line-2:rgba(201,214,226,.26);
+
+  /* ── 令牌桥接：老页面变量 → 统一色板 ── */
+  --deep:var(--sn-deep);
+  --bg:var(--sn-deep);
+  --bg-2:var(--sn-panel);
+  --panel:var(--sn-panel);
+  --panel-2:var(--sn-panel2);
+  --panel2:var(--sn-panel2);
+  --ink:var(--sn-ink);
+  --ink-2:var(--sn-ink);
+  --ink-3:var(--sn-dim);
+  --dim:var(--sn-dim);
+  --faint:var(--sn-faint);
+  --em:var(--sn-em);
+  --em-dim:var(--sn-em-dim);
+  --em-soft:var(--sn-em-soft);
+  --green:var(--sn-em);
+  --green-l:#2ee6a8;
+  --green-d:var(--sn-em-dim);
+  --gold:var(--sn-gold);
+  --line:var(--sn-line);
+  --line-2:var(--sn-line-2);
+  --blue:#2b6cb0;
+  --red:#c05656;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei","Hiragino Sans GB",Arial,sans-serif;
+  --mono:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,"JetBrains Mono",monospace;
+}
+
+/* ── 统一页面底色与排版基线 ── */
+body{
+  background:var(--sn-deep);
+  color:var(--sn-ink);
+  font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--sn-em-soft);color:#fff}
+
+/* ── 站点导航条（.sn-bar）──────────────────────────────────────────────── */
+.sn-bar{
+  position:sticky;top:0;z-index:60;
+  background:rgba(4,16,29,.94);
+  border-bottom:1px solid var(--sn-line);
+  backdrop-filter:saturate(140%) blur(10px);
+  -webkit-backdrop-filter:saturate(140%) blur(10px);
+}
+.sn-bar .sn-bar-in{
+  max-width:1280px;margin:0 auto;padding:0 24px;
+  height:46px;display:flex;align-items:center;justify-content:space-between;gap:18px;
+}
+.sn-brand{
+  font-size:13px;font-weight:600;letter-spacing:.12em;color:var(--sn-ink);
+  white-space:nowrap;text-decoration:none;flex:0 0 auto;
+}
+.sn-brand em{color:var(--sn-em);font-style:normal}
+.sn-brand small{
+  display:block;font-size:10px;font-weight:400;letter-spacing:.22em;
+  color:var(--sn-faint);margin-top:1px;
+}
+.sn-nav{
+  display:flex;align-items:center;gap:2px;flex-wrap:nowrap;
+  justify-content:flex-end;overflow-x:auto;scrollbar-width:none;
+}
+.sn-nav::-webkit-scrollbar{display:none}
+.sn-nav a{
+  font-size:12.5px;color:var(--sn-dim);text-decoration:none;
+  padding:5px 9px;border-radius:6px;letter-spacing:.02em;white-space:nowrap;
+  transition:color .15s ease,background .15s ease;
+}
+.sn-nav a:hover{color:#fff;background:rgba(29,158,117,.14)}
+.sn-nav a.sn-cta{
+  color:var(--sn-em);border:1px solid var(--sn-em-dim);
+  padding:4px 11px;border-radius:999px;
+}
+.sn-nav a.sn-cta:hover{background:var(--sn-em-soft);color:#fff}
+@media (max-width:760px){
+  .sn-bar .sn-bar-in{height:auto;padding:9px 16px;flex-direction:column;align-items:flex-start;gap:6px}
+  .sn-nav{justify-content:flex-start}
+}
+
+/* ── 统一页脚（.sn-foot）──────────────────────────────────────────────── */
+.sn-foot{
+  border-top:1px solid var(--sn-line);
+  background:linear-gradient(180deg,rgba(7,26,44,.55),rgba(4,16,29,.9));
+  margin-top:38px;
+}
+.sn-foot .sn-foot-in{
+  max-width:1080px;margin:0 auto;padding:26px 24px 30px;
+  display:flex;flex-wrap:wrap;gap:20px 34px;align-items:flex-start;
+}
+.sn-foot .sn-foot-brand{min-width:240px;flex:1 1 240px}
+.sn-foot .sn-foot-brand .sn-motto{
+  font-size:13.5px;color:var(--sn-ink);line-height:1.7;letter-spacing:.02em;
+}
+.sn-foot .sn-foot-brand .sn-motto em{color:var(--sn-em);font-style:normal}
+.sn-foot .sn-foot-brand .sn-sub{
+  margin-top:7px;font-size:11px;color:var(--sn-faint);letter-spacing:.14em;
+}
+.sn-foot .sn-foot-cols{display:flex;gap:34px;flex-wrap:wrap;flex:2 1 420px}
+.sn-foot .sn-col{min-width:132px}
+.sn-foot .sn-col h4{
+  font-size:11px;font-weight:500;letter-spacing:.2em;color:var(--sn-faint);
+  margin:0 0 9px;text-transform:uppercase;
+}
+.sn-foot .sn-col a{
+  display:block;font-size:12.5px;color:var(--sn-dim);text-decoration:none;
+  line-height:2.05;
+}
+.sn-foot .sn-col a:hover{color:var(--sn-em)}
+.sn-foot .sn-line{
+  max-width:1080px;margin:0 auto;padding:0 24px 24px;
+  font-size:11px;color:var(--sn-faint);letter-spacing:.04em;
+}
+
+/* ── 统一构件：徽章 / 金线 / 卡片 ─────────────────────────────────────── */
+.sn-chip{
+  display:inline-block;font-size:11px;letter-spacing:.08em;
+  padding:2px 9px;border-radius:999px;
+  border:1px solid var(--sn-em-dim);color:var(--sn-em);
+  background:var(--sn-em-soft);text-decoration:none;white-space:nowrap;
+}
+.sn-chip.sn-chip-gold{border-color:rgba(232,180,90,.45);color:var(--sn-gold);background:rgba(232,180,90,.10)}
+.sn-chip.sn-chip-ghost{border-color:var(--sn-line-2);color:var(--sn-dim);background:transparent}
+.sn-rule{
+  display:block;height:1px;width:72px;
+  background:linear-gradient(90deg,var(--sn-em),rgba(29,158,117,0));
+  margin:14px 0;
+}
+.sn-kicker{
+  font-size:11.5px;letter-spacing:.34em;color:var(--sn-faint);
+  text-transform:uppercase;
+}
+.sn-panel{
+  background:var(--sn-panel);
+  border:1px solid var(--sn-line);
+  border-radius:12px;
+  padding:20px 22px;
+}
+.sn-panel a{color:var(--sn-em);text-decoration:none}
+.sn-panel a:hover{color:#35c194}
+
+/* ── 404 兜底页（unknown path 时的落点）──────────────────────────────── */
+.sn-404{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  padding:40px 24px;
+}
+.sn-404 .sn-404-in{max-width:620px;text-align:center}
+.sn-404 h1{
+  font-size:clamp(34px,6vw,60px);font-weight:600;color:#fff;margin:10px 0 6px;
+  letter-spacing:.04em;
+}
+.sn-404 p{color:var(--sn-dim);font-size:14.5px;line-height:1.8}
+.sn-404 .sn-quick{
+  margin-top:26px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;
+}
+.sn-404 .sn-quick a{
+  font-size:13px;padding:8px 16px;border-radius:8px;
+  border:1px solid var(--sn-line-2);color:var(--sn-ink);text-decoration:none;
+  background:var(--sn-panel);
+}
+.sn-404 .sn-quick a:hover{border-color:var(--sn-em);color:var(--sn-em)}
+
+/* ==========================================================================
+   统一各页既有页头 / 页脚（不新增结构，只统一观感）
+   --------------------------------------------------------------------------
+   ① 主页 .top：原为 nowrap flex，.platforms-row 声明 width:100%，
+      致使品牌与导航被挤压折行 —— 改为三行栅格（品牌/锚点 · 平台按钮 · 横幅）；
+   ② 子页 nav.nav：统一到系统条的高度、品牌字形与链接形态；
+   ③ 主页 #footer 与子页 footer.foot：统一金线分隔与底部细字。
+   ========================================================================== */
+
+/* ① 主页顶栏 —— 三行栅格，消除挤压 */
+.top .wrap{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  grid-template-areas:
+    "mark   topnav"
+    "plats  plats"
+    "banner banner";
+  align-items:center;gap:12px 20px;
+  height:auto;min-height:0;padding-top:12px;padding-bottom:12px;
+}
+.top .mark{grid-area:mark;white-space:nowrap}
+.top .topnav{grid-area:topnav;justify-content:flex-end;flex-wrap:nowrap;min-width:0}
+.top .platforms-row{grid-area:plats;width:auto;justify-content:flex-start;padding-top:4px}
+.top .wp-banner{grid-area:banner;width:auto;margin-top:0}
+.top .mark{font-size:14px;letter-spacing:.14em}
+.top .topnav nav{display:flex;align-items:center;flex-wrap:nowrap}
+.top .topnav nav a{
+  margin-left:0;padding:5px 11px;border-radius:6px;
+  font-size:12.5px;letter-spacing:.04em;white-space:nowrap;
+}
+.top .topnav nav a:hover{background:rgba(29,158,117,.14);color:#fff}
+.top .lang{flex:0 0 auto;margin-left:12px;white-space:nowrap}
+.top .lang button{white-space:nowrap}
+@media (max-width:880px){
+  .top .wrap{grid-template-columns:1fr;grid-template-areas:"mark" "topnav" "plats" "banner"}
+  .top .topnav{justify-content:flex-start}
+}
+
+/* ② 子页导航 —— 与系统条同一形态 */
+nav.nav{
+  border-bottom:1px solid var(--sn-line);
+  background:rgba(4,16,29,.94);
+  position:sticky;top:0;z-index:60;
+  backdrop-filter:saturate(140%) blur(10px);
+  -webkit-backdrop-filter:saturate(140%) blur(10px);
+}
+nav.nav .wrap{
+  display:flex;align-items:center;gap:2px;height:52px;overflow-x:auto;
+  max-width:1280px;scrollbar-width:none;
+}
+nav.nav .wrap::-webkit-scrollbar{display:none}
+nav.nav .brand{
+  font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.12em;
+  color:var(--sn-ink);margin-right:12px;white-space:nowrap;flex:0 0 auto;
+}
+nav.nav a{
+  font-size:12px;color:var(--sn-dim);padding:5px 8px;border-radius:6px;
+  border:1px solid transparent;white-space:nowrap;letter-spacing:.02em;flex:0 0 auto;
+}
+nav.nav a:hover{background:rgba(29,158,117,.14);border-color:transparent;color:#fff}
+nav.nav a.sn-cta{
+  color:var(--sn-em);border-color:var(--sn-em-dim);padding:4px 11px;border-radius:999px;
+}
+nav.nav a.sn-cta:hover{background:var(--sn-em-soft);color:#fff}
+
+/* ③ 页脚统一 —— 金线 + 统一细字 */
+footer.foot{
+  border-top:1px solid var(--sn-line);
+  background:linear-gradient(180deg,rgba(7,26,44,.5),rgba(4,16,29,.9));
+  padding:30px 0 42px;color:var(--sn-dim);font-size:13px;
+}
+footer.foot .row{gap:10px 22px}
+footer.foot a{color:var(--sn-dim);text-decoration:none;border-bottom:1px solid var(--sn-line-2)}
+footer.foot a:hover{color:var(--sn-em);border-bottom-color:var(--sn-em)}
+footer.foot .fine{font-size:11.5px;color:var(--sn-faint);line-height:1.75}
+footer#footer{
+  border-top:1px solid var(--sn-line);
+  background:linear-gradient(180deg,rgba(7,26,44,.5),rgba(4,16,29,.9));
+}
+footer#footer .copyright{color:var(--sn-faint);font-size:11.5px}
+footer#footer .final{letter-spacing:.24em}
+
+
+/* ── 提交包获取入口区块 ─────────────────────────────────────────────────── */
+.np-entry{
+  margin:18px 0 26px;padding:16px 18px;border-radius:var(--sn-radius,12px);
+  background:var(--sn-panel);border:1px solid var(--sn-line-2);
+}
+.np-entry h3{font-size:15px;font-weight:500;color:#fff;margin:0 0 8px}
+.np-entry p{font-size:13.5px;line-height:1.85;color:var(--sn-dim);margin:0 0 9px}
+.np-entry p:last-child{margin-bottom:0}
+.np-btn{
+  display:inline-block;font-size:13px;padding:9px 18px;border-radius:8px;
+  background:var(--sn-em);color:#fff;text-decoration:none;font-weight:500;
+  transition:opacity .15s ease;
+}
+.np-btn:hover{opacity:.9}
+
+/* ── 赛事标签（页脚极简一行） ─────────────────────────────────────────── */
+.sn-race{
+  flex:0 0 100%;width:100%;
+  margin:14px 0 0;font-size:12px;line-height:1.7;
+  color:var(--sn-faint);letter-spacing:.04em;text-align:center;
+}
