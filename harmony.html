@@ -63,9 +63,39 @@
     border-radius:999px;padding:2px 11px;margin-right:10px;font-size:12px;letter-spacing:.16em}
   .film-cap a{color:var(--em);text-decoration:none;border-bottom:1px dotted var(--em-dim)}
   .film-cap a:hover{border-bottom-style:solid}
+
+  /* ── 全站导航条 ── */
+  .xnav{position:sticky;top:0;z-index:80;
+    background:rgba(11,15,20,.84);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid #243040}
+  .xnav-in{max-width:1040px;margin:0 auto;padding:11px 22px;display:flex;align-items:center;
+    gap:4px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;
+    font-size:13.5px;letter-spacing:.06em}
+  .xnav-in::-webkit-scrollbar{display:none}
+  .xnav a{color:#8fa0b0;text-decoration:none;white-space:nowrap;padding:5px 10px;
+    border-radius:7px;transition:color .25s ease,background .25s ease}
+  .xnav a:hover{color:#3ecf9a;background:color-mix(in srgb,#3ecf9a 10%,transparent)}
+  .xnav a.xnav-brand{color:#8fa0b0;letter-spacing:.24em;font-weight:600;font-size:12px;opacity:.8}
+  .xnav a.xnav-brand:hover{color:#3ecf9a;opacity:1}
+  .xnav .xnav-div{width:1px;height:13px;background:#243040;margin:0 6px;flex:none}
+  .xnav a.on{color:#3ecf9a;box-shadow:inset 0 -1px 0 #3ecf9a;border-radius:7px 7px 0 0}
+  @media(max-width:640px){.xnav-in{font-size:12.5px;padding:9px 14px;gap:2px}}
+
+  .wrap{padding-top:34px}
 </style>
 </head>
 <body>
+<nav class="xnav" aria-label="全站导航">
+  <div class="xnav-in">
+    <a class="xnav-brand" href="index.html">SINOSHOP</a>
+    <span class="xnav-div"></span>
+    <a href="harmony.html" class="on">🕊️ 致众生和谐书</a>
+    <a href="docs/manifesto.html">📜 工程宣言</a>
+    <span class="xnav-div"></span>
+    <a href="https://sinoshop-open.github.io/webpage/" target="_blank" rel="noopener">🌐 官网展示页</a>
+    <a href="https://github.com/SINOSHOP-OPEN/SinoPORT" target="_blank" rel="noopener">🐙 GitHub 镜像仓库</a>
+  </div>
+</nav>
 <div class="wrap">
 
   <!-- ══ 概念片 · 首屏 ══ -->
