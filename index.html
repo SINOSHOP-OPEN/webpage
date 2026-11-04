@@ -180,6 +180,16 @@ footer{border-top:1px solid var(--line);padding:64px 0 48px;text-align:center}
 .ek-btn.ghost{border-color:rgba(140,180,210,.32);background:rgba(255,255,255,.03);color:#cfe2ee;font-weight:500}
 .ek-btn.ghost:hover{border-color:rgba(140,180,210,.6);box-shadow:none}
 .ek-preview{width:100%;border-radius:8px;border:1px solid rgba(120,190,255,.16);background:#fff;display:block}
+/* PDF 占位卡：手机端不自动拉取 PDF，避免浏览器把内嵌 PDF 当成下载 */
+.ek-pdfbox{width:100%;min-height:260px;border-radius:8px;border:1px dashed rgba(120,190,255,.28);
+  background:linear-gradient(160deg,rgba(20,44,66,.75),rgba(10,24,38,.75));
+  display:flex;align-items:center;justify-content:center;padding:26px 18px;text-align:center}
+.ek-pdfbox-in{max-width:430px;display:flex;flex-direction:column;align-items:center;gap:9px}
+.ek-pdfbox-ic{font-size:30px;line-height:1}
+.ek-pdfbox-t{font-size:14.5px;font-weight:600;letter-spacing:.05em;color:#f2f7f9}
+.ek-pdfbox-d{font-size:12px;line-height:1.85;color:var(--dim)}
+.ek-pdfbox-d b{color:var(--em)}
+.ek-pdfbox-hint{font-size:11px;line-height:1.7;color:var(--faint)}
 .ek-wide{grid-column:1/-1}
 .ek-video{width:100%;max-width:100%;border-radius:8px;border:1px solid rgba(120,190,255,.16);background:#04101c;display:block}
 .ek-note{margin:14px 0 0;font-size:11.5px;line-height:1.8;color:var(--faint)}
@@ -399,14 +409,22 @@ footer{border-top:1px solid var(--line);padding:64px 0 48px;text-align:center}
   <div class="eval-kit" id="eval-kit">
     <span class="ek-badge">EVALUATION KIT · 评审直链</span>
     <h3>技术报告与演示视频 —— 一键直达，无需注册</h3>
-    <p class="ek-lead">以下为提交给评审的核心材料，<b>全部可在本页直接查看</b>：技术报告在页面内翻阅，演示视频在页面内直接播放（<b>无需下载</b>）。如需离线留档，可使用「下载 PDF」按钮另存。</p>
+    <p class="ek-lead">以下为提交给评审的核心材料，<b>全部可在本页直接查看</b>：技术报告<b>点一下</b>即可翻阅（手机端会在新页面打开阅读器），演示视频在页面内直接播放（<b>无需下载</b>）。如需离线留档，可使用「下载 PDF」按钮另存。</p>
     <div class="ek-grid">
 
       <div class="ek-card ek-wide">
         <div class="ek-ic">📄</div>
         <div class="ek-t">核心技术报告 · V2.0</div>
-        <div class="ek-d">13 页全文 · 物理模型、能量闭环、稳性与消浪结论 · <b>下方可直接翻阅</b></div>
-        <iframe class="ek-preview" src="docs/media/papers/SINOPORT_Core_Physics_Report_V2.0.pdf" title="SINOPORT 核心技术报告 V2.0" height="620"></iframe>
+        <div class="ek-d">13 页全文 · 物理模型、能量闭环、稳性与消浪结论 · <b>点击「打开报告」即可翻阅</b></div>
+        <div class="ek-pdfbox" id="ekPdfBox">
+          <div class="ek-pdfbox-in">
+            <div class="ek-pdfbox-ic">📄</div>
+            <div class="ek-pdfbox-t">SINOPORT 核心技术报告 V2.0 · 13 页</div>
+            <div class="ek-pdfbox-d">电脑端：点「打开报告」在本页内嵌翻阅<br>手机端：点「打开报告」直接进入阅读器，<b>不会自动下载</b></div>
+            <a class="ek-btn gold" href="docs/media/papers/SINOPORT_Core_Physics_Report_V2.0.pdf" target="_blank" rel="noopener" data-pdf>📄 打开报告</a>
+            <div class="ek-pdfbox-hint">报告共约 2.2 MB，仅在点击后加载</div>
+          </div>
+        </div>
         <div class="ek-actions">
           <a class="ek-btn gold" href="docs/media/papers/SINOPORT_Core_Physics_Report_V2.0.pdf" target="_blank" rel="noopener">📄 全屏阅读报告</a>
           <a class="ek-btn ghost" href="docs/media/papers/SINOPORT_Core_Physics_Report_V2.0.pdf" download title="将 PDF 另存到本地（约 2.2 MB）">⬇ 下载 PDF 文件</a>
@@ -961,6 +979,34 @@ footer{border-top:1px solid var(--line);padding:64px 0 48px;text-align:center}
   function boot(){ apply(saved);
     var btns=document.querySelectorAll("#langSwitch button");
     for(var j=0;j<btns.length;j++){ (function(b){ b.addEventListener("click",function(){ apply(b.getAttribute("data-lang")); }); })(btns[j]); }
+  }
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",boot); else boot();
+})();
+</script>
+<script>
+/* PDF 懒加载：页面加载时一律不请求 PDF（手机浏览器会把内嵌 PDF 判为下载，
+   导致点任何导航链接刷新页面都弹「保存文件」）。
+   只有用户点「打开报告」才加载：宽屏→本页内嵌翻阅；手机→新页面阅读器。 */
+(function(){
+  var PDF="docs/media/papers/SINOPORT_Core_Physics_Report_V2.0.pdf";
+  function mountInline(box){
+    if(box.dataset.loaded==="1") return;
+    var f=document.createElement("iframe");
+    f.className="ek-preview"; f.height=620; f.title="SINOPORT 核心技术报告 V2.0";
+    f.setAttribute("src",PDF);
+    box.innerHTML=""; box.appendChild(f);
+    box.dataset.loaded="1";
+  }
+  function isWide(){ try{ return window.matchMedia("(min-width:900px)").matches; }catch(e){ return window.innerWidth>=900; } }
+  function boot(){
+    var box=document.getElementById("ekPdfBox");
+    if(!box) return;
+    var a=box.querySelector("[data-pdf]");
+    if(!a) return;
+    a.addEventListener("click",function(ev){
+      if(!isWide()) return;              /* 手机：走默认新窗口，交给系统阅读器 */
+      ev.preventDefault(); mountInline(box);
+    });
   }
   if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",boot); else boot();
 })();
