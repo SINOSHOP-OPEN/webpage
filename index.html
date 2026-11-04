@@ -232,6 +232,7 @@ footer{border-top:1px solid var(--line);padding:64px 0 48px;text-align:center}
       <button type="button" data-lang="zh" class="on">中文</button><span style="color:var(--faint);font-size:12px">|</span><button type="button" data-lang="en">English</button>
     </div>
   </div>
+  <!-- ⚠️ 增删本组按钮，必须同步修改文末 <script> 里 I18N 数组「.top .platforms .pbtn span」的对应项（中/英各一条），数量不符会导致文字整体串位 -->
   <div class="platforms platforms-row">
     <a class="pbtn" href="https://gitee.com/sinoshop/SinoPORT">💻 <span>Gitee 开源代码仓</span></a>
     <a class="pbtn gh" href="https://github.com/SINOSHOP-OPEN/SinoPORT">🐙 <span>GitHub 镜像仓库</span></a>
@@ -530,6 +531,7 @@ footer{border-top:1px solid var(--line);padding:64px 0 48px;text-align:center}
     <a href="whitepaper.html">技术白皮书 · Whitepaper</a>
   </div>
 
+  <!-- ⚠️ 增删本组按钮，同步修改 I18N 数组「#community .cta .btn」 -->
   <div class="cta">
     <a class="btn" href="https://gitee.com/sinoshop/SinoPORT">💻 Gitee 开源代码仓</a>
     <a class="btn ghost" href="https://github.com/SINOSHOP-OPEN/SinoPORT">🐙 GitHub 镜像仓库</a>
@@ -605,12 +607,14 @@ footer{border-top:1px solid var(--line);padding:64px 0 48px;text-align:center}
 <footer id="footer"><div class="wrap">
   <div class="final">用AI工具，展示<em>真善美</em>和<em>智慧</em>，享受恒久的喜乐</div>
   <div class="law">充分发挥AI人工智能作用造福众生，是我们的享受人生意义的一种方式。</div>
+  <!-- ⚠️ 增删本组按钮，同步修改 I18N 数组「.foot-platforms .pbtn span」 -->
   <div class="platforms foot-platforms">
     <a class="pbtn" href="https://gitee.com/sinoshop/SinoPORT">💻 <span>Gitee 开源代码仓</span></a>
     <a class="pbtn gh" href="https://github.com/SINOSHOP-OPEN/SinoPORT">🐙 <span>GitHub 镜像仓库</span></a>
     <a class="pbtn" href="https://gitee.com/sinoshop/sinoport-public/raw/master/verify/README.md">🧪 <span>当场复现 361 项断言</span></a>
     <a class="pbtn web" href="index.html">🌐 <span>项目官网展示页</span></a>
   </div>
+  <!-- ⚠️ 增删站内系列链接，同步修改 I18N 数组「.foot-sitemap a」 -->
   <div class="sitemap foot-sitemap">
     <p class="sitemap-title">站内系列 · SITE MAP</p>
     <a href="sinotide-high-tide-power.html">Sinotide 潮汐能</a><span>·</span>
@@ -628,6 +632,12 @@ footer{border-top:1px solid var(--line);padding:64px 0 48px;text-align:center}
 <script>
 /* ── 中英双语切换（i18n · 无依赖 · localStorage 记忆） ── */
 (function(){
+  /* ── 多语言字典 · 增删按钮必看 ──
+     规则：每个条目的数组项数，必须与页面上该选择器命中的元素个数严格相等，且顺序一一对应。
+     增删按钮时：中文数组、英文数组各同步增删一项，位置与页面顺序一致。
+     若数量不符，apply() 会跳过该组并在控制台告警（宁可保留原文，也不会串位）。
+     自检：python i18n_audit.py index.html   （退出码 0 即全部对齐）
+  */
   var I18N = [
  [
   "header .hero-copy h1",
