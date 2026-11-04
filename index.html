@@ -821,7 +821,6 @@ footer{border-top:1px solid var(--line);padding:64px 0 48px;text-align:center}
   [
    "💻 Gitee 开源代码仓",
    "🐙 GitHub 镜像仓库",
-   "🧪 当场复现 361 项断言",
    "🌐 项目官网展示页"
   ],
   [
@@ -851,7 +850,6 @@ footer{border-top:1px solid var(--line);padding:64px 0 48px;text-align:center}
    "Gitee 开源代码仓",
    "GitHub 镜像仓库",
    "当场复现 361 项断言",
-   "项目官网展示页",
    "致众生和谐书",
    "海洋文明工程宣言"
   ],
@@ -859,7 +857,6 @@ footer{border-top:1px solid var(--line);padding:64px 0 48px;text-align:center}
    "Gitee · Source Repo",
    "GitHub · Mirror Repo",
    "Reproduce 361 Assertions",
-   "Project Showcase",
    "Harmony Manifesto",
    "Engineering Manifesto"
   ]
@@ -908,6 +905,7 @@ footer{border-top:1px solid var(--line);padding:64px 0 48px;text-align:center}
    "技术白皮书 · Whitepaper",
    "💻 Gitee 开源代码仓",
    "🐙 GitHub 镜像仓库",
+   "🌐 项目官网展示页",
    "🕊️ 致众生和谐书",
    "📜 海洋文明工程宣言"
   ],
@@ -931,6 +929,11 @@ footer{border-top:1px solid var(--line);padding:64px 0 48px;text-align:center}
     I18N.forEach(function(it){
       var sel=it[0], zh=it[1], en=it[2];
       var els=document.querySelectorAll(sel);
+      var src=(lang==="en"?en:zh);
+      if(Array.isArray(src)&&src.length!==els.length){
+        if(window.console&&console.warn) console.warn("[i18n] 已跳过（数组"+src.length+"项 ≠ DOM"+els.length+"个）："+sel);
+        return;
+      }
       for(var i=0;i<els.length;i++){
         var val = (lang==="en"? pick(en,i) : pick(zh,i));
         if(val===undefined||val===null) continue;
