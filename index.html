@@ -275,6 +275,30 @@ html[lang="en"] .inscription .terms td.en{width:100%}
   .inscription .spirit .verse-en{font-size:16px}
 }
 /* SINOSFT INSCRIPTION CSS:END */
+/* SINOSFT DECLARATION CSS:BEGIN */
+/* 金句：略大于正文（正文 clamp(14px,1.5vw,16px)），庄重加粗，墨蓝 #1b2f4a */
+.inscription .axiom{background:#f0ece2;border-top:1px solid rgba(27,47,74,.18);border-bottom:1px solid rgba(27,47,74,.18);text-align:center;padding:34px 20px}
+.inscription .axiom .line{margin:0;font-size:clamp(18px,2.2vw,23px);font-weight:700;letter-spacing:.14em;line-height:1.9;color:#1b2f4a;word-break:normal}
+.inscription .axiom .line-en{font-family:Georgia,"Times New Roman",serif;font-weight:600;font-style:italic;font-size:clamp(15px,1.7vw,18px);letter-spacing:.02em;line-height:1.9;color:#2b3a49}
+/* 极克制的灰色小块：不抢深蓝宏愿，只作工程批注 */
+.inscription .decl{background:#e9edef;padding:44px 20px}
+.inscription .decl .sheet{max-width:780px;margin:0 auto}
+.inscription .decl .grey{background:#f4f5f6;border:1px solid rgba(27,47,74,.09);border-left:3px solid #9aa9b6;border-radius:2px;padding:24px 26px;margin-bottom:26px}
+.inscription .decl .heart{background:#f7f5ef;border:1px solid rgba(27,47,74,.08);border-radius:2px;padding:26px 28px}
+.inscription .decl h3{margin:0 0 14px;font-size:14px;font-weight:700;letter-spacing:.08em;color:#1b2f4a}
+.inscription .decl p{margin:0 0 10px;font-size:14px;line-height:2.05;letter-spacing:.02em;color:#3c4c60;word-break:normal}
+.inscription .decl p:last-child{margin-bottom:0}
+.inscription .decl .epigraph{margin:0 0 16px;font-size:12.5px;letter-spacing:.18em;color:#6b7a88}
+.inscription .decl .couplet{font-weight:600;color:#1b2f4a}
+.inscription .decl .lang-en p{font-family:Georgia,"Times New Roman",serif;font-size:13.5px;line-height:1.95}
+.inscription .decl .lang-en h3{font-family:Georgia,"Times New Roman",serif;font-weight:600;letter-spacing:.02em}
+@media(max-width:640px){
+  .inscription .axiom{padding:26px 16px}
+  .inscription .decl{padding:32px 14px}
+  .inscription .decl .grey,.inscription .decl .heart{padding:20px 18px}
+  .inscription .decl p{font-size:13.5px;line-height:1.95}
+}
+/* SINOSFT DECLARATION CSS:END */
 </style>
 <link rel="stylesheet" href="assets/theme.css">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%2214%22 fill=%22%2304101d%22/%3E%3Cpath d=%22M12 44c6-12 14-18 20-18s14 6 20 18%22 fill=%22none%22 stroke=%22%231d9e75%22 stroke-width=%225%22 stroke-linecap=%22round%22/%3E%3Ccircle cx=%2232%22 cy=%2226%22 r=%224%22 fill=%22%23e8b45a%22/%3E%3C/svg%3E">
@@ -292,7 +316,10 @@ html[lang="en"] .inscription .terms td.en{width:100%}
         <b>SINOSFT跨海悬浮隧道浮桥家园</b><br>SINOSFT Cross-Sea Submerged Floating Tunnel &amp; Floating Bridge Homeland
       </div>
     </div></div>
-    <div class="manifesto"><div class="sheet">
+    <!-- DECL-AXIOM:BEGIN -->
+    <div class="axiom"><p class="line">实事求是，可以所向披靡，无往不胜。</p></div>
+<!-- DECL-AXIOM:END -->
+<div class="manifesto"><div class="sheet">
       <p class="lead">我们不是AI，也不是神棍。我们是试图在深海里算平每一吨浮力的工程信徒。</p>
       <p>你可以嘲笑这1188米的巨兽，你可以不理解那30米水膜里的0.89厘米。</p>
       <p>但请记住今天，记住这个曾被当成段子的名字：SINOSFT。</p>
@@ -317,7 +344,10 @@ html[lang="en"] .inscription .terms td.en{width:100%}
         <b>SINOSFT Cross-Sea Submerged Floating Tunnel &amp; Floating Bridge Homeland</b><br>SINOSFT跨海悬浮隧道浮桥家园
       </div>
     </div></div>
-    <div class="manifesto"><div class="sheet">
+    <!-- DECL-AXIOM:BEGIN -->
+    <div class="axiom"><p class="line line-en">Seek truth from facts — with it, every barrier yields and every undertaking prevails.</p></div>
+<!-- DECL-AXIOM:END -->
+<div class="manifesto"><div class="sheet">
       <p class="lead-en">What you see as mysticism today, will not take a century. Within 15 years, the SINOSFT floating tunnel and ocean homeland, reaching beyond any distance, will undoubtedly be built to bless all living beings.</p>
       <p class="bilingual">今天你眼里的玄学，不必等百年，最多15年以内，SINOSFT悬浮隧道浮桥家园，无远弗届，必定能够建成，造福众生。</p>
       <p>We let the wind be wind and the wave be wave.</p>
@@ -325,6 +355,43 @@ html[lang="en"] .inscription .terms td.en{width:100%}
       <p class="coda">Safety at sea rests on verifiable rigour, not beautiful slogans.</p>
     </div></div>
   </div>
+<!-- SINOSFT DECLARATION:BEGIN -->
+  <section class="decl"><div class="sheet">
+    <div class="grey">
+      <div class="lang-zh">
+        <h3>【SINOSFT 开源与数字确权理念】</h3>
+        <p>技术圈藏龙卧虎，但常因眼前利益而捆缚手脚。SINOSFT 相信，开源不是无偿的奉献，而是为了打破壁垒；确权不是闭门造车，而是为了护航创新。</p>
+        <p>我们的宏观物理框架与底层逻辑向全人类开源（遵循 Apache-2.0）；同时，包含 247 项核心断言的物理数据集，已依法启动国家知识产权与数据资产登记。</p>
+        <p>我们拥抱开源，也坚决捍卫创新的尊严。</p>
+      </div>
+      <div class="lang-en">
+        <h3>【SINOSFT · Open Source and Digital Asset Rights】</h3>
+        <p>Our field is full of quiet talent, yet it is often held back by short-term interests. SINOSFT holds that open source is not gratuitous giving, but the breaking down of walls; rights registration is not working behind closed doors, but the safeguarding of innovation.</p>
+        <p>Our macroscopic physical framework and underlying logic are open to all under Apache-2.0; meanwhile, the physical dataset containing 247 core assertions has entered national intellectual-property and data-asset registration in accordance with the law.</p>
+        <p>We embrace open source, and we firmly defend the dignity of innovation.</p>
+      </div>
+    </div>
+    <div class="heart">
+      <div class="lang-zh">
+        <h3>【情怀与技术，同样重要】</h3>
+        <p class="epigraph">人心难静，迷茫无基</p>
+        <p>在技术圈，我们不缺精妙的算法，也不缺炫酷的模型。但我们深知，在时代的巨浪面前，人心易迷失，技术易无根。</p>
+        <p>SINOSFT 不仅是一个开源项目，更是一场精神与物理的“双向配平”。我们用 247 项全 PASS 的断言和严谨的受力计算，给悬浮家园焊牢坚不可摧的底座；我们用“格物致知、利见大人”的信念，为每一位同行者提供精神的锚点。</p>
+        <p class="couplet">技术，用来在深海里算平每一吨浮力；<br>情怀，用来在迷茫中点亮每一座灯塔。</p>
+        <p>我们开源代码，更传递信念。愿你在开源共建中，找到自己的根，不再迷茫，无远弗届。</p>
+      </div>
+      <div class="lang-en">
+        <h3>【Conviction and Craft Matter Alike】</h3>
+        <p class="epigraph">A restless heart, a rootless path</p>
+        <p>In technology we lack neither elegant algorithms nor striking models. Yet we know how easily the heart loses its way and technique loses its roots before the great waves of an era.</p>
+        <p>SINOSFT is more than an open-source project: it is a two-way balancing of spirit and physics. With 247 fully passed assertions and rigorous force calculation, we give the floating homeland a firm foundation; with the conviction of investigating things to attain true knowledge and seeking alignment with the noble and the wise, we offer every fellow traveller an anchor for the spirit.</p>
+        <p class="couplet">Technique is for balancing every tonne of buoyancy in the deep sea;<br>conviction is for lighting every lighthouse in uncertain times.</p>
+        <p>We open our code, and we pass on a belief. May you find your own roots in building together, no longer adrift, and reach beyond every distance.</p>
+      </div>
+    </div>
+  </div></section>
+<!-- SINOSFT DECLARATION:END -->
+
   <div class="terms"><div class="sheet">
     <div class="cap"><span class="lang-zh">技术标签 · 中英定名 / TECHNICAL TERMS</span><span class="lang-en">TECHNICAL TERMS · BILINGUAL NOMENCLATURE</span></div>
     <table><tbody>
