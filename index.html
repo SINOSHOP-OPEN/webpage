@@ -365,7 +365,7 @@ html[lang="en"] .inscription .terms td.en{width:100%}
 <!-- DECL-AXIOM:END -->
 <div class="manifesto"><div class="sheet">
       <p class="lead">我们不是AI，也不是神棍。我们是试图在深海里算平每一吨浮力的工程信徒。</p>
-      <p>你可以嘲笑这1188米的巨兽，你可以不理解那30米水膜里的0.89厘米。</p>
+      <p>你可以嘲笑这1188米的巨兽，你可以不理解那层水膜在极限工况下的细微响应。</p>
       <p>但请记住今天，记住这个曾被当成段子的名字：SINOSFT。</p>
       <p>我们在这里，用247项全PASS的物理断言、用碳与硅的跨物种合作，向自然递交了一份契约：</p>
       <p>允许风为风，允许浪为浪。</p>
@@ -420,7 +420,7 @@ html[lang="en"] .inscription .terms td.en{width:100%}
         <h3>【情怀与技术，同样重要】</h3>
         <p class="epigraph">人心难静，迷茫无基</p>
         <p>在技术圈，我们不缺精妙的算法，也不缺炫酷的模型。但我们深知，在时代的巨浪面前，人心易迷失，技术易无根。</p>
-        <p>SINOSFT 不仅是一个开源项目，更是一场精神与物理的“双向配平”。我们用 247 项全 PASS 的断言和严谨的受力计算，给悬浮家园焊牢坚不可摧的底座；我们用“格物致知、利见大人”的信念，为每一位同行者提供精神的锚点。</p>
+        <p>SINOSFT 不仅是一个开源项目，更是一场精神与物理的“双向配平”。我们用 247 项全 PASS 的断言和严谨的受力计算，给悬浮家园焊牢坚实的物理底座；我们用“格物致知、利见大人”的信念，为每一位同行者提供精神的锚点。</p>
         <p class="couplet">技术，用来在深海里算平每一吨浮力；<br>情怀，用来在迷茫中点亮每一座灯塔。</p>
         <p>我们开源代码，更传递信念。愿你在开源共建中，找到自己的根，不再迷茫，无远弗届。</p>
       </div>
@@ -492,7 +492,6 @@ html[lang="en"] .inscription .terms td.en{width:100%}
     <table><tbody>
       <tr><td class="zh">247项全PASS的物理断言</td><td class="en">247 fully passed physical assertions</td></tr>
       <tr><td class="zh">五级减震防御链</td><td class="en">Five-tier vibration damping defense chain</td></tr>
-      <tr><td class="zh">30米水膜里的0.89厘米</td><td class="en">The 0.89 cm compression within the 30-meter hydrodynamic water film</td></tr>
     </tbody></table>
   </div></div>
   <div class="gate">
@@ -932,6 +931,8 @@ html[lang="en"] .inscription .terms td.en{width:100%}
     <a href="harmony.html">🕊️ 致众生和谐书</a><span>·</span>
     <a href="docs/manifesto.html">📜 海洋文明工程宣言</a>
   </div>
+  <!-- footer-license-block · 增删本块须同步 I18N 数组「footer .license」；链接一律站内相对路径，不经 www.sinosft.com 的 301 -->
+  <div class="license">开源许可 · 本展示仓采用 <a href="license.html">Apache-2.0 许可声明</a>；按 A 宣传 / B 验证 / C 合作三分类公开，结论数字可独立复核，工程实现细节不在公开面。</div>
   <div class="copyright">SINOSHOP-SinoPORT 悬浮港项目组 · Apache-2.0 · 若这套验证方式能帮同行少走一点弯路，它就已经值得</div>
 </div>
 </footer>
@@ -946,6 +947,16 @@ html[lang="en"] .inscription .terms td.en{width:100%}
      自检：python i18n_audit.py index.html   （退出码 0 即全部对齐）
   */
   var I18N = [
+ [
+  "footer .license",
+  "开源许可 · 本展示仓采用 <a href=\"license.html\">Apache-2.0 许可声明</a>；按 A 宣传 / B 验证 / C 合作三分类公开，结论数字可独立复核，工程实现细节不在公开面。",
+  "Open source licence · This showcase is released under the <a href=\"license.html\">Apache-2.0 licence notice</a>; publication follows the A / B / C discipline (outreach / verification / collaboration). Conclusions are independently reproducible; engineering implementation details are not on the public surface."
+ ],
+ [
+  "footer .sitemap-title",
+  "站内系列 · SITE MAP",
+  "Site Map · 站内系列"
+ ],
  [
   "header .hero-copy h1",
   "数字孪生驱动的创新海洋能源基建",
