@@ -78,6 +78,45 @@ SINOSFT 不仅是一个开源项目，更是一场精神与物理的“双向配
 
 <!-- SINOSFT DECLARATION:END -->
 
+<!-- SINOSFT BREAKTHROUGH MD:BEGIN -->
+
+---
+
+<table align="center" width="92%"><tr><td bgcolor="#1b2f4a" style="padding:24px 28px;color:#e6ebf0">
+
+<b><span style="font-size:120%;color:#ffffff">【深蓝两问 · 突破海洋家园的两道“天堑”】</span></b><br><br>
+世界上有许多团队正在探索海洋家园的建设，那是了不起的工程探索。深海环境的「动态冲击」与「高度恒稳」，是大家共同面对的两道难题。SINOSFT 提供的，是另一种可能。<br><br>
+<b>01 · 动态载荷抵消技术</b><br>
+面对重载交通带来的动态冲击，浮式结构的吃水与线形控制，一直是工程上共同的难点。SINOSFT 采用自主的受力自适应调节架构，在设定工况包络内有效抑制路面微动，为高平顺度的轨道基座提供一种可能。<br><br>
+<b>02 · 浮体高度恒定消浪发电技术</b><br>
+浮式结构的位形保持与稳定能量捕获，同样是海上工程长期关注的课题。SINOSFT 以恒浮力贴紧的设计取向，在极限工况下有效抑制位形漂移，为潮汐能的平稳捕获提供一个相对稳定的平台。<br><br>
+<b>这不是科幻。它建立在 247 项全 PASS 的物理断言之上，是一份来自中国的、可被独立复核的方案。</b><br>
+在极端复合工况上，我们依然在通过开源仿真不断优化——知之为知之，不知为不知。
+
+</td></tr></table>
+
+---
+
+<!-- SINOSFT BREAKTHROUGH MD:END -->
+
+<!-- SINOSFT VOW MD:BEGIN -->
+
+---
+
+<div align="center">
+
+<b><span style="font-size:132%;color:#1b2f4a">【众志成城，共赴深蓝】</span></b><br><br>
+<b>按照“实事求是，以术载道”这个方向，我们必定能共建共享，众志成城。</b><br>
+<b>必定能建成 SINOSFT 悬浮隧道浮桥海洋家园！</b><br>
+<b>欢迎全球的工程师、开源极客与同道中人，加入这场跨越百年的深蓝征程。</b><br>
+<b><span style="color:#8a6d3b">观天之道，执天之行。贞忠昭日月，惠民播春秋。</span></b><br>
+
+</div>
+
+---
+
+<!-- SINOSFT VOW MD:END -->
+
 🌐 **在线展示页 / Live showcase**：[https://www.sinosft.com/](https://www.sinosft.com/)
 **108 秒技术展示片** —— [▶ 在线播放（GitHub Pages · 点开即看 · 无需下载）](https://www.sinosft.com/#film)
 
