@@ -288,9 +288,3 @@ footer#footer .final{letter-spacing:.24em}
 }
 .np-btn:hover{opacity:.9}
 
-/* ── 赛事标签（页脚极简一行） ─────────────────────────────────────────── */
-.sn-race{
-  flex:0 0 100%;width:100%;
-  margin:14px 0 0;font-size:12px;line-height:1.7;
-  color:var(--sn-faint);letter-spacing:.04em;text-align:center;
-}
