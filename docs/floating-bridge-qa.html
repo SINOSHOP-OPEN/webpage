@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>把桥"浮"在大海上 · SINOSFT 悬浮隧道浮桥问答（对外开源定稿版）</title>
+<style>
+:root{--ink:#0b1d33;--ink2:#12304f;--deep:#071426;--paper:#f7f9fc;
+ --line:#d9e2ec;--gold:#c4a265;--soft:#5a7189;--ok:#1f7a5a;--warn:#9a6b20}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+ font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Source Han Sans SC",sans-serif;
+ line-height:1.9;-webkit-font-smoothing:antialiased}
+.hero{background:linear-gradient(160deg,#071426 0%,#0d2b4a 48%,#164066 100%);
+ color:#eef4fb;padding:66px 22px 58px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;left:-10%;right:-10%;bottom:-60px;height:160px;
+ background:radial-gradient(ellipse at 50% 0%,rgba(196,162,101,.18),transparent 70%)}
+.wrap{max-width:880px;margin:0 auto;position:relative;z-index:1}
+.eyebrow{letter-spacing:.3em;font-size:12px;color:var(--gold);margin-bottom:20px}
+h1{font-size:clamp(29px,5.2vw,46px);line-height:1.32;margin:0 0 12px;font-weight:600}
+.sub{font-size:clamp(14px,2.2vw,18px);color:#b9cde0;margin:0 0 26px}
+.tribute{border-left:2px solid var(--gold);padding:4px 0 4px 18px;color:#cddcea;
+ font-size:15px;max-width:730px;background:rgba(255,255,255,.03)}
+.notice{margin-top:26px;background:rgba(196,162,101,.1);border:1px solid rgba(196,162,101,.42);
+ border-radius:3px;padding:14px 18px;font-size:13.5px;color:#e8dcc2}
+.notice b{color:#f0dfb8}
+main{max-width:880px;margin:0 auto;padding:0 22px 76px}
+section{margin-top:50px}
+h2{font-size:22px;font-weight:600;margin:0 0 6px;padding-bottom:11px;border-bottom:1px solid var(--line)}
+.lead{color:var(--soft);font-size:14.5px;margin:13px 0 24px}
+p{color:#2c4055;font-size:15.2px;margin:0 0 12px}
+.qa{border:1px solid var(--line);border-radius:4px;background:#fff;margin-bottom:12px;overflow:hidden}
+.qa summary{cursor:pointer;padding:17px 20px;font-size:16px;font-weight:600;list-style:none;
+ display:flex;align-items:baseline;gap:13px}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary:before{content:"Q";color:var(--gold);font-family:Georgia,serif;font-size:19px;flex:0 0 auto}
+.qa summary:hover{background:#f9fbfd}
+.qa[open] summary{border-bottom:1px solid var(--line);background:#fafcfe}
+.qa .ans{padding:18px 20px 22px 48px}
+.logic{background:#f4f8fc;border-left:3px solid #6b87a8;padding:9px 13px;
+ margin:13px 0 0;font-size:13.5px;color:#3a5872}
+.logic b{color:var(--ink2)}
+.bound{background:#fff8e8;border:1px solid #e0c88e;border-radius:3px;padding:12px 16px;
+ margin:14px 0;font-size:14px;color:#6b4f16}
+.bound b{color:#8a5d00}
+table{border-collapse:collapse;width:100%;font-size:14px;margin:12px 0}
+td,th{border:1px solid var(--line);padding:9px 11px;vertical-align:top;text-align:left}
+th{background:#eef2f7;color:var(--ink2);font-weight:600}
+code{background:#eef2f7;padding:1px 5px;border-radius:2px;font-size:13px;color:var(--ink2)}
+footer{border-top:1px solid var(--line);margin-top:44px;padding-top:20px;
+ color:var(--soft);font-size:13px;text-align:center}
+@media(max-width:600px){.qa .ans{padding:16px 16px 20px 20px}.hero{padding:48px 18px 44px}}
+</style>
+</head>
+<body>
+<div class="hero"><div class="wrap">
+  <div class="eyebrow">SINOSFT · 悬浮隧道浮桥</div>
+  <h1>把桥"浮"在大海上</h1>
+  <p class="sub">悬浮隧道浮桥技术问答 · 对外开源定稿版</p>
+  <div class="tribute">跨海长桥与深埋海底隧道，是人类工程史上了不起的成就。
+  我们无意替代，只是提供另一种可能：让通道悬浮在水中，把与海的刚性对抗，换成温和共处。</div>
+  <div class="notice"><b>技术受控，仅作理论仿真交流。</b><br>
+  本版只呈现外观与宏观物理逻辑；具体吨位、壁厚、压强及工程尺寸均作定性化处理。
+  本仓库只呈现外观与宏观物理逻辑，不含任何工程实现细节。
+  文中结论一律限定在设定包络内。</div>
+</div></div>
+
+<main>
+<section>
+  <h2>它是什么？</h2>
+  <p>一条浮在海水中的「桥 + 隧道」。标准模块像积木一样逐节拼装，跨越海峡连接两岸：
+  桥面上跑汽车与磁悬浮列车，桥体内输送油气，桥下海水与鱼群自由通行。</p>
+  <p>整条通道全天候悬浮在水中——桥面高出水面，留出通航净空；隧道主体沉在水面以下，
+  靠自身浮力托住全部重量，靠系泊系统固定位置。不填海、不挖海床、不阻断洋流。</p>
+  <div class="logic"><b>宏观逻辑</b>　浮力与自重相抵，其余交给柔性约束。
+  通用受力平衡关系见 <code>sim/force_balance.py</code>。</div>
+</section>
+
+<section>
+  <h2>重车驶过，桥会晃吗？</h2>
+  <p>列车尚未上桥，岸上引桥的称重系统已把每节车厢的重量提前「打招呼」；
+  桥内配重系统同步预位、实时补偿——你压多少，我卸多少。
+  在验证工况内，列车驶过时路面起伏被抑制在<b>毫米级微动</b>，落在设定包络内。</p>
+  <div class="logic"><b>宏观逻辑</b>　载荷变化先被前馈测知，再由配重产生反向补偿，
+  使合外力的波动趋小。这是受力平衡的动态形式。</div>
+</section>
+
+<section>
+  <h2>台风来了怎么办？</h2>
+  <p>桥体下设多级减震防御链，从惯性配重到弹性水垫、再到微调环节，层层消解冲击。
+  在验证的极限风浪工况下，系统侧倾仍以微小的角度计。更根本的是姿态：
+  <b>浮箱不硬扛，随波微幅起伏</b>，把能量交给水下的浮力装置与系泊阻尼化解。</p>
+  <div class="logic"><b>宏观逻辑</b>　与其提高刚度去「顶」，不如让系统固有频率远离激励频段，
+  使传递率自然下降。</div>
+</section>
+
+<section>
+  <h2>对大海友好吗？</h2>
+  <p>桥体轻浮于水，像一片海上红树林——既是工程，也是生态。
+  模块还搭载平台高度恒定潮汐发电装置，把脚下的海流变成清洁电力。
+  我们关心的是：让海上重卡更安全，让防波结构不破坏生态，让人与机器在同一片海上协作。</p>
+</section>
+
+<section>
+  <h2>七问七答 · 大海与道路的每一种「万一」</h2>
+  <p class="lead">点开每一问，看外观与逻辑；具体工程参数不在本仓库范围内。</p>
+
+  <details class="qa"><summary>一、常规风浪？</summary><div class="ans">
+    <p>浮箱天生「随波不硬扛」：波浪来了，桥体在锚泊系统约束下微幅起伏，
+    把能量交给水下的浮力装置化解，而非靠刚度死顶。在设定的极限风浪工况下完成过验证。
+    这不是「扛」，是「化」。</p></div></details>
+
+  <details class="qa"><summary>二、地震？</summary><div class="ans">
+    <p>悬浮结构对地震有一处天然便利——它不与海底刚性相连。
+    地震波主要经岩层传递，而桥体浮在水中，柔性系泊隔开了一条刚性传力路径；
+    这好比大楼抗震靠阻尼器，我们借的是「水的宽容」。</p>
+    <p><b>陆上引桥同样做了抗震解耦</b>：采用柔性解耦的池式地基，让陆地引桥与桥体一同
+    「软着陆」，减轻地震对轨道与路基的影响。池内介质与多项指标监测共同构成耐久性的
+    第一道防线，工程冗余为第二道；<b>均匀缓沉不等于零沉降</b>，长期表现以监测数据为准。</p>
+    <div class="logic"><b>本轮机理仿真结论（定性）</b>　柔性解耦使激励落在隔震区，
+    池式地基显著压低沉降离散；均为无量纲机理算例，真实场地的地震动输入与构造尺寸
+    仍待勘察与试验。极端复合工况仍在持续仿真优化。</div></div></details>
+
+  <details class="qa"><summary>三、海啸？</summary><div class="ans">
+    <p>海啸在大洋深处只是一列波幅很小、波长很长的长周期波，开阔海域的浮体可以温和跟随。
+    真正需要留意的是它进入近岸浅水后的涌高——那里由近岸防波平台负责削浪，并把浪能转成电力。</p>
+    <p>如果预警发出，桥体还有一招「以退为进」：标准模块与附属结构<b>各自解耦、分段下沉</b>
+    到水面以下，各沉各的，一个模块故障不会拖着别人一起沉；姿态由差动压载锁定在设定包络内。
+    警报解除后精确复浮、重新对接，恢复跨海交通。</p>
+    <div class="bound"><b>两处如实披露</b><br>
+    ① <b>长周期海啸分量的动压几乎不随深度衰减</b>。下沉的真实收益不在「抵消波压」，
+    而在离开表层碎浪与流速剧烈层、降低迎流断面、把通道变成独立水密容器；
+    叠加的短周期风浪分量衰减则明显得多。<br>
+    ② <b>下沉与复浮的时序预算在简化模型下尚未闭合</b>，复浮瓶颈在泵站装机，
+    这一项正在做专项设计，等实测算数说话。</div>
+    <p>这一招的代价我们摆在台面上：压下去靠重力自流，浮回来靠泵组；
+    能否在预警窗口内完成复浮，瓶颈不在结构，而在泵站装机与专项设计。</p></div></details>
+
+  <details class="qa"><summary>四、车辆超载？</summary><div class="ans">
+    <p>上桥之前就拦下。引桥上布设动态称重系统，车辆轴重逐轴测量；判定超限的车辆由退出匝道引导，
+    列车可沿回转线整列掉头、原路离场——不合格的重量，根本到不了主桥。
+    这套「提前拦截」与主桥的载荷补偿共用同一条数据链，称重即预警。</p></div></details>
+
+  <details class="qa"><summary>五、通风与采光？</summary><div class="ans">
+    <p>这不是深埋海底的封闭长管。桥体贴近水面，模块采用半开放式构造：自然通风为主、
+    机械通风为辅，中央设采光带与绿化带，白天大部分路段无需照明——抬头有天光，低头有海景。</p>
+    <p>深潜模块的壳壁，是六边形桁架仿生壁的中空夹层结构。夹层里的中空管道不是空的——
+    它们同时是自然光的导入通道、新鲜空气的送风道和全段的电路走廊。
+    一根管道，三种用途，这是结构本身长出来的功能。</p>
+    <div class="logic"><b>宏观逻辑</b>　密闭流体中的压强各向等值传递，使多点均匀受压成为可能。
+    通用极简实现见 <code>sim/pascal_membrane.py</code>。</div></div></details>
+
+  <details class="qa"><summary>六、堵车后起火？</summary><div class="ans">
+    <p>水上环境有陆上没有的便利：海水取之不尽。消防船可直接抵达起火模块下方，
+    从外部持续供水降温，不受桥面拥堵影响。</p>
+    <p>模块内部则靠三道防线：高压水雾在起火瞬间降温窒息、水帘把火焰压在单节之内、
+    风帘阻断浓烟沿车行道蔓延。桥面按模块划分防火分区，浓烟有独立排放路径。</p>
+    <p>更关键的是——<b>管廊互通，一管出事、邻管接应</b>。相邻的管廊立刻成为救生路径，
+    人流横向转移、脱离火区，不必沿车行道逆流。</p></div></details>
+
+  <details class="qa"><summary>七、危机逃生？</summary><div class="ans">
+    <p>方向只有一个字：<b>上</b>。每节模块预留双侧疏散通道，设在路面绿化带内，
+    按整列满员核算并留有余量。人往上走，进到管体上部的救生平台——
+    那里在烟层之下，纵向贯通全管。</p>
+    <p>平台上设有氢能源救生舱，<b>断电后无外电源也能靠化学泡沫激发浮力，自主上浮到海面</b>；
+    舱数与定员按整列编组满员人数配置。在海上，救援不需要凿开隧道去挖人——人自己浮上来。</p></div></details>
+</section>
+
+<section>
+  <h2>一句实话</h2>
+  <p>载荷补偿与多级减震链已通过逐项仿真验证，并有独立校验脚本背书；
+  路面起伏、水垫压缩、轨面平顺性三项指标均有解析算式可复算。</p>
+  <div class="bound"><b>地震、海啸等极端复合工况仍在持续仿真优化</b>：
+  下沉与复浮的时序预算、泵站装机、完全浸没后的稳性，都还缺一份专项设计；
+  疏散能力目前按已建成口径表述，更高目标要等实测放行才敢说。
+  我们如实呈现验证边界——海上的安全，靠的是可验证的严谨，不是漂亮的口号。</div>
+</section>
+
+<section>
+  <h2>本仓库公开范围</h2>
+  <table>
+    <tr><th>类</th><th>内容</th><th>位置</th></tr>
+    <tr><td><b>A · 宣传</b></td><td>本问答、外观与理念描述</td><td><code>docs/</code></td></tr>
+    <tr><td><b>B · 验证</b></td><td>宏观物理逻辑的极简框架与自洽断言</td><td><code>sim/</code></td></tr>
+    <tr><td><b>C · 合作</b></td><td>参与与讨论机制</td><td><code>CONTRIBUTING.md</code></td></tr>
+  </table>
+  <p><b>不在公开范围</b>：工程实现细节、材料配比、内部公差体系、
+  试验判据细节、核心控制算法，以及任何内部资产。</p>
+  <div class="logic"><b>公开数据 ≠ 公开逻辑</b>　我们给出结论与可复算的通用关系，不给底牌。</div>
+</section>
+
+<footer>SINOSFT · 对外开源定稿版 · 2026-11-07<br>技术受控，仅作理论仿真交流</footer>
+</main>
+</body>
+</html>

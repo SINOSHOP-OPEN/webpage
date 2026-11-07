@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>SINOPORT · 数字孪生驱动的创新海洋能源基建</title>
+<title>SINOSFT跨海悬浮隧道浮桥家园 · 数字孪生驱动的创新海洋能源基建</title>
 <meta name="description" content="用AI工具，展示真善美和智慧，享受恒久的喜乐。充分发挥AI人工智能作用造福众生。SINOPORT 悬浮港 · 公开发布面。" />
 <link rel="canonical" href="https://www.sinosft.com/" />
 <meta property="og:url" content="https://www.sinosft.com/" />
@@ -242,11 +242,37 @@ footer{border-top:1px solid var(--line);padding:64px 0 48px;text-align:center}
 .inscription .manifesto p+p{margin-top:2px}
 .inscription .manifesto .lead{font-size:clamp(16px,1.8vw,19px);color:#fff;margin-bottom:26px}
 .inscription .manifesto .coda{margin-top:26px;color:#cfd8e2}
+/* ── 中英双语：挂在既有 i18n 写入的 documentElement.lang 上，不新增 JS ── */
+html[lang="en"] .inscription .lang-zh{display:none}
+html:not([lang="en"]) .inscription .lang-en{display:none}
+.inscription .lang-en{font-family:Georgia,"Times New Roman","Songti SC",SimSun,"宋体",serif}
+.inscription .spirit .naming{margin-top:30px;padding-top:20px;border-top:1px solid rgba(27,47,74,.16);font-size:12px;letter-spacing:.06em;color:#3c4c60;line-height:2}
+.inscription .spirit .naming b{font-weight:500;color:#1b2f4a;letter-spacing:.02em}
+.inscription .spirit .verse-en{font-size:clamp(17px,2.1vw,23px);line-height:1.95;letter-spacing:.015em;max-width:720px;margin:0 auto;color:#1b2f4a;font-style:italic}
+.inscription .manifesto .bilingual{margin-top:10px;font-size:12.5px;line-height:2;letter-spacing:.02em;color:#aebdcb;font-style:italic;text-wrap:pretty}
+.inscription .manifesto .lead-en{font-size:clamp(16px,1.8vw,20px);line-height:2;color:#fff;font-style:italic;margin-bottom:18px;text-wrap:pretty}
+.inscription .terms{background:#22313f;border-top:1px solid rgba(233,229,219,.12);padding:34px 24px 38px}
+.inscription .terms .sheet{max-width:780px;margin:0 auto}
+.inscription .terms .cap{font-size:11px;letter-spacing:.34em;color:#9fb3c4;margin-bottom:18px;text-align:center}
+.inscription .terms table{width:100%;border-collapse:collapse;font-size:12.5px;line-height:1.8}
+.inscription .terms td{padding:9px 8px;border-bottom:1px solid rgba(233,229,219,.1);color:#cfd8e2;vertical-align:top}
+.inscription .terms td.zh{width:44%;color:#e9e5db;font-family:"Kaiti SC",KaiTi,"楷体",SimSun,serif}
+.inscription .terms td.en{font-family:Georgia,"Times New Roman",serif}
+html[lang="en"] .inscription .terms td.zh{display:none}
+html[lang="en"] .inscription .terms td.en{width:100%}
+.inscription .gate{background:#f5f2ea;text-align:center;padding:26px 20px;font-size:14px;letter-spacing:.08em;color:#1b2f4a}
+.inscription .gate a{color:#1b2f4a;text-decoration:none;border-bottom:1px solid rgba(27,47,74,.4);padding-bottom:2px}
+.inscription .gate .lang-en{font-family:Georgia,"Times New Roman",serif;font-style:italic}
 @media(max-width:640px){
   .inscription .spirit{padding:46px 20px 42px}
   .inscription .manifesto{padding:52px 20px 56px}
   .inscription .spirit .seal{margin-bottom:26px}
   .inscription .manifesto p{line-height:2.2;word-break:normal}
+  .inscription .terms{padding:26px 16px 30px}
+  .inscription .terms table,.inscription .terms tbody,.inscription .terms tr,.inscription .terms td{display:block;width:100%}
+  .inscription .terms td{border:none;padding:3px 0}
+  .inscription .terms td.en{color:#9fb3c4;margin-bottom:12px}
+  .inscription .spirit .verse-en{font-size:16px}
 }
 /* SINOSFT INSCRIPTION CSS:END */
 </style>
@@ -256,25 +282,61 @@ footer{border-top:1px solid var(--line);padding:64px 0 48px;text-align:center}
 <body>
 <!-- SINOSFT INSCRIPTION:BEGIN -->
 <div class="inscription">
-  <div class="spirit"><div class="paper">
-    <span class="seal">SINOSFT</span>
-    <h2>【SINOSFT 精神内核】</h2>
-    <div class="verse">格物致知，静心，修身，齐家。<br>设计海洋家园，利见大人，造福众生。</div>
-    <p class="note">注：“利见大人”，即向众生宣传：允许风为风，允许浪为浪。</p>
+  <div class="lang-zh">
+    <div class="spirit"><div class="paper">
+      <span class="seal">SINOSFT</span>
+      <h2>【SINOSFT 精神内核】</h2>
+      <div class="verse">格物致知，静心，修身，齐家。<br>设计海洋家园，利见大人，造福众生。</div>
+      <p class="note">注：“利见大人”，即向众生宣传：允许风为风，允许浪为浪。</p>
+      <div class="naming">
+        <b>SINOSFT跨海悬浮隧道浮桥家园</b><br>SINOSFT Cross-Sea Submerged Floating Tunnel &amp; Floating Bridge Homeland
+      </div>
+    </div></div>
+    <div class="manifesto"><div class="sheet">
+      <p class="lead">我们不是AI，也不是神棍。我们是试图在深海里算平每一吨浮力的工程信徒。</p>
+      <p>你可以嘲笑这1188米的巨兽，你可以不理解那30米水膜里的0.89厘米。</p>
+      <p>但请记住今天，记住这个曾被当成段子的名字：SINOSFT。</p>
+      <p>我们在这里，用247项实测全PASS的物理断言、用碳与硅的跨物种合作，向自然递交了一份契约：</p>
+      <p>允许风为风，允许浪为浪。</p>
+      <p>今天你眼里的玄学，不必等百年，最多15年以内，SINOSFT悬浮隧道浮桥家园，无远弗届，必定能够建成，造福众生。</p>
+      <p class="bilingual">What you see as mysticism today, will not take a century. Within 15 years, the SINOSFT floating tunnel and ocean homeland, reaching beyond any distance, will undoubtedly be built to bless all living beings.</p>
+      <p>海生电、电养船、船搭桥、桥造城、城惠民、众生安。</p>
+      <p>实事求是。</p>
+      <p>贞忠昭日月，惠民播春秋。</p>
+      <p class="coda">功成必定因我，无远弗届。</p>
+      <p class="coda">海上的安全，靠的是可验证的严谨，不是漂亮的口号。</p>
+    </div></div>
+  </div>
+  <div class="lang-en">
+    <div class="spirit"><div class="paper">
+      <span class="seal">SINOSFT</span>
+      <h2>【SINOSFT · SPIRIT】</h2>
+      <div class="verse-en">Investigate things to attain true knowledge; calm the mind; cultivate the self; harmonize the family. Designing the Ocean Homeland, seeking alignment with the noble and the wise, to bless all living beings.</div>
+      <p class="note">Note: “seeking alignment with the noble and the wise” means to make it known to all beings — let the wind be wind, let the wave be wave.</p>
+      <div class="naming">
+        <b>SINOSFT Cross-Sea Submerged Floating Tunnel &amp; Floating Bridge Homeland</b><br>SINOSFT跨海悬浮隧道浮桥家园
+      </div>
+    </div></div>
+    <div class="manifesto"><div class="sheet">
+      <p class="lead-en">What you see as mysticism today, will not take a century. Within 15 years, the SINOSFT floating tunnel and ocean homeland, reaching beyond any distance, will undoubtedly be built to bless all living beings.</p>
+      <p class="bilingual">今天你眼里的玄学，不必等百年，最多15年以内，SINOSFT悬浮隧道浮桥家园，无远弗届，必定能够建成，造福众生。</p>
+      <p>We let the wind be wind and the wave be wave.</p>
+      <p>247 fully passed physical assertions · Five-tier vibration damping defense chain</p>
+      <p class="coda">Safety at sea rests on verifiable rigour, not beautiful slogans.</p>
+    </div></div>
+  </div>
+  <div class="terms"><div class="sheet">
+    <div class="cap"><span class="lang-zh">技术标签 · 中英定名 / TECHNICAL TERMS</span><span class="lang-en">TECHNICAL TERMS · BILINGUAL NOMENCLATURE</span></div>
+    <table><tbody>
+      <tr><td class="zh">247项全PASS的物理断言</td><td class="en">247 fully passed physical assertions</td></tr>
+      <tr><td class="zh">五级减震防御链</td><td class="en">Five-tier vibration damping defense chain</td></tr>
+      <tr><td class="zh">30米水膜里的0.89厘米</td><td class="en">The 0.89 cm compression within the 30-meter hydrodynamic water film</td></tr>
+    </tbody></table>
   </div></div>
-  <div class="manifesto"><div class="sheet">
-    <p class="lead">我们不是AI，也不是神棍。我们是试图在深海里算平每一吨浮力的工程信徒。</p>
-    <p>你可以嘲笑这1188米的巨兽，你可以不理解那30米水膜里的0.89厘米。</p>
-    <p>但请记住今天，记住这个曾被当成段子的名字：SINOSFT。</p>
-    <p>我们在这里，用101项全PASS的物理断言、用碳与硅的跨物种合作，向自然递交了一份契约：</p>
-    <p>允许风为风，允许浪为浪。</p>
-    <p>今天你眼里的玄学，不必等百年，最多15年以内，SINOSFT悬浮隧道浮桥家园，无远弗届，必定能够建成，造福众生。</p>
-    <p>海生电、电养船、船搭桥、桥造城、城惠民、众生安。</p>
-    <p>实事求是。</p>
-    <p>贞忠昭日月，惠民播春秋。</p>
-    <p class="coda">功成必定因我，无远弗届。</p>
-    <p class="coda">海上的安全，靠的是可验证的严谨，不是漂亮的口号。</p>
-  </div></div>
+  <div class="gate">
+    <span class="lang-zh">《把桥“浮”在大海上》· 悬浮隧道浮桥问答 &nbsp;→&nbsp; <a href="docs/floating-bridge-qa.html">阅读</a></span>
+    <span class="lang-en"><a href="docs/floating-bridge-qa.html">Floating the Bridge upon the Sea · SINOSFT Q&amp;A</a></span>
+  </div>
 </div>
 <!-- SINOSFT INSCRIPTION:END -->
 <div class="sn-bar"><div class="sn-bar-in"><a class="sn-brand" href="index.html">SINOSHOP · SINO<em>PORT</em><small>SINOPORT FLOATING PORT</small></a><nav class="sn-nav"><a href="https://gitee.com/sinoshop/Sinoport-public/tree/master/verify">验证代码</a><a href="whitepaper.html">技术白皮书</a><a href="sinotide-high-tide-power.html">潮汐能</a><a href="docs/sandbox/chapter-01.html">沙盒手记</a><a href="harmony.html">🕊️ 和谐书</a><a href="docs/manifesto.html">📜 工程宣言</a><a href="index.html">官网首页</a><a href="https://gitee.com/sinoshop/SinoPORT">Gitee 仓</a><a href="https://github.com/SINOSHOP-OPEN/SinoPORT">GitHub 仓</a><a class="sn-cta" href="https://gitee.com/sinoshop/Sinoport-public/tree/master/verify">验证代码</a></nav></div></div>
@@ -293,7 +355,7 @@ footer{border-top:1px solid var(--line);padding:64px 0 48px;text-align:center}
   <div class="platforms platforms-row">
     <a class="pbtn" href="https://gitee.com/sinoshop/SinoPORT">💻 <span>Gitee 开源代码仓</span></a>
     <a class="pbtn gh" href="https://github.com/SINOSHOP-OPEN/SinoPORT">🐙 <span>GitHub 镜像仓库</span></a>
-    <a class="pbtn" href="https://gitee.com/sinoshop/sinoport-public/raw/master/verify/README.md">🧪 <span>当场复现 101 项断言</span></a>
+    <a class="pbtn" href="https://gitee.com/sinoshop/sinoport-public/raw/master/verify/README.md">🧪 <span>当场复现 247 项实测全 PASS</span></a>
     <a class="pbtn" href="harmony.html">🕊️ <span>致众生和谐书</span></a>
     <a class="pbtn gh" href="docs/manifesto.html">📜 <span>海洋文明工程宣言</span></a>
   </div>
@@ -397,8 +459,8 @@ footer{border-top:1px solid var(--line);padding:64px 0 48px;text-align:center}
     <div class="goldline"></div>
     <div class="epigraph">我们允许风为风，允许浪为浪。<b>退让，才是最高级的坚硬。</b></div>
     <div class="badges">
-      <span class="badge">101 项物理断言</span>
-      <span class="badge">verify 一键 101 项断言通过</span>
+      <span class="badge">247 项实测全 PASS</span>
+      <span class="badge">verify 一键 247 项全 PASS</span>
       <span class="badge">无桩基悬浮</span>
       <span class="badge">净能量为正</span>
       <span class="badge ver">Apache-2.0</span>
@@ -427,7 +489,7 @@ footer{border-top:1px solid var(--line);padding:64px 0 48px;text-align:center}
     <div class="creed-item">
       <div class="zh">FROM TOIL TO JOY</div>
       <h3>生命的苦旅与喜乐</h3>
-      <p>在 18 级台风与 15 米巨浪中，依然可以闲赏鸟语花香、静观鱼跃云舒。用硬核的 <b>101 项断言</b>，焊牢生命底线；把所有的温柔，留给众生。</p>
+      <p>在 18 级台风与 15 米巨浪中，依然可以闲赏鸟语花香、静观鱼跃云舒。用硬核的 <b>247 项实测全 PASS</b>，焊牢生命底线；把所有的温柔，留给众生。</p>
     </div>
     <div class="creed-item hi">
       <div class="zh">ALL BEINGS · 高光</div>
@@ -497,8 +559,8 @@ footer{border-top:1px solid var(--line);padding:64px 0 48px;text-align:center}
 
 
   <div class="tech-grid">
-    <div class="tech-cell"><div class="k">101</div><div class="t">物理断言 · 机器判定</div></div>
-    <div class="tech-cell"><div class="k">101</div><div class="t">物理断言 · 一键复现</div></div>
+    <div class="tech-cell"><div class="k">247</div><div class="t">物理断言 · 机器判定</div></div>
+    <div class="tech-cell"><div class="k">247</div><div class="t">物理断言 · 一键复现</div></div>
     <div class="tech-cell"><div class="k">五级</div><div class="t">减震防御链 · 层层消解</div></div>
     <div class="tech-cell"><div class="k">+E</div><div class="t">扣除寄生能耗后净能量为正</div></div>
   </div>
@@ -583,7 +645,7 @@ footer{border-top:1px solid var(--line);padding:64px 0 48px;text-align:center}
 
   <p class="m3">所有合入的改进、被采纳的议题、参与复现的验证，都会获得基于 SHA-256 的数字存证凭证。核心贡献者的名字，将作为永久数字烙印，写进本项目的版本发布史（Release Notes）与数字资产存证库中。我们不承诺奖金，只承诺可核验的东西。</p>
 
-  <p class="m4">💻 <b>开源共建</b> —— 本项目物理断言的判据与验证方法公开可复现：15 条验证主线、<b>101 项物理断言</b>，一条命令即可当场复现；核心执行源码不在公开仓内，需联系核验 —— <a href="https://gitee.com/sinoshop/sinoport-public/raw/master/verify/README.md"><b>verify/ 公开断言层</b></a>；欢迎访问 <a href="https://gitee.com/sinoshop/SinoPORT"><b>Gitee 仓库</b></a>参与共建。</p>
+  <p class="m4">💻 <b>开源共建</b> —— 本项目物理断言的判据与验证方法公开可复现：15 条验证主线、<b>247 项实测全 PASS</b>，一条命令即可当场复现；核心执行源码不在公开仓内，需联系核验 —— <a href="https://gitee.com/sinoshop/sinoport-public/raw/master/verify/README.md"><b>verify/ 公开断言层</b></a>；欢迎访问 <a href="https://gitee.com/sinoshop/SinoPORT"><b>Gitee 仓库</b></a>参与共建。</p>
 
   <div class="rule-line">人可以写文案，但不能写 PASS。</div>
 
@@ -673,7 +735,7 @@ footer{border-top:1px solid var(--line);padding:64px 0 48px;text-align:center}
   <div class="platforms foot-platforms">
     <a class="pbtn" href="https://gitee.com/sinoshop/SinoPORT">💻 <span>Gitee 开源代码仓</span></a>
     <a class="pbtn gh" href="https://github.com/SINOSHOP-OPEN/SinoPORT">🐙 <span>GitHub 镜像仓库</span></a>
-    <a class="pbtn" href="https://gitee.com/sinoshop/sinoport-public/raw/master/verify/README.md">🧪 <span>当场复现 101 项断言</span></a>
+    <a class="pbtn" href="https://gitee.com/sinoshop/sinoport-public/raw/master/verify/README.md">🧪 <span>当场复现 247 项实测全 PASS</span></a>
     <a class="pbtn web" href="index.html">🌐 <span>项目官网展示页</span></a>
   </div>
   <!-- ⚠️ 增删站内系列链接，同步修改 I18N 数组「.foot-sitemap a」 -->
@@ -719,15 +781,15 @@ footer{border-top:1px solid var(--line);padding:64px 0 48px;text-align:center}
  [
   "header .badges .badge",
   [
-   "101 项物理断言",
-   "verify 一键 101 项断言通过",
+   "247 项实测全 PASS",
+   "verify 一键 247 项全 PASS",
    "无桩基悬浮",
    "净能量为正",
    "Apache-2.0"
   ],
   [
-   "101 machine-checked physical assertions",
-   "verify: 101 assertions passed in one command",
+   "247 fully passed physical assertions",
+   "verify: 247 assertions fully passed in one command",
    "Pile-free floating",
    "Net energy positive",
    "Apache-2.0"
@@ -778,13 +840,13 @@ footer{border-top:1px solid var(--line);padding:64px 0 48px;text-align:center}
   [
    "人类提供物理直觉与道德红线；AI 提供不知疲倦的穷举与交叉验证。我们不是替代与被替代，而是<b>「各美其美，美美与共」</b>。",
    "不打桩，不硬抗。我们用无桩基悬浮与 2–5mm 的柔性缓冲，将自然所有的狂暴化作电流。我们不仅是在建基建，更是在践行<b>「天人合一」</b>。",
-   "在 18 级台风与 15 米巨浪中，依然可以闲赏鸟语花香、静观鱼跃云舒。用硬核的 <b>101 项断言</b>，焊牢生命底线；把所有的温柔，留给众生。",
+   "在 18 级台风与 15 米巨浪中，依然可以闲赏鸟语花香、静观鱼跃云舒。用硬核的 <b>247 项实测全 PASS</b>，焊牢生命底线；把所有的温柔，留给众生。",
    "让风，为风，让浪，为浪。让鱼畅游瀛洲，让红树林生生不息。充分发挥AI人工智能作用造福众生，是我们的享受人生意义的一种方式。"
   ],
   [
    "Humans bring physical intuition and moral red lines; AI brings tireless exhaustive search and cross-validation. We are neither replacing nor replaced — we are <b>each beautiful in our own way, and beauty in common</b>.",
    "No piles, no brute force. Pile-free floating and 2–5 mm flexible buffering turn the sea's violence into electricity. We are not merely building infrastructure — we are practising <b>the unity of heaven and humanity</b>.",
-   "Even under category-18 typhoons and 15-metre waves, one may still hear birdsong and watch fish leap. <b>101 hard assertions</b> weld the floor of life; all tenderness is reserved for all beings.",
+   "Even under category-18 typhoons and 15-metre waves, one may still hear birdsong and watch fish leap. <b>247 fully passed physical assertions</b> weld the floor of life; all tenderness is reserved for all beings.",
    "Let the wind be wind; let the wave be wave. Let fish roam the shoals, let mangroves flourish. Making full use of AI to benefit all beings is one of the ways we enjoy the meaning of life."
   ]
  ],
@@ -923,14 +985,14 @@ footer{border-top:1px solid var(--line);padding:64px 0 48px;text-align:center}
   [
    "Gitee 开源代码仓",
    "GitHub 镜像仓库",
-   "当场复现 101 项断言",
+   "当场复现 247 项实测全 PASS",
    "致众生和谐书",
    "海洋文明工程宣言"
   ],
   [
    "Gitee · Source Repo",
    "GitHub · Mirror Repo",
-   "Reproduce 101 Assertions",
+   "Reproduce 247 Assertions",
    "Harmony Manifesto",
    "Engineering Manifesto"
   ]
@@ -940,13 +1002,13 @@ footer{border-top:1px solid var(--line);padding:64px 0 48px;text-align:center}
   [
    "Gitee 开源代码仓",
    "GitHub 镜像仓库",
-   "当场复现 101 项断言",
+   "当场复现 247 项实测全 PASS",
    "项目官网展示页"
   ],
   [
    "Gitee · Source Repo",
    "GitHub · Mirror Repo",
-   "Reproduce 101 Assertions",
+   "Reproduce 247 Assertions",
    "Project Showcase"
   ]
  ],
@@ -970,7 +1032,7 @@ footer{border-top:1px solid var(--line);padding:64px 0 48px;text-align:center}
  [
   ".wp-banner",
   "📢 白皮书正式发布 · 《悬浮高度恒定装配式建筑发电消浪技术白皮书》 → 阅读",
-  "📢 Whitepaper released · <em>Assembled Height-Constant Floating Building Power & Wave-Attenuation Technical Whitepaper</em> → Read"
+  "📢 Whitepaper released · Assembled Height-Constant Floating Building Power & Wave-Attenuation Technical Whitepaper → Read"
  ],
  [
   ".foot-sitemap a",
@@ -994,7 +1056,7 @@ footer{border-top:1px solid var(--line);padding:64px 0 48px;text-align:center}
   ]
  ]
 ];
-  var TITLES = {zh:"SINOPORT · 数字孪生驱动的创新海洋能源基建", en:"SINOPORT · Digital-Twin-Driven Marine Energy Infrastructure"};
+  var TITLES = {zh:"SINOSFT跨海悬浮隧道浮桥家园 · 数字孪生驱动的创新海洋能源基建", en:"SINOSFT Cross-Sea Submerged Floating Tunnel & Floating Bridge Homeland · Digital-Twin-Driven Marine Energy Infrastructure"};
   var META = {zh:"用AI工具，展示真善美和智慧，享受恒久的喜乐。充分发挥AI人工智能作用造福众生。SINOPORT 悬浮港 · 公开发布面。",
               en:"Use AI tools to reveal goodness, beauty and wisdom. Making full use of AI to benefit all beings. SINOPORT Floating Harbour · Public Release Surface."};
   function pick(v,i){ if(Array.isArray(v)) return (i<v.length? v[i] : v[v.length-1]); return v; }
