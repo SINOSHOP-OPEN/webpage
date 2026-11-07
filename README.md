@@ -98,6 +98,31 @@ SINOSFT 不仅是一个开源项目，更是一场精神与物理的“双向配
 ---
 
 <!-- SINOSFT BREAKTHROUGH MD:END -->
+<!-- SINOSFT INNOVATIONS MD:BEGIN -->
+
+---
+
+<table align="center" width="92%"><tr><td bgcolor="#e7ebed" style="padding:22px 26px;color:#1b2f4a">
+
+<b><span style="font-size:120%">【SINOSFT 三大核心创新特色】</span></b><br>
+<sub>Two physical technologies and one institutional innovation, standing side by side.</sub><br><br>
+
+<b>01 · PHYSICS　浮体高度恒定潮汐消浪发电技术</b><br>
+借助海水资源维持浮体稳定的工作高度，为潮汐消浪与发电的协同提供另一种可能。<br><br>
+
+<b>02 · PHYSICS　动态载荷抵消技术</b><br>
+面向列车等重载动态载荷，在设定工况包络内有效抑制对悬浮轨道的形变影响，保持运行平顺；具体效果，仍以独立复核与实测为准。<br><br>
+
+<b>03 · INSTITUTION　开源技术知识贡献的数字存证模式</b><br>
+SINOSHOP-SinoSFT-SinoPORT 体系提出的一种探索：针对个体化技术资源难以形成合力的现实，将技术资产以哈希方式存证，并预备在符合有效法律法规的前提下引入 RWA 区块链技术。期望为工程收益的长期分享提供一种路径，让每一份开源贡献都有独立、可追溯的数字资产档案。相关国家数据知识产权与数据资产登记已依法启动、材料已提交，尚在审核。<br><br>
+
+<b>物理技术与制度创新，并列而立。</b>本区只呈现机制层名称与结论数字；判据阈值、算法与实现细节归位开源验证代码库，不在公开宣传面。
+
+</td></tr></table>
+
+---
+
+<!-- SINOSFT INNOVATIONS MD:END -->
 
 <!-- SINOSFT VOW MD:BEGIN -->
 
