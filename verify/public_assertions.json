@@ -1,0 +1,66 @@
+{
+  "_meta": {
+    "date": "2026-11-07",
+    "scope": "conclusion-level counts only",
+    "note_zh": "仅结论计数与验证边界。核心参数、结构细节、控制算法与原始数据不在公开范围。",
+    "note_en": "Conclusion-level counts and stated boundaries only. Core parameters, structural detail, control algorithms and raw data are outside the public scope."
+  },
+  "lines": [
+    {
+      "id": "A",
+      "name_zh": "浮体高度恒定潮汐消浪发电技术",
+      "assertions": 38,
+      "exit_code": 0,
+      "scope": "relative quantities only"
+    },
+    {
+      "id": "B",
+      "name_zh": "动态载荷抵消系统技术",
+      "assertions": 43,
+      "exit_code": 0,
+      "scope": "defined load envelope; ride-smoothness domain stated separately"
+    },
+    {
+      "id": "C",
+      "name_zh": "悬浮生态种植红树林模块平台消浪发电技术",
+      "assertions": 16,
+      "exit_code": 0,
+      "scope": "cascade attenuation within design wave band"
+    },
+    {
+      "id": "D",
+      "name_zh": "扁椭圆柱体深潜与生态融合",
+      "assertions": 59,
+      "exit_code": 0,
+      "scope": "geometry and document-level self-consistency"
+    },
+    {
+      "id": "E",
+      "name_zh": "内外压平衡与仿生中空自浮",
+      "assertions": 67,
+      "exit_code": 0,
+      "scope": "dimensionless force-balance; three honest disclosures retained"
+    },
+    {
+      "id": "F",
+      "name_zh": "极限逃生矩阵",
+      "assertions": 15,
+      "exit_code": 0,
+      "scope": "egress time budget under stated worst case"
+    }
+  ],
+  "boundary": [
+    "以上均为设定工况包络内的仿真与独立脚本复算，不是物理实测量。",
+    "公布峰值与独立复算值存在偏差，两者同落设定包络内；不把仿真结果说成实测工程。",
+    "下沉 / 复浮时序预算在简化模型下尚未闭合，不以达标口径对外表述。",
+    "极端复合工况仍在持续仿真优化；专项设计与物理试验尚未完成。",
+    "以上仿真在设定工况包络内进行，不替代专项设计与物理试验。"
+  ],
+  "boundary_en": [
+    "These are simulations and independent script re-checks within a defined envelope, not physical measurements.",
+    "Published and independently recomputed peaks differ; both fall within the stated envelope.",
+    "Sink / refloat time budgets are not closed under the simplified model and are not stated as met.",
+    "Extreme combined cases remain under continuing simulation; detailed design and physical testing are pending.",
+    "Simulations run within a defined envelope and do not replace detailed design or physical testing."
+  ]
+}

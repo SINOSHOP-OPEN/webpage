@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SINOSFT · 公开核验说明 / Public Verification Note</title>
+<style>
+:root{color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:#f4f6f7;color:#1b2f4a;font:15px/1.9 "Microsoft YaHei","PingFang SC",Georgia,serif}
+.wrap{max-width:860px;margin:0 auto;padding:48px 24px 72px}
+h1{font-size:24px;letter-spacing:.06em;margin:0 0 6px}
+h2{font-size:17px;margin:32px 0 10px;border-bottom:1px solid #d8e0e7;padding-bottom:8px}
+.eyebrow{font:600 11px/1 Georgia,serif;letter-spacing:.32em;color:#8a7650;margin-bottom:14px}
+.sub{color:#42536a;margin:0 0 26px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:#fff}
+th,td{border:1px solid #d8e0e7;padding:9px 11px;text-align:left;vertical-align:top}
+th{background:#e7edf3}
+code{background:#eef2f6;padding:2px 5px;border-radius:2px;font-size:13px}
+.note{background:#f3f0e8;border-left:3px solid #b49a63;padding:12px 16px;margin:18px 0;font-size:13.5px}
+ul{padding-left:20px}li{margin:5px 0}
+a{color:#2a5b86}
+.en{display:none;font-family:Georgia,"Times New Roman",serif}
+html[lang="en"] .zh{display:none}
+html[lang="en"] .en{display:block}
+.switch{text-align:right;margin-bottom:18px}
+.switch button{background:#fff;border:1px solid #c8d3de;padding:5px 13px;cursor:pointer;font-size:12px;color:#1b2f4a}
+footer{margin-top:44px;border-top:1px solid #d8e0e7;padding-top:14px;font-size:12px;color:#6a7a8c}
+</style></head><body><div class="wrap">
+<div class="switch"><button onclick="document.documentElement.lang='zh-CN'">中文</button>
+<button onclick="document.documentElement.lang='en'">English</button></div>
+<div class="zh">
+<div class="eyebrow">SINOSFT · B 类验证 / PUBLIC VERIFICATION</div>
+<h1>公开核验说明</h1>
+<p class="sub">本页只给出结论级计数与如实披露的验证边界。核心参数、结构细节、控制算法与原始数据不在公开范围 —— 我们给出结论，不给出底牌。</p>
+<h2>六条技术主线的独立复核</h2>
+<table><thead><tr><th>主线</th><th>技术名称</th><th>独立断言计数</th><th>退出码</th><th>适用范围</th></tr></thead><tbody>
+<tr><td>A</td><td>浮体高度恒定潮汐消浪发电技术</td><td>38</td><td>0</td><td>relative quantities only</td></tr>
+<tr><td>B</td><td>动态载荷抵消系统技术</td><td>43</td><td>0</td><td>defined load envelope; ride-smoothness domain stated separately</td></tr>
+<tr><td>C</td><td>悬浮生态种植红树林模块平台消浪发电技术</td><td>16</td><td>0</td><td>cascade attenuation within design wave band</td></tr>
+<tr><td>D</td><td>扁椭圆柱体深潜与生态融合</td><td>59</td><td>0</td><td>geometry and document-level self-consistency</td></tr>
+<tr><td>E</td><td>内外压平衡与仿生中空自浮</td><td>67</td><td>0</td><td>dimensionless force-balance; three honest disclosures retained</td></tr>
+<tr><td>F</td><td>极限逃生矩阵</td><td>15</td><td>0</td><td>egress time budget under stated worst case</td></tr>
+</tbody></table>
+<p style="margin-top:12px">复算：<code>python3 verify_public_six.py</code>；鉴别力：<code>python3 verify_public_six.py --selftest</code>。
+结论计数数据：<a href="public_assertions.json">public_assertions.json</a>。</p>
+<div class="note"><b>口径声明</b><br>本项目对外统一使用「247 项全 PASS 的物理断言（含仿真验证与独立脚本复算）」，
+不使用「实测全 PASS」。上述断言均为设定工况包络内的仿真与独立脚本复算，不是物理实测量。</div>
+<h2>已如实列明的边界</h2><ul><li>以上均为设定工况包络内的仿真与独立脚本复算，不是物理实测量。</li>
+<li>公布峰值与独立复算值存在偏差，两者同落设定包络内；不把仿真结果说成实测工程。</li>
+<li>下沉 / 复浮时序预算在简化模型下尚未闭合，不以达标口径对外表述。</li>
+<li>极端复合工况仍在持续仿真优化；专项设计与物理试验尚未完成。</li>
+<li>以上仿真在设定工况包络内进行，不替代专项设计与物理试验。</li></ul>
+<h2>返回</h2><p><a href="../">返回项目官网</a>　·　<a href="../license.html">开源许可声明</a></p>
+</div>
+<div class="en">
+<div class="eyebrow">SINOSFT · CLASS B VERIFICATION / PUBLIC NOTE</div>
+<h1>Public Verification Note</h1>
+<p class="sub">This page gives conclusion-level counts and honestly stated boundaries only. Core parameters,
+structural detail, control algorithms and raw data remain outside the public scope: we publish conclusions, not the underlying cards.</p>
+<h2>Independent checks on six technical lines</h2>
+<table><thead><tr><th>Line</th><th>Technology</th><th>Assertions</th><th>Exit code</th><th>Scope</th></tr></thead><tbody>
+<tr><td>A</td><td>Height-Stable Tidal Wave-Attenuation Power</td><td>38</td><td>0</td><td>relative quantities only</td></tr>
+<tr><td>B</td><td>Dynamic Load Cancellation</td><td>43</td><td>0</td><td>defined load envelope; ride-smoothness domain stated separately</td></tr>
+<tr><td>C</td><td>Floating Mangrove Wave-Attenuation Platform</td><td>16</td><td>0</td><td>cascade attenuation within design wave band</td></tr>
+<tr><td>D</td><td>Flat-Elliptical Submerged Structure &amp; Ecology</td><td>59</td><td>0</td><td>geometry and document-level self-consistency</td></tr>
+<tr><td>E</td><td>Pressure Balance &amp; Hollow Self-Buoyancy</td><td>67</td><td>0</td><td>dimensionless force-balance; three honest disclosures retained</td></tr>
+<tr><td>F</td><td>Emergency Egress Matrix</td><td>15</td><td>0</td><td>egress time budget under stated worst case</td></tr>
+</tbody></table>
+<p style="margin-top:12px">Re-run: <code>python3 verify_public_six.py</code>; discrimination test:
+<code>python3 verify_public_six.py --selftest</code>. Data: <a href="public_assertions.json">public_assertions.json</a>.</p>
+<div class="note"><b>Terminology</b><br>All external material uses "247 fully passed physical assertions
+(including simulation verification and independent script re-computation)". The word "measured" is not used.
+These assertions are simulations and independent re-checks within a defined envelope, not physical measurements.</div>
+<h2>Stated boundaries</h2><ul><li>These are simulations and independent script re-checks within a defined envelope, not physical measurements.</li>
+<li>Published and independently recomputed peaks differ; both fall within the stated envelope.</li>
+<li>Sink / refloat time budgets are not closed under the simplified model and are not stated as met.</li>
+<li>Extreme combined cases remain under continuing simulation; detailed design and physical testing are pending.</li>
+<li>Simulations run within a defined envelope and do not replace detailed design or physical testing.</li></ul>
+<h2>Back</h2><p><a href="../">Project website</a>　·　<a href="../license.html">Open-source licence notice</a></p>
+</div>
+<footer>SINOSFT · 2026-11-07 · 本页不含任何工程参数 / This page contains no engineering parameters.</footer>
+</div></body></html>

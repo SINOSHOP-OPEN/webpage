@@ -123,6 +123,29 @@ SINOSHOP-SinoSFT-SinoPORT 体系提出的一种探索：针对个体化技术资
 ---
 
 <!-- SINOSFT INNOVATIONS MD:END -->
+<!-- SINOSFT SIX MATRIX MD:BEGIN -->
+
+## SINOSFT 六大核心创新 · 验证支撑矩阵 / Six Core Innovations & Verification
+
+> 只列技术名称与宏观逻辑；工程参数、结构细节、控制算法与原始数据不在公开范围。
+> Only names and macroscopic logic; engineering parameters, structural detail, algorithms and raw data are out of public scope.
+
+- **A. 浮体高度恒定潮汐消浪发电技术** / *Height-Stable Tidal Wave-Attenuation Power Technology* — 利用潮汐水位变化维持浮体的工作高度，在衰减来浪的同时将水位差转换为可用能量。
+  【验证支撑：独立复核脚本见 verify/；结论计数与边界见公开核验说明】 / [Verification: independent checks in verify/ ; assertion counts and stated boundaries in the public note]
+- **B. 动态载荷抵消系统技术** / *Dynamic Load Cancellation System* — 面向重载交通的载荷影响抑制，维持路面平顺；效果以设定工况包络内的独立复核为准。
+  【验证支撑：独立复核脚本见 verify/；结论计数与边界见公开核验说明】 / [Verification: independent checks in verify/ ; assertion counts and stated boundaries in the public note]
+- **C. 悬浮生态种植红树林模块平台消浪发电技术** / *Floating Mangrove Platform for Wave Attenuation and Power* — 以生态化消浪平台衰减外海波浪，在港内形成平稳水域，兼顾生态修复与能量利用。
+  【验证支撑：独立复核脚本见 verify/；结论计数与边界见公开核验说明】 / [Verification: independent checks in verify/ ; assertion counts and stated boundaries in the public note]
+- **D. 扁椭圆柱体深潜与生态融合** / *Flat-Elliptical Submerged Structure with Ecological Integration* — 扁椭圆截面的深潜结构，兼顾交通纵坡平顺与鱼类洄游通道的生态融合。
+  【验证支撑：独立复核脚本见 verify/；结论计数与边界见公开核验说明】 / [Verification: independent checks in verify/ ; assertion counts and stated boundaries in the public note]
+- **E. 内外压平衡与仿生中空自浮** / *Pressure Balance and Bio-Inspired Hollow Self-Buoyancy* — 通过内外压力平衡与中空自浮结构维持稳定的工作浮态，壳壁集成采光、通风与消防安全功能。
+  【验证支撑：独立复核脚本见 verify/；结论计数与边界见公开核验说明】 / [Verification: independent checks in verify/ ; assertion counts and stated boundaries in the public note]
+- **F. 极限逃生矩阵** / *Emergency Egress Matrix* — 分布式阶梯通道与独立救生单元构成逃生矩阵，在无外电源条件下完成人员上浮待援。
+  【验证支撑：独立复核脚本见 verify/；结论计数与边界见公开核验说明】 / [Verification: independent checks in verify/ ; assertion counts and stated boundaries in the public note]
+
+验证说明见 [verify/](verify/)；边界与未闭合项在该页如实列明。
+
+<!-- SINOSFT SIX MATRIX MD:END -->
 
 <!-- SINOSFT VOW MD:BEGIN -->
 
