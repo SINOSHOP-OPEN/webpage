@@ -90,6 +90,7 @@ body{
 .sn-nav{
   display:flex;align-items:center;gap:2px;flex-wrap:nowrap;
   justify-content:flex-end;overflow-x:auto;scrollbar-width:none;
+  min-width:0;flex:1 1 auto;
 }
 .sn-nav::-webkit-scrollbar{display:none}
 .sn-nav a{
