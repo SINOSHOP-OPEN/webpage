@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#03080f" />
+<title>SINOSFT 精神宣言 · 数字圣殿</title>
+<meta name="description" content="我们不是 AI，也不是神棍。我们是试图在深海里算平每一吨浮力的工程信徒。允许风为风，允许浪为浪。" />
+<link rel="canonical" href="https://www.sinosft.com/manifesto.html" />
+<script>document.documentElement.className+=" js";</script>
+<style>
+:root{
+  --void:#03080f; --ink:#e9f1f8; --dim:#9bb0c4; --faint:#6c8298;
+  --jade:#1d9e75; --jade-lit:#3ecfa0; --gold:#d9b26a; --gold-lit:#f2d9a4;
+  --line:rgba(201,214,226,.12);
+  --serif:"Songti SC","STSong","Source Han Serif SC","Noto Serif SC","SimSun",Georgia,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--void);color:var(--ink);font-family:var(--sans);line-height:1.95;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+html:not([lang="en"]) .en{display:none!important}
+html[lang="en"] .zh{display:none!important}
+html[lang="en"] p.en,html[lang="en"] h2.en,html[lang="en"] h3.en,html[lang="en"] div.en{display:block}
+
+.top{position:sticky;top:0;z-index:20;background:rgba(3,8,15,.86);backdrop-filter:blur(14px);border-bottom:1px solid rgba(201,214,226,.08)}
+.top-in{max-width:900px;margin:0 auto;padding:0 24px;height:58px;display:flex;align-items:center;gap:18px}
+.back{font-size:12.5px;color:var(--dim);letter-spacing:.08em}
+.back:hover{color:var(--gold)}
+.top .brand{margin-left:auto;font-size:11px;letter-spacing:.22em;color:var(--faint)}
+.lang{background:none;border:1px solid rgba(217,178,106,.4);color:var(--gold);font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;height:28px;padding:0 10px;cursor:pointer}
+.lang:hover{background:rgba(217,178,106,.12)}
+
+.wrap{max-width:820px;margin:0 auto;padding:clamp(48px,8vh,96px) 24px 90px}
+.kicker{font-family:var(--mono);font-size:10px;letter-spacing:.44em;color:rgba(217,178,106,.8);text-align:center}
+h1{margin:18px 0 6px;font-family:var(--serif);font-size:clamp(24px,4vw,34px);letter-spacing:.16em;text-align:center;color:#fff}
+h1.en{font-family:Georgia,serif;letter-spacing:.04em;font-size:clamp(22px,3.4vw,30px)}
+.sub{margin-top:10px;text-align:center;font-family:var(--mono);font-size:10.5px;letter-spacing:.26em;color:var(--faint)}
+.rule{width:52px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:34px auto}
+
+.verse{margin:0 auto 8px;text-align:center;font-family:var(--serif);font-size:clamp(17px,2.5vw,22px);letter-spacing:.14em;line-height:2.1;color:#f4f8fc}
+.verse .em{color:var(--gold-lit)}
+.note{margin:16px auto 0;max-width:600px;text-align:center;font-size:12.5px;color:var(--faint);line-height:1.95}
+.note b{color:var(--gold);font-weight:500}
+
+section{margin-top:clamp(46px,7vh,76px)}
+h2{font-family:var(--serif);font-size:clamp(17px,2.4vw,21px);letter-spacing:.14em;color:#fff;margin-bottom:18px}
+h2.en{font-family:Georgia,serif;letter-spacing:.02em}
+h2 .no{font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--jade);display:block;margin-bottom:8px}
+p.body{font-size:14.5px;color:var(--dim);margin-bottom:14px;letter-spacing:.02em}
+p.body.en{font-family:Georgia,serif;font-size:14px;line-height:1.9}
+p.lead{font-family:var(--serif);font-size:clamp(15px,2.1vw,18px);color:#eef5fb;letter-spacing:.08em;line-height:2}
+p.strong{color:var(--ink)}
+blockquote{
+  margin:22px 0;padding:18px 22px;border-left:2px solid rgba(217,178,106,.5);
+  background:rgba(217,178,106,.05);font-family:var(--serif);font-size:15px;letter-spacing:.1em;color:var(--gold-lit);line-height:2
+}
+blockquote.en{font-family:Georgia,serif;letter-spacing:.02em;font-size:14px}
+.couplet{margin:22px 0;text-align:center;font-family:var(--serif);font-size:clamp(14px,2vw,17px);letter-spacing:.14em;color:var(--gold-lit);line-height:2.2}
+.foot{margin-top:60px;padding-top:26px;border-top:1px solid var(--line);text-align:center}
+.foot .sig{font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:var(--faint)}
+.foot .line{margin-top:12px;font-family:var(--serif);font-size:13px;letter-spacing:.18em;color:rgba(217,178,106,.6)}
+.foot a{color:var(--jade-lit);font-size:12px;letter-spacing:.06em}
+.foot a:hover{color:var(--gold)}
+</style>
+</head>
+<body>
+
+<div class="top"><div class="top-in">
+  <a class="back" href="index.html"><span class="zh">← 回到圣殿</span><span class="en">← Back to the sanctum</span></a>
+  <span class="brand">SINOSFT · THE SPIRIT</span>
+  <button class="lang" id="langBtn">EN</button>
+</div></div>
+
+<main class="wrap">
+  <p class="kicker">SINOSFT · SPIRIT AND DECLARATION</p>
+  <h1 class="zh">SINOSFT 精神内核</h1>
+  <h1 class="en" lang="en">The Spirit of SINOSFT</h1>
+  <p class="sub"><span class="zh">格物 · 静心 · 修身 · 齐家</span><span class="en">INVESTIGATE · CALM · CULTIVATE · HARMONISE</span></p>
+
+  <div class="rule"></div>
+
+  <p class="verse zh">格物致知，静心，修身，齐家。<br>设计海洋家园，<span class="em">共建共享</span>，造福众生。</p>
+  <p class="verse en" lang="en" style="font-family:Georgia,serif;letter-spacing:.02em;line-height:1.8;font-size:clamp(16px,2.2vw,20px)">Investigate things to attain true knowledge; calm the mind, cultivate the self, harmonise the family.<br>Design the ocean homeland — build together, share together, bless all living beings.</p>
+
+  <p class="note zh">古本作「<b>利见大人</b>」，即向众生宣说此理：<b>允许风为风，允许浪为浪。</b></p>
+  <p class="note en" lang="en" style="font-family:Georgia,serif">The older text reads <b>“seeking alignment with the noble and the wise”</b> — which is to make this known to all beings: <b>let the wind be wind, let the wave be wave.</b></p>
+
+  <section>
+    <h2 class="zh"><span class="no">01 / DECLARATION</span>宣言</h2>
+    <h2 class="en" lang="en"><span class="no">01 / DECLARATION</span>The Declaration</h2>
+
+    <p class="lead zh">我们不是 AI，也不是神棍。我们是试图在深海里算平每一吨浮力的工程信徒。</p>
+    <p class="lead en" lang="en" style="font-family:Georgia,serif">We are not an AI, nor mystics. We are engineering believers trying to balance every tonne of buoyancy in the deep sea.</p>
+
+    <p class="body zh">你可以嘲笑这 1,188 米的巨兽，你可以不理解那层水膜在极限工况下的细微响应。</p>
+    <p class="body en" lang="en">You may laugh at this 1,188-metre creature; you may not understand how that water film answers under limit conditions.</p>
+
+    <p class="body zh">但请记住今天，记住这个曾被当成段子的名字：SINOSFT。</p>
+    <p class="body en" lang="en">But remember today, and remember this name that was once treated as a joke: SINOSFT.</p>
+
+    <p class="body zh">我们在这里，用 247 项全 PASS 的物理断言、用碳与硅的跨物种合作，向自然递交了一份契约：</p>
+    <p class="body en" lang="en">We stand here with 247 fully passed physical assertions, in a cross-species collaboration of carbon and silicon, and hand nature a covenant:</p>
+
+    <blockquote class="zh">允许风为风，允许浪为浪。</blockquote>
+    <blockquote class="en" lang="en">Let the wind be wind, and the wave be wave.</blockquote>
+
+    <p class="body zh">今天你眼里的玄学，不必等百年，最多 15 年以内，SINOSFT 跨海悬浮隧道浮桥家园，无远弗届，必定能够建成，造福众生。</p>
+    <p class="body en" lang="en">What you see as mysticism today will not take a century: within fifteen years, the SINOSFT floating tunnel and ocean homeland — reaching beyond any distance — will be built, to bless all living beings.</p>
+
+    <p class="body zh">海生电、电养船、船搭桥、桥造城、城惠民、众生安。</p>
+    <p class="body en" lang="en">Ocean generates power, power sustains ships, ships erect bridges, bridges build cities, cities bless the people, and all beings rest secure.</p>
+
+    <blockquote class="zh">实事求是。<br>贞忠昭日月，惠民播春秋。</blockquote>
+    <blockquote class="en" lang="en">Seek truth from facts.<br>Integrity bright as sun and moon; bounty carried to the people.</blockquote>
+
+    <p class="body zh strong">功成必定因我，无远弗届。</p>
+    <p class="body en" lang="en">The work will be accomplished because we were here; it will reach beyond every distance.</p>
+
+    <p class="body zh strong">海上的安全，靠的是可验证的严谨，不是漂亮的口号。</p>
+    <p class="body en" lang="en">Safety at sea rests on verifiable rigour, not on beautiful slogans.</p>
+  </section>
+
+  <section>
+    <h2 class="zh"><span class="no">02 / OPEN SOURCE AND PROVENANCE</span>开源与数字确权理念</h2>
+    <h2 class="en" lang="en"><span class="no">02 / OPEN SOURCE AND PROVENANCE</span>Open Source and Digital Provenance</h2>
+
+    <p class="body zh">技术圈藏龙卧虎，但常因眼前利益而捆缚手脚。SINOSFT 相信，开源不是无偿的奉献，而是为了打破壁垒；确权不是闭门造车，而是为了护航创新。</p>
+    <p class="body en" lang="en">Our field is full of quiet talent, yet it is often held back by short-term interests. SINOSFT holds that open source is not gratuitous giving but the breaking down of walls; and that registration is not working behind closed doors but the safeguarding of innovation.</p>
+
+    <p class="body zh">我们的宏观物理框架与底层逻辑向全人类开源（遵循 Apache-2.0）；同时，包含 247 项核心断言的物理数据集，已依法启动国家知识产权与数据资产登记。</p>
+    <p class="body en" lang="en">Our macroscopic physical framework and underlying logic are open to all under Apache-2.0; meanwhile the physical dataset carrying 247 core assertions has entered national intellectual-property and data-asset registration in accordance with the law.</p>
+
+    <p class="body zh">我们拥抱开源，也坚决捍卫创新的尊严。</p>
+    <p class="body en" lang="en">We embrace open source, and we firmly defend the dignity of innovation.</p>
+  </section>
+
+  <section>
+    <h2 class="zh"><span class="no">03 / CONVICTION AND CRAFT</span>情怀与技术，同样重要</h2>
+    <h2 class="en" lang="en"><span class="no">03 / CONVICTION AND CRAFT</span>Conviction and Craft Matter Alike</h2>
+
+    <p class="body zh" style="font-family:var(--serif);color:var(--gold-lit);letter-spacing:.16em">人心难静，迷茫无基</p>
+    <p class="body en" lang="en" style="font-family:Georgia,serif;color:var(--gold-lit);font-style:italic">A restless heart, a rootless path</p>
+
+    <p class="body zh">在技术圈，我们不缺精妙的算法，也不缺炫酷的模型。但我们深知，在时代的巨浪面前，人心易迷失，技术易无根。</p>
+    <p class="body en" lang="en">In technology we lack neither elegant algorithms nor striking models. Yet we know how easily the heart loses its way, and how easily technique loses its root, before the great waves of an era.</p>
+
+    <p class="body zh">SINOSFT 不仅是一个开源项目，更是一场精神与物理的「双向配平」。我们用 247 项全 PASS 的断言和严谨的受力计算，给悬浮家园焊牢坚实的物理底座；我们用「格物致知、利见大人」的信念，为每一位同行者提供精神的锚点。</p>
+    <p class="body en" lang="en">SINOSFT is more than an open-source project: it is a two-way balancing of spirit and physics. With 247 fully passed assertions and rigorous force calculation we weld a firm foundation for the floating homeland; with the conviction of investigating things and making the way known to all, we offer every fellow traveller an anchor for the spirit.</p>
+
+    <p class="couplet zh">技术，用来在深海里算平每一吨浮力；<br>情怀，用来在迷茫中点亮每一座灯塔。</p>
+    <p class="couplet en" lang="en" style="font-family:Georgia,serif;letter-spacing:.02em">Technique is for balancing every tonne of buoyancy in the deep sea;<br>conviction is for lighting every lighthouse in uncertain times.</p>
+
+    <p class="body zh">我们开源代码，更传递信念。愿你在开源共建中，找到自己的根，不再迷茫，无远弗届。</p>
+    <p class="body en" lang="en">We open our code, and we pass on a belief. May you find your own root in building together — no longer adrift, reaching beyond every distance.</p>
+  </section>
+
+  <div class="foot">
+    <p class="sig">SINOSFT · THE VOW</p>
+    <p class="line zh">众志成城，共赴深蓝。</p>
+    <p class="line en" lang="en" style="font-family:Georgia,serif;letter-spacing:.04em">United, we sail into the deep blue.</p>
+    <p style="margin-top:22px"><a href="index.html"><span class="zh">← 回到数字圣殿</span><span class="en">← Back to the digital sanctum</span></a></p>
+  </div>
+</main>
+
+<script>
+(function(){
+  var html=document.documentElement, btn=document.getElementById("langBtn");
+  function apply(lang){
+    html.setAttribute("lang", lang==="en"?"en":"zh-CN");
+    btn.textContent = lang==="en" ? "中文" : "EN";
+    try{ localStorage.setItem("sinoshop-lang", lang); }catch(e){}
+  }
+  var saved=null; try{ saved=localStorage.getItem("sinoshop-lang"); }catch(e){}
+  apply(saved==="en"?"en":"zh");
+  btn.addEventListener("click", function(){ apply(html.getAttribute("lang")==="en"?"zh":"en"); });
+})();
+</script>
+</body>
+</html>
