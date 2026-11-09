@@ -105,8 +105,8 @@ body{
 }
 .sn-nav a.sn-cta:hover{background:var(--sn-em-soft);color:#fff}
 @media (max-width:760px){
-  .sn-bar .sn-bar-in{height:auto;padding:9px 16px;flex-direction:column;align-items:flex-start;gap:6px}
-  .sn-nav{justify-content:flex-start}
+  .sn-bar .sn-bar-in{height:auto;padding:9px 16px;flex-direction:column;align-items:flex-start;gap:6px;width:100%}
+  .sn-nav{justify-content:flex-start;width:100%;max-width:100%;align-self:stretch}
 }
 
 /* ── 统一页脚（.sn-foot）──────────────────────────────────────────────── */
