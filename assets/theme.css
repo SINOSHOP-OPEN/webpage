@@ -226,7 +226,8 @@ body{
 .top .lang button{white-space:nowrap}
 @media (max-width:880px){
   .top .wrap{grid-template-columns:1fr;grid-template-areas:"mark" "topnav" "plats" "banner"}
-  .top .topnav{justify-content:flex-start}
+  .top .topnav{justify-content:flex-start;flex-wrap:wrap;gap:6px 10px}
+  .top .lang{margin-left:0}
 }
 
 /* ② 子页导航 —— 与系统条同一形态 */
