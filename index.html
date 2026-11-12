@@ -5,14 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="theme-color" content="#03080f" />
 <title>SINOSHOP · 数字圣殿 ｜ 跨海悬浮隧道浮桥家园</title>
-<meta name="description" content="格物致知，静心，修身，齐家。设计海洋家园，共建共享，造福众生。247 项物理断言全 PASS，一键复现，退出码为零才算通过。" />
+<meta name="description" content="格物致知，静心，修身，齐家。设计海洋家园，共建共享，造福众生。512 项可复现物理断言（15 支开源脚本，判定脚本退出码 EXIT=0）。" />
 <link rel="canonical" href="https://www.sinosft.com/" />
 <meta property="og:url" content="https://www.sinosft.com/" />
 <meta property="og:site_name" content="SINOSHOP · SinoSFT 官网" />
+<meta property="og:image" content="https://sinoshop-open.github.io/webpage/assets/logo/sinoshop-medallion.png" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://sinoshop-open.github.io/webpage/assets/logo/sinoshop-medallion.png" />
 <meta property="og:title" content="SINOSHOP · 数字圣殿 ｜ 跨海悬浮隧道浮桥家园" />
-<meta property="og:description" content="允许风为风，允许浪为浪。247 项物理断言全 PASS，结论由脚本判定。" />
+<meta property="og:description" content="允许风为风，允许浪为浪。512 项可复现物理断言，结论由脚本判定。" />
 <script>document.documentElement.className+=" js";</script>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%2214%22 fill=%22%2303080f%22/%3E%3Cpath d=%22M12 44c6-12 14-18 20-18s14 6 20 18%22 fill=%22none%22 stroke=%22%231d9e75%22 stroke-width=%225%22 stroke-linecap=%22round%22/%3E%3Ccircle cx=%2232%22 cy=%2226%22 r=%224%22 fill=%22%23d9b26a%22/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/logo/favicon-64.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/logo/apple-touch-icon-180.png">
 <style>
 /* ══════════════════════════════════════════════════════════
    SINOSHOP 数字圣殿 · 单页重构 2026-11-09
@@ -62,10 +66,11 @@ html[lang="en"] p.en,html[lang="en"] div.en,html[lang="en"] h2.en,html[lang="en"
 .nav.is-scrolled{background:rgba(3,8,15,.9);border-bottom-color:rgba(217,178,106,.18);box-shadow:0 10px 40px rgba(0,0,0,.5)}
 .nav-in{height:100%;max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:26px}
 .brand{display:flex;align-items:center;gap:10px;flex:0 0 auto}
-.brand-mark{width:26px;height:26px;display:grid;place-items:center;border:1px solid rgba(217,178,106,.5);color:var(--gold);font-size:12px;line-height:1;transform:rotate(45deg)}
-.brand-mark span{transform:rotate(-45deg)}
+.brand-mark{width:31px;height:31px;display:grid;place-items:center;border-radius:50%;overflow:hidden;border:1px solid rgba(217,178,106,.55);background:rgba(255,255,255,.03);box-shadow:0 0 0 3px rgba(217,178,106,.07)}
+.brand-mark img{width:100%;height:100%;display:block}
 .brand-txt{font-size:13px;letter-spacing:.22em;color:var(--ink);font-weight:600}
 .brand-txt em{font-style:normal;color:var(--jade-lit);letter-spacing:.12em}
+.foot-mark{width:36px;height:36px;display:inline-block;vertical-align:-8px;margin-right:11px;opacity:.92}
 .nav-links{display:flex;align-items:center;gap:6px;margin-left:6px}
 .nl{
   position:relative;display:inline-flex;align-items:center;gap:6px;
@@ -347,7 +352,7 @@ html:not(.js) .reveal{opacity:1;transform:none}
 <header class="nav" id="nav">
   <div class="nav-in">
     <a class="brand" href="index.html" aria-label="SINOSHOP 首页">
-      <span class="brand-mark"><span>◈</span></span>
+      <span class="brand-mark"><img src="assets/logo/sinoshop-mark.png" alt="SINOSHOP 徽记：太极托举「生」字青瓷碗" width="31" height="31"></span>
       <span class="brand-txt">SINOSHOP<em>·SINOPORT</em></span>
     </a>
 
@@ -380,7 +385,7 @@ html:not(.js) .reveal{opacity:1;transform:none}
     </button>
 
     <div class="nav-right">
-      <span class="nav-badge" title="247 项物理断言全部通过，退出码 0"><i></i>247 PASS</span>
+      <span class="nav-badge" title="512 项可复现物理断言，15 支开源脚本，退出码 0"><i></i>512 REPRODUCIBLE</span>
       <button class="lang-btn" id="langBtn" aria-label="Switch language">EN</button>
     </div>
   </div>
@@ -438,7 +443,7 @@ html:not(.js) .reveal{opacity:1;transform:none}
     </div>
 
     <div class="hero-badges">
-      <span class="ab lead"><i></i><b>247</b> <span class="zh">项物理断言 · 全 PASS</span><span class="en">ASSERTIONS · ALL PASS</span></span>
+      <span class="ab lead"><i></i><b>512</b> <span class="zh">项可复现物理断言 · 15 支脚本 · EXIT=0</span><span class="en">REPRODUCIBLE ASSERTIONS · 15 SCRIPTS · EXIT=0</span></span>
       <span class="ab gold">EXIT = 0</span>
       <span class="ab ghost">APACHE-2.0</span>
     </div>
@@ -469,10 +474,10 @@ html:not(.js) .reveal{opacity:1;transform:none}
           <h3 class="en" lang="en">Hard Physics</h3>
           <span class="q-en">PHYSICS</span>
         </div>
-        <p class="q-desc zh">247 项物理断言逐条判定，退出码为零才算通过。两项物理技术加一项制度创新，并列而立。</p>
-        <p class="q-desc en" lang="en">247 physical assertions judged one by one; a zero exit code is the only pass. Two physical techniques and one institutional design, side by side.</p>
+        <p class="q-desc zh">512 项可复现物理断言逐条判定，退出码为零才算通过。两项物理技术加一项制度创新，并列而立。</p>
+        <p class="q-desc en" lang="en">512 reproducible physical assertions judged one by one; a zero exit code is the only pass. Two physical techniques and one institutional design, side by side.</p>
         <div class="q-stats">
-          <div><b>247</b><span class="zh">物理断言</span><span class="en">ASSERTIONS</span></div>
+          <div><b>512</b><span class="zh">可复现物理断言</span><span class="en">REPRODUCIBLE ASSERTIONS</span></div>
           <div><b>6</b><span class="zh">技术主线</span><span class="en">LINES</span></div>
           <div><b>3</b><span class="zh">核心创新</span><span class="en">INNOVATIONS</span></div>
         </div>
@@ -633,7 +638,7 @@ html:not(.js) .reveal{opacity:1;transform:none}
   <div class="wrap">
     <div class="foot-in">
       <div class="foot-l">
-        <b>SINOSHOP · SINO<em style="color:var(--jade-lit);font-style:normal">PORT</em></b><br>
+        <img class="foot-mark" src="assets/logo/sinoshop-medallion.png" alt="" width="36" height="36"><b>SINOSHOP · SINO<em style="color:var(--jade-lit);font-style:normal">PORT</em></b><br>
         <span class="zh">跨海悬浮隧道浮桥家园 · 数字孪生驱动的创新海洋能源基建 · Apache-2.0</span>
         <span class="en">Sea-crossing floating tunnel bridge homeland · digital-twin-driven marine energy infrastructure · Apache-2.0</span>
       </div>
