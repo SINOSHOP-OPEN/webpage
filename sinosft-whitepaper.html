@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SINOSFT 公开版白皮书 · 深蓝画卷</title>
+<style>
+  :root{
+    --ink:#eaf4ff; --ink-dim:#9db8d4; --gold:#e8c97a; --deep:#04101f;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Noto Serif SC","Songti SC","STSong",serif;
+    background:var(--deep); color:var(--ink); overflow-x:hidden;
+  }
+  /* ---------- 深蓝画卷 · 主视觉 ---------- */
+  .hero{position:relative;height:100vh;min-height:640px;overflow:hidden}
+  .sky{position:absolute;inset:0;background:linear-gradient(180deg,#02060d 0%,#071a33 34%,#0c3055 60%,#0a2748 78%,#04101f 100%)}
+  .stars{position:absolute;inset:0;opacity:.7}
+  .star{position:absolute;width:2px;height:2px;border-radius:50%;background:#cfe6ff;animation:tw 4s infinite}
+  @keyframes tw{0%,100%{opacity:.15}50%{opacity:.9}}
+  .moon{position:absolute;top:12%;right:14%;width:88px;height:88px;border-radius:50%;
+    background:radial-gradient(circle at 38% 34%,#fdf6dd 0%,#e8d9a0 55%,#c9b878 100%);
+    box-shadow:0 0 60px 18px rgba(232,201,122,.28);animation:moonfloat 9s ease-in-out infinite}
+  @keyframes moonfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+  /* —— 动图 · 三层海浪（CSS 无限平移，等价 GIF） —— */
+  .sea{position:absolute;left:0;right:0;bottom:0;height:46%}
+  .wave{position:absolute;left:0;bottom:0;width:200%;height:100%;
+    background-repeat:repeat-x;animation:drift linear infinite}
+  .wave.w1{height:64%;bottom:0;opacity:.9;animation-duration:26s;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 200' preserveAspectRatio='none'%3E%3Cpath d='M0,110 C150,60 300,160 450,110 C600,60 750,160 900,110 C1050,60 1200,160 1350,110 L1350,200 L0,200 Z' fill='%23062c52'/%3E%3C/svg%3E")}
+  .wave.w2{height:52%;bottom:6%;opacity:.75;animation-duration:19s;animation-direction:reverse;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 200' preserveAspectRatio='none'%3E%3Cpath d='M0,120 C200,70 400,170 600,120 C800,70 1000,170 1200,120 L1200,200 L0,200 Z' fill='%230a3a6b'/%3E%3C/svg%3E")}
+  .wave.w3{height:40%;bottom:12%;opacity:.6;animation-duration:13s;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 200' preserveAspectRatio='none'%3E%3Cpath d='M0,130 C180,90 360,175 540,130 C720,85 900,175 1080,130 L1080,200 L0,200 Z' fill='%23124e85'/%3E%3C/svg%3E")}
+  @keyframes drift{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  /* —— 动图 · 悬浮模块（随浪起伏，不锚固海床） —— */
+  .module{position:absolute;left:50%;top:44%;transform:translateX(-50%);animation:bob 7s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0) rotate(-.6deg)}50%{transform:translateX(-50%) translateY(-14px) rotate(.6deg)}}
+  .module svg{filter:drop-shadow(0 22px 30px rgba(0,0,0,.5))}
+  .glowline{position:absolute;left:0;right:0;bottom:44%;height:1px;
+    background:linear-gradient(90deg,transparent,rgba(232,201,122,.35),transparent)}
+  .hero-text{position:absolute;left:0;right:0;top:22%;text-align:center;z-index:3}
+  .hero-text h1{font-size:clamp(2rem,5.2vw,3.6rem);letter-spacing:.35em;font-weight:600;text-shadow:0 2px 24px rgba(4,16,31,.9)}
+  .hero-text .sub{margin-top:1.1rem;color:var(--ink-dim);letter-spacing:.5em;font-size:.95rem}
+  .hero-text .creed{margin-top:2rem;color:var(--gold);letter-spacing:.3em;font-size:1.05rem}
+  .scroll-hint{position:absolute;bottom:4%;left:0;right:0;text-align:center;color:var(--ink-dim);
+    font-size:.8rem;letter-spacing:.4em;animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
+  /* ---------- 正文 · 卷轴 ---------- */
+  main{max-width:880px;margin:0 auto;padding:0 6vw 5rem}
+  section{padding:4.2rem 0 2rem;border-bottom:1px solid rgba(157,184,212,.14)}
+  section:last-of-type{border-bottom:none}
+  .tag{display:inline-block;color:var(--gold);border:1px solid rgba(232,201,122,.4);
+    padding:.2rem .9rem;border-radius:999px;font-size:.75rem;letter-spacing:.35em;margin-bottom:1.4rem}
+  h2{font-size:1.7rem;font-weight:600;letter-spacing:.14em;margin-bottom:1.4rem}
+  h2 span{color:var(--gold);margin-right:.6em}
+  p{line-height:2.05;color:var(--ink-dim);text-align:justify;margin-bottom:1rem;font-size:1rem}
+  p strong{color:var(--ink);font-weight:600}
+  blockquote{border-left:2px solid var(--gold);padding:.4rem 0 .4rem 1.2rem;margin:1.4rem 0;
+    color:var(--gold);letter-spacing:.12em;line-height:2}
+  /* 尾卷 */
+  .coda{text-align:center;padding:5rem 0 3rem}
+  .coda .line{color:var(--ink-dim);letter-spacing:.5em;font-size:.85rem;margin-top:2.4rem}
+  .coda .big{font-size:1.5rem;letter-spacing:.3em;color:var(--ink)}
+  footer{text-align:center;color:rgba(157,184,212,.55);font-size:.75rem;letter-spacing:.2em;padding:2rem 0 3rem}
+  @media (prefers-reduced-motion: reduce){.wave,.module,.moon,.star,.scroll-hint{animation:none}}
+</style>
+</head>
+<body>
+
+<!-- ================= 深蓝画卷 · 首屏 ================= -->
+<header class="hero">
+  <div class="sky"></div>
+  <div class="stars" aria-hidden="true">
+    <span class="star" style="left:8%;top:18%"></span><span class="star" style="left:16%;top:34%;animation-delay:.8s"></span>
+    <span class="star" style="left:28%;top:12%;animation-delay:1.6s"></span><span class="star" style="left:41%;top:26%;animation-delay:.4s"></span>
+    <span class="star" style="left:57%;top:15%;animation-delay:2.2s"></span><span class="star" style="left:69%;top:31%;animation-delay:1.1s"></span>
+    <span class="star" style="left:81%;top:9%;animation-delay:2.8s"></span><span class="star" style="left:90%;top:24%;animation-delay:.6s"></span>
+    <span class="star" style="left:12%;top:44%;animation-delay:1.9s"></span><span class="star" style="left:64%;top:41%;animation-delay:1.3s"></span>
+  </div>
+  <div class="moon" aria-hidden="true"></div>
+
+  <div class="hero-text">
+    <h1>SINOSFT</h1>
+    <div class="sub">跨海悬浮隧道 · 公开版白皮书 · 深蓝画卷</div>
+    <div class="creed">观天之道，执天之行 · 海生电，电养桥，桥造城，城惠民</div>
+  </div>
+
+  <!-- 悬浮模块（示意，随浪起伏） -->
+  <div class="module" aria-hidden="true">
+    <svg width="320" height="120" viewBox="0 0 320 120">
+      <path d="M20,78 Q160,40 300,78 L288,96 Q160,116 32,96 Z" fill="#0e2f52" stroke="#2e6ea6" stroke-width="1.5"/>
+      <ellipse cx="160" cy="66" rx="128" ry="26" fill="#123c66" stroke="#3d7fb8" stroke-width="1.5"/>
+      <circle cx="112" cy="62" r="9" fill="#9fd4ff" opacity=".85"/>
+      <circle cx="160" cy="58" r="9" fill="#9fd4ff" opacity=".7"/>
+      <circle cx="208" cy="62" r="9" fill="#9fd4ff" opacity=".85"/>
+      <path d="M40,86 L280,86" stroke="#e8c97a" stroke-width="1" opacity=".5"/>
+    </svg>
+  </div>
+  <div class="glowline" aria-hidden="true"></div>
+
+  <div class="sea" aria-hidden="true">
+    <div class="wave w1"></div><div class="wave w2"></div><div class="wave w3"></div>
+  </div>
+  <div class="scroll-hint">向下展卷 · SCROLL</div>
+</header>
+
+<!-- ================= 卷轴正文 ================= -->
+<main>
+
+<section id="path">
+  <span class="tag">卷首</span>
+  <h2><span>壹</span>第三条路 · 悬浮</h2>
+  <p>海底隧道与跨海大桥，是人类跨越深水的两种经典答案——它们是了不起的工程丰碑，
+  我们怀着敬意看待前人的成就。SINOSFT 探索的是<strong>第三条路——悬浮</strong>：
+  让通道结构既不锚固海床、也不完全暴露水面，在设定的水深带内由浮力与系泊共同约束，
+  随载荷自适应地维持形态。</p>
+  <blockquote>这条路的门槛不在工程，而在数学。<br>以数学为宪法，以代码为城墙。</blockquote>
+</section>
+
+<section id="module">
+  <span class="tag">第一卷</span>
+  <h2><span>贰</span>一件一码，一人一码</h2>
+  <p>隧道由标准化模块在统一节拍上拼接而成。每个模块、每个部件，拥有贯穿设计、制造、
+  运输、安装、运维、更换全过程的<strong>唯一身份</strong>。</p>
+  <p>构件整体更换时版本代际递增，历史血统链完整保留；局部维修不改变构件身份——
+  <strong>从出厂到退役，全程可溯</strong>。件号回答「是什么件」，定位码回答「装在哪、朝哪边」，
+  使命层回答「为何存在」。三层联键，环环相扣，<strong>断链即拒收</strong>。</p>
+  <p>编码不是标签，是质量责任的锚点：追得到，才谈得上负责；验得了，才谈得上信任。</p>
+</section>
+
+<section id="window">
+  <span class="tag">第二卷</span>
+  <h2><span>叁</span>一孔两用 · 窗与门</h2>
+  <p>壳壁顶部由桁架围合成透明的<strong>海映天窗</strong>。平日，它是舱内乘客观望海色的窗；
+  应急时，同一个开孔即成为救生舱出壳的通道。</p>
+  <p>两用<strong>不设任何转换机构</strong>——因为应急时刻，人不一定有能力去操作任何机关。
+  让构造本身替人做决定：平时封板在位，急时自动让路。</p>
+</section>
+
+<section id="escape">
+  <span class="tag">第三卷</span>
+  <h2><span>肆</span>双体系逃生</h2>
+  <p>疏散体系由两条腿走路：<strong>阶梯通道网</strong>承担持续步行疏散，
+  <strong>救生舱阵列</strong>承担高位浮升出壳。竖井本身兼作水舱与浮升通道——
+  平时储水，急时载人升出水面。</p>
+  <p>两套体系互为冗余、合并达标。我们<strong>不虚报任何单体系的能力</strong>：
+  诚实的余量，比漂亮的单值更接近安全。</p>
+</section>
+
+<section id="eco">
+  <span class="tag">第四卷</span>
+  <h2><span>伍</span>不搅动海床的跨越</h2>
+  <p>悬浮，意味着不锚固、不开挖、不搅动海床——海洋的底土保持它原本的样子。
+  防波与消浪结构如红树林一般与海共生，把一项工程构造转化为可感知的生态设施。</p>
+  <blockquote>海生电，电养桥，桥造城，城惠民。航天海，众生安。</blockquote>
+</section>
+
+<section id="proof">
+  <span class="tag">第五卷</span>
+  <h2><span>陆</span>人可以写文案，但不能写 PASS</h2>
+  <p>全部公开几何与性能数据由<strong>独立断言脚本</strong>判定，退出码为零是唯一验收判据；
+  编码体系自身亦由独立脚本验证，内含<strong>鉴别力测试</strong>——故意注入错误样本，
+  检验器必须抓到，否则「零命中」毫无意义。</p>
+  <p>结论给得出，底牌不给：<strong>公开数据 ≠ 公开逻辑</strong>。</p>
+</section>
+
+<section id="boundary">
+  <span class="tag">边界</span>
+  <h2><span>柒</span>公开范围划界</h2>
+  <p>本白皮书及公开资料包<strong>不包含</strong>：任何工程细节参数、编码体系的实现细节、
+  核心控制逻辑与工程几何配置。
+  上述内容属 SINOSFT 受控知识产权，仅以商业合作方式提供。</p>
+  <p>在极端微观交叉工况上，我们仍在通过开源仿真持续优化——知之为知之，不知为不知。</p>
+</section>
+
+<div class="coda">
+  <div class="big">共建共享，海洋家园，众志成城</div>
+  <div class="line">愿 海 如 镜 · 人 如 舟</div>
+</div>
+
+</main>
+<footer>SINOSFT 公开版白皮书 · 宏观介绍 · 详细规范为受控内部文件，不在公开范围<br>
+<a href="index.html" style="color:#9db8d4;text-decoration:none;letter-spacing:.2em;">← 返回官网首页</a> · <a href="https://gitee.com/sinoshop/SINOSFT" style="color:#9db8d4;text-decoration:none;letter-spacing:.2em;">SINOSFT 主仓 →</a></footer>
+</body>
+</html>
