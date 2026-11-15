@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SinoSFT · 跨海悬浮隧道浮桥家园悬浮港工程技术（开源合作站）</title>
+<meta name="description" content="标准通用模式＋示范工程验证：通用规则、案例取值、验证状态三层架构，结果数字可公开、自证脚本可复算。面向工程师开源合作。">
+<meta name="keywords" content="悬浮隧道,浮式结构,跨海通道,模块化建造,浮力重量平衡,动态载荷抵消,极限逃生,数字确权,开源">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "SinoSFT 跨海悬浮隧道浮桥家园悬浮港工程技术 V2.0",
+  "about": "悬浮隧道, 浮式结构, 跨海通道, 模块化建造, 海洋家园",
+  "datePublished": "2026-11-15",
+  "version": "V2.0",
+  "keywords": "悬浮隧道, 浮力重量平衡, 动态载荷抵消, 极限逃生, 数字确权, 开源"
+}
+</script>
+<style>
+:root{
+  --layer-general:#1a5fb4;
+  --layer-case:#c64600;
+  --layer-verify:#26a269;
+  --state-proven:#26a269;
+  --state-budget:#e5a50a;
+  --state-pending:#c01c28;
+  --text-main:#1d1d1f;
+  --text-sub:#55555a;
+  --bg-page:#fafaf8;
+  --bg-card:#ffffff;
+  --bg-soft:#f2f4f8;
+  --border:#d8d8d4;
+  --accent-gold:#d9a93f;
+  --banner-grad:linear-gradient(135deg,#142640 0%,#20405e 55%,#1a3d54 100%);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --text-main:#e8e8e4;
+    --text-sub:#a9a9ad;
+    --bg-page:#141416;
+    --bg-card:#1e1e22;
+    --bg-soft:#24242a;
+    --border:#3a3a3e;
+    --layer-general:#5a9ce8;
+    --layer-case:#e88a4a;
+    --layer-verify:#4ac98a;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+h2.sec,section[id],h3{scroll-margin-top:110px}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  color:var(--text-main);
+  background:var(--bg-page);
+  line-height:1.8;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--layer-general);text-decoration:none}
+a:hover{text-decoration:underline}
+.skip-link{
+  position:absolute;left:-9999px;top:0;background:var(--layer-general);color:#fff;
+  padding:.6rem 1rem;z-index:999;border-radius:0 0 6px 0;
+}
+.skip-link:focus{left:0}
+
+/* ===== 顶部战略宣言条 ===== */
+.strategic-banner{
+  position:sticky;top:0;z-index:100;
+  background:var(--banner-grad);color:#f2f3f5;
+  padding:.9rem 1.5rem;
+  box-shadow:0 2px 14px rgba(0,0,0,.18);
+}
+.banner-inner{max-width:1080px;margin:0 auto}
+.banner-quote{
+  margin:0;font-family:"Songti SC","STSong","SimSun",serif;
+  font-size:1.02rem;opacity:.88;letter-spacing:.02em;
+}
+.banner-sub{margin:.15rem 0 0;font-size:.82rem;opacity:.7}
+.banner-claim{margin:.5rem 0 0;font-size:1.05rem;font-weight:600}
+.banner-claim strong{color:var(--accent-gold);font-weight:700}
+.banner-version{
+  display:inline-block;margin-top:.35rem;font-size:.72rem;opacity:.75;
+  background:rgba(255,255,255,.08);padding:.1rem .6rem;border-radius:999px;
+}
+
+/* ===== 布局 ===== */
+.wrap{max-width:1080px;margin:0 auto;padding:2rem 1.5rem 4rem}
+.hero{padding:2.5rem 0 1.5rem}
+.hero h1{
+  margin:0 0 .6rem;font-size:2rem;line-height:1.35;font-weight:800;
+  letter-spacing:.01em;
+}
+.hero .subtitle{color:var(--text-sub);font-size:1.05rem;margin:0 0 1.2rem}
+
+/* ===== 三层徽章 ===== */
+.badge{
+  display:inline-block;padding:.12em .55em;border-radius:4px;
+  font-size:.82em;font-weight:600;letter-spacing:.02em;vertical-align:middle;
+  line-height:1.5;white-space:nowrap;
+}
+.badge-general{background:#e8f0fb;color:var(--layer-general);border:1px solid var(--layer-general)}
+.badge-case{background:#fdf0e8;color:var(--layer-case);border:1px solid var(--layer-case)}
+.badge-verify{background:#e8f5ee;color:var(--layer-verify);border:1px solid var(--layer-verify)}
+@media (prefers-color-scheme: dark){
+  .badge-general{background:#12253c}.badge-case{background:#3a1f12}.badge-verify{background:#0f2a1d}
+}
+
+/* ===== 区块标题 ===== */
+h2.sec{
+  font-size:1.5rem;margin:3rem 0 1.2rem;padding-bottom:.5rem;
+  border-bottom:2px solid var(--border);
+  position:relative;
+}
+h2.sec::after{
+  content:"";position:absolute;left:0;bottom:-2px;width:3.2rem;height:2px;
+  background:var(--layer-general);
+}
+h3{font-size:1.12rem;margin:1.6rem 0 .6rem}
+
+/* ===== 战略宣言卡片 ===== */
+.declare-card{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:12px;
+  padding:1.4rem 1.6rem;margin:1.5rem 0;border-left:4px solid var(--accent-gold);
+}
+.declare-card p{margin:.4rem 0}
+.declare-card .q{font-family:"Songti SC","STSong","SimSun",serif;font-size:1.15rem;font-weight:600}
+
+/* ===== 九问手风琴 ===== */
+.qa-item{
+  border:1px solid var(--border);border-radius:10px;margin-bottom:.9rem;
+  background:var(--bg-card);overflow:hidden;
+}
+.qa-item summary{
+  cursor:pointer;padding:.95rem 1.2rem;font-weight:600;
+  list-style:none;display:flex;align-items:center;gap:.8rem;user-select:none;
+}
+.qa-item summary::-webkit-details-marker{display:none}
+.qa-item summary::after{
+  content:"＋";margin-left:auto;font-size:1.25rem;color:var(--layer-general);
+  transition:transform .2s;font-weight:400;
+}
+.qa-item[open] summary::after{content:"－"}
+.qa-num{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:1.9rem;height:1.9rem;border-radius:50%;
+  background:var(--layer-general);color:#fff;font-size:.86rem;flex-shrink:0;font-weight:700;
+}
+.qa-body{padding:.2rem 1.2rem 1.2rem;color:var(--text-main)}
+.qa-body p{margin:.6rem 0}
+.tech-list{margin:.4rem 0;padding-left:1.2rem}
+.tech-list li{margin:.45rem 0}
+.tech-list strong{color:var(--layer-case)}
+
+/* ===== 表格 ===== */
+.table-wrap{overflow-x:auto;margin:1rem 0;background:var(--bg-card);border:1px solid var(--border);border-radius:10px}
+table{width:100%;border-collapse:collapse;font-size:.94rem}
+caption{caption-side:top;text-align:left;padding:.8rem 1rem;font-weight:700;font-size:.95rem;color:var(--text-sub)}
+th{background:var(--bg-soft);color:var(--text-main);padding:.7rem .9rem;text-align:left;font-weight:700;border-bottom:1px solid var(--border)}
+td{padding:.7rem .9rem;border-bottom:1px solid var(--border);vertical-align:top}
+tr:last-child td{border-bottom:none}
+.layer-table th{background:#1d1d1f;color:#fff}
+.layer-table .row-general{border-left:4px solid var(--layer-general)}
+.layer-table .row-case{border-left:4px solid var(--layer-case)}
+.layer-table .row-verify{border-left:4px solid var(--layer-verify)}
+
+/* 搜索工具栏 */
+.toolbar{display:flex;gap:.6rem;align-items:center;margin:1rem 0;flex-wrap:wrap}
+.toolbar input,.toolbar select{
+  padding:.5rem .8rem;border:1px solid var(--border);border-radius:6px;
+  font-size:.9rem;background:var(--bg-card);color:var(--text-main);
+  min-width:180px;
+}
+.toolbar input:focus,.toolbar select:focus{outline:2px solid var(--layer-general);border-color:var(--layer-general)}
+
+/* ===== 金句引用块 ===== */
+.pull-quote{
+  border-left:4px solid var(--layer-general);background:var(--bg-soft);
+  padding:1.1rem 1.5rem;margin:1.6rem 0;font-size:1.08rem;position:relative;
+  border-radius:0 8px 8px 0;
+}
+.pull-quote p{margin:0;font-family:"Songti SC","STSong","SimSun",serif;font-weight:600}
+.pull-quote cite{display:block;margin-top:.4rem;font-size:.82rem;color:var(--text-sub);font-style:normal}
+.copy-btn{
+  position:absolute;top:.6rem;right:.6rem;font-size:.75rem;padding:.22rem .7rem;
+  border:1px solid var(--border);background:var(--bg-card);border-radius:4px;
+  cursor:pointer;opacity:0;transition:opacity .2s;color:var(--text-main);
+}
+.pull-quote:hover .copy-btn{opacity:1}
+
+/* ===== 许可卡片 + 接力入口 ===== */
+.license-card{
+  display:flex;gap:1rem;align-items:flex-start;
+  background:var(--bg-card);border:1px solid var(--border);border-radius:12px;
+  padding:1.2rem 1.5rem;margin:2rem 0;
+}
+.license-icon{font-size:1.8rem;line-height:1}
+.license-card p{margin:.2rem 0}
+.license-sub{color:var(--text-sub);font-size:.88rem}
+
+.relay{border:1px dashed var(--layer-verify);border-radius:12px;padding:1.3rem 1.5rem;margin:2rem 0;background:var(--bg-card)}
+.relay h3{margin-top:0;color:var(--layer-verify)}
+.relay ul{margin:.6rem 0;padding-left:1.3rem}
+.relay li{margin:.4rem 0}
+
+/* ===== 页脚 ===== */
+footer.site{
+  border-top:1px solid var(--border);margin-top:3rem;padding:1.5rem 0;
+  color:var(--text-sub);font-size:.85rem;text-align:center;
+}
+footer.site .ver{font-weight:600;color:var(--text-main)}
+
+/* ===== 进度条 + 回顶 ===== */
+.reading-progress{
+  position:fixed;top:0;left:0;height:3px;width:0;
+  background:var(--accent-gold);z-index:200;transition:width .08s linear;
+}
+.back-to-top{
+  position:fixed;right:1.4rem;bottom:1.4rem;width:2.6rem;height:2.6rem;
+  border-radius:50%;border:1px solid var(--border);background:var(--bg-card);
+  color:var(--text-main);font-size:1.2rem;cursor:pointer;opacity:0;
+  transition:opacity .25s;z-index:150;box-shadow:0 2px 10px rgba(0,0,0,.15);
+}
+.back-to-top.show{opacity:1}
+
+/* ===== 响应式 ===== */
+@media (max-width:640px){
+  .hero h1{font-size:1.5rem}
+  .banner-quote{font-size:.92rem}
+  .strategic-banner{padding:.7rem 1rem}
+  .layer-table thead{display:none}
+  .layer-table,.layer-table tbody,.layer-table tr,.layer-table td{display:block;width:100%}
+  .layer-table tr{background:var(--bg-card);border-radius:8px;margin-bottom:.8rem;padding:.4rem 0}
+  .layer-table td{padding:.5rem .9rem;border:none}
+  .layer-table td::before{content:attr(data-label);display:block;font-size:.78rem;color:var(--text-sub);margin-bottom:.15rem}
+}
+
+/* ===== 打印 ===== */
+@media print{
+  .strategic-banner{position:static}
+  .back-to-top,.reading-progress,.copy-btn,.toolbar{display:none}
+  .qa-item{border:none}
+  .qa-item summary::after{content:""}
+  .qa-item .qa-body{display:block}
+  a{color:inherit}
+}
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">跳到正文</a>
+<div class="reading-progress" aria-hidden="true"></div>
+
+<header class="strategic-banner">
+  <div class="banner-inner">
+    <p class="banner-quote">「安得广厦千万间，大庇天下寒士俱欢颜。」</p>
+    <p class="banner-sub">今天，我们这群懂工程的现代人，正试图把这句诗，变成千千万万座漂浮在海上的海洋城市家园。</p>
+    <p class="banner-claim"><strong>算得通 · 验得过 · 造得出</strong> —— 且敢把「做不到的」白纸黑字写在边界里。</p>
+    <span class="banner-version">SinoSFT V2.0 · 2026-11-15 · 开源合作站</span>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+
+  <div class="hero">
+    <h1>跨海悬浮隧道浮桥家园悬浮港工程技术</h1>
+    <p class="subtitle">面向工程师的开源合作入口 —— 三层架构，一眼可辨：<span class="badge badge-general">◆ 标准节拍</span> 通用规则，<span class="badge badge-case">● 案例锚点</span> 案例取值，<span class="badge badge-verify">▲ 验证档案</span> 验证状态。</p>
+  </div>
+
+  <aside class="license-card">
+    <div class="license-icon">⚖</div>
+    <div>
+      <p><strong>本资料以 CC BY 4.0 许可开放</strong></p>
+      <p class="license-sub">可自由复制、分发、改编与商用，须署名「SinoSFT 项目」并链接本仓库。验证脚本与公开数据见开源仓库。</p>
+    </div>
+  </aside>
+
+  <div class="declare-card">
+    <p class="q">千年前，杜甫说「安得广厦千万间，大庇天下寒士俱欢颜」。</p>
+    <p>今天，我们这群懂工程的现代人，正试图把这句诗，变成千千万万座漂浮在海上的海洋城市家园。这本书，就是这套「漂浮家园」的工程计算书。</p>
+    <p><strong>我们给出结论，不给出底牌。</strong> 公开的是结果数字与自证脚本，受力拓扑、断言公式、材料配比与公差体系不在公开范围 —— 那部分，欢迎以合作方式深入。</p>
+  </div>
+
+  <h2 class="sec" id="layer">三分钟读懂本书：三层架构</h2>
+  <p>全书内容分三层，任何一页都能一眼分辨正在读的是哪一层：</p>
+  <div class="table-wrap">
+    <table class="layer-table">
+      <thead>
+        <tr><th>你读到的是</th><th>标识</th><th>回答的问题</th><th>典型章节</th></tr>
+      </thead>
+      <tbody>
+        <tr class="row-general">
+          <td data-label="你读到的是">通用规则</td>
+          <td data-label="标识"><span class="badge badge-general">◆ 标准节拍</span></td>
+          <td data-label="回答的问题">怎么做（可跨海峡复用）</td>
+          <td data-label="典型章节">标准模块、机理、安全矩阵</td>
+        </tr>
+        <tr class="row-case">
+          <td data-label="你读到的是">案例取值</td>
+          <td data-label="标识"><span class="badge badge-case">● 案例锚点</span></td>
+          <td data-label="回答的问题">琼州海峡为什么这么取</td>
+          <td data-label="典型章节">选址、水文、几何</td>
+        </tr>
+        <tr class="row-verify">
+          <td data-label="你读到的是">验证状态</td>
+          <td data-label="标识"><span class="badge badge-verify">▲ 验证档案</span></td>
+          <td data-label="回答的问题">凭什么信（已证实／预算值／待核）</td>
+          <td data-label="典型章节">断言脚本、边界自陈</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p><strong>通用层讲「怎么做」，案例层讲「在琼州海峡的具体条件下为什么这么做」，验证层讲「凭什么信」。</strong> 三者共同构成「标准通用模式」的完整表达。</p>
+
+  <h2 class="sec" id="guide">核心导读 · 九个问答</h2>
+
+  <details class="qa-item" open>
+    <summary><span class="qa-num">一</span>我们造的海洋家园是什么样的？</summary>
+    <div class="qa-body">
+      <p>我们不只在海洋上造一条桥，而是要建设路面不起伏、恒定高度悬浮的海洋城市家园。它由七根管道拼成（四条公路、一条磁浮、两条客货铁路），像潜水艇一样悬浮着，管内跑车，管上过船，互不干扰。</p>
+      <p>这本书以<span class="badge badge-case">● 案例锚点</span>琼州海峡为示范案例，把「在哪里造、面对什么海况」讲得明明白白。</p>
+    </div>
+  </details>
+
+  <details class="qa-item">
+    <summary><span class="qa-num">二</span>用什么方法造海洋家园？</summary>
+    <div class="qa-body">
+      <p>实现「海生电、电养船、船搭桥、桥造城、城惠民、众生安」的九大核心技术：</p>
+      <ol class="tech-list">
+        <li><strong>A</strong> 悬浮红树林防波堤消浪发电技术 —— 防波堤外侧的浪，被挡在内部之外；</li>
+        <li><strong>B</strong> 浮体高度恒定潮汐发电技术 —— 零耗能、自适应潮汐起伏、持续发电；</li>
+        <li><strong>C</strong> 动态载荷抵消系统技术 —— 重载列车驶入，路面起伏被控制在毫米级；</li>
+        <li><strong>D</strong> 扁椭圆柱体隧道标准模块 —— 同平面容纳轨道交通与公路车道；</li>
+        <li><strong>E</strong> 浮体结构分段下沉避险防海啸系统 —— 预警期内整体下沉避险、恢复交通；</li>
+        <li><strong>F</strong> 悬浮木桩平台式引桥地基系统 —— 悬浮防地震减灾；</li>
+        <li><strong>G</strong> 抽水储能、放热储能、制氢、海水淡化 —— 多种海洋能发电的超级电站调节；</li>
+        <li><strong>H</strong> 氢能化学产气浮升救生舱 —— 每公里三分钟内疏散三千人；</li>
+        <li><strong>I</strong> 深长隧道通风通光智能消防 —— 水雾、水帘、风帘、分区封闭门智能消防。</li>
+      </ol>
+    </div>
+  </details>
+
+  <details class="qa-item">
+    <summary><span class="qa-num">三</span>基于技术开源规则，如何确权？</summary>
+    <div class="qa-body">
+      <p>我们探索区块链技术实现技术知识数字存证模式，在合法的前提下，记录并保护参与合作的技术自由独立数字存证，为将来的 RWA 区块链运营预备基础。</p>
+    </div>
+  </details>
+
+  <details class="qa-item">
+    <summary><span class="qa-num">四</span>重载列车压上来，桥会起伏吗？</summary>
+    <div class="qa-body">
+      <p>不会。因为我们在管道里装了「液压不倒翁」。列车还没到，底下的动态配重系统就提前「接招」了。路面几乎感觉不到起伏，高铁开过去如履平地。</p>
+    </div>
+  </details>
+
+  <details class="qa-item">
+    <summary><span class="qa-num">五</span>靠岸时怎么爬上去？</summary>
+    <div class="qa-body">
+      <p>如果直接从深水区连到陆地，火车会溜坡。所以选址陆地岸边，设计引桥，让轨道交通轨线与公路车道同平面高度进入海面浮桥；再经过一段缓坡，让列车顺滑地潜入海，悬浮隧道顶部潜于海面之下。</p>
+      <p>交通引桥两侧各设行人引桥，进入生活平台。行人引桥在陆地端固定高度、浮桥端浮动高度，随生活平台储能水舱日夜交替而缓慢起伏。</p>
+    </div>
+  </details>
+
+  <details class="qa-item">
+    <summary><span class="qa-num">六</span>能源和养殖怎么结合？</summary>
+    <div class="qa-body">
+      <p>这是一个「循环生态」。深海的算力中心发热，正好拿来给旁边的养殖鱼舱当「地暖」；海面上铺满太阳能板接雨水，多余的电就用来制氢或淡化海水，一点都不浪费。</p>
+    </div>
+  </details>
+
+  <details class="qa-item">
+    <summary><span class="qa-num">七</span>万一断电了，人跑得掉吗？</summary>
+    <div class="qa-body">
+      <p>这是我们的骄傲。每个标准模块里设计了不需要电的氢能救生舱。就算全黑、全停电，只要靠氢能化学产气的浮力，就能在三分钟内让三千人完成登舱，再靠浮力把大家安全托出水面。不用等救援，自己就能浮出海面。</p>
+    </div>
+  </details>
+
+  <details class="qa-item">
+    <summary><span class="qa-num">八</span>这本书的底线是什么？</summary>
+    <div class="qa-body">
+      <p>实事求是，以术载道。全书的结论全由<span class="badge badge-verify">▲ 验证档案</span>机器断言跑出来，数据拿国家数据知识产权局的登记号做背书。我们甚至把「目前做不到的」和「待实海测试的」都白纸黑字写进了边界自陈里。</p>
+    </div>
+  </details>
+
+  <details class="qa-item">
+    <summary><span class="qa-num">九</span>跨关税区的跨海通道如何防走私？</summary>
+    <div class="qa-body">
+      <p>SinoSFT 悬浮隧道浮桥家园工程系统设置智能防走私系统，全方位提升管理安全与效率。</p>
+    </div>
+  </details>
+
+  <h2 class="sec" id="overview">导读篇 · 总体概述</h2>
+  <p>在进入各章技术论证之前，先看这座「跨海悬浮隧道浮桥家园」的整体图景：它由什么构成、怎样连接与密封、靠什么保持平稳、如何消浪抗台、怎样防腐蚀、生态与救生如何组织、通风消防与引桥如何设置、大小船舶航道如何分层，以及「多段标准悬浮隧道＋多段浮桥」的组合逻辑。</p>
+
+  <h3>总体组成：一张表看懂</h3>
+  <div class="toolbar">
+    <input type="search" id="sys-search" placeholder="搜索系统、职能……" aria-label="搜索系统表格">
+    <select id="sys-filter" aria-label="按类别筛选">
+      <option value="">全部类别</option>
+      <option value="structure">主体结构</option>
+      <option value="traffic">交通</option>
+      <option value="energy">能源</option>
+      <option value="safety">安全</option>
+      <option value="ecology">生态</option>
+      <option value="governance">治理</option>
+    </select>
+  </div>
+  <div class="table-wrap">
+    <table id="systems-table" class="data-table">
+      <caption>SinoSFT 悬浮隧道浮桥家园 · 十四系统一览</caption>
+      <thead>
+        <tr><th scope="col">系统</th><th scope="col">类别</th><th scope="col">职能</th><th scope="col">层</th></tr>
+      </thead>
+      <tbody>
+        <tr data-cat="structure"><td>扁椭圆柱标准模块</td><td>主体结构</td><td>二十七米节拍的通用单元，宽长轴与短轴构成几何契约</td><td><span class="badge badge-general">◆ 标准节拍</span></td></tr>
+        <tr data-cat="structure"><td>榫卯式密封连接件</td><td>主体结构</td><td>模块间水密对接与传力自锁，摒弃现场热加工</td><td><span class="badge badge-general">◆ 标准节拍</span></td></tr>
+        <tr data-cat="structure"><td>自浮自衡体系</td><td>主体结构</td><td>各模块各自完成浮力重量平衡，故障不放大</td><td><span class="badge badge-general">◆ 标准节拍</span></td></tr>
+        <tr data-cat="traffic"><td>七管交通枢纽</td><td>交通</td><td>四公路＋一磁浮＋二客货铁路，管内跑车</td><td><span class="badge badge-general">◆ 标准节拍</span></td></tr>
+        <tr data-cat="traffic"><td>多段组合纵断面</td><td>交通</td><td>浮桥段—斜坡段—深潜段串联，适配不同海域</td><td><span class="badge badge-general">◆ 标准节拍</span></td></tr>
+        <tr data-cat="energy"><td>高度恒定潮汐发电</td><td>能源</td><td>把「维持恒定」的过程变成能量收入</td><td><span class="badge badge-general">◆ 标准节拍</span></td></tr>
+        <tr data-cat="energy"><td>动态载荷抵消</td><td>能源</td><td>从「事后补偿」到「事前预判」的控制范式</td><td><span class="badge badge-general">◆ 标准节拍</span></td></tr>
+        <tr data-cat="safety"><td>纯机械重力自闭闸门</td><td>安全</td><td>不依赖电源，重力即触发</td><td><span class="badge badge-general">◆ 标准节拍</span></td></tr>
+        <tr data-cat="safety"><td>氢能化学产气救生舱</td><td>安全</td><td>每模块五十六舱，不需电、不需传感器</td><td><span class="badge badge-general">◆ 标准节拍</span></td></tr>
+        <tr data-cat="safety"><td>五级减震防御链</td><td>安全</td><td>接力而非越界，逐级耗能</td><td><span class="badge badge-general">◆ 标准节拍</span></td></tr>
+        <tr data-cat="ecology"><td>悬浮红树林消浪带</td><td>生态</td><td>仿红树林消浪，与海共生</td><td><span class="badge badge-general">◆ 标准节拍</span></td></tr>
+        <tr data-cat="ecology"><td>深海算力舱</td><td>生态</td><td>散热成本转环境禀赋，余热供养殖</td><td><span class="badge badge-general">◆ 标准节拍</span></td></tr>
+        <tr data-cat="ecology"><td>深海养殖舱</td><td>生态</td><td>以刚性管体为抗风浪母体，闭环循环</td><td><span class="badge badge-general">◆ 标准节拍</span></td></tr>
+        <tr data-cat="governance"><td>数字存证与确权</td><td>治理</td><td>技术开源、数字存证、共建共治共享</td><td><span class="badge badge-verify">▲ 验证档案</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="sec" id="quotes">能被单独引用的话</h2>
+
+  <blockquote class="pull-quote">
+    <p>人可以写文案，不能写 PASS。</p>
+    <cite>—— 机器断言的由来</cite>
+    <button class="copy-btn" data-copy="人可以写文案，不能写 PASS。">复制</button>
+  </blockquote>
+
+  <blockquote class="pull-quote">
+    <p>固定结构的质量在现场争取，悬浮结构的质量在工厂锁定。</p>
+    <cite>—— 智能建造的质量哲学</cite>
+    <button class="copy-btn" data-copy="固定结构的质量在现场争取，悬浮结构的质量在工厂锁定。">复制</button>
+  </blockquote>
+
+  <blockquote class="pull-quote">
+    <p>检验手段可以因环境而简化，检验判据绝不因此降低。</p>
+    <cite>—— 合龙质量门控</cite>
+    <button class="copy-btn" data-copy="检验手段可以因环境而简化，检验判据绝不因此降低。">复制</button>
+  </blockquote>
+
+  <blockquote class="pull-quote">
+    <p>安全体系与宣传品的区别，不在展示了多少能力，而在敢于登记多少缺口。</p>
+    <cite>—— 未闭合项交底</cite>
+    <button class="copy-btn" data-copy="安全体系与宣传品的区别，不在展示了多少能力，而在敢于登记多少缺口。">复制</button>
+  </blockquote>
+
+  <blockquote class="pull-quote">
+    <p>追溯是为了救人，不是为了看人。</p>
+    <cite>—— 唯一码追溯的伦理边界</cite>
+    <button class="copy-btn" data-copy="追溯是为了救人，不是为了看人。">复制</button>
+  </blockquote>
+
+  <blockquote class="pull-quote">
+    <p>数字服从溯源，不服从叙事。</p>
+    <cite>—— 一次自我修正</cite>
+    <button class="copy-btn" data-copy="数字服从溯源，不服从叙事。">复制</button>
+  </blockquote>
+
+  <h2 class="sec" id="join">参与合作 · 接力入口</h2>
+
+  <div class="relay">
+    <h3>▲ 验证 · 自己跑一遍</h3>
+    <ul>
+      <li>512 项物理断言一键复现：<code>physics-assertions-512/run_all.py</code> —— 对本仓库公布的每个数字独立复算，全部通过退出码为 0。</li>
+      <li>宏观拓扑自洽验证：<code>verify/verify_sft_public_macro.py</code> —— 19/19 PASS。</li>
+      <li>「人可以写文案，不能写 PASS」—— 所以 PASS 由脚本写。</li>
+    </ul>
+  </div>
+
+  <div class="relay">
+    <h3>◆ 通用规则 · 可复用</h3>
+    <ul>
+      <li>标准模块几何、数据表与口径，见开源仓库 <code>README.md</code> 与 <code>docs/</code>。</li>
+      <li>三级模数链与八段式模块编码的公开摘要，见 <code>SINOSFT_编码规范_公开摘要.md</code>。</li>
+    </ul>
+  </div>
+
+  <div class="relay">
+    <h3>● 深入合作 · 不公开的那部分</h3>
+    <ul>
+      <li>受力拓扑、核心断言公式、材料配比与公差体系 —— 属受控知识产权，仅以合作方式提供。</li>
+      <li>在极端微观交叉工况上，我们仍在通过开源仿真持续优化 —— 知之为知之，不知为不知。</li>
+    </ul>
+  </div>
+
+  <div class="relay">
+    <h3>💬 讨论与勘误</h3>
+    <ul>
+      <li>开源仓库：<a href="https://gitee.com/sinoshop/SINOSFT" target="_blank" rel="noopener"><code>gitee.com/sinoshop/SINOSFT</code></a></li>
+      <li>项目官网：<a href="https://sinoshop-open.github.io/webpage/" target="_blank" rel="noopener">sinoshop-open.github.io/webpage</a></li>
+      <li>公开版白皮书：<a href="https://gitee.com/sinoshop/SINOSFT/raw/master/docs/SINOSFT_%E5%85%AC%E5%BC%80%E7%89%88%E7%99%BD%E7%9A%AE%E4%B9%A6.html" target="_blank" rel="noopener">SINOSFT 公开版白皮书</a></li>
+      <li>许可：CC BY 4.0 —— 署名「SinoSFT 项目」，可自由复制、改编、商用。</li>
+    </ul>
+  </div>
+
+  <footer class="site">
+    <p class="ver">SinoSFT V2.0 · 2026-11-15 · 开源合作站</p>
+    <p>跨海悬浮隧道浮桥家园悬浮港工程技术 · 标准通用模式＋示范工程验证</p>
+    <p>我们给出结论，不给出底牌。 · 本页以 CC BY 4.0 提供</p>
+  </footer>
+
+</main>
+
+<button class="back-to-top" aria-label="回到顶部">↑</button>
+
+<script>
+// 阅读进度条
+(function(){
+  var bar=document.querySelector('.reading-progress');
+  var btn=document.querySelector('.back-to-top');
+  function onScroll(){
+    var h=document.documentElement;
+    var sc=h.scrollTop||document.body.scrollTop;
+    var max=h.scrollHeight-h.clientHeight;
+    var p=max>0?sc/max:0;
+    bar.style.width=(p*100)+'%';
+    if(sc>400)btn.classList.add('show');else btn.classList.remove('show');
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  btn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
+  onScroll();
+})();
+
+// 表格搜索 + 筛选
+(function(){
+  var input=document.getElementById('sys-search');
+  var filter=document.getElementById('sys-filter');
+  var table=document.getElementById('systems-table');
+  if(!input||!table)return;
+  function apply(){
+    var q=input.value.toLowerCase();
+    var cat=filter.value;
+    table.querySelectorAll('tbody tr').forEach(function(tr){
+      var okTxt=tr.textContent.toLowerCase().includes(q);
+      var okCat=!cat||tr.getAttribute('data-cat')===cat;
+      tr.style.display=(okTxt&&okCat)?'':'none';
+    });
+  }
+  input.addEventListener('input',apply);
+  filter.addEventListener('change',apply);
+})();
+
+// 一键复制金句
+(function(){
+  document.querySelectorAll('.copy-btn').forEach(function(btn){
+    btn.addEventListener('click',async function(){
+      try{
+        await navigator.clipboard.writeText(btn.dataset.copy);
+        btn.textContent='已复制 ✓';
+      }catch(e){
+        btn.textContent='复制失败';
+      }
+      setTimeout(function(){btn.textContent='复制'},1500);
+    });
+  });
+})();
+</script>
+</body>
+</html>
