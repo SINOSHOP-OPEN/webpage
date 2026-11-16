@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 300" width="680" height="300" role="img" aria-label="三部分职责划分示意图">
+  <rect x="0" y="0" width="680" height="300" fill="#f7f9fb"/>
+  <text x="340" y="34" text-anchor="middle" font-family="Noto Sans SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="17" font-weight="600" fill="#1b2733">职责划分（功能定位层）</text>
+  <text x="340" y="56" text-anchor="middle" font-family="Noto Sans SC, PingFang SC, Microsoft YaHei, sans-serif" font-size="12" fill="#52606d">只标职责，不标实现</text>
+
+  <g font-family="Noto Sans SC, PingFang SC, Microsoft YaHei, sans-serif">
+    <rect x="28" y="86" width="196" height="128" rx="8" fill="#ffffff" stroke="#dfe6ec" stroke-width="1.5"/>
+    <rect x="28" y="86" width="196" height="30" rx="8" fill="#eef4f5" stroke="#dfe6ec" stroke-width="1.5"/>
+    <text x="126" y="107" text-anchor="middle" font-size="14" font-weight="600" fill="#2f6b73">边缘节点</text>
+    <text x="126" y="140" text-anchor="middle" font-size="12" fill="#1b2733">靠近现场的采集</text>
+    <text x="126" y="160" text-anchor="middle" font-size="12" fill="#1b2733">与实时响应</text>
+    <text x="126" y="190" text-anchor="middle" font-size="11" fill="#52606d">不充当持久化底座</text>
+
+    <rect x="242" y="86" width="196" height="128" rx="8" fill="#ffffff" stroke="#dfe6ec" stroke-width="1.5"/>
+    <rect x="242" y="86" width="196" height="30" rx="8" fill="#eef4f5" stroke="#dfe6ec" stroke-width="1.5"/>
+    <text x="340" y="107" text-anchor="middle" font-size="14" font-weight="600" fill="#2f6b73">数据底座</text>
+    <text x="340" y="140" text-anchor="middle" font-size="12" fill="#1b2733">持久化、检索</text>
+    <text x="340" y="160" text-anchor="middle" font-size="12" fill="#1b2733">与对账</text>
+    <text x="340" y="190" text-anchor="middle" font-size="11" fill="#52606d">不替代现场判断</text>
+
+    <rect x="456" y="86" width="196" height="128" rx="8" fill="#ffffff" stroke="#dfe6ec" stroke-width="1.5"/>
+    <rect x="456" y="86" width="196" height="30" rx="8" fill="#eef4f5" stroke="#dfe6ec" stroke-width="1.5"/>
+    <text x="554" y="107" text-anchor="middle" font-size="14" font-weight="600" fill="#2f6b73">公开结果面</text>
+    <text x="554" y="140" text-anchor="middle" font-size="12" fill="#1b2733">可独立复算的</text>
+    <text x="554" y="160" text-anchor="middle" font-size="12" fill="#1b2733">结果与适用边界</text>
+    <text x="554" y="190" text-anchor="middle" font-size="11" fill="#52606d">不提供实现路径</text>
+
+    <line x1="224" y1="150" x2="242" y2="150" stroke="#b9d0d3" stroke-width="2"/>
+    <line x1="438" y1="150" x2="456" y2="150" stroke="#b9d0d3" stroke-width="2"/>
+    <text x="340" y="248" text-anchor="middle" font-size="12" fill="#52606d">划界判据：职责是否互相牵动</text>
+    <text x="340" y="272" text-anchor="middle" font-size="11" fill="#52606d">结论可以给，实现路径不进公开面</text>
+  </g>
+</svg>

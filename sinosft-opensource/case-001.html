@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CASE 001 · 数据分层与边界划分</title>
+<style>
+  :root { --ink:#1b2733; --sub:#52606d; --line:#dfe6ec; --bg:#f7f9fb; --card:#ffffff; --accent:#2f6b73; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+         line-height:1.85; }
+  main { max-width:880px; margin:0 auto; padding:48px 24px 72px; }
+  header { border-bottom:1px solid var(--line); padding-bottom:26px; margin-bottom:34px; }
+  h1 { font-size:27px; font-weight:600; margin:0 0 10px; }
+  .lead { color:var(--sub); font-size:14px; margin:0; }
+  h2 { font-size:19px; font-weight:600; margin:40px 0 14px;
+       padding-left:12px; border-left:3px solid var(--accent); }
+  h3 { font-size:16px; font-weight:600; margin:26px 0 10px; }
+  p { margin:0 0 14px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:8px;
+          padding:22px 26px; margin:16px 0; }
+  .muted { color:var(--sub); font-size:14px; }
+  table { width:100%; border-collapse:collapse; margin:14px 0; font-size:14px; }
+  th, td { border:1px solid var(--line); padding:10px 12px; text-align:left; vertical-align:top; }
+  th { background:#eef4f5; font-weight:600; }
+  ul { margin:10px 0 0; padding-left:22px; }
+  li { margin-bottom:9px; }
+  figure { margin:20px 0; text-align:center; }
+  figure img { max-width:100%; border:1px solid var(--line); border-radius:6px; background:#fff; }
+  figcaption { color:var(--sub); font-size:13px; margin-top:8px; }
+  .note { background:#eef4f5; border:1px solid #d6e4e6; border-radius:8px;
+          padding:18px 22px; font-size:14px; color:#34484c; }
+  a { color:var(--accent); text-decoration:none; border-bottom:1px solid #b9d0d3; }
+  a:hover { border-bottom-color:var(--accent); }
+  footer { margin-top:52px; padding-top:22px; border-top:1px solid var(--line);
+           color:var(--sub); font-size:13px; }
+</style>
+</head>
+<body>
+<main>
+
+<header>
+  <h1>CASE 001 · 数据分层与边界划分</h1>
+  <p class="lead">社区案例分享 · 工程复盘 · 不是技术方案发布</p>
+</header>
+
+<div class="note">
+  本篇只讲边界与功能定位，不谈层内实现。读者无需借助其他材料即可读完；所述判断均带适用条件，不作无限外推。
+</div>
+
+<h2>一、这篇要解决什么</h2>
+<div class="card">
+  <p>一个系统里同时有边缘侧的实时处理、数据侧的持久化与检索、以及对外公开的结果数字。三者职责如果不划清，改动会互相牵动，公开结果也难以被独立复核。</p>
+  <p>本篇复盘的是「怎么划界」，不是「怎么实现」：三层各管什么、彼此之间不互相冒充什么、以及公开面只留哪一类信息。</p>
+</div>
+
+<h2>二、职责边界（功能定位层）</h2>
+<div class="card">
+  <table>
+    <thead><tr><th>部分</th><th>承担的职责</th><th>不承担</th></tr></thead>
+    <tbody>
+      <tr><td>边缘节点</td><td>靠近现场的采集与实时响应</td><td>不充当持久化与全局检索的底座</td></tr>
+      <tr><td>数据底座</td><td>持久化、检索与对账</td><td>不替代现场的实时判断</td></tr>
+      <tr><td>公开结果面</td><td>可被独立复算的结果数字与适用边界</td><td>不提供实现路径与中间曲线</td></tr>
+    </tbody>
+  </table>
+  <p class="muted">表中只描述职责分工，不含任何实现结构、参数或调用关系。</p>
+</div>
+
+<figure>
+  <img src="./分层职责示意图_纯功能级.svg" alt="职责划分示意图：只标示三部分的职责划分">
+  <figcaption>职责划分示意图 · 只标职责，不标实现</figcaption>
+</figure>
+
+<h2>三、三类边界各自的问题域</h2>
+
+<h3>3.1 分层边界</h3>
+<div class="card">
+  <p>划界的判据是「职责是否互相牵动」，而不是「模块放在哪里」。边界清晰之后，任一侧的调整都不需要改动另一侧的对外口径。</p>
+</div>
+
+<h3>3.2 许可证边界</h3>
+<div class="card">
+  <p>开源组件组合使用时，需要先识别各自的许可证边界，避免被绑成一体。不同许可证之间的兼容性结论需经法律复核，本篇不作定论、不构成法律意见，也不构成选型建议。</p>
+  <p class="muted">涉及第三方项目时只转述其公开特性，版本与分叉形态不作定论，以该项目官方文档为准。</p>
+</div>
+
+<h3>3.3 存证边界</h3>
+<div class="card">
+  <p>检索对账与锚定各自承担不同职责，两者不互相冒充。对公开的代码、模型与仿真结果采用哈希值固定与可信时间戳记录，便于核对内容完整性与贡献来源；该记录仅用于追溯与对账，不替代权利归属认定。</p>
+  <p class="muted">相关归属与权益分配以贡献者协议及适用法律为准。</p>
+</div>
+
+<h2>四、公开面的自证路径</h2>
+<div class="card">
+  <p>公开的结果数字，由独立的断言脚本判定；任何人都可以复算一遍，退出码为零是唯一验收判据。结论可以给，实现路径不进公开面。</p>
+  <ul>
+    <li>可共享：职责划分、适用边界、结果级数字；</li>
+    <li>不共享：实现路径、精确参数、真实工况数据、可反推核心参数的中间曲线。</li>
+  </ul>
+</div>
+
+<h2>五、适用边界声明</h2>
+<div class="card">
+  <p>本篇为社区案例分享，属工程复盘，不是技术方案发布，不是实施规范，不构成实施建议。</p>
+  <p>文中结论均为在设定包络盒内、给定工况下的定性判断，不作无限外推；仿真结论不替代台架试验与海上试验，任何工程采用均需独立完成相应验证。成本口径一律为相对量级、待询价。</p>
+  <p class="muted">引用本篇时，请保留「社区案例分享」标注与本节适用边界声明，勿摘取单句作性能或合规背书。</p>
+</div>
+
+<footer>
+  <p><a href="./index.html">← 返回栏目首页</a></p>
+  <p>CASE 001 · 社区案例分享 · 工程复盘</p>
+</footer>
+
+</main>
+</body>
+</html>

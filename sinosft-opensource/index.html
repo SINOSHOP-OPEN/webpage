@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>技术交流案例 · 长期栏目</title>
+<style>
+  :root { --ink:#1b2733; --sub:#52606d; --line:#dfe6ec; --bg:#f7f9fb; --card:#ffffff; --accent:#2f6b73; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+         line-height:1.85; }
+  main { max-width:880px; margin:0 auto; padding:48px 24px 72px; }
+  header { border-bottom:1px solid var(--line); padding-bottom:28px; margin-bottom:36px; }
+  h1 { font-size:30px; font-weight:600; margin:0 0 12px; letter-spacing:.5px; }
+  .lead { color:var(--sub); font-size:15px; margin:0; }
+  h2 { font-size:19px; font-weight:600; margin:44px 0 14px;
+       padding-left:12px; border-left:3px solid var(--accent); }
+  p { margin:0 0 14px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:8px;
+          padding:24px 26px; margin:16px 0; }
+  ul { margin:10px 0 0; padding-left:22px; }
+  li { margin-bottom:10px; }
+  .muted { color:var(--sub); font-size:14px; }
+  .note { background:#eef4f5; border:1px solid #d6e4e6; border-radius:8px;
+          padding:18px 22px; font-size:14px; color:#34484c; }
+  a { color:var(--accent); text-decoration:none; border-bottom:1px solid #b9d0d3; }
+  a:hover { border-bottom-color:var(--accent); }
+  .index { list-style:none; padding:0; }
+  .index li { background:var(--card); border:1px solid var(--line); border-radius:8px;
+              padding:16px 20px; margin-bottom:12px; }
+  .index .tag { font-size:12px; color:var(--sub); letter-spacing:1px; }
+  footer { margin-top:56px; padding-top:22px; border-top:1px solid var(--line);
+           color:var(--sub); font-size:13px; }
+</style>
+</head>
+<body>
+<main>
+
+<header>
+  <h1>技术交流案例 · 长期栏目</h1>
+  <p class="lead">这里陆续收录工程实践中关于「怎么划清边界」的复盘。每篇独立成文，读者无需借助其他材料即可读完一篇。</p>
+</header>
+
+<h2>我们在整理什么问题</h2>
+<div class="card">
+  <p>反复遇到、值得和同行一起说清楚的几类问题：</p>
+  <ul>
+    <li>边缘节点与数据底座各自的职责边界，怎么划才不互相牵动；</li>
+    <li>开源组件组合使用时，许可证边界怎么识别、怎么避免绑成一体；</li>
+    <li>数字存证里，检索对账与锚定各自该承担什么，两者不互相冒充；</li>
+    <li>公开的结果数字，怎么让任何人都能独立复算一遍。</li>
+  </ul>
+  <p class="muted">这些都是问题域，不是方案发布。欢迎关注边缘控制、数据底座、开源合规与工程验证的工程师与开发者一起交流，也欢迎愿意独立复算公开结果的同行提出不同意见。</p>
+</div>
+
+<h2>可以共享的是什么</h2>
+<div class="card">
+  <p>可以共享的是「怎么划界」，不是「怎么实现」。文中只谈功能定位与职责划分，不谈层内实现；结论均带适用条件，不作无限外推。</p>
+  <p class="muted">本节不提供实现路径、精确参数、真实工况数据或可反推核心参数的中间曲线；仿真结论不替代台架试验与海上试验。</p>
+</div>
+
+<h2>存证与适用边界</h2>
+<div class="card">
+  <p>对公开的代码、模型与仿真结果，我们采用哈希值固定与可信时间戳记录，便于核对内容完整性与贡献来源。该记录仅用于追溯与对账，不替代权利归属认定；相关归属与权益分配以贡献者协议及适用法律为准，具体兼容性结论需经法律复核。</p>
+  <p class="muted">本栏目内容为社区案例分享，属工程复盘，不是技术方案发布，不构成实施建议、选型建议或法律意见。引用第三方项目时以其官方文档为准；成本口径一律为相对量级、待询价。引用本篇时，请保留「社区案例分享」标注与本节适用边界声明，勿摘取单句作性能或合规背书。</p>
+</div>
+
+<h2>案例索引</h2>
+<ul class="index">
+  <li>
+    <div class="tag">CASE 001</div>
+    <a href="./case-001.html">数据分层与边界划分</a>
+    <div class="muted">分层边界、许可证边界、存证边界的工程复盘</div>
+  </li>
+</ul>
+<p class="muted">后续案例按序号陆续收录，彼此独立。</p>
+
+<div class="note">
+  <strong>适用边界</strong>：本页只陈述「要做什么、欢迎谁加入」。所述判断均在设定包络盒内、给定工况下的定性判断，不作无限外推；任何工程采用均需独立完成相应验证。
+</div>
+
+<footer>
+  <p>社区案例分享 · 工程复盘 · 非技术方案发布</p>
+  <p class="muted">本文不披露精确参数、真实工况数据与可反推核心参数的中间曲线。</p>
+</footer>
+
+</main>
+</body>
+</html>
