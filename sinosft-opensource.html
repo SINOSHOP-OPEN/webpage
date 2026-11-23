@@ -10,10 +10,11 @@
 {
   "@context": "https://schema.org",
   "@type": "TechArticle",
-  "headline": "SinoSFT 跨海悬浮隧道浮桥家园悬浮港工程技术 V2.0",
+  "headline": "SinoSFT 跨海悬浮隧道浮桥家园悬浮港工程技术 V2.1",
   "about": "悬浮隧道, 浮式结构, 跨海通道, 模块化建造, 海洋家园",
   "datePublished": "2026-11-15",
-  "version": "V2.0",
+  "dateModified": "2026-11-23",
+  "version": "V2.1",
   "keywords": "悬浮隧道, 浮力重量平衡, 动态载荷抵消, 极限逃生, 数字确权, 开源"
 }
 </script>
@@ -205,6 +206,13 @@ tr:last-child td{border-bottom:none}
 .relay ul{margin:.6rem 0;padding-left:1.3rem}
 .relay li{margin:.4rem 0}
 
+/* ===== 判定纪律三档 ===== */
+.verdict-grade{display:flex;gap:.8rem;flex-wrap:wrap;margin:.8rem 0}
+.verdict-grade span{flex:1;min-width:180px;background:var(--bg-soft);border:1px solid var(--border);border-radius:8px;padding:.7rem .9rem;font-size:.88rem}
+.verdict-grade b{display:block;margin-bottom:.2rem}
+.cmd-block{background:var(--bg-soft);border:1px solid var(--border);border-radius:8px;padding:.9rem 1.1rem;margin:.8rem 0;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.84rem;line-height:1.9;color:var(--text-main)}
+.cmd-block .cm{color:var(--text-sub)}
+
 /* ===== 页脚 ===== */
 footer.site{
   border-top:1px solid var(--border);margin-top:3rem;padding:1.5rem 0;
@@ -257,7 +265,7 @@ footer.site .ver{font-weight:600;color:var(--text-main)}
     <p class="banner-quote">「安得广厦千万间，大庇天下寒士俱欢颜。」</p>
     <p class="banner-sub">今天，我们这群懂工程的现代人，正试图把这句诗，变成千千万万座漂浮在海上的海洋城市家园。</p>
     <p class="banner-claim"><strong>算得通 · 验得过 · 造得出</strong> —— 且敢把「做不到的」白纸黑字写在边界里。</p>
-    <span class="banner-version">SinoSFT V2.0 · 2026-11-15 · 开源合作站</span>
+    <span class="banner-version">SinoSFT V2.1 · 2026-11-23 · 开源合作站 · 新增数据资产与判定体系</span>
   </div>
 </header>
 
@@ -470,6 +478,59 @@ footer.site .ver{font-weight:600;color:var(--text-main)}
     <button class="copy-btn" data-copy="数字服从溯源，不服从叙事。">复制</button>
   </blockquote>
 
+  <h2 class="sec" id="data-assets">数据资产与判定体系 · 五域决策仿真</h2>
+  <p>近期新增的数据资产层把五套决策型技术数据集 —— 通风导光消防、海面浮升疏散救生、工程能源、清淤与坝基、6G 通感工程 —— 按语义档位、布尔判定与规则锚点组织，可入库、可复算、可追溯。任何人都能用同一套规则独立重算，结论只由脚本判定：<strong>人可以写文案，不能写 PASS</strong>。</p>
+
+  <div class="table-wrap">
+    <table>
+      <caption>五域决策型数据集 · 公开层判定体系总览</caption>
+      <thead>
+        <tr><th>技术域</th><th>判定模型</th><th>档位矩阵规模</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>通风导光消防</td><td>5 项布尔判定 · 15 条规则锚点</td><td>1,944</td></tr>
+        <tr><td>海面浮升疏散救生</td><td>5 项布尔判定 · 8 条规则锚点</td><td>6,144（含避让 T0 铁律增补）</td></tr>
+        <tr><td>工程能源</td><td>5 项布尔判定 · 9 条规则锚点</td><td>18,432</td></tr>
+        <tr><td>清淤与坝基</td><td>8 个判定模型 · 18 条规则锚点</td><td>8,192</td></tr>
+        <tr><td>6G 通感工程</td><td>6 项布尔判定 · 10 条规则锚点</td><td>27,648</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>五域合计形成 <strong>60 条规则锚点、29 项布尔判定与 8 个判定模型、逾六万条档位化判定记录</strong>。各域附独立终检脚本与逐件指纹清单，退出码为零是唯一验收判据。</p>
+
+  <div class="relay">
+    <h3>▲ 判定纪律 · 三档口径不得混算</h3>
+    <div class="verdict-grade">
+      <span><b>已证实</b>算式闭合或脚本判定</span>
+      <span><b>预算值</b>工程估算，须带词引用，尚未实测标定</span>
+      <span><b>待核</b>已知缺口，编号在册</span>
+    </div>
+    <p>三档是全体系唯一的口径语言，混算即作废；每一次扫描均执行鉴别力测试，故意注入错误样本，扫描器必须抓到 —— 抓不到即视为扫描无效。判定矩阵为硬规则压力测试集，通过例少属预期结果，用于证明规则拦截能力，不代表工程方案不可行。</p>
+  </div>
+
+  <div class="relay">
+    <h3>◆ 自己跑一遍 · 四域仿真验证包</h3>
+    <ul>
+      <li>四支档位化决策仿真引擎（通风导光消防 / 清淤与坝基 / 疏散救生 / 工程能源），仅用 Python 标准库，输入为语义档位枚举，不含任何数值型工程参数。</li>
+      <li>公开层技术白皮书（数据集体系版）与数据集编码规范，见开源仓库 <code>datasets/</code>。</li>
+      <li>复现命令与逐件 SHA-256 指纹见资料包 <code>SHA256SUMS.txt</code>；退出码 0 表示自检断言全部通过。</li>
+    </ul>
+    <div class="cmd-block">python sim/sft_vent_sim.py <span class="cm"># 通风导光消防</span>
+python sim/sediment_sim.py <span class="cm"># 清淤与坝基</span>
+python sim/evac_sim.py <span class="cm"># 疏散救生</span>
+python sim/energy_sim.py <span class="cm"># 工程能源</span></div>
+  </div>
+
+  <div class="relay">
+    <h3>● 边界与保密 · 照实说</h3>
+    <ul>
+      <li>本资料是判定逻辑可复现性验证，不是设计计算书，不替代流体分析、实体试验或现场实测，不作为结构安全与竣工验收依据。</li>
+      <li>核心技术只可提定性名称；实现参数、材料配比、控制律与标定值永久内控，不进公开页面、不进提交历史。</li>
+      <li>结论只按档位与通过 / 受限口径对外引用，不得反推实现参数；数据结论为概念设计阶段成果，不含真实地理坐标。</li>
+      <li>相关国家数据知识产权登记已依法启动，尚在审核；各域申请号与凭证不在公开包内，数字存证可另行核验。</li>
+    </ul>
+  </div>
+
   <h2 class="sec" id="join">参与合作 · 接力入口</h2>
 
   <div class="relay">
@@ -508,7 +569,7 @@ footer.site .ver{font-weight:600;color:var(--text-main)}
   </div>
 
   <footer class="site">
-    <p class="ver">SinoSFT V2.0 · 2026-11-15 · 开源合作站</p>
+    <p class="ver">SinoSFT V2.1 · 2026-11-23 · 开源合作站 · 新增数据资产与判定体系</p>
     <p>跨海悬浮隧道浮桥家园悬浮港工程技术 · 标准通用模式＋示范工程验证</p>
     <p>我们给出结论，不给出底牌。 · 本页以 CC BY 4.0 提供</p>
   </footer>
