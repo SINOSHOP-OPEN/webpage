@@ -326,7 +326,7 @@ footer.site .ver{font-weight:600;color:var(--text-main)}
   <details class="qa-item" open>
     <summary><span class="qa-num">一</span>我们造的海洋家园是什么样的？</summary>
     <div class="qa-body">
-      <p>我们不只在海洋上造一条桥，而是要建设路面不起伏、恒定高度悬浮的海洋城市家园。它由七根管道拼成（四条公路、一条磁浮、两条客货铁路），像潜水艇一样悬浮着，管内跑车，管上过船，互不干扰。</p>
+      <p>我们不只在海洋上造一条桥，而是要建设路面不起伏、恒定高度悬浮的海洋城市家园。它由七根独立交通管道拼成（四管公路、一管磁浮、两管客货铁路），像潜水艇一样悬浮着，管内跑车，管上过船，互不干扰。</p>
       <p>这本书以<span class="badge badge-case">● 案例锚点</span>琼州海峡为示范案例，把「在哪里造、面对什么海况」讲得明明白白。</p>
     </div>
   </details>
@@ -343,7 +343,7 @@ footer.site .ver{font-weight:600;color:var(--text-main)}
         <li><strong>E</strong> 浮体结构分段下沉避险防海啸系统 —— 预警期内整体下沉避险、恢复交通；</li>
         <li><strong>F</strong> 悬浮木桩平台式引桥地基系统 —— 悬浮防地震减灾；</li>
         <li><strong>G</strong> 抽水储能、放热储能、制氢、海水淡化 —— 多种海洋能发电的超级电站调节；</li>
-        <li><strong>H</strong> 氢能化学产气浮升救生舱 —— 每公里三分钟内疏散三千人；</li>
+        <li><strong>H</strong> 氢能化学产气浮升救生舱 —— 单向分段不折返的阶梯通道与救生舱协同，每公里三分钟内疏散三千人；</li>
         <li><strong>I</strong> 深长隧道通风通光智能消防 —— 水雾、水帘、风帘、分区封闭门智能消防。</li>
       </ol>
     </div>
@@ -381,7 +381,7 @@ footer.site .ver{font-weight:600;color:var(--text-main)}
   <details class="qa-item">
     <summary><span class="qa-num">七</span>万一断电了，人跑得掉吗？</summary>
     <div class="qa-body">
-      <p>这是我们的骄傲。每个标准模块里设计了不需要电的氢能救生舱。就算全黑、全停电，只要靠氢能化学产气的浮力，就能在三分钟内让三千人完成登舱，再靠浮力把大家安全托出水面。不用等救援，自己就能浮出海面。</p>
+      <p>这是我们的骄傲。每个标准模块里设计了不需要电的氢能救生舱。就算全黑、全停电，只要靠氢能化学产气的浮力，就能在三分钟内让三千人完成登舱，再靠浮力把大家安全托出水面。疏散阶梯通道按单向爬升、分段设中间休息平台、不折返复核，人流不再对冲。不用等救援，自己就能浮出海面。</p>
     </div>
   </details>
 
@@ -489,7 +489,7 @@ footer.site .ver{font-weight:600;color:var(--text-main)}
       </thead>
       <tbody>
         <tr><td>通风导光消防</td><td>5 项布尔判定 · 15 条规则锚点</td><td>1,944</td></tr>
-        <tr><td>海面浮升疏散救生</td><td>5 项布尔判定 · 8 条规则锚点</td><td>6,144（含避让 T0 铁律增补）</td></tr>
+        <tr><td>海面浮升疏散救生</td><td>5 项布尔判定 · 8 条规则锚点 · 单向分段不折返口径（r3 已复跑）</td><td>6,144（含避让 T0 铁律增补）</td></tr>
         <tr><td>工程能源</td><td>5 项布尔判定 · 9 条规则锚点</td><td>18,432</td></tr>
         <tr><td>清淤与坝基</td><td>8 个判定模型 · 18 条规则锚点</td><td>8,192</td></tr>
         <tr><td>6G 通感工程</td><td>6 项布尔判定 · 10 条规则锚点</td><td>27,648</td></tr>
@@ -509,15 +509,16 @@ footer.site .ver{font-weight:600;color:var(--text-main)}
   </div>
 
   <div class="relay">
-    <h3>◆ 自己跑一遍 · 四域仿真验证包</h3>
+    <h3>◆ 自己跑一遍 · 代码仿真验证包</h3>
     <ul>
-      <li>四支档位化决策仿真引擎（通风导光消防 / 清淤与坝基 / 疏散救生 / 工程能源），仅用 Python 标准库，输入为语义档位枚举，不含任何数值型工程参数。</li>
+      <li>四支档位化决策仿真引擎（通风导光消防 / 清淤与坝基 / 疏散救生 / 工程能源），仅用 Python 标准库，输入为语义档位枚举，不含任何数值型工程参数。疏散救生引擎已按单向分段不折返口径修订并复跑：6,144 例矩阵、9 项负注入全部捕获。</li>
       <li>公开层技术白皮书（数据集体系版）与数据集编码规范，见开源仓库 <code>datasets/</code>。</li>
+      <li>疏散阶梯通道按单向爬升、两段同向直跑、中间设一个休息平台、不折返复核；公开复现只使用语义档位，时序与通行实现参数不进入公开包。</li>
       <li>复现命令与逐件 SHA-256 指纹见资料包 <code>SHA256SUMS.txt</code>；退出码 0 表示自检断言全部通过。</li>
     </ul>
     <div class="cmd-block">python sim/sft_vent_sim.py <span class="cm"># 通风导光消防</span>
 python sim/sediment_sim.py <span class="cm"># 清淤与坝基</span>
-python sim/evac_sim.py <span class="cm"># 疏散救生</span>
+python sim/evac_sim.py <span class="cm"># 疏散救生 · 单向分段不折返口径</span>
 python sim/energy_sim.py <span class="cm"># 工程能源</span></div>
   </div>
 
